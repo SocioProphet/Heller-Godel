@@ -17,7 +17,7 @@ The abstract must distinguish:
 Required abstract replacement language:
 
 ```text
-For a restricted proof fragment, a canonical normal-form representation, and a fixed statistic sigma, proof-family generating functions T_phi^sigma(x) define analytic objects whose Puiseux singularity channels yield finite phase reductions chi_p. These reductions are strictly multiplicative in no-carry regimes and fail strict multiplicativity by an explicitly computable mod-p carry term zeta_p. In the ordinary cochain setting zeta_p is a coboundary of q_p(alpha)=floor(p alpha) mod p, so it is a finite-resolution section defect rather than a nontrivial cohomological obstruction. Multi-shell Puiseux support refines the dominant-character construction. Regulator, Chern-class, recognition-dynamical, and nonassociative extensions are future work pending additional constructions.
+For a restricted proof fragment, a canonical normal-form representation, and a fixed statistic sigma, proof-family generating functions T_phi^sigma(x) define analytic objects whose Puiseux singularity channels yield finite phase reductions chi_p. These reductions are strictly multiplicative in no-carry regimes and fail strict multiplicativity by an explicitly computable mod-p carry term zeta_p. In the ordinary cochain setting zeta_p is a coboundary of q_p(alpha)=floor(p alpha) mod p, so it is a finite-resolution section defect and not a nontrivial cohomological obstruction. Multi-shell Puiseux support refines the dominant-character construction. Regulator, Chern-class, recognition-dynamical, and nonassociative extensions are future work pending additional constructions.
 ```
 
 ## 2. Required section-level edits
