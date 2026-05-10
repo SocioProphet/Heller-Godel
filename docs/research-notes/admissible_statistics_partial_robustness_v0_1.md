@@ -242,3 +242,31 @@ which gives the same coefficient sequence. These match across \(n=1,\ldots,8\). 
 ## Document history
 
 - **v0.1** — initial release. Theorems 3.1 and 4.1 stated and proved by direct closed-form summation. Conjectures 7.1 and 7.2 stated separately (weak/strong tier) with explicit counterexample warning for radius preservation in general regular grammars. Regression harness specified in Appendix A and implemented in `tests/test_admissible_statistics.py`.
+
+---
+
+## Erratum (added after HG-STAT-002 v0.1)
+
+After the initial release of this note, the Catalan-grounded type \(C_A = (A \to A \to A) \to A \to A\) was tested under the same admissibility framework. The result, recorded in HG-STAT-002 v0.1, refutes the strong conjecture stated in §7.2 of this note as originally written.
+
+**Specifically:**
+
+- §7.2 conjectured that *rank-uniformity* of a proof grammar would be sufficient to guarantee preservation of dominant singular radius across the admissibility class.
+- HG-STAT-002 Theorems 4.1 and 4.2 show that this is false. The Catalan-grounded type is rank-uniform, but its dominant radius shifts as \(|\rho_w| = 4^{-1/a(w)}\) where \(a(w)\) depends linearly on \(w_{\mathrm{app}}\) and \(w_{\mathrm{var}}\).
+- The chain and T-family preservation of \(|\rho| = 1\) that motivated §7.2 is now understood as the special case in which the underlying singular schema has \(\rho_y = 1\), which happens to be invariant under monomial substitution. It is *not* a general consequence of rank-uniformity.
+
+**What §7.2 should now read.** §7.2 as written is superseded. The refined picture is:
+
+- *Type preservation* (the weak conjecture, §7.1) remains conjectured for general regular/algebraic/D-finite proof grammars. HG-STAT-002 provides positive evidence in the algebraic setting.
+- *Exponent preservation* under rank-uniformity is conjectured separately (HG-STAT-002 Conjecture 6.2). Holds on chain (\(\alpha = -2\)), T-family (\(\alpha = -2\)), and Catalan (\(\alpha = 1/2\)).
+- *Radius preservation* under rank-uniformity is *false* in general; instead, the dominant radius covaries under monomial regrading induced by weight rescaling (HG-STAT-002 Conjecture 6.3).
+
+**What is unaffected.** Theorems 3.1 (chain) and 4.1 (T-family) of this note remain correct as stated. Their preservation of \(|\rho| = 1\) is a consequence of the underlying GF having a singular schema with \(\rho_y = 1\), not a general property of rank-uniformity. The type-preservation aspect of those theorems still holds, and is consistent with the refined Conjecture 6.1.
+
+**Action.** Readers of this note should treat §7.2 as historical and refer to HG-STAT-002 v0.1 §6 for the current conjecture hierarchy. A future v0.2 of this note may inline the correction; for now, this erratum block records the change without revising the body.
+
+**Issue cross-reference.** See issue #7 (or successor) for repository tracking, and HG-STAT-002 v0.1 for the full Catalan analysis and refined conjecture statements.
+
+---
+
+**End of erratum.**
