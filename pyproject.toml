@@ -1,0 +1,16 @@
+[project]
+name = "heller-godel"
+version = "0.1.0"
+description = "Analytic proof-character invariants and reproducibility tests for the Heller-Godel program."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
