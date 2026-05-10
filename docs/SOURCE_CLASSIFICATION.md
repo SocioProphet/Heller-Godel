@@ -16,6 +16,8 @@ This ledger classifies the uploaded corpus for the Heller-Godel repository. It d
 |---|---|---|
 | `time_theory_draft_v23_layout_exec(1).pdf` | Context and future-horizon host for shell, operator, projection, and time-dynamics ideas. Not a current theorem dependency. | `5b8538bde2433837f061f791cd4443a023e3bd57395b7e5805c7427797c60436` |
 | `Lawful_Learning_Monograph_Publication_Draft_v1.tex` | Context source for constraint/evidence discipline, lawful computation, Poincare geometry, prime-even gates, and audit-ledger architecture. Not a theorem dependency of Heller-Godel. | `a44f18d4447e1279652c06ac3462c941eb96eea5fe58248a7890d1060cb82764` |
+| `image(32).png` | Uploaded screenshot of Wythoff/Schwarz tiling material used for HG-M5 symmetry-grammar alignment. Context/future-horizon only. | `6e2589b67fa18b226507627dcc05ebcc9ba158e944964bb030b9dd47cc9b9c67` |
+| Wikipedia: `Lists_of_uniform_tilings_on_the_sphere,_plane,_and_hyperbolic_plane` | External reference URL for Schwarz triangle / tiling table. Context/future-horizon only; URL source, not hash-locked binary. | URL source |
 
 ## BSD reference/context only
 
@@ -35,6 +37,7 @@ These files were generated during this conversation for handoff or archival conv
 
 | File | Role | SHA-256 |
 |---|---|---|
+| `image(30).png` | Uploaded screenshot of the visible source-file list; provenance/context only. | `fbf5ed00b8f2ee484c61e219a61806ad25ef89ad1884893095b990e6ac0009f4` |
 | `heller_godel_capture_v0_1.zip` | Local capture pack generated before upstream bootstrap; superseded by repository files. | `6b49ff04dce5d45a82ce6f184ef86172addc11b8cd7a1868e9adef795d5565c7` |
 | `heller_godel_lock_in_v0_2.zip` | Local lock-in pack generated before upstream bootstrap; superseded by repository files. | `afe8acb554b3ff105794e617ee445be2b1beca22d1109dfcf0ee7737fff3b740` |
 
