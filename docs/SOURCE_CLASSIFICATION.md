@@ -15,6 +15,7 @@ This ledger classifies the uploaded corpus for the Heller-Godel repository. It d
 | File | Role | SHA-256 |
 |---|---|---|
 | `time_theory_draft_v23_layout_exec(1).pdf` | Context and future-horizon host for shell, operator, projection, and time-dynamics ideas. Not a current theorem dependency. | `5b8538bde2433837f061f791cd4443a023e3bd57395b7e5805c7427797c60436` |
+| `Lawful_Learning_Monograph_Publication_Draft_v1.tex` | Context source for constraint/evidence discipline, lawful computation, Poincare geometry, prime-even gates, and audit-ledger architecture. Not a theorem dependency of Heller-Godel. | `a44f18d4447e1279652c06ac3462c941eb96eea5fe58248a7890d1060cb82764` |
 
 ## BSD reference/context only
 
@@ -27,6 +28,15 @@ BSD materials are retained as methodological precedent and source context only. 
 | `BSD_Program_Log_M3_snapshot.pdf` | Example of validation failure handling and rollback discipline. | `3893a1de09de16e2cf53cff1e8781138653c1e67d829f1fb49c7ab5464696660` |
 | `BSD_53_Rows_Resolution.pdf` | Explicit witness and milestone-report precedent. | `7ca397f04cb05272b36a47ed3ab67452bd7d47af594c9ac24e84f6739d3e9dca` |
 | `bsd_milestone_4(1).zip` | BSD Milestone 4 bundle; retained for reference, not imported into tests. | `9a0c54929c655961585960132772d9ad2738711cb53110ed508562e9228ec7ed` |
+
+## Generated conversation artifacts / local lock packs
+
+These files were generated during this conversation for handoff or archival convenience. They are not primary sources and are not theorem dependencies.
+
+| File | Role | SHA-256 |
+|---|---|---|
+| `heller_godel_capture_v0_1.zip` | Local capture pack generated before upstream bootstrap; superseded by repository files. | `6b49ff04dce5d45a82ce6f184ef86172addc11b8cd7a1868e9adef795d5565c7` |
+| `heller_godel_lock_in_v0_2.zip` | Local lock-in pack generated before upstream bootstrap; superseded by repository files. | `afe8acb554b3ff105794e617ee445be2b1beca22d1109dfcf0ee7737fff3b740` |
 
 ## Rule
 
