@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.2",
+  "schema_version": "0.3",
   "repository": "SocioProphet/Heller-Godel",
   "manifest_status": "hash-locked uploaded-source inventory; binary sources pending explicit import",
   "sources": [
@@ -39,6 +39,21 @@
       "sha256": "a44f18d4447e1279652c06ac3462c941eb96eea5fe58248a7890d1060cb82764"
     },
     {
+      "filename": "image(32).png",
+      "classification": "context_future_horizon",
+      "role": "Uploaded screenshot of Wythoff/Schwarz tiling material used for HG-M5 symmetry-grammar alignment",
+      "size_bytes": 1125489,
+      "sha256": "6e2589b67fa18b226507627dcc05ebcc9ba158e944964bb030b9dd47cc9b9c67"
+    },
+    {
+      "filename": "Wikipedia: Lists_of_uniform_tilings_on_the_sphere,_plane,_and_hyperbolic_plane",
+      "classification": "external_url_context",
+      "role": "External source URL for Schwarz triangle / tiling table; context/future-horizon only",
+      "size_bytes": null,
+      "sha256": null,
+      "url": "https://en.wikipedia.org/wiki/Lists_of_uniform_tilings_on_the_sphere,_plane,_and_hyperbolic_plane"
+    },
+    {
       "filename": "BSD_Program_Lane_v0.1.pdf",
       "classification": "context_only",
       "role": "BSD methodology precedent and evidence-gate context",
@@ -72,6 +87,13 @@
       "role": "BSD milestone bundle retained for reference; not a Heller-Godel test dependency",
       "size_bytes": 169155,
       "sha256": "9a0c54929c655961585960132772d9ad2738711cb53110ed508562e9228ec7ed"
+    },
+    {
+      "filename": "image(30).png",
+      "classification": "generated_local_archive",
+      "role": "Uploaded screenshot of visible source-file list; provenance/context only",
+      "size_bytes": 94370,
+      "sha256": "fbf5ed00b8f2ee484c61e219a61806ad25ef89ad1884893095b990e6ac0009f4"
     },
     {
       "filename": "heller_godel_capture_v0_1.zip",
