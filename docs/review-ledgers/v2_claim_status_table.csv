@@ -1,0 +1,35 @@
+id,claim_topic,v1_status,v2_status,decision,route,required_edit
+D01,Proof-class generating function,core construction,retained,definition,theorem_core,Define fragment normal forms and statistic explicitly
+D02,Calculus invariance,presentation invariance asserted,too strong without canonicalization,conjecture/definition boundary,corrected_core,State invariant after canonical eta-long beta-normal de Bruijn translation
+D03,Statistic invariance,implicit/undiscussed,falsified by examples,false_as_stated,corrected_core,Use statistic-relative construction and admissible-statistic open problem
+D04,Normal form quotient,imprecise,still imprecise,definition,corrected_core,Use alpha-classes of eta-long beta-normal forms or canonical beta-eta representatives
+D05,Singularity exponent,dominant exponent,needs Puiseux channel correction,corrected_core,theorem_core,Define selected nonanalytic/singular Puiseux channel
+D06,chi_p as character,flat phase map,global character language too broad,definition with qualification,corrected_core,Call strict character only in no-carry regime
+D07,Prime-indexed family,adelic/product ambiguity,repaired in chat,definition,corrected_core,Use tuple in product_p mu_p not convergent U(1) product
+D08,Finite seed basis P13,absent/implicit,introduced,definition/computed,theorem_core,Keep as finite truncation not full invariant
+D09,No-carry multiplicativity,present,retained,proved under hypotheses,theorem_core,State exponent/product/no-carry hypotheses
+D10,Carry identity zeta_p,implicit/absent,explicit,computed,corrected_core,Keep as arithmetic identity and section defect
+D11,zeta_p cocycle,minor,central,proved/definition,corrected_core,Keep cocycle identity but not nontrivial cohomology
+D12,zeta_p cohomological obstruction,not claimed,claimed/implied,false_as_stated,corrected_core,Replace with zeta_p = delta q_p under ordinary cochains
+D13,Heisenberg/nonabelian extension,not load-bearing,present,false_as_stated,delete_or_future_horizon,Remove unless new antisymmetric/ordered structure is constructed
+D14,Non-split abelian extension,not established,claimed,false_as_stated,corrected_core,Treat as split under explicit cochain trivialization unless restricted category exists
+D15,Multi-shell Puiseux support,absent/minor,added,proved analytic statement,theorem_core,Keep scoped to rational/algebraic generating functions
+D16,Shell-product theorem,absent,added,proved under analytic hypotheses,theorem_core,Keep with cancellation and local support caveats
+D17,Chain example,calibration,treated too strongly,future_horizon/calibration,context_only,Mark as proof-family or analytic calibration unless fixed type built
+D18,Catalan example,calibration,used as proof-class test,future_horizon/calibration,context_only,Ground in explicit type grammar or mark calibration
+D19,Chain x chain product,possibly present,repeated,error,false_as_stated,corrected_core,Correct ordinary product to x^2/(1-x)^4
+D20,Regulator dlog,missing/future,overpromoted,future_horizon,future_horizon,Keep local analytic object; algebraic case on normalization/cover
+D21,Integer periods,not established,claimed,false_as_stated,corrected_core,Qualify branch residues and cover/divisor interpretation
+D22,Chern-class lift,absent/missing,claimed target,underconstructed,future_horizon,Block on proof moduli bundle connection curvature base map
+D23,Base-relative flat visibility,present,expanded,retain,theorem_core,Keep flat holonomy/local-system data separate from regulator lift
+D24,S2/T2/K cohomology comparison,present,expanded,needs coefficient discipline,future_horizon/context,Separate Hom(pi1 U1) H1 constant and sheaf cohomology H2 Z
+D25,Klein bottle smallest detector,overstated,repeated,needs qualification,context_only,Use minimal useful closed surface with flat direction plus 2-torsion
+D26,K0(Types),premature,repeated,underdefined,future_horizon,Define category/semiring or use type-product monoid
+D27,Non-disjoint vocabularies,open,minimized,underconstructed,future_horizon,Do not claim simple inclusion-exclusion theorem
+D28,Predicate/arithmetic extension,open,aspirational,future_horizon,future_horizon,Keep future work only
+D29,Recognition/cognition bridge,not constructed,mentioned,underconstructed,future_horizon,Require kernels or semantic-energy link to proof-character data
+D30,Wythoff/Schwarz alignment,external,added,useful analogy,future_horizon/context,Preserve as theorem-shape precedent not evidence
+D31,Temporal Mechanics/S4,external,potential bridge,future_horizon,future_horizon,Route only after recognition kernels exist
+D32,AdS/CFT/holography,not core,tempting analogy,quarantine,quarantine,Use projection/preimage discipline; avoid duality language
+D33,Moufang/octonionic associator,external,tempting extension,quarantine/future_horizon,quarantine,Block on moduli/holonomy/associator construction
+D34,Superconductivity/Fermi-Bose,external,tempting analogy,context_only/quarantine,quarantine,Preserve separately; not proof-character core
