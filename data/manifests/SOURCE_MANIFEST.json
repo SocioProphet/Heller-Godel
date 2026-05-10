@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "repository": "SocioProphet/Heller-Godel",
   "manifest_status": "hash-locked uploaded-source inventory; binary sources pending explicit import",
   "sources": [
@@ -30,6 +30,13 @@
       "role": "Temporal Mechanics context for shell/projection/future-horizon ideas",
       "size_bytes": 399897,
       "sha256": "5b8538bde2433837f061f791cd4443a023e3bd57395b7e5805c7427797c60436"
+    },
+    {
+      "filename": "Lawful_Learning_Monograph_Publication_Draft_v1.tex",
+      "classification": "context_future_horizon",
+      "role": "Lawful Learning context for constraint/evidence discipline, Poincare geometry, prime-even gates, and audit-ledger architecture",
+      "size_bytes": 74611,
+      "sha256": "a44f18d4447e1279652c06ac3462c941eb96eea5fe58248a7890d1060cb82764"
     },
     {
       "filename": "BSD_Program_Lane_v0.1.pdf",
@@ -65,6 +72,20 @@
       "role": "BSD milestone bundle retained for reference; not a Heller-Godel test dependency",
       "size_bytes": 169155,
       "sha256": "9a0c54929c655961585960132772d9ad2738711cb53110ed508562e9228ec7ed"
+    },
+    {
+      "filename": "heller_godel_capture_v0_1.zip",
+      "classification": "generated_local_archive",
+      "role": "Local capture pack generated before upstream bootstrap; superseded by repository files",
+      "size_bytes": 181718,
+      "sha256": "6b49ff04dce5d45a82ce6f184ef86172addc11b8cd7a1868e9adef795d5565c7"
+    },
+    {
+      "filename": "heller_godel_lock_in_v0_2.zip",
+      "classification": "generated_local_archive",
+      "role": "Local lock-in pack generated before upstream bootstrap; superseded by repository files",
+      "size_bytes": 12042,
+      "sha256": "afe8acb554b3ff105794e617ee445be2b1beca22d1109dfcf0ee7737fff3b740"
     }
   ]
 }
