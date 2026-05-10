@@ -12,11 +12,74 @@ restricted proof grammar + fixed canonical statistic
 -> explicit mod-p carry defect zeta_p under composition
 ```
 
+The newer Paper I rewrite sharpens this core into a Deligne-cohomological framing:
+
+```text
+proof-class generating function
+-> decorated Puiseux singular datum at a chosen puncture
+-> branch-killing cyclic cover
+-> Puiseux singular unit upstairs
+-> level-1 Deligne unit
+-> finite monodromy / deck character downstairs
+-> lifted phase index
+-> section-defect carry cocycle
+```
+
+A separate regulator branch is tracked in parallel:
+
+```text
+two level-1 Deligne units
+-> level-2 Deligne cup-product symbol
+-> tame-symbol / regulator residue
+```
+
+The carry cocycle and Deligne cup-product symbol are intentionally not identified.
+
+## Current Paper I
+
+The active capture is:
+
+- `docs/manuscripts/paper_i_deligne_cohomological_phase_characters.md`
+
+This document is the working Deligne-cohomological rewrite of the older floor-function-first manuscript. It records the current claim boundary, proof architecture, finite local-system interpretation on real test manifolds, and open gates.
+
 ## Claim boundary
 
-This repository does **not** currently prove a nonabelian obstruction theory, a Chern-class lift, or a cognitive theory of recognition. Those are future-horizon programs gated on additional constructions: proof-moduli, bundle/connection data, operator spectra, and nonassociative holonomy.
+This repository does **not** currently prove a nonabelian obstruction theory, a Chern-class lift, a cognitive theory of recognition, progress on the Hodge conjecture, algebraicity of the resulting classes, or algebraic-cycle realization.
 
-The carry term `zeta_p` is currently treated as a finite-resolution section defect. In the ordinary group-cohomological setting it is a coboundary of `f_p(alpha)=floor(p alpha) mod p`, so it is not by itself a nontrivial nonabelian or nonassociative obstruction.
+The carry term is now treated as a finite-resolution section defect: it measures the failure of canonical residue representatives modulo `L` to add. The actual finite monodromy character is multiplicative.
+
+The Deligne cup-product symbol is the regulator-symbol refinement of a pair of level-1 units. Its local boundary is a tame symbol. It is not the carry cocycle.
+
+## Reproducibility contract
+
+Every mathematical claim that can be reduced to finite arithmetic should have a regression test. Current executable coverage lives in:
+
+- `src/heller_godel/phase_characters.py`
+- `tests/test_phase_characters.py`
+- `scripts/check_claim_boundaries.py`
+- `.github/workflows/validate.yml`
+
+The CI currently checks:
+
+- rational exponent normalization in `Q/Z`;
+- common branch-killing levels;
+- deck / monodromy phase indices;
+- `p`-primary projection and prime reduction;
+- exact multiplicativity of finite characters;
+- carry as a section-defect cocycle;
+- carry cocycle identity;
+- tame symbol not equal to carry;
+- Catalan / Klein-bottle `mu_2` holonomy bookkeeping;
+- manuscript claim-boundary guardrails.
+
+Local verification:
+
+```bash
+python -m pip install -e .[dev]
+pytest -q
+python scripts/check_claim_boundaries.py
+```
 
 ## Source taxonomy
 
@@ -31,3 +94,5 @@ The initial connector bootstrap records the complete source inventory and hashes
 - HG-M2: produce corrected `calculus_invariant_characters_v2_1_3.md`.
 - HG-M3: implement verification tests for phase maps, carry coboundary, Puiseux shells, chain-product correction, and statistic falsifier.
 - HG-M4: preserve future horizons without promoting them into current theorem claims.
+- HG-M5: develop Paper I Deligne-cohomological rewrite into a submission-ready manuscript.
+- HG-M6: expand executable coverage from finite arithmetic into symbolic proof obligations where feasible.
