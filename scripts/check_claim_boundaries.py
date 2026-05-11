@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Minimal CI guard for the Paper I claim boundary."""
+"""Minimal CI guard for the Paper I claim boundary and done-state matrix."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs" / "manuscripts" / "paper_i_deligne_cohomological_phase_characters.md"
 
-REQUIRED = [
+REQUIRED_CLAIM_BOUNDARY_PHRASES = [
     "does **not** claim progress on the Hodge conjecture itself",
     "does **not** assert algebraicity",
     "does **not** construct algebraic cycles",
@@ -20,18 +20,43 @@ REQUIRED = [
     "No algebraic cycle is produced",
 ]
 
+REQUIRED_DONE_MATRIX_ROWS = [
+    "| I.1 | Encoding hypothesis: sentence to gate constraints | Open in general; Appendix A expected for chain and Catalan | 7.1, Appendix A |",
+    "| I.2 | Multiplicativity correction term uncharacterized | Closed: character multiplies exactly; carry is lifted-index section defect | 4.5, 4.6 |",
+    "| I.3 | Choice of statistic underdetermined | Closed via reduced statistic | 2.2 |",
+    "| II.1 | Transcendental species | Open; bracketed | 7.2 |",
+    "| II.4 | Proof-class moduli absent | Open | 7.3 |",
+    "| III.4 | Floquet phase matching | Reformulated as three-map agreement; conditional on Appendix A | 6.4, Appendix A |",
+    "| III.5 | Odd-prime case | Open as Conjecture 6.3 | 6.6 |",
+    "| V.1 | Beilinson regulator framework | Partially addressed: framework in place; Chern lifts case-by-case | 7.5, 4.5 |",
+    "| Hodge | Progress on Hodge conjecture | Not claimed | 7.6 |",
+    "| Hodge | Algebraicity of Deligne classes | Not claimed | 7.6 |",
+    "| Hodge | Deligne / Chern class on real `B` | Not claimed | 7.6 |",
+    "| Hodge | Algebraic cycle existence | Not claimed | 7.6 |",
+    "| Hodge | Hodge relevance of Conjecture 6.3 | Not claimed | 7.6 |",
+]
+
+
+def require_phrases(text: str, phrases: list[str], label: str) -> list[str]:
+    return [f"missing {label}: {phrase}" for phrase in phrases if phrase not in text]
+
 
 def main() -> int:
     if not MANUSCRIPT.exists():
         print(f"missing manuscript: {MANUSCRIPT}", file=sys.stderr)
         return 1
+
     text = MANUSCRIPT.read_text(encoding="utf-8")
-    missing = [phrase for phrase in REQUIRED if phrase not in text]
-    if missing:
-        for phrase in missing:
-            print(f"missing required claim-boundary phrase: {phrase}", file=sys.stderr)
+    failures: list[str] = []
+    failures.extend(require_phrases(text, REQUIRED_CLAIM_BOUNDARY_PHRASES, "claim-boundary phrase"))
+    failures.extend(require_phrases(text, REQUIRED_DONE_MATRIX_ROWS, "definition-of-done matrix row"))
+
+    if failures:
+        for failure in failures:
+            print(failure, file=sys.stderr)
         return 1
-    print("claim-boundary guard passed")
+
+    print("claim-boundary and definition-of-done guards passed")
     return 0
 
 
