@@ -5,6 +5,7 @@ import pytest
 from heller_godel.phase_characters import (
     carry,
     carry_cocycle_identity_holds,
+    carry_table,
     common_level,
     holonomy_index,
     multiply_indices,
@@ -59,6 +60,24 @@ def test_carry_records_lifted_phase_section_defect():
     assert carry(1, 1, 3) == 0
     assert carry(2, 2, 3) == 1
     assert 2 + 2 == ((2 + 2) % 3) + 3 * carry(2, 2, 3)
+
+
+def test_carry_tables_small_levels_match_appendix_b():
+    assert carry_table(2) == (
+        (0, 0),
+        (0, 1),
+    )
+    assert carry_table(3) == (
+        (0, 0, 0),
+        (0, 0, 1),
+        (0, 1, 1),
+    )
+    assert carry_table(4) == (
+        (0, 0, 0, 0),
+        (0, 0, 0, 1),
+        (0, 0, 1, 1),
+        (0, 1, 1, 1),
+    )
 
 
 def test_carry_satisfies_cocycle_identity_small_range():
