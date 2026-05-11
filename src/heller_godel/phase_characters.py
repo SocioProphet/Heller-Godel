@@ -142,6 +142,14 @@ def carry(residue_left: int, residue_right: int, level: int) -> int:
     return (left + right - combined) // level
 
 
+def carry_table(level: int) -> tuple[tuple[int, ...], ...]:
+    """Return the normalized carry table for residues 0, ..., level-1."""
+
+    if level <= 0:
+        raise ValueError("level must be positive")
+    return tuple(tuple(carry(row, col, level) for col in range(level)) for row in range(level))
+
+
 def carry_cocycle_identity_holds(a: int, b: int, c: int, level: int) -> bool:
     """Check d carry = 0 for the normalized carry 2-cocycle."""
 
