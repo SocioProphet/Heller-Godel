@@ -81,6 +81,18 @@ def test_tame_symbol_uses_analytic_factors_not_only_residues():
     assert carry(1, 2, 5) == 0
 
 
+def test_sphere_pullback_is_trivial_by_absence_of_loops():
+    index, level = phase_index(Fraction(1, 5))
+    assert holonomy_index(index, level, winding=0) == (0, 5)
+
+
+def test_torus_pullback_is_determined_by_two_winding_numbers():
+    index, level = phase_index(Fraction(2, 5))
+    assert (index, level) == (2, 5)
+    assert holonomy_index(index, level, winding=3) == (1, 5)
+    assert holonomy_index(index, level, winding=-1) == (3, 5)
+
+
 def test_catalan_klein_bottle_mu2_holonomy_bookkeeping():
     # Catalan singular line: alpha=1/2, u=w, chi(gamma)=-1.
     index, level = phase_index(Fraction(1, 2))
