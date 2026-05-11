@@ -232,75 +232,138 @@ The inverse appears under the opposite convention. This tame symbol depends on v
 
 ## 5. Real test manifolds and finite local systems
 
-The Deligne class lives upstairs on the complex analytic cover. Real test manifolds receive only the finite local-system shadow.
+The Deligne class lives upstairs on the complex analytic cover `X_{phi,rho}^circ`. The finite monodromy character lives downstairs on the punctured monodromy base `V_rho^times`. A real test manifold receives only this finite local-system shadow after a comparison map is chosen.
 
-Define the flat `mu_N` local system on the punctured monodromy base by the character
+### 5.1 Finite local systems from monodromy characters
+
+Let
 
 ```text
-L^{(N)}_{phi,rho} classified by chi_{phi,rho}: pi_1(V_rho^times) -> mu_N.
+chi_{phi,rho}: pi_1(V_rho^times) -> mu_N
 ```
 
-For a real manifold `B` and a continuous or classifying map
+be the finite character of the Puiseux singular line at the chosen puncture. Define
+
+```text
+L^{(N)}_{phi,rho}
+```
+
+as the flat `mu_N` local system on `V_rho^times` classified by `chi_{phi,rho}`. Equivalently, it is the rank-one finite local system whose holonomy around the positive local loop `gamma_rho` is
+
+```text
+chi_{phi,rho}(gamma_rho) = zeta_N^a.
+```
+
+This local system is the torsion shadow of the upstairs Deligne unit. It is not the Deligne class itself.
+
+### 5.2 Pullback to real test manifolds
+
+Let `B` be a real test manifold. A finite test object on `B` is obtained only after choosing a continuous map
 
 ```text
 f_B: B -> V_rho^times
 ```
 
-or equivalently a homomorphism on fundamental groups, define
+or, equivalently for the finite local-system data, a homomorphism
 
 ```text
-L^{(N)}_{phi,rho,B} = f_B^* L^{(N)}_{phi,rho}.
+(f_B)_*: pi_1(B) -> pi_1(V_rho^times).
 ```
 
-The holonomy is
+The pulled-back finite local system is
 
 ```text
-Hol(c) = chi_{phi,rho}((f_B)_*[c]).
+L^{(N)}_{phi,rho,B} := f_B^* L^{(N)}_{phi,rho}.
 ```
+
+For a loop class `c in pi_1(B)`, its holonomy is
+
+```text
+Hol_{L^{(N)}_{phi,rho,B}}(c)
+  = chi_{phi,rho}((f_B)_*(c)).
+```
+
+This formula is the entire real-manifold interface. It is a pullback of a finite character, not a pullback of analytic Deligne cohomology.
 
 No Deligne class on `B` is produced. No Chern class on `B` is produced. No algebraic cycle is produced. The object on `B` is a flat finite local system.
 
-### Sphere
+### 5.3 Sphere
 
-`pi_1(S^2) = 0`, so every pulled-back finite local system is trivial.
+For the sphere,
 
-### Torus
+```text
+pi_1(S^2) = 0.
+```
 
-For `T^2` with generators `a,b`, the pullback at the finite-character level is determined by winding numbers `m_a,m_b`:
+Therefore every homomorphism
+
+```text
+pi_1(S^2) -> pi_1(V_rho^times) -> mu_N
+```
+
+is trivial. Every pulled-back finite `mu_N` local system on `S^2` is trivial.
+
+This recovers the v2 sphere calculation in a cleaner form: the sphere is not a detector for the finite phase character because it has no fundamental group through which the local monodromy can be read.
+
+### 5.4 Torus
+
+Let
+
+```text
+pi_1(T^2) = <a,b | [a,b] = 1>.
+```
+
+At the finite-character level, a comparison map into the punctured disk is determined by two winding numbers
+
+```text
+m_a, m_b in Z,
+```
+
+where
+
+```text
+(f_T)_*(a) = m_a gamma_rho,
+(f_T)_*(b) = m_b gamma_rho.
+```
+
+If the character index is `A mod N`, so that `chi(gamma_rho)=zeta_N^A`, then
 
 ```text
 Hol(a) = zeta_N^{A m_a},
 Hol(b) = zeta_N^{A m_b}.
 ```
 
-### Klein bottle
+The torus therefore records two commuting copies of the same finite local monodromy, weighted by the chosen winding numbers. It detects the finite phase character only through the selected comparison map.
 
-Use
+### 5.5 Klein bottle
 
-```text
-pi_1(K) = < r,s | r s r^{-1} = s^{-1} >.
-```
-
-Since `mu_N` is abelian, the relation is automatically respected by any character. For the intended `mu_2` test, choose
+Let the Klein bottle group be presented as
 
 ```text
-Hol(r) = -1,
-Hol(s) = 1.
+pi_1(K) = < r, s | r s r^{-1} = s^{-1} >.
 ```
 
-For Catalan,
+Because `mu_N` is abelian, any character from `pi_1(K)` to `mu_N` factors through the abelianization. The relation imposes the condition
+
+```text
+chi(s)^2 = 1.
+```
+
+Thus for general `N`, the image of `s` must lie in the two-torsion subgroup of `mu_N`; in the intended `mu_2` test this condition is automatic.
+
+For the Catalan half-exponent test,
 
 ```text
 alpha = 1/2,
 N = 2,
 u = w,
-chi(gamma) = -1.
+chi(gamma_rho) = -1.
 ```
 
-Choose the comparison map on `pi_1` by
+Choose the classifying map on fundamental groups by
 
 ```text
-(f_K)_*(r) = gamma,
+(f_K)_*(r) = gamma_rho,
 (f_K)_*(s) = 0.
 ```
 
@@ -311,7 +374,21 @@ Hol(r) = -1,
 Hol(s) = 1.
 ```
 
-This prepares the `mu_2` comparison theorem: the analytic deck character and the Klein-bottle holonomy are the same `mu_2` character under the specified comparison map.
+Here `r` is the orientation-reversing generator. The resulting flat `mu_2` local system is exactly the Klein-bottle shadow used in the v2 comparison theorem.
+
+### 5.6 What is not obtained on real test manifolds
+
+The real test manifolds `S^2`, `T^2`, and `K` receive finite local systems only. They are not being treated as complex analytic Deligne bases. The Klein bottle is non-orientable and is not a valid native base for the analytic Deligne-cohomology construction used here.
+
+Consequently, the construction does not produce:
+
+1. a Deligne class on `K`;
+2. a Chern class on `K`;
+3. a divisor class on `K`;
+4. an algebraic cycle on `K`;
+5. a proof of algebraicity for the finite local system.
+
+The only object transported to `K` is the finite `mu_2` local system classified by the chosen comparison map. This is precisely the discipline needed for the `mu_2` comparison theorem of Section 6.
 
 ## 6. Open gates
 
@@ -336,4 +413,6 @@ The test harness under `src/heller_godel/phase_characters.py` and `tests/test_ph
 - carry as section-defect cocycle;
 - carry cocycle identity;
 - tame symbol not equal to carry;
+- sphere trivial pullback;
+- torus winding-number holonomy;
 - Catalan / Klein-bottle `mu_2` holonomy bookkeeping.
