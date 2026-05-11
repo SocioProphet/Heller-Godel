@@ -549,17 +549,108 @@ Then the analytic deck character, pulled-back `mu_p` holonomy, and dynamical pha
 
 The conjecture is now well-posed as a finite-cyclic comparison problem. The hard work is the construction of the odd-prime dynamical target and the encoding map. We do not claim this conjecture is a Hodge-conjectural statement or that any instance contributes to the Hodge conjecture.
 
-## 7. Open gates
+## 7. Limitations
 
-The following gates remain open and should not be promoted into claims:
+This section consolidates the open gates of the construction. Each item is tagged with its Severity grade from the Part IV audit of the v2 manuscript, its current status, and the specific obstruction. The section ends with a definition-of-done matrix intended as a static reference for the program's claim boundary.
 
-1. General encoding hypothesis for arbitrary arithmetic sentences.
-2. Construction-independent moduli of analytic realizations.
-3. Algebraicity or cycle realization of the resulting classes.
-4. Full Deligne-side sign convention proof for the cup-product symbol.
-5. D-finite but non-algebraic cases with infinite-order local monodromy.
-6. Odd-prime comparison theorem beyond the specified torsion-character target.
-7. Complete Catalan encoding appendix establishing the hypotheses of Theorem 6.2.
+The discipline is: a limitation is closed only when the corresponding mathematical structure is constructed and the relevant theorem proved, and partially addressed only when the proper framework is in place but specific instances remain case-by-case. Open means the substantive mathematical content is not provided by this paper.
+
+### 7.1 Severity I.1 — The encoding hypothesis: Open
+
+The gap. Theorem 6.2 depends on the existence of an encoding of a sentence `phi` as gate constraints in a Lawful Learning architecture, with a Lyapunov cycle in the gate manifold corresponding to a specified loop in the base manifold. The encoding hypothesis asserts that such an encoding exists for the sentence under consideration.
+
+Current status. Appendix A is expected to construct the encoding explicitly for the chain and Catalan families. Theorem 6.2 is therefore conditional until that appendix is complete. For general `phi`, and a fortiori for sentences in formal theories of arithmetic, the existence of an encoding is not established.
+
+What closure would require. A constructive recipe: given a sentence `phi` in a specified class of formal theories, produce explicitly the spectral operator, constraint matrix, gate parameterization, active-set structure, and verification that the active set is in bijection with normal proofs of `phi` counted by the chosen statistic.
+
+What this paper does not claim. We do not claim that arbitrary `phi` admits an encoding. We do not claim that the encoding for chain and Catalan generalizes to wider classes by any specified procedure.
+
+### 7.2 Severity II.1 — Transcendental species: Open
+
+The finite-order torsion theorem requires rational local exponents at the dominant singularity. Generating functions that are D-finite but not algebraic, and those that are not D-finite at all, may have algebraic-irrational or transcendental local exponents. In either case, the finite-monodromy character need not land in any `mu_N`, and the Section 3 finite-torsion construction does not apply.
+
+Current status. Bracketed throughout. Section 3 restricts attention to rational exponent classes; Section 6 invokes `alpha = 1/2` explicitly.
+
+What closure would require. Either restrict all claims permanently to rational local exponents, or extend the framework to handle non-rational exponents by working with `U(1)` characters, real torus monodromy, or another non-finite monodromy target. That extension is not undertaken here.
+
+### 7.3 Severity II.4 — Absence of a proof-class moduli: Open
+
+The Deligne class is functorial after the analytic realization is fixed. A construction-independent invariant would require either a moduli construction for proof classes or a comparison theorem between Deligne classes constructed from distinct analytic realizations of the same proof class.
+
+Current status. No moduli space is constructed.
+
+What closure would require. A category of proof-class data, a functor from this category to suitable analytic geometric data, and a verification that the Deligne class is functorial along this functor. For finitely generated proof classes such as chain and Catalan, the moduli problem is trivial; for general families it remains open.
+
+What this paper does not claim. We do not claim realization-independence beyond the chosen analytic presentation.
+
+### 7.4 Dynamical gates inherited from the v2 integration material: Various
+
+The Lyapunov / Floquet / `SO(3)` dynamical material enters this paper only through Theorem 6.2 and Conjecture 6.3. The inherited gates are:
+
+- **II.2: Level-set non-contractibility.** Lyapunov cycle existence requires a non-contractible cycle in the gate manifold. Status: open in general; expected Catalan witness in Appendix A.
+- **II.3: Active boundary as geometric object.** The eigendirection transverse to the active boundary requires smoothing or a piecewise-strata definition. Status: partially addressed by using a piecewise-strata interpretation.
+- **III.1: Moving-set convergence.** Time-ordered products of projections on varying convex sets require moving-set theory. Status: cited from standard sources, not reproduced.
+- **III.2: Floquet theory for proximal-gradient flows.** Smooth Floquet theory requires care when transferred to proximal-gradient dynamics. Status: exact-flow or smooth-approximation regime only.
+- **III.3: Energy conservation along level sets.** Exact gradient flow and discrete proximal updates differ by step-size errors. Status: exact-flow limit only.
+- **III.4: Floquet phase matching.** The v2 floor-function matching is reformulated as agreement of three `mu_2` realization maps. Status: conditional on Appendix A.
+
+Aggregate status. These gates affect only Theorem 6.2 and the odd-prime conjecture. The unconditional analytic-topological comparison of Theorem 6.1 is independent of all dynamical material.
+
+### 7.5 Severity V.1 — The regulator framework: Partially addressed
+
+The v2 manuscript produced only finite-order flat data. The integer-valued Chern or regulator part required a separate construction.
+
+This paper introduces the level-1 Deligne unit as the regulator input and the level-2 Deligne cup-product symbol as the regulator-symbol refinement. The framework is therefore in place.
+
+What is not closed. Specific divisor or Chern lifts require additional construction: meromorphic extension, transition functions, or localization. They are not produced by the finite carry cocycle, and they are not produced by the unit alone.
+
+What this paper does not claim. We do not claim that V.1 is closed by the carry cocycle. The carry cocycle is arithmetic of lifted phase indices and has no regulator content.
+
+### 7.6 Explicit Hodge non-claims
+
+These claims are not made by this paper and are enforced by the claim-boundary guard against future drift:
+
+1. **No progress on the Hodge conjecture.** The construction lives in Deligne cohomology of a punctured analytic space and produces invariants of proof classes. It does not produce algebraic cycles on a projective variety.
+2. **No algebraicity claim.** The Deligne classes are not asserted to be cycle classes of algebraic subvarieties.
+3. **No variation-of-Hodge-structure claim.** CDK-style algebraicity statements for Hodge loci require a polarized variation of Hodge structure as input; we do not establish one.
+4. **No Deligne / Chern class on real test manifolds.** Real test manifolds receive only finite local systems.
+5. **No algebraic-cycle existence claim.** We do not produce algebraic cycles realizing the Deligne classes, for any variety or prime.
+6. **No Hodge relevance claim for Conjecture 6.3.** The odd-prime conjecture is a finite-cyclic comparison problem, not a Hodge-conjectural statement.
+
+### 7.7 Definition-of-done matrix
+
+| Severity | Description | Status | Where |
+| --- | --- | --- | --- |
+| I.1 | Encoding hypothesis: sentence to gate constraints | Open in general; Appendix A expected for chain and Catalan | 7.1, Appendix A |
+| I.2 | Multiplicativity correction term uncharacterized | Closed: character multiplies exactly; carry is lifted-index section defect | 4.5, 4.6 |
+| I.3 | Choice of statistic underdetermined | Closed via reduced statistic | 2.2 |
+| II.1 | Transcendental species | Open; bracketed | 7.2 |
+| II.2 | Lyapunov cycle non-contractibility | Open in general; expected Catalan witness in Appendix A | 7.4, Appendix A |
+| II.3 | Active boundary geometry | Partially addressed by piecewise strata | 7.4 |
+| II.4 | Proof-class moduli absent | Open | 7.3 |
+| III.1 | Moving-set proof obligation | Cited from standard sources | 7.4 |
+| III.2 | Floquet theory for proximal flows | Exact-flow or smooth-approximation regime only | 7.4 |
+| III.3 | Energy conservation for discrete flow | Bracketed; exact-flow limit used | 7.4 |
+| III.4 | Floquet phase matching | Reformulated as three-map agreement; conditional on Appendix A | 6.4, Appendix A |
+| III.5 | Odd-prime case | Open as Conjecture 6.3 | 6.6 |
+| V.1 | Beilinson regulator framework | Partially addressed: framework in place; Chern lifts case-by-case | 7.5, 4.5 |
+| V.2 | Bridge to recognition dynamics | Open; out of scope | Not addressed here |
+| V.3 | Implicational/product logic only | Open; predicate logic and arithmetic require extension | Not addressed here |
+| V.4 | No empirical validation | Open; harness covers finite arithmetic only | CI-backed invariants |
+| Hodge | Progress on Hodge conjecture | Not claimed | 7.6 |
+| Hodge | Algebraicity of Deligne classes | Not claimed | 7.6 |
+| Hodge | Variation of Hodge structure on proof-class space | Not claimed | 7.6 |
+| Hodge | Deligne / Chern class on real `B` | Not claimed | 7.6 |
+| Hodge | Algebraic cycle existence | Not claimed | 7.6 |
+| Hodge | Hodge relevance of Conjecture 6.3 | Not claimed | 7.6 |
+
+Aggregate. Two severities are closed: I.2 and I.3. Two are partially addressed: II.3 and V.1. The remainder are open, bracketed, out of scope, or not claimed.
+
+### 7.8 What this paper is
+
+The paper constructs a small Hodge-adjacent invariant: a proof-class generating function determines a level-1 Deligne unit whose finite-order shadows recover the v2 phase characters, with strict multiplicativity at the Deligne level and an explicit section-defect carry at the lifted-index level. For Catalan-type sentences with exponent `1/2`, the analytic deck character and the Klein-bottle topological holonomy commute unconditionally. Under the Catalan encoding hypothesis, both agree with the `SO(3)` Floquet phase of the constructed Lyapunov cycle.
+
+The contribution is methodological: when an invariant naturally produces both integral and analytic data, Deligne cohomology is the appropriate framework. The construction is small and inspectable. Its limitations are enumerated above and enforced in CI.
 
 ## CI-backed invariants
 
