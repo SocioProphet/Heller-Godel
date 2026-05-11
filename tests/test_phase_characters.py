@@ -31,7 +31,7 @@ def test_phase_index_on_common_cover():
 
 
 @pytest.mark.parametrize(
-    (alpha, level, prime, expected),
+    "alpha,level,prime,expected",
     [
         (Fraction(1, 6), 6, 2, (1, 2)),
         (Fraction(1, 6), 6, 3, (1, 3)),
