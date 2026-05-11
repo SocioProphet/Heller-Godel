@@ -103,3 +103,13 @@ def test_catalan_klein_bottle_mu2_holonomy_bookkeeping():
     # once around the puncture and sends s trivially.
     assert holonomy_index(index, level, winding=1) == (1, 2)  # -1
     assert holonomy_index(index, level, winding=0) == (0, 2)  # +1
+
+
+def test_unconditional_mu2_comparison_common_generator():
+    # The analytic deck generator for Catalan and the chosen Klein-bottle
+    # orientation-reversing generator both factor through the nontrivial class
+    # of Z/2 and therefore both evaluate to the same mu_2 element.
+    analytic_index, level = phase_index(Fraction(1, 2))
+    klein_r_index, _ = holonomy_index(analytic_index, level, winding=1)
+    assert analytic_index == 1
+    assert klein_r_index == analytic_index
