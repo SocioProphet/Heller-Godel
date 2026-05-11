@@ -3,13 +3,103 @@
   "repo": "SocioProphet/Heller-Godel",
   "domain": "proof-boundary-incompleteness-formal-governance",
   "controller_protocol": "protocol/proof-apparatus-workspace/v0",
-  "claims": [],
+  "claims": [
+    {
+      "claim_id": "HG-ADJ-001-soule-voisin-atiyah-hirzebruch-torsion",
+      "state": "draft",
+      "severity": "E7",
+      "substrate": "Deligne cohomology torsion shadows from proof-class Puiseux data",
+      "shell_level": "finite monodromy / branch-killing cyclic cover",
+      "projection": "chi_p, chi_13, lifted phase index, Bockstein carry cocycle",
+      "statement": "Mode 1 scoped task: test whether chain, Catalan, and Motzkin Deligne classes produce torsion examples with structural features distinguishing them from the standard Atiyah-Hirzebruch/Soule-Voisin torsion template.",
+      "boundary": [
+        "Computational and structural diagnostic only until explicit finite tables and comparison gates pass.",
+        "No claim of Hodge, generalized Hodge, algebraic-cycle realization, or integral Chern bridge.",
+        "No theorem promotion without SocioSphere evidence ledger event and artifact digest."
+      ],
+      "non_claim_refs": [
+        "heller-godel.no-hodge-claim",
+        "heller-godel.no-ah-integral-chern-bridge",
+        "heller-godel.no-implicit-proof-promotion"
+      ],
+      "owned_gates": [
+        "finite-deligne-class-table",
+        "torsion-order-check",
+        "standard-ah-comparison",
+        "claim-boundary"
+      ],
+      "obstruction_walls": ["integer_chern_wall", "preimage_wall", "certificate_wall"]
+    },
+    {
+      "claim_id": "HG-ADJ-002-beilinson-regulator-toy-families",
+      "state": "draft",
+      "severity": "E7",
+      "substrate": "Deligne level-1 units and level-2 Deligne cup-product symbols",
+      "shell_level": "toy proof-class family regulator branch",
+      "projection": "tame-symbol boundary and regulator output digest",
+      "statement": "Mode 1 scoped task: compute regulator outputs for level-2 Deligne cup-products on toy proof-class families and check period/L-value adjacency as diagnostics only.",
+      "boundary": [
+        "Regulator computation task only until level-1 unit normalization, cup-product, tame-symbol, and output-digest gates pass.",
+        "No claim of Beilinson conjectures, L-value formula, or transcendence result.",
+        "The Bockstein carry cocycle and Deligne cup-product symbol remain distinct structures."
+      ],
+      "non_claim_refs": [
+        "heller-godel.no-beilinson-claim",
+        "heller-godel.no-transcendence-claim",
+        "heller-godel.no-carry-cup-product-identification"
+      ],
+      "owned_gates": [
+        "level1-unit-normalization",
+        "cup-product-symbol-check",
+        "tame-symbol-boundary-check",
+        "regulator-output-digest",
+        "claim-boundary"
+      ],
+      "obstruction_walls": ["certificate_wall", "shell_map_preservation_wall"]
+    },
+    {
+      "claim_id": "HG-ADJ-003-k3-tate-comparison-template",
+      "state": "draft",
+      "severity": "E7",
+      "substrate": "comparison-isomorphism technique templates and mu_2 triple-point setup",
+      "shell_level": "technique-transfer diagnostic",
+      "projection": "K3 comparison proof pattern mapped to SocioProphet triple-point obstruction vocabulary",
+      "statement": "Mode 2 scoped task: compare the settled K3 Tate comparison-isomorphism template against the mu_2 triple-point setup and record the obstruction map.",
+      "boundary": [
+        "Technique-transfer diagnostic only.",
+        "Does not reopen the settled K3 Tate case.",
+        "Does not claim the general Tate conjecture, a Galois lift, or algebraic-cycle preimage."
+      ],
+      "non_claim_refs": [
+        "heller-godel.no-k3-tate-reopen",
+        "heller-godel.no-general-tate-claim",
+        "heller-godel.no-algebraic-cycle-preimage"
+      ],
+      "owned_gates": [
+        "k3-technique-inventory",
+        "mu2-triple-point-comparison",
+        "obstruction-wall-map",
+        "claim-boundary"
+      ],
+      "obstruction_walls": ["preimage_wall", "shell_map_preservation_wall", "certificate_wall"]
+    }
+  ],
   "gates": [
     { "gate_id": "claim-boundary", "kind": "claim_boundary_check", "status": "planned" },
     { "gate_id": "non-claim", "kind": "non_claim_check", "status": "planned" },
     { "gate_id": "formalization-readiness", "kind": "proof_review", "status": "planned" },
     { "gate_id": "incompleteness-boundary", "kind": "obstruction_check", "status": "planned" },
-    { "gate_id": "proof-ledger-consistency", "kind": "claim_boundary_check", "status": "planned" }
+    { "gate_id": "proof-ledger-consistency", "kind": "claim_boundary_check", "status": "planned" },
+    { "gate_id": "finite-deligne-class-table", "kind": "test", "status": "planned", "expected": "Chain/Catalan/Motzkin table with artifact digest and torsion-order annotations." },
+    { "gate_id": "torsion-order-check", "kind": "numeric_check", "status": "planned", "expected": "Finite torsion-order check for candidate Deligne classes." },
+    { "gate_id": "standard-ah-comparison", "kind": "proof_review", "status": "planned", "expected": "Comparison note against standard Atiyah-Hirzebruch/Soule-Voisin template." },
+    { "gate_id": "level1-unit-normalization", "kind": "symbolic_check", "status": "planned", "expected": "Normalized pair of level-1 Deligne units." },
+    { "gate_id": "cup-product-symbol-check", "kind": "symbolic_check", "status": "planned", "expected": "Level-2 Deligne cup-product symbol computed without identifying it with carry." },
+    { "gate_id": "tame-symbol-boundary-check", "kind": "symbolic_check", "status": "planned", "expected": "Local boundary recorded as tame symbol." },
+    { "gate_id": "regulator-output-digest", "kind": "numeric_check", "status": "planned", "expected": "Regulator output with digest and non-claim box." },
+    { "gate_id": "k3-technique-inventory", "kind": "proof_review", "status": "planned", "expected": "Technique inventory of K3 Tate comparison-isomorphism proof pattern." },
+    { "gate_id": "mu2-triple-point-comparison", "kind": "proof_review", "status": "planned", "expected": "Mapping of comparison template to mu_2 triple-point setup." },
+    { "gate_id": "obstruction-wall-map", "kind": "obstruction_check", "status": "planned", "expected": "Typed wall map: preimage, shell-map preservation, certificate. " }
   ],
   "non_claims": [
     {
@@ -23,6 +113,38 @@
     {
       "non_claim_id": "heller-godel.no-automated-theorem-prover",
       "statement": "This adapter is a boundary-governance surface, not an automated theorem prover."
+    },
+    {
+      "non_claim_id": "heller-godel.no-hodge-claim",
+      "statement": "This adapter does not claim Hodge or generalized Hodge."
+    },
+    {
+      "non_claim_id": "heller-godel.no-ah-integral-chern-bridge",
+      "statement": "This adapter does not claim an integral Chern-class bridge to the full Atiyah-Hirzebruch obstruction."
+    },
+    {
+      "non_claim_id": "heller-godel.no-beilinson-claim",
+      "statement": "This adapter does not claim a Beilinson conjecture result."
+    },
+    {
+      "non_claim_id": "heller-godel.no-transcendence-claim",
+      "statement": "This adapter does not claim transcendence, irrationality, or L-value identification from regulator numerics alone."
+    },
+    {
+      "non_claim_id": "heller-godel.no-carry-cup-product-identification",
+      "statement": "The Bockstein carry cocycle and the Deligne cup-product symbol are distinct and must not be identified."
+    },
+    {
+      "non_claim_id": "heller-godel.no-k3-tate-reopen",
+      "statement": "This adapter does not reopen the settled K3 Tate case."
+    },
+    {
+      "non_claim_id": "heller-godel.no-general-tate-claim",
+      "statement": "This adapter does not claim the general Tate conjecture."
+    },
+    {
+      "non_claim_id": "heller-godel.no-algebraic-cycle-preimage",
+      "statement": "This adapter does not claim an algebraic-cycle preimage or Chow input."
     }
   ]
 }
