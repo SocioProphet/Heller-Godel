@@ -1,0 +1,28 @@
+{
+  "adapter_version": "0.1",
+  "repo": "SocioProphet/Heller-Godel",
+  "domain": "proof-boundary-incompleteness-formal-governance",
+  "controller_protocol": "protocol/proof-apparatus-workspace/v0",
+  "claims": [],
+  "gates": [
+    { "gate_id": "claim-boundary", "kind": "claim_boundary_check", "status": "planned" },
+    { "gate_id": "non-claim", "kind": "non_claim_check", "status": "planned" },
+    { "gate_id": "formalization-readiness", "kind": "proof_review", "status": "planned" },
+    { "gate_id": "incompleteness-boundary", "kind": "obstruction_check", "status": "planned" },
+    { "gate_id": "proof-ledger-consistency", "kind": "claim_boundary_check", "status": "planned" }
+  ],
+  "non_claims": [
+    {
+      "non_claim_id": "heller-godel.no-foundations-resolution",
+      "statement": "This adapter does not claim resolution of set-theoretic foundations, incompleteness limits, or formal consistency questions."
+    },
+    {
+      "non_claim_id": "heller-godel.no-implicit-proof-promotion",
+      "statement": "This adapter does not promote informal proof narratives to formal theorem status."
+    },
+    {
+      "non_claim_id": "heller-godel.no-automated-theorem-prover",
+      "statement": "This adapter is a boundary-governance surface, not an automated theorem prover."
+    }
+  ]
+}
