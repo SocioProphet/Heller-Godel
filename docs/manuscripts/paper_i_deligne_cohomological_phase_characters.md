@@ -390,7 +390,166 @@ Consequently, the construction does not produce:
 
 The only object transported to `K` is the finite `mu_2` local system classified by the chosen comparison map. This is precisely the discipline needed for the `mu_2` comparison theorem of Section 6.
 
-## 6. Open gates
+## 6. The `mu_2` comparison theorem
+
+The `mu_2` comparison theorem has two layers. The first layer is unconditional: it compares the analytic deck character of the Catalan singular line with the Klein-bottle holonomy of the pulled-back finite local system. The second layer is conditional: it attaches the `SO(3)` Floquet phase only after the encoding hypothesis supplies a gate manifold, a Lyapunov cycle, and an encoding map.
+
+This separation is structural. The analytic and topological objects are constructed in Sections 3 and 5. The dynamical object is not present until an encoding is supplied.
+
+### 6.1 Setup and objects
+
+Fix the Catalan singularity
+
+```text
+rho = 1/4,
+alpha = 1/2,
+N = 2.
+```
+
+The branch-killing cover is
+
+```text
+w^2 = t_rho = 1 - x/rho,
+```
+
+and the Puiseux singular unit is
+
+```text
+u = w.
+```
+
+The analytic deck character is
+
+```text
+chi_deck: G^2_{1/4} -> mu_2,
+chi_deck(zeta_2) = -1.
+```
+
+The topological Klein-bottle character is the holonomy
+
+```text
+hol_{K,f}: pi_1(K) -> mu_2
+```
+
+obtained by the pullback construction of Section 5 for a specified classifying map `f_K`.
+
+The dynamical Floquet character is a map
+
+```text
+Phi_{C,G}: pi_1(Gamma_Lyap) -> mu_2
+```
+
+or, equivalently, a map to `pi_1(SO(3))` followed by a fixed identification `pi_1(SO(3)) ~= Z/2 ~= mu_2`. This object is conditional on an encoding of the Catalan-type sentence into a gate manifold `G` with a Lyapunov cycle `Gamma_Lyap`.
+
+### 6.2 Intertwining maps
+
+The comparison is not a map between three identical domains. It is a generator comparison through specified intertwining maps into a common `Z/2`.
+
+Analytic intertwining. The deck / monodromy correspondence gives
+
+```text
+iota_an: G^2_{1/4} -> Z/2,
+```
+
+sending the deck generator to `1 mod 2`, the mod-2 reduction of the positive loop around `rho`.
+
+Klein-bottle intertwining. Use the presentation
+
+```text
+pi_1(K) = < r, s | r s r^{-1} = s^{-1} >.
+```
+
+Choose the classifying map on fundamental groups by
+
+```text
+(f_K)_*(r) = gamma_rho,
+(f_K)_*(s) = 0.
+```
+
+Composing with mod-2 reduction gives
+
+```text
+iota_K: pi_1(K) -> Z/2,
+iota_K(r) = 1,
+iota_K(s) = 0.
+```
+
+This homomorphism respects the Klein-bottle relation because the relation maps to `0` in `Z/2`. Equivalently, the corresponding boundary word maps to a nullhomotopic loop in `V_rho^times`, so the map from the 1-skeleton extends over the 2-cell.
+
+Dynamical intertwining. Under the encoding hypothesis, there is a homomorphism
+
+```text
+e_*: pi_1(Gamma_Lyap) -> pi_1(K)
+```
+
+sending the generator of the Lyapunov cycle to the orientation-reversing generator `r`. Define
+
+```text
+iota_dyn := iota_K · e_*: pi_1(Gamma_Lyap) -> Z/2.
+```
+
+This is not unconditional. It is part of the encoding data.
+
+Finally, let
+
+```text
+epsilon: Z/2 -> mu_2
+```
+
+be the character sending the nontrivial class to `-1`.
+
+### 6.3 Unconditional analytic-topological comparison
+
+**Theorem 6.1 (Analytic-topological `mu_2` comparison).** With the Catalan data and the specified Klein-bottle classifying map, the analytic deck character and the Klein-bottle holonomy factor through the same character `epsilon: Z/2 -> mu_2`:
+
+```text
+chi_deck = epsilon · iota_an,
+hol_{K,f} = epsilon · iota_K.
+```
+
+Equivalently, both characters send the corresponding generator to `-1`.
+
+**Proof.** The Catalan singular line has exponent `1/2`, so the deck generator acts on `u=w` by multiplication by `-1`; hence `chi_deck(zeta_2)=-1`. By the specified classifying map, the orientation-reversing generator `r` maps to one positive loop around the puncture, so its pulled-back holonomy is also `-1`; `s` maps to zero and therefore has trivial holonomy. Both maps factor through `epsilon` on the common `Z/2`. ∎
+
+The theorem requires no encoding hypothesis. It is a pure comparison between the Section 3 analytic deck character and the Section 5 finite local system on `K`.
+
+### 6.4 Conditional three-way comparison
+
+**Theorem 6.2 (Three-way `mu_2` comparison, conditional).** Suppose the Catalan encoding hypothesis is verified: there exists a gate manifold `G`, a Lyapunov cycle `Gamma_Lyap`, and an encoding homomorphism `e_*` sending the Lyapunov generator to the Klein-bottle orientation-reversing generator `r`. Suppose further that the `SO(3)` Floquet phase of this cycle is the nontrivial element of `pi_1(SO(3)) ~= Z/2`, identified with `-1 in mu_2`. Then
+
+```text
+Phi_{C,G} = epsilon · iota_dyn.
+```
+
+Together with Theorem 6.1, this yields a three-way agreement between analytic deck character, Klein-bottle holonomy, and Floquet phase on the specified generator.
+
+**Proof.** Theorem 6.1 supplies the analytic-topological agreement. The conditional hypotheses supply the dynamical generator map and the nontrivial `SO(3)` Floquet phase. Since `e_*` sends the Lyapunov generator to `r`, and `iota_K(r)=1`, we have `iota_dyn(generator)=1`. Applying `epsilon` gives `-1`, which is the assumed Floquet phase. ∎
+
+### 6.5 What is and is not unconditional
+
+Theorem 6.1 is unconditional after the analytic realization and Klein-bottle classifying map are fixed. It is mechanized at the finite arithmetic level by the Catalan and Klein-bottle holonomy tests.
+
+Theorem 6.2 is conditional on the encoding hypothesis. Until a complete Catalan encoding is written and checked in Appendix A, the theorem is a conditional comparison theorem, not a closed construction. For general sentences the encoding hypothesis remains open.
+
+### 6.6 Odd-prime comparison conjecture
+
+**Conjecture 6.3 (Odd-prime comparison).** Let a proof-class generating function have rational local exponent
+
+```text
+alpha = a/p
+```
+
+with `p` an odd prime. Suppose there exist:
+
+1. a real test manifold `B_p` and classifying map `f_p: B_p -> V_rho^times` detecting the `mu_p` character;
+2. an encoding into a gate manifold `G_p` with a Lyapunov cycle whose phase takes values in a `mu_p` target or an explicitly specified `p`-fold covering analogue;
+3. intertwining maps from the analytic, topological, and dynamical domains into a common `Z/p`.
+
+Then the analytic deck character, pulled-back `mu_p` holonomy, and dynamical phase should agree on the specified generator.
+
+The conjecture is now well-posed as a finite-cyclic comparison problem. The hard work is the construction of the odd-prime dynamical target and the encoding map. We do not claim this conjecture is a Hodge-conjectural statement or that any instance contributes to the Hodge conjecture.
+
+## 7. Open gates
 
 The following gates remain open and should not be promoted into claims:
 
@@ -400,6 +559,7 @@ The following gates remain open and should not be promoted into claims:
 4. Full Deligne-side sign convention proof for the cup-product symbol.
 5. D-finite but non-algebraic cases with infinite-order local monodromy.
 6. Odd-prime comparison theorem beyond the specified torsion-character target.
+7. Complete Catalan encoding appendix establishing the hypotheses of Theorem 6.2.
 
 ## CI-backed invariants
 
@@ -415,4 +575,5 @@ The test harness under `src/heller_godel/phase_characters.py` and `tests/test_ph
 - tame symbol not equal to carry;
 - sphere trivial pullback;
 - torus winding-number holonomy;
-- Catalan / Klein-bottle `mu_2` holonomy bookkeeping.
+- Catalan / Klein-bottle `mu_2` holonomy bookkeeping;
+- unconditional analytic-topological `mu_2` generator comparison.
