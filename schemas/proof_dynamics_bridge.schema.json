@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://socioprophet.org/schemas/proof_dynamics_bridge.schema.json",
+  "title": "ProofDynamicsBridge",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "status",
+    "claim_boundary",
+    "central_target",
+    "encoding_hypothesis",
+    "dynamics",
+    "topology",
+    "spin_lift",
+    "hyperedges",
+    "ledgered_invariant",
+    "promotion_state"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "proof_dynamics_bridge"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "conceptual_alignment",
+        "conditional_construction",
+        "ledgered_p2_test",
+        "canonical_encoding_candidate",
+        "commuting_diagram_verified",
+        "conditional_bridge_lemma"
+      ]
+    },
+    "claim_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["forbidden_claims", "allowed_claim"],
+      "properties": {
+        "forbidden_claims": {
+          "type": "array",
+          "minItems": 5,
+          "items": {"type": "string"}
+        },
+        "allowed_claim": {"type": "string"}
+      }
+    },
+    "central_target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["p", "target_group", "expected_mu_p", "expected_chi_p"],
+      "properties": {
+        "p": {"type": "integer", "const": 2},
+        "target_group": {"type": "string", "const": "mu_2"},
+        "expected_mu_p": {"type": "string", "enum": ["-1"]},
+        "expected_chi_p": {"type": "string", "enum": ["-1"]}
+      }
+    },
+    "encoding_hypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["map_name", "source", "target", "canonicity_status", "preserves", "known_losses"],
+      "properties": {
+        "map_name": {"type": "string"},
+        "source": {"type": "string", "const": "proof_normal_forms"},
+        "target": {"type": "string", "const": "active_constraint_complex"},
+        "canonicity_status": {
+          "type": "string",
+          "enum": ["missing", "discretionary", "provisional", "canonical_candidate", "canonical_verified"]
+        },
+        "preserves": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "proof_weight",
+              "rewrite_adjacency",
+              "normal_form_equivalence",
+              "cyclic_refinement_action",
+              "singular_exponent_class",
+              "boundary_transversality",
+              "gate_admissibility"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "known_losses": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "dynamics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["descent", "transport", "floquet_admissibility"],
+      "properties": {
+        "descent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["rule", "assumptions", "active_set_trigger"],
+          "properties": {
+            "rule": {"type": "string"},
+            "assumptions": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "active_set_trigger": {"type": "string"}
+          }
+        },
+        "transport": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["rule", "level_set", "gate_manifold"],
+          "properties": {
+            "rule": {"type": "string"},
+            "level_set": {"type": "string"},
+            "gate_manifold": {"type": "string", "const": "T^k x SO(3)"}
+          }
+        },
+        "floquet_admissibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["unit_modulus_basis", "phase_only_claim"],
+          "properties": {
+            "unit_modulus_basis": {
+              "type": "string",
+              "enum": ["unitary", "symplectic", "isometric", "polar_phase", "undefined"]
+            },
+            "phase_only_claim": {"type": "boolean"}
+          }
+        }
+      }
+    },
+    "topology": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["base_surface", "pi1_class", "holonomy_value"],
+      "properties": {
+        "base_surface": {"type": "string"},
+        "pi1_class": {"type": "string"},
+        "holonomy_value": {"type": "string", "enum": ["+1", "-1", "undefined"]}
+      }
+    },
+    "spin_lift": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["group", "cover", "loop_id", "lift_endpoint"],
+      "properties": {
+        "group": {"type": "string", "const": "SO(3)"},
+        "cover": {"type": "string", "const": "Spin(3)"},
+        "loop_id": {"type": "string"},
+        "lift_endpoint": {"type": "string", "enum": ["+I", "-I", "undefined"]}
+      }
+    },
+    "hyperedges": {
+      "type": "array",
+      "minItems": 7,
+      "items": {
+        "type": "string",
+        "enum": [
+          "verification_generation_boundary",
+          "proof_character_monodromy",
+          "descent_transport_split",
+          "floquet_unit_modulus_admissibility",
+          "so3_spin_lift_torsion",
+          "canonicity_commuting_diagram",
+          "ledgered_invariant_recomputability"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "ledgered_invariant": {
+      "$ref": "ledgered_invariant.schema.json"
+    },
+    "promotion_state": {
+      "type": "string",
+      "enum": [
+        "state_0_conceptual_alignment",
+        "state_1_conditional_construction",
+        "state_2_ledgered_p2_test",
+        "state_3_canonical_encoding_candidate",
+        "state_4_commuting_diagram_verified",
+        "state_5_conditional_bridge_lemma"
+      ]
+    }
+  }
+}
