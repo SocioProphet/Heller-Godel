@@ -1,0 +1,69 @@
+{
+  "adapter_version": "0.1",
+  "repo": "SocioProphet/Heller-Godel",
+  "domain": "proof-character-generating-functions",
+  "controller_protocol": "protocol/proof-apparatus-workspace/v0",
+  "claims": [
+    {
+      "claim_id": "HG-SBG-001-spectral-boundary-grammar-reference-model",
+      "state": "draft",
+      "severity": "E0",
+      "substrate": "docs/theory/spectral-boundary-grammar.md",
+      "shell_level": "bridge-note",
+      "projection": "boundary-to-recurrence pattern capture",
+      "statement": "The equilateral triangle billiard is captured as a controlled reference model for boundary-induced admissible modes, spectral arithmetic, trace evidence, and recurrence; this is a theory-bridge artifact, not a theorem promotion or physical equivalence claim about cognition or agents.",
+      "boundary": [
+        "Documentation/theory capture only.",
+        "No claim that cognition is literally a quantum billiard.",
+        "No claim that agent systems are unitary quantum systems.",
+        "No claim that spectral boundary grammar proves P vs NP.",
+        "No claim that all governed systems have exact revivals."
+      ],
+      "non_claim_refs": [
+        "HG-NC-001-no-physical-equivalence",
+        "HG-NC-002-no-complexity-separation"
+      ],
+      "owned_gates": [
+        "HG-GATE-SBG-001-claim-boundary-review",
+        "HG-GATE-SBG-002-reference-model-fixture"
+      ],
+      "obstruction_walls": [
+        "quotient_wall",
+        "preimage_wall",
+        "continuum_reconstruction_wall"
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "gate_id": "HG-GATE-SBG-001-claim-boundary-review",
+      "kind": "claim_boundary_check",
+      "status": "planned",
+      "command": "python scripts/check_claim_boundaries.py",
+      "expected": "The bridge note remains documentation-only and does not promote analogy into theorem."
+    },
+    {
+      "gate_id": "HG-GATE-SBG-002-reference-model-fixture",
+      "kind": "proof_review",
+      "status": "planned",
+      "fixture": "docs/theory/spectral-boundary-grammar.md",
+      "expected": "Future review should verify citations, formulas, and the exact scope of the Doncheski-Robinett reference model before any higher evidence classification."
+    }
+  ],
+  "non_claims": [
+    {
+      "non_claim_id": "HG-NC-001-no-physical-equivalence",
+      "statement": "The spectral boundary grammar note does not assert physical equivalence between quantum billiards, cognition, proof search, or governed agent runtimes.",
+      "applies_to": [
+        "HG-SBG-001-spectral-boundary-grammar-reference-model"
+      ]
+    },
+    {
+      "non_claim_id": "HG-NC-002-no-complexity-separation",
+      "statement": "The note does not claim progress on P vs NP, NP versus coNP, or any formal complexity separation; it is limited to verification/generation boundary methodology.",
+      "applies_to": [
+        "HG-SBG-001-spectral-boundary-grammar-reference-model"
+      ]
+    }
+  ]
+}
