@@ -402,7 +402,7 @@ The only object transported to `K` is the finite `mu_2` local system classified 
 
 ## 6. The `mu_2` comparison theorem
 
-The `mu_2` comparison theorem has two layers. The first layer is unconditional: it compares the analytic deck character of the Catalan singular line with the Klein-bottle holonomy of the pulled-back finite local system. The second layer is conditional: it attaches the `SO(3)` Floquet phase only after the encoding hypothesis supplies a gate manifold, a Lyapunov cycle, and an encoding map.
+The `mu_2` comparison theorem has two layers. The first layer is unconditional: it compares the analytic deck character of the Catalan singular line with the Klein-bottle holonomy of the pulled-back finite local system. The second layer is conditional in general: it attaches the `SO(3)` Floquet phase only after an encoding supplies a gate manifold, a Lyapunov cycle, and an encoding map. Appendix A closes this second layer only for the convention-bound Catalan A1 fixture.
 
 This separation is structural. The analytic and topological objects are constructed in Sections 3 and 5. The dynamical object is not present until an encoding is supplied.
 
@@ -498,7 +498,7 @@ sending the generator of the Lyapunov cycle to the orientation-reversing generat
 iota_dyn := iota_K · e_*: pi_1(Gamma_Lyap) -> Z/2.
 ```
 
-This is not unconditional. It is part of the encoding data.
+This is not unconditional in general. It is part of the encoding data.
 
 Finally, let
 
@@ -535,11 +535,15 @@ Together with Theorem 6.1, this yields a three-way agreement between analytic de
 
 **Proof.** Theorem 6.1 supplies the analytic-topological agreement. The conditional hypotheses supply the dynamical generator map and the nontrivial `SO(3)` Floquet phase. Since `e_*` sends the Lyapunov generator to `r`, and `iota_K(r)=1`, we have `iota_dyn(generator)=1`. Applying `epsilon` gives `-1`, which is the assumed Floquet phase. ∎
 
+**Corollary 6.2.C (Catalan A1 closed instance).** For the convention-bound Catalan A1 fixture `A1-sauzin-normalization-v1`, the three-way `mu_2` comparison holds on the specified generator.
+
+**Proof.** Appendix A constructs the Catalan A1 witness datum. Theorem A.7 supplies the Lyapunov loop, spin lift, encoding homomorphism, and commuting `mu_2` diagram required by Theorem 6.2. Applying Theorem 6.2 to this witness datum gives the claimed three-way agreement. ∎
+
 ### 6.5 What is and is not unconditional
 
 Theorem 6.1 is unconditional after the analytic realization and Klein-bottle classifying map are fixed. It is mechanized at the finite arithmetic level by the Catalan and Klein-bottle holonomy tests.
 
-Theorem 6.2 is conditional on the encoding hypothesis. Until a complete Catalan encoding is written and checked in Appendix A, the theorem is a conditional comparison theorem, not a closed construction. For general sentences the encoding hypothesis remains open.
+Theorem 6.2 remains conditional as a general comparison theorem. Corollary 6.2.C closes only the convention-bound Catalan A1 instance constructed in Appendix A. For general sentences, and for odd-prime targets, the encoding hypothesis remains open.
 
 ### 6.6 Odd-prime comparison conjecture
 
@@ -565,15 +569,15 @@ This section consolidates the open gates of the construction. Each item is tagge
 
 The discipline is: a limitation is closed only when the corresponding mathematical structure is constructed and the relevant theorem proved, and partially addressed only when the proper framework is in place but specific instances remain case-by-case. Open means the substantive mathematical content is not provided by this paper.
 
-### 7.1 Severity I.1 — The encoding hypothesis: Open
+### 7.1 Severity I.1 — The encoding hypothesis: Catalan A1 closed; open in general
 
 The gap. Theorem 6.2 depends on the existence of an encoding of a sentence `phi` as gate constraints in a Lawful Learning architecture, with a Lyapunov cycle in the gate manifold corresponding to a specified loop in the base manifold. The encoding hypothesis asserts that such an encoding exists for the sentence under consideration.
 
-Current status. Appendix A is expected to construct the encoding explicitly for the chain and Catalan families. Theorem 6.2 is therefore conditional until that appendix is complete. For general `phi`, and a fortiori for sentences in formal theories of arithmetic, the existence of an encoding is not established.
+Current status. Appendix A constructs a convention-bound Catalan A1 witness datum and therefore closes the Catalan A1 instance used in Corollary 6.2.C. For general `phi`, and a fortiori for arbitrary sentences in formal theories of arithmetic, the existence of an encoding is not established.
 
-What closure would require. A constructive recipe: given a sentence `phi` in a specified class of formal theories, produce explicitly the spectral operator, constraint matrix, gate parameterization, active-set structure, and verification that the active set is in bijection with normal proofs of `phi` counted by the chosen statistic.
+What closure would require in general. A constructive recipe: given a sentence `phi` in a specified class of formal theories, produce explicitly the spectral operator, constraint matrix, gate parameterization, active-set structure, and verification that the active set is in bijection with normal proofs of `phi` counted by the chosen statistic.
 
-What this paper does not claim. We do not claim that arbitrary `phi` admits an encoding. We do not claim that the encoding for chain and Catalan generalizes to wider classes by any specified procedure.
+What this paper does not claim. We do not claim that arbitrary `phi` admits an encoding. We do not claim that the Catalan A1 fixture generalizes to wider classes by any specified procedure.
 
 ### 7.2 Severity II.1 — Transcendental species: Open
 
@@ -589,16 +593,16 @@ Current status. No moduli space is constructed.
 
 ### 7.4 Dynamical gates inherited from the v2 integration material: Various
 
-The Lyapunov / Floquet / `SO(3)` dynamical material enters this paper only through Theorem 6.2 and Conjecture 6.3. The inherited gates are:
+The Lyapunov / Floquet / `SO(3)` dynamical material enters this paper only through Theorem 6.2, Corollary 6.2.C, and Conjecture 6.3. The inherited gates are:
 
-- **II.2: Level-set non-contractibility.** Lyapunov cycle existence requires a non-contractible cycle in the gate manifold. Status: open in general; expected Catalan witness in Appendix A.
+- **II.2: Level-set non-contractibility.** Lyapunov cycle existence requires a non-contractible cycle in the gate manifold. Status: closed for the Catalan A1 fixture by the explicit `SO(3)` generator loop in Appendix A; open in general.
 - **II.3: Active boundary as geometric object.** The eigendirection transverse to the active boundary requires smoothing or a piecewise-strata definition. Status: partially addressed by using a piecewise-strata interpretation.
 - **III.1: Moving-set proof obligation.** Time-ordered products of projections on varying convex sets require moving-set theory. Status: cited from standard sources, not reproduced.
 - **III.2: Floquet theory for proximal-gradient flows.** Smooth Floquet theory requires care when transferred to proximal-gradient dynamics. Status: exact-flow or smooth-approximation regime only.
 - **III.3: Energy conservation along level sets.** Exact gradient flow and discrete proximal updates differ by step-size errors. Status: exact-flow limit only.
-- **III.4: Floquet phase matching.** The v2 floor-function matching is reformulated as agreement of three `mu_2` realization maps. Status: conditional on Appendix A.
+- **III.4: Floquet phase matching.** The v2 floor-function matching is reformulated as agreement of three `mu_2` realization maps. Status: closed for the Catalan A1 fixture by Corollary 6.2.C; open in general.
 
-Aggregate status. These gates affect only Theorem 6.2 and the odd-prime conjecture. The unconditional analytic-topological comparison of Theorem 6.1 is independent of all dynamical material.
+Aggregate status. These gates affect only Theorem 6.2, Corollary 6.2.C, and the odd-prime conjecture. The unconditional analytic-topological comparison of Theorem 6.1 is independent of all dynamical material.
 
 ### 7.5 Severity V.1 — The regulator framework: Partially addressed
 
@@ -625,22 +629,22 @@ These claims are not made by this paper and are enforced by the claim-boundary g
 
 | Severity | Description | Status | Where |
 | --- | --- | --- | --- |
-| I.1 | Encoding hypothesis: sentence to gate constraints | Open in general; Appendix A expected for chain and Catalan | 7.1, Appendix A |
+| I.1 | Encoding hypothesis: sentence to gate constraints | Closed for Catalan A1 fixture; open in general | 6.4, 7.1, Appendix A |
 | I.2 | Multiplicativity correction term uncharacterized | Closed: character multiplies exactly; carry is lifted-index section defect | 4.5, 4.6 |
 | I.3 | Choice of statistic underdetermined | Closed via reduced statistic | 2.2 |
 | II.1 | Transcendental species | Open; bracketed | 7.2 |
-| II.2 | Lyapunov cycle non-contractibility | Open in general; expected Catalan witness in Appendix A | 7.4, Appendix A |
+| II.2 | Lyapunov cycle non-contractibility | Closed for Catalan A1 fixture; open in general | 6.4, 7.4, Appendix A |
 | II.3 | Active boundary geometry | Partially addressed by piecewise strata | 7.4 |
 | II.4 | Proof-class moduli absent | Open | 7.3 |
 | III.1 | Moving-set proof obligation | Cited from standard sources | 7.4 |
 | III.2 | Floquet theory for proximal flows | Exact-flow or smooth-approximation regime only | 7.4 |
 | III.3 | Energy conservation for discrete flow | Bracketed; exact-flow limit used | 7.4 |
-| III.4 | Floquet phase matching | Reformulated as three-map agreement; conditional on Appendix A | 6.4, Appendix A |
+| III.4 | Floquet phase matching | Closed for Catalan A1 fixture; open in general | 6.4, Appendix A |
 | III.5 | Odd-prime case | Open as Conjecture 6.3 | 6.6 |
 | V.1 | Beilinson regulator framework | Partially addressed: framework in place; Chern lifts case-by-case | 7.5, 4.5 |
 | V.2 | Bridge to recognition dynamics | Open; out of scope | Not addressed here |
 | V.3 | Implicational/product logic only | Open; predicate logic and arithmetic require extension | Not addressed here |
-| V.4 | No empirical validation | Open; harness covers finite arithmetic only | CI-backed invariants |
+| V.4 | No empirical validation | Open; harness covers finite arithmetic and Catalan A1 fixture data only | CI-backed invariants |
 | Hodge | Progress on Hodge conjecture | Not claimed | 7.6 |
 | Hodge | Algebraicity of Deligne classes | Not claimed | 7.6 |
 | Hodge | Variation of Hodge structure on proof-class space | Not claimed | 7.6 |
@@ -648,17 +652,17 @@ These claims are not made by this paper and are enforced by the claim-boundary g
 | Hodge | Algebraic cycle existence | Not claimed | 7.6 |
 | Hodge | Hodge relevance of Conjecture 6.3 | Not claimed | 7.6 |
 
-Aggregate. Two severities are closed: I.2 and I.3. Two are partially addressed: II.3 and V.1. The remainder are open, bracketed, out of scope, or not claimed.
+Aggregate. Five items are closed for the Catalan A1 fixture: I.1, I.2, I.3, II.2, and III.4. Of these, I.1, II.2, and III.4 remain open in general. Two items are partially addressed: II.3 and V.1. The remainder are open, bracketed, out of scope, or not claimed.
 
 ### 7.8 What this paper is
 
-The paper constructs a small Hodge-adjacent invariant: a proof-class generating function determines a level-1 Deligne unit whose finite-order shadows recover the v2 phase characters, with strict multiplicativity at the Deligne level and an explicit section-defect carry at the lifted-index level. For Catalan-type sentences with exponent `1/2`, the analytic deck character and the Klein-bottle topological holonomy commute unconditionally. Under the Catalan encoding hypothesis, both agree with the `SO(3)` Floquet phase of the constructed Lyapunov cycle.
+The paper constructs a small Hodge-adjacent invariant: a proof-class generating function determines a level-1 Deligne unit whose finite-order shadows recover the v2 phase characters, with strict multiplicativity at the Deligne level and an explicit section-defect carry at the lifted-index level. For Catalan-type sentences with exponent `1/2`, the analytic deck character and the Klein-bottle topological holonomy commute unconditionally. For the convention-bound Catalan A1 fixture, Appendix A constructs the loop, spin lift, encoding homomorphism, and finite `mu_2` diagram needed for the closed Corollary 6.2.C.
 
 The contribution is methodological: when an invariant naturally produces both integral and analytic data, Deligne cohomology is the appropriate framework. The construction is small and inspectable. Its limitations are enumerated above and enforced in CI.
 
 ## CI-backed invariants
 
-The test harness under `src/heller_godel/phase_characters.py` and `tests/test_phase_characters.py` covers the finite arithmetic and monodromy shadows of this draft. It does not mechanize Deligne cohomology.
+The test harness under `src/heller_godel/phase_characters.py`, `harness/catalan_a1_harness.py`, and the tests under `tests/` covers the finite arithmetic, monodromy shadows, and Catalan A1 fixture data of this draft. It does not mechanize Deligne cohomology.
 
 Currently covered:
 
@@ -670,12 +674,14 @@ Currently covered:
 - sphere triviality of pulled-back finite local systems;
 - torus finite holonomy through winding numbers;
 - Klein-bottle `mu_2` holonomy;
-- Theorem 6.1 finite comparison.
+- Theorem 6.1 finite comparison;
+- Catalan A1 coefficient, Stokes, jump, pairing, commutator, spin-lift, faithful-frame, and filtration checks;
+- Catalan A1 Lyapunov loop, encoding homomorphism, and commuting `mu_2` diagram checks.
 
-This executable layer is the finite shadow of the manuscript, not a proof of the full Deligne-cohomological formalism.
+This executable layer is the finite and fixture-level shadow of the manuscript, not a proof of the full Deligne-cohomological formalism and not a general encoding theorem.
 
 ## Appendix-map
 
-- Appendix A records the Catalan / chain witness obligations.
+- Appendix A records the chain witness, Catalan witness, A1 spin-gate witness, Catalan A1 encoding closure, and remaining general encoding limits.
 - Appendix B records carry cocycle tables.
 - Appendix C records Deligne cup-product, tame-symbol, and sign conventions.
