@@ -55,12 +55,26 @@ As of this policy revision, theorem-core consists of:
 
 ```text
 docs/manuscripts/paper_i_*.md
-docs/appendices/appendix_a_*.md
-docs/gates/minimality.md
+docs/appendices/**/*.md
+docs/proofs/**/*.md
+docs/gates/**/*.md
 src/heller_godel/*.py
 ```
 
-This set is intentionally narrower than all documentation. It covers the active theorem/proof/computation surface for the legacy topology terminology audit.
+This set is intentionally narrower than all documentation, but it covers the active theorem/proof/computation surface for the legacy topology terminology audit.
+
+## Current explicit non-core exemptions
+
+The scope-drift checker exempts:
+
+```text
+docs/manuscripts/calculus_invariant_characters_*.md
+docs/manuscripts/*patch_plan*.md
+docs/review-ledgers/**/*.md
+docs/governance/**/*.md
+```
+
+These paths are not treated as active theorem-core for this audit. If any exempted file is promoted to active theorem-core status, remove or narrow the exemption in the same PR.
 
 ## Failure interpretation
 
