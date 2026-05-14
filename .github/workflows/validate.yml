@@ -28,3 +28,6 @@ jobs:
 
       - name: Run claim-boundary guard
         run: python scripts/check_claim_boundaries.py
+
+      - name: Run CI gate registry coverage check
+        run: python scripts/check_ci_gate_registry.py
