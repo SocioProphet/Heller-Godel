@@ -17,6 +17,7 @@ import sys
 from typing import Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_FROZEN_LEDGER = ROOT / "docs" / "review-ledgers" / "HG_LEGACY_TOPOLOGY_TERMS_AUDIT.md"
 
 
 @dataclass(frozen=True)
@@ -39,6 +40,12 @@ PATTERNS: tuple[PatternSpec, ...] = (
         re.compile(r"fundamental path groupoid", re.IGNORECASE),
         "core-blocker",
         "Use geometric path category where path transport, not homotopy-class groupoid structure, is intended.",
+    ),
+    PatternSpec(
+        "generic-groupoid-language",
+        re.compile(r"\bgroupoid\b", re.IGNORECASE),
+        "review-required",
+        "Review in theorem-core. Groupoid language is allowed only when an actual groupoid object is being defined, not as stale path-space shorthand.",
     ),
     PatternSpec(
         "homotopy-class-language",
@@ -176,6 +183,11 @@ def render_markdown(hits: list[Hit], root: Path) -> str:
         patterns = ", ".join(f"`{p}`" for p in file_class.path_patterns)
         lines.append(f"- **{file_class.tag}** — fail on hit: `{fail_text}` — {file_class.note} Patterns: {patterns}")
     lines.append("")
+    lines.append("## Pattern coverage")
+    lines.append("")
+    for pattern in PATTERNS:
+        lines.append(f"- **{pattern.name}** / `{pattern.severity}` — {pattern.replacement_hint}")
+    lines.append("")
     lines.append("## Hits")
     lines.append("")
     if not hits:
@@ -197,11 +209,38 @@ def render_markdown(hits: list[Hit], root: Path) -> str:
     return "\n".join(lines)
 
 
+def compare_against_frozen(current_report: str, frozen_path: Path) -> int:
+    """Return 0 when the current report text exactly matches a frozen report.
+
+    This is intentionally byte-for-byte strict. If the frozen report was produced
+    by connector-backed search rather than this script, divergence is expected;
+    the output then becomes a correction trigger before remediation PRs begin.
+    """
+
+    if not frozen_path.exists():
+        print(f"frozen report not found: {frozen_path}", file=sys.stderr)
+        return 2
+    frozen = frozen_path.read_text(encoding="utf-8")
+    if frozen == current_report:
+        print(f"local audit matches frozen report: {frozen_path}")
+        return 0
+    print(f"local audit diverges from frozen report: {frozen_path}", file=sys.stderr)
+    print("write the local report with --output and open a correction PR before remediation", file=sys.stderr)
+    return 1
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT, help="Repository root to scan.")
     parser.add_argument("--fail-on-core", action="store_true", help="Exit 1 if theorem-core hits are found.")
     parser.add_argument("--output", type=Path, help="Write markdown report to this path.")
+    parser.add_argument(
+        "--diff-against-frozen",
+        type=Path,
+        nargs="?",
+        const=DEFAULT_FROZEN_LEDGER,
+        help="Compare generated report byte-for-byte against the frozen ledger; optionally pass a custom ledger path.",
+    )
     args = parser.parse_args(argv)
 
     root = args.root.resolve()
@@ -210,18 +249,23 @@ def main(argv: list[str] | None = None) -> int:
         hits.extend(scan_file(file_class, path))
 
     report = render_markdown(hits, root)
+    exit_code = 0
+
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(report, encoding="utf-8")
     else:
         print(report)
 
+    if args.diff_against_frozen:
+        exit_code = max(exit_code, compare_against_frozen(report, args.diff_against_frozen.resolve()))
+
     if args.fail_on_core:
         core_hits = [hit for hit in hits if hit.file_class == "theorem-core"]
         if core_hits:
             print(f"legacy topology audit failed: {len(core_hits)} theorem-core hit(s)", file=sys.stderr)
-            return 1
-    return 0
+            exit_code = max(exit_code, 1)
+    return exit_code
 
 
 if __name__ == "__main__":
