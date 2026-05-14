@@ -1,0 +1,52 @@
+name: legacy-topology-audit
+
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - "src/heller_godel/**"
+      - "scripts/audit_legacy_topology_terms.py"
+      - ".github/workflows/legacy-topology-audit.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+      - "src/heller_godel/**"
+      - "scripts/audit_legacy_topology_terms.py"
+      - ".github/workflows/legacy-topology-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    name: Audit legacy topology terminology
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run scoped legacy topology audit
+        run: |
+          python scripts/audit_legacy_topology_terms.py \
+            --output docs/review-ledgers/HG_LEGACY_TOPOLOGY_TERMS_AUDIT_LOCAL.md \
+            --fail-on-core
+
+      - name: Compare local audit against frozen connector-backed ledger
+        continue-on-error: true
+        run: |
+          python scripts/audit_legacy_topology_terms.py \
+            --output docs/review-ledgers/HG_LEGACY_TOPOLOGY_TERMS_AUDIT_LOCAL.md \
+            --diff-against-frozen
+
+      - name: Upload local audit report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: legacy-topology-audit-local
+          path: docs/review-ledgers/HG_LEGACY_TOPOLOGY_TERMS_AUDIT_LOCAL.md
+          if-no-files-found: error
