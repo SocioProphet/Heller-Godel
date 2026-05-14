@@ -18,8 +18,28 @@ from typing import Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_FROZEN_LEDGER = ROOT / "docs" / "review-ledgers" / "HG_LEGACY_TOPOLOGY_TERMS_AUDIT.md"
+SCOPE_POLICY_DOC = "docs/governance/audit_scope_maintenance.md"
 REPORT_START = "<!-- AUDIT_REPORT_START -->"
 REPORT_END = "<!-- AUDIT_REPORT_END -->"
+
+# Broad discovery globs for files that likely belong to the active theorem/proof surface.
+# Every file discovered here must also be covered by FILE_CLASSES, unless explicitly exempted.
+THEOREM_SURFACE_CANDIDATE_GLOBS: tuple[str, ...] = (
+    "src/heller_godel/*.py",
+    "docs/manuscripts/**/*.md",
+    "docs/appendices/**/*.md",
+    "docs/proofs/**/*.md",
+    "docs/gates/**/*.md",
+)
+
+# These are not active theorem-core surfaces for this audit. They are retained for provenance,
+# superseded manuscripts, or policy docs, and are scanned under non-core classes or left alone.
+SCOPE_DRIFT_EXEMPT_GLOBS: tuple[str, ...] = (
+    "docs/manuscripts/calculus_invariant_characters_*.md",
+    "docs/manuscripts/*patch_plan*.md",
+    "docs/review-ledgers/**/*.md",
+    "docs/governance/**/*.md",
+)
 
 
 @dataclass(frozen=True)
@@ -144,6 +164,11 @@ class Hit:
     line: str
 
 
+def path_matches_any(path: Path, root: Path, patterns: tuple[str, ...]) -> bool:
+    rel = path.relative_to(root).as_posix()
+    return any(path.match(pattern) or Path(rel).match(pattern) for pattern in patterns)
+
+
 def iter_classified_files(root: Path) -> Iterable[tuple[FileClass, Path]]:
     seen: set[Path] = set()
     for file_class in FILE_CLASSES:
@@ -156,6 +181,57 @@ def iter_classified_files(root: Path) -> Iterable[tuple[FileClass, Path]]:
                     continue
                 seen.add(resolved)
                 yield file_class, path
+
+
+def classified_file_set(root: Path) -> set[Path]:
+    return {path.resolve() for _, path in iter_classified_files(root)}
+
+
+def iter_theorem_surface_candidates(root: Path) -> Iterable[Path]:
+    seen: set[Path] = set()
+    for pattern in THEOREM_SURFACE_CANDIDATE_GLOBS:
+        for path in root.glob(pattern):
+            if not path.is_file():
+                continue
+            resolved = path.resolve()
+            if resolved in seen:
+                continue
+            seen.add(resolved)
+            yield path
+
+
+def scope_drift(root: Path) -> list[Path]:
+    classified = classified_file_set(root)
+    drift: list[Path] = []
+    for path in iter_theorem_surface_candidates(root):
+        resolved = path.resolve()
+        if resolved in classified:
+            continue
+        if path_matches_any(path, root, SCOPE_DRIFT_EXEMPT_GLOBS):
+            continue
+        drift.append(path)
+    return sorted(drift, key=lambda p: p.relative_to(root).as_posix())
+
+
+def render_scope_drift(drift: list[Path], root: Path) -> str:
+    if not drift:
+        return "No audit scope drift found."
+    lines = [
+        "Audit scope drift detected.",
+        "",
+        "The following theorem-surface candidate files are not covered by FILE_CLASSES:",
+        "",
+    ]
+    for path in drift:
+        lines.append(f"- `{path.relative_to(root).as_posix()}`")
+    lines.extend(
+        [
+            "",
+            "Update FILE_CLASSES in `scripts/audit_legacy_topology_terms.py`, or add a documented exemption.",
+            f"Policy: `{SCOPE_POLICY_DOC}`",
+        ]
+    )
+    return "\n".join(lines)
 
 
 def scan_file(file_class: FileClass, path: Path) -> list[Hit]:
@@ -253,6 +329,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT, help="Repository root to scan.")
     parser.add_argument("--fail-on-core", action="store_true", help="Exit 1 if theorem-core hits are found.")
+    parser.add_argument("--fail-on-scope-drift", action="store_true", help="Exit 1 if theorem-surface candidate files are outside audit scope.")
     parser.add_argument("--output", type=Path, help="Write markdown report to this path.")
     parser.add_argument(
         "--diff-against-frozen",
@@ -279,6 +356,14 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.diff_against_frozen:
         exit_code = max(exit_code, compare_against_frozen(report, args.diff_against_frozen.resolve()))
+
+    if args.fail_on_scope_drift:
+        drift = scope_drift(root)
+        if drift:
+            print(render_scope_drift(drift, root), file=sys.stderr)
+            exit_code = max(exit_code, 1)
+        else:
+            print("audit scope drift check passed")
 
     if args.fail_on_core:
         core_hits = [hit for hit in hits if hit.file_class == "theorem-core"]
