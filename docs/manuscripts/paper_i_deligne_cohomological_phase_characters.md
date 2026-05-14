@@ -8,7 +8,7 @@ D1 reconciliation status, 2026-05-14:
 - Merged legacy source: `docs/manuscripts/calculus_invariant_characters_v2_1_3.md` is reconciled where its finite phase, carry, shell, flat-visibility, limitations, and nonclaim material survives the Deligne-cohomological rewrite.
 - Missing source: no `v2.1.2` / `v2_1_2` manuscript source was found on live `main`; therefore no v2.1.2-specific override is applied in this pass.
 - Divergence rule: where v2.1.3 conflicts with this D1 framing, this D1 draft wins unless a later sourced patch proves a narrower v2.1.2 or v2.1.3 passage should be restored.
-- Locked audit invariants: finite `pi_1` monodromy/local-system notation is permitted; stale `Π₁(B)` path-groupoid language is not reintroduced; carry remains a finite section-defect cocycle; Deligne cup-product/tame-symbol material remains a distinct regulator-symbol branch; `S^2` appears only as a finite local-system sanity check.
+- Locked audit invariants: finite `pi_1` monodromy/local-system notation is permitted; stale `Π₁(B)` path-category transport language is not reintroduced; carry remains a finite section-defect cocycle; Deligne cup-product/tame-symbol material remains a distinct regulator-symbol branch; `S^2` appears only as a finite local-system sanity check.
 
 See `docs/review-ledgers/D1_RECONCILIATION_LEDGER.md` for the source inventory, merge decisions, and divergence notes.
 
@@ -101,7 +101,7 @@ alpha_{phi,rho} = a/N
 in lowest terms. On the cover `w^N = t_rho`, the Puiseux singular unit is
 
 ```text
-u_{phi,rho} = w^a
+nu_{phi,rho} = w^a
 ```
 
 or, with a nonvanishing analytic factor,
