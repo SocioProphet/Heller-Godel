@@ -82,44 +82,57 @@ Then:
    constituting a **finite local-system witness** for Theorem 6.1.
 
 *Proof.*
-The presentation relation $r s r^{-1} = s^{-1}$ is compatible with
-$\mathrm{Hol}(s) = +1$: conjugation by $r$ sends $s \mapsto s^{-1}$,
-which in $\mu_2$ is the identity since $(-1)^{-1} = -1 = \mathrm{Hol}(s)$
-only if $\mathrm{Hol}(s) = \pm 1$ — the trivial assignment $+1$ is consistent.
+The assignment $\mathrm{Hol}(s) = +1$ is consistent with the presentation
+relation: conjugation by $r$ acts on $s$ as inversion, and in $\mu_2$
+inversion is the identity, so the relation imposes no obstruction:
+$\mathrm{Hol}(r)\,\mathrm{Hol}(s)\,\mathrm{Hol}(r)^{-1} = +1 = \mathrm{Hol}(s)^{-1}$.
 The holonomy of $r$ is fixed by $(f_K)_*(r) = \gamma_\rho$ and the
 Puiseux character $-1$ from Proposition A.2. $\square$
 
 *CI witness:* `tests/test_phase_characters.py` — Klein-bottle $r$-holonomy,
 sphere/torus finite holonomy, and Theorem 6.1 common-generator agreement.
 
-## A.4 Minimal `SO(3)` generator for the conditional Floquet corner
+## A.4 A1 spin-gate witness
 
-The conditional Floquet corner needs a loop representing the nontrivial class in
+**Theorem A.4 (A1 Spin-Gate Witness).**
+Under convention `A1-sauzin-normalization-v0`, as recorded in
+`harness/reference_reports/catalan_a1_report.json`
+(hash-chain head `0e8469cc953d2e340b2eda0e929e1e143bde041e82479948c4784801e13b7075`),
+the Catalan A1 fixture verifies the following eight checks:
 
-```text
-pi_1(SO(3)) ~= Z/2.
-```
+1. **Coefficient enumeration.** The Catalan coefficients $C_n = \binom{2n}{n}/(n+1)$
+   are reproduced for $n = 0, \ldots, 19$.
+2. **Stokes multiplier.** The square-root Stokes multiplier evaluates to $-1$.
+3. **Catalan jump coefficient.** The normalized jump coefficient has absolute
+   value $4$.
+4. **Pairing preservation.** The symplectic pairing is preserved under the
+   active-sector action.
+5. **Non-abelian active witness.** The commutator norm of the active-sector
+   generators is nonzero, witnessing non-abelian action.
+6. **Spin lift.** The central element satisfies $\zeta = -I \in \mathrm{SU}(2)$,
+   consistent with the spin-lift of the nontrivial element of $\mu_2$.
+7. **Faithful spatial frame.** The spatial spin frame is a faithful
+   $\mathrm{Spin}(3) \cong \mathrm{SU}(2)$ representation with
+   $\rho_{\mathrm{spatial}}$ the identity on $\mathrm{SU}(2)$.
+8. **Active-sector filtration.** The active sector is the irreducible
+   two-dimensional spinor representation; the filtration is confirmed.
 
-A standard representative is the loop
+Therefore the A1 fixture supplies the finite algebraic and spin-side witness
+required by the conditional Catalan comparison.
 
-```text
-R(t) = rotation about a fixed axis by angle 2*pi*t,
-0 <= t <= 1.
-```
+*Gate minimality.* Within admissible A1 gate data, the minimal single-group
+realization is $\mathrm{Spin}(3) \cong \mathrm{SU}(2)$ with active sector the
+defining two-dimensional spinor representation and central element $\zeta = -I$.
+This excludes general ADE groups, $A_n$ for $n \geq 2$, orthogonal active
+pairings, $\mathrm{SO}(3)$ as a single-group substitute, and non-isolated or
+non-algebraic cases. See `docs/proofs/a1-gate-minimality.md` v2.
 
-In `SO(3)`, the endpoints agree because a `2*pi` rotation is the identity. The loop is non-contractible and represents the generator of `pi_1(SO(3))`. Under the double cover
+*Scope boundary.* Theorem A.4 does not construct $\Gamma_{\mathrm{Lyap}}$
+or $e_*$. The Lyapunov cycle and Klein-bottle encoding homomorphism remain
+open obligations; see the encoding bridge gap ledger in Appendix A.6.
 
-```text
-SU(2) -> SO(3),
-```
-
-this loop lifts from `+1` to `-1`, hence has `mu_2` phase
-
-```text
--1.
-```
-
-This supplies the target value required by Theorem 6.2 once an encoding identifies the Lyapunov cycle with this loop.
+*CI witness:* `tests/test_catalan_a1_harness.py` — hash-chain head and
+committed report proof reference.
 
 ## A.5 Catalan encoding datum, stated as a witness schema
 
@@ -139,7 +152,26 @@ sending the Lyapunov generator to the Klein-bottle orientation-reversing generat
 
 With these data, Theorem 6.2 is immediate: the Lyapunov generator maps to `r`, `r` maps to the puncture loop, and both evaluate to `-1` in `mu_2`.
 
-## A.6 What this appendix verifies
+## A.6 Encoding bridge gap ledger
+
+Theorem A.4 closes the finite algebraic and spin-side witness for the
+Catalan A1 fixture. Two bridge objects remain unbuilt before
+Theorem 6.2 can be upgraded to a closed Catalan instance:
+
+| Bridge object | Obligation | Current state |
+|---|---|---|
+| $\Gamma_{\mathrm{Lyap}}$ | A specified loop or cycle in $G_C$ whose projection to the $\mathrm{SO}(3)$ factor (or two-fold analogue) is the generator of $\pi_1(\mathrm{SO}(3)) \cong \mathbb{Z}/2$, with Floquet phase character $\zeta = -I \in \mu_2$ | Not constructed; spin witness $\zeta = -I$ establishes the target value only |
+| $e_*$ | A homomorphism $\pi_1(\Gamma_{\mathrm{Lyap}}) \to \pi_1(K)$ sending the Lyapunov generator to the Klein-bottle orientation-reversing generator $r$ | Not implemented; Appendix A.5 states the schema only |
+
+Until both objects are constructed and verified, Theorem 6.2 remains
+conditional in general. Proposition A.2, Proposition A.3, and Theorem A.4
+together constitute the maximal closed Catalan witness currently available.
+
+Promotion condition: a future PR may add **Theorem A.7 (Catalan A1 Encoding
+Closure)** and **Corollary 6.2.C** only after $\Gamma_{\mathrm{Lyap}}$ and
+$e_*$ are explicitly defined, with tests covering both objects.
+
+## A.7 What this appendix verifies
 
 This appendix verifies the following finite and topological claims:
 
@@ -151,9 +183,10 @@ This appendix verifies the following finite and topological claims:
 | Catalan deck character sends generator to `-1` | Verified |
 | Klein-bottle map sends `r` to the puncture loop and `s` to zero | Specified |
 | Pulled-back Klein-bottle holonomy is `Hol(r)=-1`, `Hol(s)=1` | Verified |
-| `SO(3)` generator has nontrivial `Z/2` class | Standard topological fact |
+| A1 fixture supplies finite algebraic and spin-side witness | Verified by pinned harness report |
+| Lyapunov cycle and encoding homomorphism | Open; recorded in A.6 |
 
-## A.7 What remains open
+## A.8 What remains open
 
 This appendix does not close the general encoding hypothesis. It leaves open:
 
@@ -165,13 +198,14 @@ This appendix does not close the general encoding hypothesis. It leaves open:
 
 Thus Appendix A supports the conditional Catalan comparison by making the finite and topological witness data explicit. It does not upgrade Theorem 6.2 into an unconditional general theorem.
 
-## A.8 CI hooks
+## A.9 CI hooks
 
-**A.8 CI hooks for Appendix A propositions.**
+**A.9 CI hooks for Appendix A propositions.**
 
 | Proposition | Test file(s) | Coverage |
 |---|---|---|
 | A.1 Chain null witness | `tests/test_chain_product.py`, `tests/test_phase_characters.py` | Chain product correction; trivial character |
 | A.2 Catalan finite analytic witness | `tests/test_catalan_puiseux.py`, `tests/test_phase_characters.py` | Puiseux exponent; $\mu_2$ character |
 | A.3 Klein-bottle local-system witness | `tests/test_phase_characters.py` | $r$-holonomy; Theorem 6.1 generator agreement |
-| A1 harness (Spin-gate, PR B) | `tests/test_catalan_a1_harness.py` | Hash-chain head; report proof reference |
+| A.4 A1 spin-gate witness | `tests/test_catalan_a1_harness.py` | Hash-chain head; report proof reference |
+| A.6 Encoding bridge gap ledger | No closure test yet | Records open $\Gamma_{\mathrm{Lyap}}$ and $e_*$ obligations |
