@@ -16,6 +16,19 @@ proof apparatus validation:        enforced by reusable SocioSphere workflow
 local governance-check target:     added in Makefile
 ```
 
+Current proof-state update after PR #39:
+
+```text
+Theorem 6.1:                         closed, unconditional analytic-topological mu_2 comparison
+Proposition A.1:                     closed, chain null finite-character witness
+Proposition A.2:                     closed, Catalan finite analytic witness
+Proposition A.3:                     closed, Klein-bottle mu_2 local-system witness
+Theorem A.4:                         closed, A1 spin-gate witness under convention A1-sauzin-normalization-v1
+Theorem A.7:                         closed, Catalan A1 encoding closure under convention A1-sauzin-normalization-v1
+Corollary 6.2.C:                     closed, Catalan A1 instance of Theorem 6.2
+Theorem 6.2:                         conditional in general; general encoding hypothesis remains open
+```
+
 No theorem-core remediation is currently required from the legacy topology audit. The authoritative ledger records `No scoped hits found`.
 
 ## Audit loops
@@ -170,6 +183,8 @@ Current observed status from the latest validated PR sequence:
 PASS
 ```
 
+The guard now records that Catalan A1 is closed only as a convention-bound fixture while Theorem 6.2 remains conditional as a general comparison theorem.
+
 ## Proof apparatus validation
 
 Workflow:
@@ -220,11 +235,11 @@ This is a local preflight for the repository's governance checks. It does not re
 
 ### Registry semantic depth
 
-The CI gate registry coverage checker verifies that each workflow is represented by filename, path, and workflow name. It does not yet verify that every individual step is classified in the registry table.
+The CI gate registry coverage checker now validates workflow, job, step, and reusable-workflow-reference coverage. This closes the earlier workflow-only registry drift gap.
 
-Current assessment: acceptable. This prevents silent workflow-level drift, which is the high-priority failure mode.
+Current assessment: acceptable. Further hardening should be driven by actual workflow syntax complexity rather than speculative parser expansion.
 
-Potential hardening: parse workflow steps and require each `name:` under `steps` to appear in the registry or an explicit ignore list.
+Potential hardening: replace the line-oriented workflow parser with a YAML parser if workflow syntax becomes too complex for the current scanner.
 
 ### Soft-signal attention risk
 
@@ -237,6 +252,12 @@ Current mitigation: the registry records the consumer, promotion condition, and 
 The topology scope-drift checker supports exemptions. Overuse of exemptions would weaken theorem-core audit coverage.
 
 Current mitigation: the scope policy states that exemption is not the default answer and requires a documented reason in the same PR.
+
+### Fixture-overgeneralization risk
+
+The Catalan A1 fixture is closed, but it must not be read as a general encoding theorem.
+
+Current mitigation: the main manuscript, Appendix A, and claim-boundary guard all state that the general encoding hypothesis remains open and that the Catalan result is convention-bound.
 
 ## Readiness conclusion
 
@@ -253,4 +274,4 @@ proof apparatus validation
 local governance preflight
 ```
 
-No immediate theorem remediation is pending. The next useful hardening step is step-level CI registry coverage, but it is not required before normal development continues.
+No immediate theorem remediation is pending. The next useful proof front is realization independence for the closed Catalan A1 fixture: determine whether alternative admissible choices of `Gamma_Lyap` and `e_*` yield the same `mu_2` output under the relevant equivalences before opening the odd-prime comparison front.
