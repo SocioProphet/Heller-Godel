@@ -66,6 +66,23 @@ docs/manuscripts/*patch_plan*.md
 
 Policy: report separately from active Paper I theorem core. These files are superseded or transition artifacts, not the active Paper I claim surface.
 
+## Pattern coverage
+
+The committed script covers the original v1.6 terminology surface plus the follow-up groupoid gap:
+
+```text
+Π₁(B) / \Pi_1(B)
+fundamental path groupoid
+generic groupoid language
+homotopy class / homotopy classes
+E ×_{B,s} Π₁(B) / E ×_{B,s} \Pi_1(B)
+γ ∈ Π₁(B) / gamma in \Pi_1(B)
+since/because S^2 is simply connected
+every loop is contractible
+```
+
+Generic `groupoid` coverage is intentionally `review-required`, not automatic failure in non-core files. In theorem-core, groupoid language is acceptable only where an actual groupoid object is defined and used, not where it is stale shorthand for path transport or homotopy classes.
+
 ## Connector-backed findings
 
 ### 1. Active Paper I is the current canonical theorem surface
@@ -113,19 +130,31 @@ Connector search returned no results.
 
 Preliminary status: no active blocker observed.
 
-### 5. `homotopy class` / `homotopy classes`
+### 5. Generic `groupoid`
+
+Generic `groupoid` is now in script scope as a `review-required` pattern. This closes the audit gap flagged during PR review.
+
+Policy:
+
+- In theorem-core, `groupoid` is allowed only when the manuscript defines and uses a genuine groupoid object.
+- In theorem-core, `groupoid` is not allowed as stale shorthand for a path space, path transport category, or homotopy-class quotient.
+- In context, source-capture, historical, or legacy-manuscript files, generic `groupoid` hits are review evidence only unless a separate archival-normalization task is opened.
+
+A local script run is required for authoritative per-line output.
+
+### 6. `homotopy class` / `homotopy classes`
 
 Connector search returned no results.
 
 Preliminary status: no active blocker observed.
 
-### 6. `simply connected`
+### 7. `simply connected`
 
 Connector search returned no results for exact phrase in scoped active surfaces.
 
 Preliminary status: no active blocker observed.
 
-### 7. `every loop is contractible`
+### 8. `every loop is contractible`
 
 Connector search returned hits in:
 
@@ -175,10 +204,15 @@ Recommended follow-on PRs:
 1. Run the committed script locally or in CI:
 
 ```bash
-python scripts/audit_legacy_topology_terms.py --output docs/review-ledgers/HG_LEGACY_TOPOLOGY_TERMS_AUDIT_LOCAL.md --fail-on-core
+python scripts/audit_legacy_topology_terms.py \
+  --output docs/review-ledgers/HG_LEGACY_TOPOLOGY_TERMS_AUDIT_LOCAL.md \
+  --diff-against-frozen \
+  --fail-on-core
 ```
 
-2. If theorem-core hits remain, open narrowly scoped patch PRs in this order:
+2. If local output diverges from the frozen connector-backed ledger, open a correction PR before any remediation starts.
+
+3. If theorem-core hits remain, open narrowly scoped patch PRs in this order:
 
 ```text
 PR A: Paper I wording only
@@ -187,7 +221,7 @@ PR C: gate/minimality wording only
 PR D: optional legacy manuscript normalization, if desired
 ```
 
-3. Do not rewrite source-capture, context, or historical material unless a separate archival policy is approved.
+4. Do not rewrite source-capture, context, or historical material unless a separate archival policy is approved.
 
 ## Decision log
 
@@ -197,3 +231,5 @@ PR D: optional legacy manuscript normalization, if desired
 - `pi_1` notation is allowed in finite-local-system theorem-core where it denotes the domain of finite monodromy/holonomy characters.
 - `\mathsf{Path}(B)` should only be introduced where actual geometric path-category transport is being defined.
 - `S^2` may be used as a trivial sanity-check base via `pi_1(S^2)=0`, but not as a theorem-grade substitute for a path/holonomy construction.
+- Generic `groupoid` is now explicitly in audit scope as review-required terminology.
+- `--diff-against-frozen` exists to force local-vs-ledger discrepancy visibility before remediation PRs begin.
