@@ -31,11 +31,13 @@ pull_request to main
 | --- | --- | --- | --- | --- |
 | Python test suite | `tests` / `Run tests` / `pytest -q` | `hard-blocker` | Executable package behavior is broken or tests are inconsistent with the current code. | Fix the code, tests, or documented executable boundary before merge. |
 | Claim-boundary guard | `tests` / `Run claim-boundary guard` / `python scripts/check_claim_boundaries.py` | `hard-blocker` | Manuscript or repository claims violate the bounded nonclaim/claim-scope policy. | Narrow the claim, add an explicit nonclaim, or update the guard only with a documented governance reason. |
+| CI gate registry coverage | `tests` / `Run CI gate registry coverage check` / `python scripts/check_ci_gate_registry.py` | `hard-blocker` | A workflow file under `.github/workflows/` is not represented in this registry by filename, path, and workflow name. | Update this registry in the same PR that adds, removes, renames, or materially changes workflow semantics. |
 
 Notes:
 
 - Dependency installation and checkout/setup steps are operational prerequisites for the hard-blocking gates.
 - If setup fails because of environment drift, treat it as a hard-blocking infrastructure failure until proven transient.
+- The registry coverage gate prevents this document from becoming a stale point-in-time snapshot.
 
 ### `.github/workflows/proof-apparatus-continuous-validation.yml`
 
@@ -78,6 +80,14 @@ workflow_dispatch
 | Frozen-ledger comparison | `audit` / `Compare local audit against frozen connector-backed ledger` / `--diff-against-frozen` | `soft-signal` | The local scanner output diverges from the marked authoritative payload in the frozen ledger. This step uses `continue-on-error: true`; divergence is visible but non-blocking. | Open a ledger correction PR before terminology remediation. Do not edit theorem text until the ledger state is reconciled. |
 | Local audit artifact upload | `audit` / `Upload local audit report` | `artifact-observer` | The local report artifact was not uploaded. | Restore artifact upload so reviewers can inspect machine output outside logs. |
 
+Soft-signal policy for `--diff-against-frozen`:
+
+```text
+signal_consumer: maintainer review on each PR that triggers legacy-topology-audit
+promotion_condition: diff persists across 2+ PRs without documented justification
+output_location: docs/review-ledgers/HG_LEGACY_TOPOLOGY_TERMS_AUDIT_LOCAL.md and the legacy-topology-audit job logs/artifact
+```
+
 Notes:
 
 - The hard blockers are `--fail-on-core` and `--fail-on-scope-drift`.
@@ -91,6 +101,7 @@ As of this registry revision, the hard blockers are:
 ```text
 validate / pytest -q
 validate / scripts/check_claim_boundaries.py
+validate / scripts/check_ci_gate_registry.py
 Proof apparatus continuous validation / reusable proof-apparatus workflow
 legacy-topology-audit / --fail-on-core
 legacy-topology-audit / --fail-on-scope-drift
