@@ -34,7 +34,8 @@ jobs:
         run: |
           python scripts/audit_legacy_topology_terms.py \
             --output docs/review-ledgers/HG_LEGACY_TOPOLOGY_TERMS_AUDIT_LOCAL.md \
-            --fail-on-core
+            --fail-on-core \
+            --fail-on-scope-drift
 
       - name: Print local audit report
         run: cat docs/review-ledgers/HG_LEGACY_TOPOLOGY_TERMS_AUDIT_LOCAL.md
