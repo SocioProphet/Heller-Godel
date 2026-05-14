@@ -115,8 +115,9 @@ FILE_CLASSES: tuple[FileClass, ...] = (
         "theorem-core",
         (
             "docs/manuscripts/paper_i_*.md",
-            "docs/appendices/appendix_a_*.md",
-            "docs/gates/minimality.md",
+            "docs/appendices/**/*.md",
+            "docs/proofs/**/*.md",
+            "docs/gates/**/*.md",
             "src/heller_godel/*.py",
         ),
         True,
