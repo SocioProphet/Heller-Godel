@@ -18,15 +18,17 @@ REQUIRED_CLAIM_BOUNDARY_PHRASES = [
     "No Deligne class on `B` is produced",
     "No Chern class on `B` is produced",
     "No algebraic cycle is produced",
+    "does **not** close the general encoding hypothesis for arbitrary arithmetic sentences",
+    "Theorem 6.2 remains conditional as a general comparison theorem",
 ]
 
 REQUIRED_DONE_MATRIX_ROWS = [
-    "| I.1 | Encoding hypothesis: sentence to gate constraints | Open in general; Appendix A expected for chain and Catalan | 7.1, Appendix A |",
+    "| I.1 | Encoding hypothesis: sentence to gate constraints | Closed for Catalan A1 fixture; open in general | 6.4, 7.1, Appendix A |",
     "| I.2 | Multiplicativity correction term uncharacterized | Closed: character multiplies exactly; carry is lifted-index section defect | 4.5, 4.6 |",
     "| I.3 | Choice of statistic underdetermined | Closed via reduced statistic | 2.2 |",
     "| II.1 | Transcendental species | Open; bracketed | 7.2 |",
     "| II.4 | Proof-class moduli absent | Open | 7.3 |",
-    "| III.4 | Floquet phase matching | Reformulated as three-map agreement; conditional on Appendix A | 6.4, Appendix A |",
+    "| III.4 | Floquet phase matching | Closed for Catalan A1 fixture; open in general | 6.4, Appendix A |",
     "| III.5 | Odd-prime case | Open as Conjecture 6.3 | 6.6 |",
     "| V.1 | Beilinson regulator framework | Partially addressed: framework in place; Chern lifts case-by-case | 7.5, 4.5 |",
     "| Hodge | Progress on Hodge conjecture | Not claimed | 7.6 |",
