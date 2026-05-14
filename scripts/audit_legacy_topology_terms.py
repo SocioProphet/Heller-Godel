@@ -18,6 +18,8 @@ from typing import Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_FROZEN_LEDGER = ROOT / "docs" / "review-ledgers" / "HG_LEGACY_TOPOLOGY_TERMS_AUDIT.md"
+REPORT_START = "<!-- AUDIT_REPORT_START -->"
+REPORT_END = "<!-- AUDIT_REPORT_END -->"
 
 
 @dataclass(frozen=True)
@@ -209,22 +211,40 @@ def render_markdown(hits: list[Hit], root: Path) -> str:
     return "\n".join(lines)
 
 
-def compare_against_frozen(current_report: str, frozen_path: Path) -> int:
-    """Return 0 when the current report text exactly matches a frozen report.
+def frozen_report_payload(frozen_text: str) -> str:
+    """Return the authoritative report payload from a frozen ledger.
 
-    This is intentionally byte-for-byte strict. If the frozen report was produced
-    by connector-backed search rather than this script, divergence is expected;
-    the output then becomes a correction trigger before remediation PRs begin.
+    Ledgers may preserve historical connector-backed context outside the exact
+    scanner output. When AUDIT_REPORT_START / AUDIT_REPORT_END markers exist,
+    only the marked payload is compared. Without markers, the whole file remains
+    the comparison target for backward compatibility.
     """
+
+    if REPORT_START not in frozen_text and REPORT_END not in frozen_text:
+        return frozen_text
+    if REPORT_START not in frozen_text or REPORT_END not in frozen_text:
+        raise ValueError("frozen ledger has incomplete audit report markers")
+    start = frozen_text.index(REPORT_START) + len(REPORT_START)
+    end = frozen_text.index(REPORT_END, start)
+    return frozen_text[start:end].strip("\n") + "\n"
+
+
+def compare_against_frozen(current_report: str, frozen_path: Path) -> int:
+    """Return 0 when current report matches the frozen authoritative payload."""
 
     if not frozen_path.exists():
         print(f"frozen report not found: {frozen_path}", file=sys.stderr)
         return 2
     frozen = frozen_path.read_text(encoding="utf-8")
-    if frozen == current_report:
-        print(f"local audit matches frozen report: {frozen_path}")
+    try:
+        frozen_payload = frozen_report_payload(frozen)
+    except ValueError as exc:
+        print(str(exc), file=sys.stderr)
+        return 2
+    if frozen_payload == current_report:
+        print(f"local audit matches frozen report payload: {frozen_path}")
         return 0
-    print(f"local audit diverges from frozen report: {frozen_path}", file=sys.stderr)
+    print(f"local audit diverges from frozen report payload: {frozen_path}", file=sys.stderr)
     print("write the local report with --output and open a correction PR before remediation", file=sys.stderr)
     return 1
 
@@ -239,7 +259,7 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         nargs="?",
         const=DEFAULT_FROZEN_LEDGER,
-        help="Compare generated report byte-for-byte against the frozen ledger; optionally pass a custom ledger path.",
+        help="Compare generated report against the frozen ledger payload; optionally pass a custom ledger path.",
     )
     args = parser.parse_args(argv)
 
