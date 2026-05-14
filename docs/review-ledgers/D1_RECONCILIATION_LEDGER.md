@@ -11,6 +11,8 @@ This ledger records the source inventory and merge decisions for promoting Paper
 
 The goal is not to bulk-copy legacy text. The goal is to preserve the theorem-bearing content of the v2.1.3 working manuscript where it survives the Deligne-cohomological rewrite, while keeping the current claim boundaries, topology audit invariants, and carry/Deligne separation intact.
 
+Validation note: this branch must pass `legacy-topology-audit`, `validate`, and `Proof apparatus continuous validation` before merge.
+
 ## Source inventory
 
 ### Baseline D1 skeleton
