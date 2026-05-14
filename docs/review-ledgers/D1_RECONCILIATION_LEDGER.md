@@ -82,9 +82,22 @@ v2_1_2
 2.1.2
 ```
 
-Disposition: unavailable in this pass.
+However, a sandbox copy was available during this pass:
 
-Merge consequence: no v2.1.2-specific override is applied. If a v2.1.2 source is later recovered, it should be introduced through a separate reconciliation PR with an explicit divergence table against this D1 draft and v2.1.3.
+```text
+/mnt/data/calculus_invariant_characters_v2_1_2.md
+sha256: 9eb473ce22d7a0af0c1924d3fabe4bb85a3a999dc81a443d19a735670ca72d70
+```
+
+A provenance manifest is recorded at:
+
+```text
+docs/source-captures/calculus_invariant_characters_v2_1_2_manifest.md
+```
+
+Disposition: inspected as provenance, not controlling theorem-core source.
+
+Merge consequence: v2.1.2 does not override v2.1.3 or D1. It confirms the pre-Deligne trajectory: statistic-relative generating functions, finite phase fingerprints, carry/cocycle language, multi-shell support, regulator-lift ambitions, and base-relative visibility. D1 preserves only the portions that survive the Deligne-cohomological rewrite and claim-boundary gates.
 
 ## Locked audit invariants
 
@@ -99,7 +112,7 @@ python scripts/check_ci_gate_registry.py
 Specific locked invariants:
 
 1. Finite `pi_1` notation is allowed for monodromy/local-system character domains.
-2. Stale `Π₁(B)` path-category transport language is not reintroduced.
+2. Stale capital-Pi base path-category transport language is not reintroduced in theorem-core.
 3. Carry remains a finite section-defect cocycle attached to lifted integer representatives.
 4. Deligne cup-product/tame-symbol material remains a distinct regulator-symbol branch.
 5. `S^2` appears only as a finite local-system sanity check via `pi_1(S^2)=0`.
@@ -122,15 +135,15 @@ Rationale: the live repository no longer has a separate D1 skeleton file. Paper 
 
 Action: D1 keeps the Deligne-unit-first construction.
 
-Rationale: v2.1.3's floor-function-first framing is historically important but mathematically superseded. The current construction correctly makes the Puiseux singular unit on a branch-killing cover primary, with finite characters as monodromy/deck shadows.
+Rationale: v2.1.2 and v2.1.3's floor-function-first framing is historically important but mathematically superseded. The current construction correctly makes the Puiseux singular unit on a branch-killing cover primary, with finite characters as monodromy/deck shadows.
 
-### Decision 3 — Preserve v2.1.3 finite arithmetic as shadow layer
+### Decision 3 — Preserve v2.1.x finite arithmetic as shadow layer
 
-Action: v2.1.3 finite phase and carry material survives only as the finite shadow / lifted-index arithmetic layer.
+Action: v2.1.2/v2.1.3 finite phase and carry material survives only as the finite shadow / lifted-index arithmetic layer.
 
 Rationale: the finite character is multiplicative. The carry measures the failure of a chosen integer section to preserve addition. It is not a Deligne regulator, Chern class, nonabelian obstruction, or nontrivial ordinary group-cohomology class by itself.
 
-### Decision 4 — Preserve v2.1.3 base-relative visibility through finite local systems
+### Decision 4 — Preserve v2.1.x base-relative visibility through finite local systems
 
 Action: sphere, torus, and Klein-bottle material survives through Section 5 as finite local-system pullback data.
 
@@ -140,24 +153,24 @@ Rationale: this retains the useful topological tests without claiming analytic D
 
 Action: D1 keeps the severity matrix, Hodge nonclaims, and statement that most dynamical/recognition/higher-prime gates remain open or conditional.
 
-Rationale: this is the claim-boundary spine. It prevents v2.1.3 future-horizon material from inflating into theorem-core claims.
+Rationale: this is the claim-boundary spine. It prevents v2.1.x future-horizon material from inflating into theorem-core claims.
 
 ## Divergence notes
 
-| Topic | v2.1.3 disposition | D1 disposition | Resolution |
+| Topic | v2.1.x disposition | D1 disposition | Resolution |
 | --- | --- | --- | --- |
 | Primary object | finite phase maps from floor functions | Deligne unit on branch-killing cover | D1 wins; finite phase is a shadow. |
-| Carry | finite-resolution section defect / coboundary correction | same, but explicitly separated from Deligne symbol | Compatible; D1 sharpens separation. |
-| Regulator/Chern | future horizon / partial framework | Deligne unit plus separate cup-product/tame-symbol branch; no Chern lift claimed | D1 wins. |
+| Carry | finite-resolution section defect / coboundary correction, with older central-extension ambitions in v2.1.2 | finite section defect explicitly separated from Deligne symbol | D1 wins; no carry-as-regulator or carry-as-obstruction claim. |
+| Regulator/Chern | future horizon / partial framework; v2.1.2 sketches stronger lift language | Deligne unit plus separate cup-product/tame-symbol branch; no Chern lift claimed | D1 wins. |
 | Sphere | flat holonomy trivial because `pi_1(S^2)=0` | finite local-system sanity check | Compatible; not structural theorem substitute. |
 | Klein bottle | flat torsion visibility | pulled-back finite `mu_2` local system only | D1 wins; no native Deligne class on `K`. |
 | Dynamical Floquet phase | future horizon / conditional | Theorem 6.2 conditional on encoding hypothesis | Compatible with stricter conditions. |
 | Odd primes | open/future | Conjecture 6.3 finite-cyclic comparison problem | Compatible; no Hodge claim. |
-| Hodge relevance | explicitly nonclaimed | explicitly nonclaimed and claim-guarded | Compatible. |
+| Hodge relevance | explicitly nonclaimed or absent as theorem | explicitly nonclaimed and claim-guarded | D1 wins. |
 
 ## Current result
 
-After this reconciliation pass, the D1 manuscript is not a newly invented document. It is the existing Paper I theorem-core draft made explicit as the reconciled D1 target, with the v2.1.3 source relationship and missing v2.1.2 source status recorded.
+After this reconciliation pass, the D1 manuscript is not a newly invented document. It is the existing Paper I theorem-core draft made explicit as the reconciled D1 target, with the v2.1.2/v2.1.3 source relationship recorded.
 
 The next substantive proof front is Appendix A / encoding closure:
 
