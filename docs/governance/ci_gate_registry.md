@@ -13,12 +13,15 @@ The classification is based on the workflow files currently present under `.gith
 | `hard-blocker` | A failing step or reusable workflow failure should block merge until fixed. |
 | `soft-signal` | A failing step is intentionally non-blocking, but the output must be reviewed because it indicates audit drift, baseline divergence, or follow-up work. |
 | `artifact-observer` | The step exists primarily to publish a report, receipt, or artifact. It should normally run even when earlier checks fail. |
+| `operational-prerequisite` | A setup, checkout, dependency-install, or infrastructure step required for a gate to run. If it fails, treat it as hard-blocking until proven transient. |
 
 ## Workflow inventory
 
 ### `.github/workflows/validate.yml`
 
 Workflow name: `validate`
+
+Job id: `tests`
 
 Triggers:
 
@@ -29,9 +32,12 @@ pull_request to main
 
 | Gate | Job / step | Classification | Failure meaning | Remediation |
 | --- | --- | --- | --- | --- |
+| Checkout | `tests` / `Checkout` | `operational-prerequisite` | Repository checkout failed; downstream gates cannot be trusted. | Treat as hard-blocking infrastructure failure until proven transient. |
+| Set up Python | `tests` / `Set up Python` | `operational-prerequisite` | Python runtime setup failed; downstream Python gates cannot run. | Fix workflow/runtime configuration or retry only if runner failure is clearly transient. |
+| Install package and test runner | `tests` / `Install package and test runner` | `operational-prerequisite` | Package installation or test dependency setup failed. | Fix packaging, dependency metadata, or runner environment before merge. |
 | Python test suite | `tests` / `Run tests` / `pytest -q` | `hard-blocker` | Executable package behavior is broken or tests are inconsistent with the current code. | Fix the code, tests, or documented executable boundary before merge. |
 | Claim-boundary guard | `tests` / `Run claim-boundary guard` / `python scripts/check_claim_boundaries.py` | `hard-blocker` | Manuscript or repository claims violate the bounded nonclaim/claim-scope policy. | Narrow the claim, add an explicit nonclaim, or update the guard only with a documented governance reason. |
-| CI gate registry coverage | `tests` / `Run CI gate registry coverage check` / `python scripts/check_ci_gate_registry.py` | `hard-blocker` | A workflow file under `.github/workflows/` is not represented in this registry by filename, path, and workflow name. | Update this registry in the same PR that adds, removes, renames, or materially changes workflow semantics. |
+| CI gate registry coverage | `tests` / `Run CI gate registry coverage check` / `python scripts/check_ci_gate_registry.py` | `hard-blocker` | A workflow file under `.github/workflows/` is not represented in this registry by filename, path, workflow name, job id, named step, and reusable workflow reference. | Update this registry in the same PR that adds, removes, renames, or materially changes workflow semantics. |
 
 Notes:
 
@@ -42,6 +48,8 @@ Notes:
 ### `.github/workflows/proof-apparatus-continuous-validation.yml`
 
 Workflow name: `Proof apparatus continuous validation`
+
+Job id: `validate-with-sociosphere`
 
 Triggers:
 
@@ -59,10 +67,13 @@ Notes:
 
 - This gate delegates to SocioProphet/sociosphere and should be treated as part of the repo's proof-governance contract.
 - Because it runs on all paths, it is the broadest continuous validation gate in this repo.
+- Step-level classification for the reusable workflow lives in the SocioSphere controller repository. This registry tracks the local reusable workflow call by job id and reusable workflow reference.
 
 ### `.github/workflows/legacy-topology-audit.yml`
 
 Workflow name: `legacy-topology-audit`
+
+Job id: `audit`
 
 Triggers:
 
@@ -74,6 +85,8 @@ workflow_dispatch
 
 | Gate | Job / step | Classification | Failure meaning | Remediation |
 | --- | --- | --- | --- | --- |
+| Check out repository | `audit` / `Check out repository` | `operational-prerequisite` | Repository checkout failed; audit output cannot be trusted. | Treat as hard-blocking infrastructure failure until proven transient. |
+| Set up Python | `audit` / `Set up Python` | `operational-prerequisite` | Python runtime setup failed; audit scripts cannot run. | Fix workflow/runtime configuration or retry only if runner failure is clearly transient. |
 | Legacy topology forbidden-term audit | `audit` / `Run scoped legacy topology audit` / `--fail-on-core` | `hard-blocker` | A theorem-core file contains forbidden scoped topology/path terminology. | Patch the theorem-core language or add a narrow inline exemption with mathematical justification. |
 | Legacy topology scope-drift audit | `audit` / `Run scoped legacy topology audit` / `--fail-on-scope-drift` | `hard-blocker` | A theorem-surface candidate file is not covered by the scanner's declared classes. | Add the file/path to `FILE_CLASSES` or add a documented exemption. See `docs/governance/audit_scope_maintenance.md`. |
 | Local audit report printout | `audit` / `Print local audit report` | `artifact-observer` | The local scanner output is not visible in logs. | Restore the print step; do not rely only on downloadable artifacts for audit review. |
@@ -120,9 +133,21 @@ legacy-topology-audit / Print local audit report
 legacy-topology-audit / Upload local audit report
 ```
 
+## Current operational-prerequisite set
+
+```text
+validate / Checkout
+validate / Set up Python
+validate / Install package and test runner
+legacy-topology-audit / Check out repository
+legacy-topology-audit / Set up Python
+```
+
 ## Maintenance policy
 
 When adding, deleting, or materially changing a workflow file under `.github/workflows/`, update this registry in the same PR.
+
+When adding, deleting, or renaming a job id or named step, update this registry in the same PR.
 
 When changing a step from blocking to non-blocking with `continue-on-error: true`, add or update its row here and explain why the failure is a soft signal instead of a hard blocker.
 
