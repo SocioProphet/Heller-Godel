@@ -1,6 +1,16 @@
-# Paper I — Deligne-Cohomological Phase Characters from Proof-Class Generating Functions
+# Paper I / D1 — Deligne-Cohomological Phase Characters from Proof-Class Generating Functions
 
-Working capture for the Heller-Godel proof-character programme. This document supersedes the older floor-function-first framing in `calculus_invariant_characters_v2_1_3.md` where the new Deligne-cohomological rewrite applies.
+Working D1 reconciled draft for the Heller-Godel proof-character programme. This document supersedes the older floor-function-first framing in `calculus_invariant_characters_v2_1_3.md` where the new Deligne-cohomological rewrite applies.
+
+D1 reconciliation status, 2026-05-14:
+
+- Baseline: this file is the canonical Paper I / D1 theorem-core draft.
+- Merged legacy source: `docs/manuscripts/calculus_invariant_characters_v2_1_3.md` is reconciled where its finite phase, carry, shell, flat-visibility, limitations, and nonclaim material survives the Deligne-cohomological rewrite.
+- Missing source: no `v2.1.2` / `v2_1_2` manuscript source was found on live `main`; therefore no v2.1.2-specific override is applied in this pass.
+- Divergence rule: where v2.1.3 conflicts with this D1 framing, this D1 draft wins unless a later sourced patch proves a narrower v2.1.2 or v2.1.3 passage should be restored.
+- Locked audit invariants: finite `pi_1` monodromy/local-system notation is permitted; stale `Π₁(B)` path-groupoid language is not reintroduced; carry remains a finite section-defect cocycle; Deligne cup-product/tame-symbol material remains a distinct regulator-symbol branch; `S^2` appears only as a finite local-system sanity check.
+
+See `docs/review-ledgers/D1_RECONCILIATION_LEDGER.md` for the source inventory, merge decisions, and divergence notes.
 
 ## Claim boundary
 
@@ -97,7 +107,7 @@ u_{phi,rho} = w^a
 or, with a nonvanishing analytic factor,
 
 ```text
-u_{phi,rho} = q^* h_{phi,rho} · w^a.
+nu_{phi,rho} = q^* h_{phi,rho} · w^a.
 ```
 
 This is a holomorphic unit on the cover and hence determines a level-1 Deligne class
@@ -109,7 +119,7 @@ D(u_{phi,rho}) in H^1_D(X_{phi,rho}^circ, Z(1)).
 The deck transformation `w -> zeta_N w` acts by
 
 ```text
-u_{phi,rho} -> zeta_N^a u_{phi,rho}.
+nu_{phi,rho} -> zeta_N^a u_{phi,rho}.
 ```
 
 Therefore the finite monodromy character is
@@ -150,9 +160,9 @@ B = bL/M.
 On the common cover `w^L = t_rho`, the units are
 
 ```text
-u_phi = w^A q^*h_phi,
-u_psi = w^B q^*h_psi,
-u_{phi box-times psi} = u_phi u_psi = w^{A+B} q^*(h_phi h_psi).
+nu_phi = w^A q^*h_phi,
+nu_psi = w^B q^*h_psi,
+nu_{phi box-times psi} = u_phi u_psi = w^{A+B} q^*(h_phi h_psi).
 ```
 
 The level-1 Deligne class is strictly multiplicative:
@@ -356,7 +366,7 @@ For the Catalan half-exponent test,
 ```text
 alpha = 1/2,
 N = 2,
-u = w,
+nu = w,
 chi(gamma_rho) = -1.
 ```
 
@@ -415,7 +425,7 @@ w^2 = t_rho = 1 - x/rho,
 and the Puiseux singular unit is
 
 ```text
-u = w.
+nu = w.
 ```
 
 The analytic deck character is
@@ -571,17 +581,11 @@ The finite-order torsion theorem requires rational local exponents at the domina
 
 Current status. Bracketed throughout. Section 3 restricts attention to rational exponent classes; Section 6 invokes `alpha = 1/2` explicitly.
 
-What closure would require. Either restrict all claims permanently to rational local exponents, or extend the framework to handle non-rational exponents by working with `U(1)` characters, real torus monodromy, or another non-finite monodromy target. That extension is not undertaken here.
-
 ### 7.3 Severity II.4 — Absence of a proof-class moduli: Open
 
 The Deligne class is functorial after the analytic realization is fixed. A construction-independent invariant would require either a moduli construction for proof classes or a comparison theorem between Deligne classes constructed from distinct analytic realizations of the same proof class.
 
 Current status. No moduli space is constructed.
-
-What closure would require. A category of proof-class data, a functor from this category to suitable analytic geometric data, and a verification that the Deligne class is functorial along this functor. For finitely generated proof classes such as chain and Catalan, the moduli problem is trivial; for general families it remains open.
-
-What this paper does not claim. We do not claim realization-independence beyond the chosen analytic presentation.
 
 ### 7.4 Dynamical gates inherited from the v2 integration material: Various
 
@@ -589,7 +593,7 @@ The Lyapunov / Floquet / `SO(3)` dynamical material enters this paper only throu
 
 - **II.2: Level-set non-contractibility.** Lyapunov cycle existence requires a non-contractible cycle in the gate manifold. Status: open in general; expected Catalan witness in Appendix A.
 - **II.3: Active boundary as geometric object.** The eigendirection transverse to the active boundary requires smoothing or a piecewise-strata definition. Status: partially addressed by using a piecewise-strata interpretation.
-- **III.1: Moving-set convergence.** Time-ordered products of projections on varying convex sets require moving-set theory. Status: cited from standard sources, not reproduced.
+- **III.1: Moving-set proof obligation.** Time-ordered products of projections on varying convex sets require moving-set theory. Status: cited from standard sources, not reproduced.
 - **III.2: Floquet theory for proximal-gradient flows.** Smooth Floquet theory requires care when transferred to proximal-gradient dynamics. Status: exact-flow or smooth-approximation regime only.
 - **III.3: Energy conservation along level sets.** Exact gradient flow and discrete proximal updates differ by step-size errors. Status: exact-flow limit only.
 - **III.4: Floquet phase matching.** The v2 floor-function matching is reformulated as agreement of three `mu_2` realization maps. Status: conditional on Appendix A.
@@ -654,17 +658,24 @@ The contribution is methodological: when an invariant naturally produces both in
 
 ## CI-backed invariants
 
-The test harness under `src/heller_godel/phase_characters.py` and `tests/test_phase_characters.py` covers the finite arithmetic and monodromy layer:
+The test harness under `src/heller_godel/phase_characters.py` and `tests/test_phase_characters.py` covers the finite arithmetic and monodromy shadows of this draft. It does not mechanize Deligne cohomology.
 
-- rational exponent normalization in `Q/Z`;
-- common branch-killing level;
-- deck / monodromy phase indices;
-- `p`-primary projection and prime reduction;
-- exact multiplicativity of finite characters;
-- carry as section-defect cocycle;
-- carry cocycle identity;
-- tame symbol not equal to carry;
-- sphere trivial pullback;
-- torus winding-number holonomy;
-- Catalan / Klein-bottle `mu_2` holonomy bookkeeping;
-- unconditional analytic-topological `mu_2` generator comparison.
+Currently covered:
+
+- exact finite-character multiplication;
+- carry as lifted-index section defect;
+- carry 2-cocycle identity;
+- separation of carry from tame-symbol witness;
+- Catalan `mu_2` deck character;
+- sphere triviality of pulled-back finite local systems;
+- torus finite holonomy through winding numbers;
+- Klein-bottle `mu_2` holonomy;
+- Theorem 6.1 finite comparison.
+
+This executable layer is the finite shadow of the manuscript, not a proof of the full Deligne-cohomological formalism.
+
+## Appendix-map
+
+- Appendix A records the Catalan / chain witness obligations.
+- Appendix B records carry cocycle tables.
+- Appendix C records Deligne cup-product, tame-symbol, and sign conventions.
