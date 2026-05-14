@@ -36,6 +36,9 @@ jobs:
             --output docs/review-ledgers/HG_LEGACY_TOPOLOGY_TERMS_AUDIT_LOCAL.md \
             --fail-on-core
 
+      - name: Print local audit report
+        run: cat docs/review-ledgers/HG_LEGACY_TOPOLOGY_TERMS_AUDIT_LOCAL.md
+
       - name: Compare local audit against frozen connector-backed ledger
         continue-on-error: true
         run: |
