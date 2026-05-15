@@ -96,6 +96,35 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
+## Reserved method identifiers
+
+The following identifiers are reserved for future source imports and may not be used by downstream repositories until a Heller-Godel PR imports the corresponding source material and declares the citation grade.
+
+| Identifier | Reserved object | Intended grade | Status |
+| --- | --- | --- | --- |
+| `HG-MTH-005` | Heller-Winters Universal Bridge baseline, initially GR <-> NT structural analogy | method-grade only | reserved; source import pending |
+| `HG-MTH-006` | Universal Bridge extension to algebraic-geometric / Hodge domain | method-grade only | reserved; source import pending |
+| `HG-MTH-007` | Universal Bridge extension to gauge / Yang-Mills domain | method-grade only | reserved; source import pending |
+| `HG-MTH-008` | Universal Bridge extension to complexity / P vs NP domain | method-grade only | reserved; source import pending |
+| `HG-MTH-009` | Universal Bridge extension to arithmetic-geometric / BSD domain | method-grade only | reserved; source import pending |
+| `HG-MTH-010` | Clay coverage / Navier-Stokes decision record | governance / method-grade | reserved; decision pending |
+
+Reservation does not license citation. It prevents identifier collision only.
+
+The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridge material does not prove cross-Clay equivalence and does not transfer proofs between Clay domains.
+
+## PFK namespace separation
+
+Proof Fabric Kernel infrastructure must not consume `HG-*` identifiers for its own schemas, validators, receipts, or Event-IR objects.
+
+PFK uses a separate namespace:
+
+```text
+PFK-{LAYER}-{NNN}
+```
+
+This keeps Heller-Godel framework vocabulary (`HG-*`) separate from proof-fabric operational substrate (`PFK-*`).
+
 ## Existing Paper I identifiers
 
 Existing Paper I artifacts may retain their current local names and theorem labels. This bootstrap does not rewrite manuscript numbering.
