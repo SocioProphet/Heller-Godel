@@ -94,7 +94,7 @@ The only assertion carried forward is the finite-output statement already proved
 
 A later proof-moduli front can refine this note by adding:
 
-1. a typed category or groupoid-free registry of admissible realization data;
+1. a typed registry of admissible realization data;
 2. explicit morphism rules between realization records;
 3. a proof that `Omega_A1` descends to the selected equivalence quotient;
 4. a separate comparison between `mu_2-output equivalence` and stronger gate-level equivalence.
