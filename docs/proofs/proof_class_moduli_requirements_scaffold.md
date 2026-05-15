@@ -99,7 +99,7 @@ A future `M_phi` must specify the category in which it lives.
 
 Candidate ambient types include:
 
-1. finite set or finite groupoid;
+1. finite set or finite equivalence-class space;
 2. complex analytic space;
 3. algebraic variety;
 4. smooth variety;
