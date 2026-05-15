@@ -20,7 +20,7 @@ REQUIRED_CLAIM_BOUNDARY_PHRASES = [
     "No algebraic cycle is produced",
     "does **not** close the general encoding hypothesis for arbitrary arithmetic sentences",
     "Theorem 6.2 remains conditional as a general comparison theorem",
-    "Theorem A.8 is a rigidity statement about " "the Catalan A1 fixture only",
+    "Theorem A.8 further shows that the `mu_2` output of that Catalan A1 instance is independent",
 ]
 
 REQUIRED_DONE_MATRIX_ROWS = [
