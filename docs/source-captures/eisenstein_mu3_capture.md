@@ -13,15 +13,34 @@ The capture is intentionally narrow. It provides support for `mu_3`, Eisenstein 
 
 ## Source basis
 
-This note records standard textbook-level material from algebraic number theory and representation-adjacent background. Suitable references for later bibliographic expansion include:
+This note records standard textbook-level material from algebraic number theory and representation-adjacent background. The references below are formal support entries for the primitive objects in this capture.
 
-1. Henri Cohen, *A Course in Computational Algebraic Number Theory*, especially the standard treatment of cyclotomic fields and rings of integers.
-2. Serge Lang, *Cyclotomic Fields I and II*, for cyclotomic-field notation and ramification structure.
-3. Jean-Pierre Serre, *A Course in Arithmetic*, for basic algebraic-number-theoretic conventions.
-4. James E. Humphreys, *Introduction to Lie Algebras and Representation Theory*, for later `A_2` / Lie-theoretic context if that front is opened.
-5. William Fulton and Joe Harris, *Representation Theory*, for later `SU(3)` / representation-theoretic context if that front is opened.
+### Algebraic-number-theoretic support
+
+1. Henri Cohen, *A Course in Computational Algebraic Number Theory*. Graduate Texts in Mathematics 138. Berlin / New York: Springer-Verlag, 1993. Corrected printing 1995. Use: computational algebraic number theory conventions, rings of integers, norm computations, and examples in quadratic/cyclotomic settings.
+2. Serge Lang, *Cyclotomic Fields I and II*. Graduate Texts in Mathematics 121. Combined second edition, with an appendix by Karl Rubin. New York: Springer-Verlag, 1990. Use: cyclotomic-field notation, roots of unity, and ramification conventions.
+3. Jean-Pierre Serre, *A Course in Arithmetic*. Graduate Texts in Mathematics 7. New York: Springer-Verlag, 1973. English translation of *Cours d'arithmetique*. Use: arithmetic background and standard algebraic-number-theoretic conventions.
+
+### Later representation-theoretic context, not used by this capture as theorem support
+
+4. James E. Humphreys, *Introduction to Lie Algebras and Representation Theory*. Graduate Texts in Mathematics 9. New York: Springer-Verlag, 1972; revised second printing, 1978. Use: future `A_2` / Lie-theoretic context only if that front is opened.
+5. William Fulton and Joe Harris, *Representation Theory: A First Course*. Graduate Texts in Mathematics 129. Readings in Mathematics. New York: Springer-Verlag, 1991. Use: future `SU(3)` / representation-theoretic context only if that front is opened.
 
 No theorem in Paper I / D1 depends on this capture. It is support material for future vocabulary work.
+
+## Citation-use map
+
+The present capture uses the references as follows:
+
+| Captured object | Primary support | Current use |
+| --- | --- | --- |
+| `omega = exp(2*pi*i/3)` and `mu_3` | Lang; Serre | finite phase-target vocabulary |
+| Eisenstein integers `Z[omega]` | Cohen; Lang | arithmetic support vocabulary |
+| norm `N(a + b omega) = a^2 - a*b + b^2` | Cohen; Serre | arithmetic support vocabulary |
+| ramification of 3 and generator `1 - omega` | Lang; Cohen | later p = 3 scaffolding support |
+| `A_2` / `SU(3)` context | Humphreys; Fulton-Harris | explicitly future context only |
+
+This note does not include edition-specific page locators. Any theorem-grade or fixture-grade `p = 3` PR that depends on these captured facts should first tighten this capture with page-level citations for the exact edition being used.
 
 ## Primitive third root of unity
 
