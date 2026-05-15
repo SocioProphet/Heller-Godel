@@ -1,6 +1,6 @@
 # Dependency Declaration
 
-Status: bootstrap declaration.  
+Status: live declaration.  
 Claim level: governance / architecture.  
 Mathematical content added by this document: none.
 
@@ -8,7 +8,7 @@ This document records the dependency role of `SocioProphet/Heller-Godel` in the 
 
 ## Repository role
 
-`SocioProphet/Heller-Godel` is the framework-core repository.
+`SocioProphet/Heller-Godel` is the framework-core repository and the Proof Fabric Kernel host.
 
 It owns:
 
@@ -17,13 +17,14 @@ It owns:
 - framework anti-seed doctrine;
 - framework distance classification;
 - canonical apparatus fixtures such as Catalan / mu_2;
+- Proof Fabric Kernel source under `proof_fabric_kernel/` once imported;
 - normalized source imports after review.
 
 It does not own:
 
 - problem-specific Clay-program proof claims;
-- shared validator/runtime infrastructure planned for `proof-fabric-kernel`;
-- downstream repo evidence ledgers except by citation or inventory.
+- downstream repo evidence ledgers except by citation or inventory;
+- theorem promotion from PFK schema or fixture validation.
 
 ## Upstream dependencies
 
@@ -31,13 +32,13 @@ None declared at this bootstrap layer.
 
 Drive sources and historical drafts are provenance inputs, not active upstream dependencies until imported and normalized.
 
-## Planned peer / downstream infrastructure
+## In-repo operational substrate
 
-| Repository | Relationship | Status |
+| Path | Relationship | Status |
 | --- | --- | --- |
-| `SocioProphet/proof-fabric-kernel` | planned operational substrate for schemas, validators, receipts, Event IR, and citation checks | extraction/bootstrap pending |
+| `proof_fabric_kernel/` | in-repo operational substrate for schemas, validators, receipts, Event-IR, ProofArtifact mappings, calibration bundles, claim-ledger rows, examples, and proof-fabric validation helpers | source-supplied import pending |
 
-`proof-fabric-kernel` may depend on Heller-Godel framework identifiers and citation grammar. Heller-Godel should not depend on PFK for mathematical content.
+PFK uses the separate `PFK-*` namespace for operational artifacts. Heller-Godel framework vocabulary uses `HG-*`.
 
 ## Downstream consumers
 
@@ -65,8 +66,16 @@ and must declare citation grade:
 theorem-grade | method-grade | fixture-grade | provenance-grade
 ```
 
+PFK operational objects use:
+
+```text
+PFK-{LAYER}-{NNN} @ <merged-main-sha>
+```
+
+when a PFK identifier registry exists. Until then, cite exact paths and merged commit SHAs.
+
 ## No-cycle rule
 
-No dependency cycle is permitted between Heller-Godel, PFK, and Clay-program repos.
+No dependency cycle is permitted between Heller-Godel and Clay-program repos.
 
 Downstream consumers may cite Heller-Godel. They may not silently promote or modify framework objects outside a Heller-Godel PR.

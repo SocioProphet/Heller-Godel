@@ -1,19 +1,31 @@
 # Proof Fabric Kernel Extraction Control
 
-Status: source-supplied extraction control.  
+Status: source-supplied in-repo import control.  
 Claim level: governance / architecture.  
 Mathematical content added by this document: none.  
 Controlling Heller-Godel framework-core bootstrap commit: `757070c582858f32473cfc0ac5d32f5c4558cf40`.
 
 ## Purpose
 
-This document controls the next architecture move after the Heller-Godel framework-core declaration: extracting or creating `SocioProphet/proof-fabric-kernel` as the shared operational substrate for schemas, validators, receipts, Event-IR, proof artifacts, claim ledgers, and citation checks.
+This document controls the import of Proof Fabric Kernel into `SocioProphet/Heller-Godel` as the in-repo operational substrate for schemas, validators, receipts, Event-IR, proof artifacts, claim ledgers, and citation checks.
+
+## Corrected location decision
+
+PFK goes in Heller-Godel.
+
+The target location is:
+
+```text
+SocioProphet/Heller-Godel/proof_fabric_kernel/
+```
+
+There is no separate `SocioProphet/proof-fabric-kernel` repository in the active architecture.
 
 ## Corrected source-location finding
 
 PFK source content was not found in Drive source form and was not present on `SocioProphet/Heller-Winters-Theorem/main` under `proof_fabric_kernel/` during the GitHub audit.
 
-A user-supplied archive has now provided the missing source tree:
+A user-supplied archive provided the missing source tree:
 
 ```text
 Heller-Winters-Theorem-main_PFK 2.zip
@@ -35,15 +47,15 @@ docs/framework-core/pfk-source-archive-manifest.md
 
 ## Current conclusion
 
-The correct extraction mode is now:
+The correct import mode is:
 
 ```text
-source-supplied extraction
+source-supplied in-repo import
 ```
 
-not reconstruction.
+not reconstruction and not external-repo extraction.
 
-The PFK target repository should receive the extracted `proof_fabric_kernel/` tree byte-for-byte, preserving the file hashes recorded in the manifest.
+The extracted `proof_fabric_kernel/` tree must be imported byte-for-byte into this repository, preserving the file hashes recorded in the manifest.
 
 ## GitHub audit performed before archive upload
 
@@ -73,45 +85,9 @@ ProofArtifact validator: OK for primes, security safe/leak, and lawful-learning 
 Calibration bundle schema validation: OK for examples/primes/calibration_bundle_example.json.
 ```
 
-## Blocker
-
-The current GitHub connector can create branches, files, issues, and PRs in existing repositories, but it does not expose repository creation.
-
-Because `SocioProphet/proof-fabric-kernel` does not yet exist, the bootstrap PR cannot be opened directly through this connector session.
-
-## PFK repository bootstrap target
-
-Target repository:
-
-```text
-SocioProphet/proof-fabric-kernel
-```
-
-Target description:
-
-```text
-Shared proof-fabric operational substrate for the SocioProphet Clay-program estate: schemas, validators, Event-IR, ProofArtifact mappings, claim-ledger rows, receipts, examples, and citation checks.
-```
-
-Target visibility: public.
-
-Target license: MIT unless repository policy requires otherwise.
-
-Target topic suggestions:
-
-```text
-proof-fabric
-schema-validation
-event-ir
-claim-ledger
-provenance
-socioprophet
-heller-godel
-```
-
 ## PFK namespace
 
-PFK should use a separate namespace from Heller-Godel framework identifiers:
+PFK uses a separate namespace from Heller-Godel framework identifiers:
 
 ```text
 PFK-{LAYER}-{NNN}
@@ -131,50 +107,27 @@ Suggested layer codes:
 
 This prevents collision with `HG-*`, which is reserved for Heller-Godel framework vocabulary and doctrine.
 
-## PFK PR sequence
+## In-repo import contents
 
-### PR #1 — identity and source import
-
-Because the source archive is now supplied and validated, the first PFK PR may include both identity files and the byte-preserving source tree import.
-
-Required files:
+The active import target is:
 
 ```text
-README.md
-LICENSE
-CITATION.cff
-CONTRIBUTING.md
-.gitignore
-DEPENDENCIES.md
 proof_fabric_kernel/README.md
 proof_fabric_kernel/schemas/*
 proof_fabric_kernel/docs/*
 proof_fabric_kernel/tools/*
 proof_fabric_kernel/examples/*
-docs/source-audit/pfk-source-archive-manifest.md
+tests/test_proof_fabric_kernel.py
 ```
 
-The PR body must state:
+## Consumer integration sequence
 
-```text
-This is source-supplied extraction from Heller-Winters-Theorem-main_PFK 2.zip, not reconstruction.
-```
+After this import lands:
 
-### PR #2 — normalization / packaging
-
-Only after PR #1 lands:
-
-- decide whether to keep nested `proof_fabric_kernel/` or flatten to repo root;
-- add package metadata if desired;
-- add CI workflow for validators;
-- add schema validation matrix;
-- add manifest regeneration command.
-
-### PR #3 — consumer integration
-
-- update `SocioProphet/Heller-Winters-Theorem#28` to point at the PFK repo and schema paths;
-- update Candidate C receipts to native Event-IR / ProofArtifact-compatible output;
-- add downstream `DEPENDENCIES.md` declarations in Clay-program repos.
+1. Update `SocioProphet/Heller-Winters-Theorem#28` to point at Heller-Godel `proof_fabric_kernel/` schema paths.
+2. Update Candidate C receipts to native Event-IR / ProofArtifact-compatible output.
+3. Add downstream `DEPENDENCIES.md` declarations in Clay-program repos.
+4. Close any superseded external-repo creation plan.
 
 ## Heller-Winters issue linkage
 
@@ -184,7 +137,7 @@ Current Heller-Winters issue:
 SocioProphet/Heller-Winters-Theorem#28 — Candidate C: native PFK Event-IR integration
 ```
 
-That issue should not be closed by PFK repository bootstrap alone. It closes only when Candidate C receipts emit native Event-IR / ProofArtifact-compatible output under a PFK schema.
+That issue should not be closed by PFK import alone. It closes only when Candidate C receipts emit native Event-IR / ProofArtifact-compatible output under a PFK schema.
 
 ## Non-claim boundary
 
@@ -194,8 +147,8 @@ This extraction control does not promote PFK schemas to mathematical theorem sta
 
 This artifact is resolved when:
 
-1. `SocioProphet/proof-fabric-kernel` exists;
-2. the supplied archive manifest is copied into the new repo;
-3. the extracted source tree is imported byte-for-byte;
-4. PFK validation CI runs in the new repo;
-5. Heller-Winters issue #28 is updated to point at the PFK repo and active schema paths.
+1. `proof_fabric_kernel/` exists in Heller-Godel;
+2. the supplied source tree is imported byte-for-byte;
+3. PFK validation tests run in existing CI;
+4. Heller-Winters issue #28 is updated to point at the active in-repo schema paths;
+5. the old `SocioProphet/proof-fabric-kernel` creation plan is marked superseded.
