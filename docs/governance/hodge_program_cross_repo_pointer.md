@@ -87,6 +87,10 @@ SocioProphet/hodge-program-proof: docs/scaffolds/hodge_bridge_requirements_scaff
 
 No current Heller-Godel artifact is recorded as satisfying those bridge requirements.
 
+## Validation posture
+
+This document is a governance pointer. It should pass the standard Heller-Godel governance, topology, and proof-apparatus checks without changing any theorem adapter or claim status.
+
 ## Nonclaims
 
 This pointer does not claim:
