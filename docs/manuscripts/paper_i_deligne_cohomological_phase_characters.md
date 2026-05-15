@@ -543,7 +543,7 @@ Together with Theorem 6.1, this yields a three-way agreement between analytic de
 
 Theorem 6.1 is unconditional after the analytic realization and Klein-bottle classifying map are fixed. It is mechanized at the finite arithmetic level by the Catalan and Klein-bottle holonomy tests.
 
-Theorem 6.2 remains conditional as a general comparison theorem. Corollary 6.2.C closes only the convention-bound Catalan A1 instance constructed in Appendix A. For general sentences, and for odd-prime targets, the encoding hypothesis remains open.
+Theorem 6.2 remains conditional as a general comparison theorem. Corollary 6.2.C closes only the convention-bound Catalan A1 instance constructed in Appendix A. Theorem A.8 further shows that the `mu_2` output of that Catalan A1 instance is independent of admissible choices of Lyapunov representative and encoding representative. For general sentences, and for odd-prime targets, the encoding hypothesis remains open.
 
 ### 6.6 Odd-prime comparison conjecture
 
@@ -632,6 +632,7 @@ These claims are not made by this paper and are enforced by the claim-boundary g
 | I.1 | Encoding hypothesis: sentence to gate constraints | Closed for Catalan A1 fixture; open in general | 6.4, 7.1, Appendix A |
 | I.2 | Multiplicativity correction term uncharacterized | Closed: character multiplies exactly; carry is lifted-index section defect | 4.5, 4.6 |
 | I.3 | Choice of statistic underdetermined | Closed via reduced statistic | 2.2 |
+| A.8 | Catalan A1 realization independence | Closed for Catalan A1 fixture; mu_2 output only | Appendix A |
 | II.1 | Transcendental species | Open; bracketed | 7.2 |
 | II.2 | Lyapunov cycle non-contractibility | Closed for Catalan A1 fixture; open in general | 6.4, 7.4, Appendix A |
 | II.3 | Active boundary geometry | Partially addressed by piecewise strata | 7.4 |
@@ -652,11 +653,11 @@ These claims are not made by this paper and are enforced by the claim-boundary g
 | Hodge | Algebraic cycle existence | Not claimed | 7.6 |
 | Hodge | Hodge relevance of Conjecture 6.3 | Not claimed | 7.6 |
 
-Aggregate. Five items are closed for the Catalan A1 fixture: I.1, I.2, I.3, II.2, and III.4. Of these, I.1, II.2, and III.4 remain open in general. Two items are partially addressed: II.3 and V.1. The remainder are open, bracketed, out of scope, or not claimed.
+Aggregate. Six items are closed for the Catalan A1 fixture: I.1, I.2, I.3, A.8, II.2, and III.4. Of these, I.1, II.2, and III.4 remain open in general. Two items are partially addressed: II.3 and V.1. The remainder are open, bracketed, out of scope, or not claimed.
 
 ### 7.8 What this paper is
 
-The paper constructs a small Hodge-adjacent invariant: a proof-class generating function determines a level-1 Deligne unit whose finite-order shadows recover the v2 phase characters, with strict multiplicativity at the Deligne level and an explicit section-defect carry at the lifted-index level. For Catalan-type sentences with exponent `1/2`, the analytic deck character and the Klein-bottle topological holonomy commute unconditionally. For the convention-bound Catalan A1 fixture, Appendix A constructs the loop, spin lift, encoding homomorphism, and finite `mu_2` diagram needed for the closed Corollary 6.2.C.
+The paper constructs a small Hodge-adjacent invariant: a proof-class generating function determines a level-1 Deligne unit whose finite-order shadows recover the v2 phase characters, with strict multiplicativity at the Deligne level and an explicit section-defect carry at the lifted-index level. For Catalan-type sentences with exponent `1/2`, the analytic deck character and the Klein-bottle topological holonomy commute unconditionally. For the convention-bound Catalan A1 fixture, Appendix A constructs the loop, spin lift, encoding homomorphism, finite `mu_2` diagram, and realization-independence theorem needed for the closed Corollary 6.2.C.
 
 The contribution is methodological: when an invariant naturally produces both integral and analytic data, Deligne cohomology is the appropriate framework. The construction is small and inspectable. Its limitations are enumerated above and enforced in CI.
 
@@ -682,6 +683,6 @@ This executable layer is the finite and fixture-level shadow of the manuscript, 
 
 ## Appendix-map
 
-- Appendix A records the chain witness, Catalan witness, A1 spin-gate witness, Catalan A1 encoding closure, and remaining general encoding limits.
+- Appendix A records the chain witness, Catalan witness, A1 spin-gate witness, Catalan A1 encoding closure, Catalan A1 realization independence, and remaining general encoding limits.
 - Appendix B records carry cocycle tables.
 - Appendix C records Deligne cup-product, tame-symbol, and sign conventions.

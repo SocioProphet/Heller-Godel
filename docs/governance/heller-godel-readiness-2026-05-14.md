@@ -16,7 +16,7 @@ proof apparatus validation:        enforced by reusable SocioSphere workflow
 local governance-check target:     added in Makefile
 ```
 
-Current proof-state update after PR #39:
+Current proof-state update after PR #41:
 
 ```text
 Theorem 6.1:                         closed, unconditional analytic-topological mu_2 comparison
@@ -25,6 +25,7 @@ Proposition A.2:                     closed, Catalan finite analytic witness
 Proposition A.3:                     closed, Klein-bottle mu_2 local-system witness
 Theorem A.4:                         closed, A1 spin-gate witness under convention A1-sauzin-normalization-v1
 Theorem A.7:                         closed, Catalan A1 encoding closure under convention A1-sauzin-normalization-v1
+Theorem A.8:                         closed, Catalan A1 realization independence; mu_2 output only
 Corollary 6.2.C:                     closed, Catalan A1 instance of Theorem 6.2
 Theorem 6.2:                         conditional in general; general encoding hypothesis remains open
 ```
@@ -183,7 +184,7 @@ Current observed status from the latest validated PR sequence:
 PASS
 ```
 
-The guard now records that Catalan A1 is closed only as a convention-bound fixture while Theorem 6.2 remains conditional as a general comparison theorem.
+The guard now records that Catalan A1 is closed only as a convention-bound fixture while Theorem 6.2 remains conditional as a general comparison theorem. It also records that Theorem A.8 is limited to Catalan A1 `mu_2` output independence for admissible realization pairs.
 
 ## Proof apparatus validation
 
@@ -259,6 +260,12 @@ The Catalan A1 fixture is closed, but it must not be read as a general encoding 
 
 Current mitigation: the main manuscript, Appendix A, and claim-boundary guard all state that the general encoding hypothesis remains open and that the Catalan result is convention-bound.
 
+### Realization-independence overgeneralization risk
+
+Theorem A.8 proves only `mu_2` output independence for admissible Catalan A1 realization pairs. It does not prove uniqueness of the gate group, uniqueness of loop representative, realization independence for non-admissible replacements, an odd-prime analogue, or a general encoding theorem.
+
+Current mitigation: Appendix A and the claim-boundary guard both pin Theorem A.8 to Catalan A1 `mu_2` output only.
+
 ## Readiness conclusion
 
 The repository is governance-ready for the current Heller-Godel theorem/proof surface.
@@ -274,4 +281,4 @@ proof apparatus validation
 local governance preflight
 ```
 
-No immediate theorem remediation is pending. The next useful proof front is realization independence for the closed Catalan A1 fixture: determine whether alternative admissible choices of `Gamma_Lyap` and `e_*` yield the same `mu_2` output under the relevant equivalences before opening the odd-prime comparison front.
+No immediate theorem remediation is pending. The next useful proof front is either proof-class moduli/realization independence beyond the Catalan A1 `mu_2` output, or odd-prime comparison scaffolding. The lower-risk path is to formalize realization-equivalence vocabulary before opening the odd-prime comparison front.

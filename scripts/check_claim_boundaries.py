@@ -20,12 +20,14 @@ REQUIRED_CLAIM_BOUNDARY_PHRASES = [
     "No algebraic cycle is produced",
     "does **not** close the general encoding hypothesis for arbitrary arithmetic sentences",
     "Theorem 6.2 remains conditional as a general comparison theorem",
+    "Theorem A.8 further shows that the `mu_2` output of that Catalan A1 instance is independent",
 ]
 
 REQUIRED_DONE_MATRIX_ROWS = [
     "| I.1 | Encoding hypothesis: sentence to gate constraints | Closed for Catalan A1 fixture; open in general | 6.4, 7.1, Appendix A |",
     "| I.2 | Multiplicativity correction term uncharacterized | Closed: character multiplies exactly; carry is lifted-index section defect | 4.5, 4.6 |",
     "| I.3 | Choice of statistic underdetermined | Closed via reduced statistic | 2.2 |",
+    "| A.8 | Catalan A1 realization independence | Closed for Catalan A1 fixture; mu_2 output only | Appendix A |",
     "| II.1 | Transcendental species | Open; bracketed | 7.2 |",
     "| II.4 | Proof-class moduli absent | Open | 7.3 |",
     "| III.4 | Floquet phase matching | Closed for Catalan A1 fixture; open in general | 6.4, Appendix A |",
