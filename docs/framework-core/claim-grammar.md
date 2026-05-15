@@ -47,7 +47,7 @@ Downstream Clay-program repositories should cite framework objects as:
 [HG-FND-001 @ <merged-main-commit-sha>]
 ```
 
-The commit SHA must be a merged commit on `main`, not a floating branch tip and not a generic reference to current `main`.
+The commit SHA must reference a merged commit on `main`, not a floating branch tip and not the current `main` alias.
 
 ## Required citation metadata
 
@@ -93,6 +93,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-002` | Claim grammar and citation rule | method-grade | active |
 | `HG-MTH-003` | Dependency graph | method-grade | active |
 | `HG-MTH-004` | Anti-seed framework register | method-grade | active |
+| `HG-MTH-005` | Universal Bridge formal specification | method-grade only | active |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
@@ -102,7 +103,6 @@ The following identifiers are reserved for future source imports and may not be 
 
 | Identifier | Reserved object | Intended grade | Status |
 | --- | --- | --- | --- |
-| `HG-MTH-005` | Heller-Winters Universal Bridge baseline, initially GR <-> NT structural analogy | method-grade only | reserved; source import pending |
 | `HG-MTH-006` | Universal Bridge extension to algebraic-geometric / Hodge domain | method-grade only | reserved; source import pending |
 | `HG-MTH-007` | Universal Bridge extension to gauge / Yang-Mills domain | method-grade only | reserved; source import pending |
 | `HG-MTH-008` | Universal Bridge extension to complexity / P vs NP domain | method-grade only | reserved; source import pending |
@@ -140,6 +140,8 @@ Framework citations:
   licensed use: apparatus-alignment check only.
 - [HG-MTH-002 @ <sha>] — claim grammar; citation grade: method-grade;
   licensed use: downstream citation format.
+- [HG-MTH-005 @ <sha>] — Universal Bridge formal specification; citation grade: method-grade;
+  licensed use: methodology transfer and shared-missing-machinery diagnosis only.
 ```
 
 ## Review rule
