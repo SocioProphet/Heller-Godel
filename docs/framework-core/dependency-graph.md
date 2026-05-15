@@ -1,6 +1,6 @@
 # Framework-Core Dependency Graph
 
-Status: bootstrap declaration.  
+Status: live declaration.  
 Claim level: governance / architecture.  
 Mathematical content added by this document: none.
 
@@ -8,30 +8,26 @@ This document declares the intended dependency direction for the Heller-Godel / 
 
 ## Core rule
 
-`SocioProphet/Heller-Godel` is the framework-core repository.
+`SocioProphet/Heller-Godel` is the framework-core repository and proof-fabric host.
 
 It is not downstream of any Clay-program repository.
 
-Downstream Clay-program repositories may cite Heller-Godel framework objects by stable `HG-*` identifier and merged commit SHA.
+Downstream Clay-program repositories may cite Heller-Godel framework objects by stable `HG-*` identifier and merged commit SHA. Downstream repositories may also consume PFK schemas, validators, and example patterns from `proof_fabric_kernel/` once imported.
 
 ## Directed graph
 
 ```text
 SocioProphet/Heller-Godel
   framework vocabulary, claim grammar, anti-seed doctrine, canonical fixtures
+  proof_fabric_kernel/ schemas, validators, Event-IR, ProofArtifact mappings, claim ledgers, receipts, examples
 
-  ├──> SocioProphet/proof-fabric-kernel        [planned / extraction target]
-  │       schemas, validators, Event IR, claim ledgers, receipts, CI helpers
-  │
-  │       ├──> SocioProphet/Heller-Winters-Theorem
-  │       ├──> SocioProphet/yang-mills
-  │       ├──> SocioProphet/hodge-program-proof
-  │       ├──> SocioProphet/np-program
-  │       ├──> SocioProphet/bsd-proof-program
-  │       ├──> SocioProphet/Heller-Dirac          [purpose declaration pending]
-  │       └──> SocioProphet/navier-stokes-program [commission decision pending]
-  │
-  └──> direct citation by Clay-program repositories
+  ├──> SocioProphet/Heller-Winters-Theorem
+  ├──> SocioProphet/yang-mills
+  ├──> SocioProphet/hodge-program-proof
+  ├──> SocioProphet/np-program
+  ├──> SocioProphet/bsd-proof-program
+  ├──> SocioProphet/Heller-Dirac          [purpose declaration pending]
+  └──> SocioProphet/navier-stokes-program [commission decision pending]
 ```
 
 ## Forbidden edges
@@ -40,7 +36,7 @@ The following edges are forbidden unless a later governance PR explicitly change
 
 - Clay-program repository -> modifies Heller-Godel framework objects without a Heller-Godel PR;
 - Heller-Godel -> depends on a Clay-program repository as a mathematical premise;
-- proof-fabric-kernel -> depends on a Clay-program repository;
+- PFK schemas or examples -> promote a mathematical theorem claim by validation alone;
 - cyclic dependencies of any length;
 - Drive source -> canonical citation after a reviewed repo import exists.
 
@@ -49,15 +45,15 @@ The following edges are forbidden unless a later governance PR explicitly change
 | Class | Meaning | Canonical location |
 | --- | --- | --- |
 | Framework vocabulary | mathematical vocabulary, anti-seed doctrine, distance tiers, canonical fixtures | `SocioProphet/Heller-Godel` |
-| Operational substrate | schemas, validators, Event IR, receipts, CI helpers | `SocioProphet/proof-fabric-kernel` planned |
+| Operational substrate | schemas, validators, Event-IR, receipts, ProofArtifact mappings, claim ledgers, examples, CI helpers | `SocioProphet/Heller-Godel/proof_fabric_kernel/` |
 | Clay-program instantiation | problem-specific workstreams, theorem attempts, manuscripts, evidence ledgers | Clay-program repos |
-| Provenance | Drive originals, source captures, historical drafts | imported source/provenance directories after review |
+| Provenance | Drive originals, source captures, historical drafts, supplied archive hashes | imported source/provenance directories and framework-core manifests after review |
 
 ## Consumer inventory
 
 | Repository | Intended relationship | Bootstrap status |
 | --- | --- | --- |
-| `SocioProphet/Heller-Winters-Theorem` | RH / GRH program; should cite Heller-Godel framework and consume PFK once extracted | dependency declaration pending |
+| `SocioProphet/Heller-Winters-Theorem` | RH / GRH program; should cite Heller-Godel framework and consume PFK from `proof_fabric_kernel/` | dependency declaration pending |
 | `SocioProphet/yang-mills` | Yang-Mills program; should cite framework vocabulary only where directly used | dependency declaration pending |
 | `SocioProphet/hodge-program-proof` | Hodge program; should cite framework methods/fixtures with strict distance caps | dependency declaration pending |
 | `SocioProphet/np-program` | P vs NP program; should cite Catalan / mu_2 and claim grammar with fixture-grade caps | dependency declaration pending |
@@ -66,19 +62,23 @@ The following edges are forbidden unless a later governance PR explicitly change
 | `SocioProphet/Heller-Dirac` | purpose unresolved; recommended index-theory bridge | purpose declaration pending |
 | `SocioProphet/navier-stokes-program` | not yet commissioned | decision pending |
 
-## PFK extraction policy
+## PFK location policy
 
-The current portfolio review identifies proof-fabric-kernel as shared infrastructure that should not remain siloed inside a single Clay-program repo.
-
-PFK extraction should be handled as a separate repository or clearly declared shared package. Its role is operational, not foundational:
+PFK lives in this repository under:
 
 ```text
-Heller-Godel: framework vocabulary and claim grammar
-PFK: schemas, validators, receipts, and machine-checking substrate
+proof_fabric_kernel/
+```
+
+It is operational, not foundational:
+
+```text
+Heller-Godel framework layer: framework vocabulary and claim grammar
+Heller-Godel PFK layer: schemas, validators, receipts, and machine-checking substrate
 Clay repos: problem-specific instantiations
 ```
 
-Heller-Godel may declare the PFK dependency architecture but should not vendor validator code unless the code belongs to the active Paper I stack.
+PFK may be consumed by downstream repos, but PFK validation does not promote downstream theorem status.
 
 ## Citation direction
 
@@ -86,6 +86,7 @@ Citations flow downstream:
 
 ```text
 Clay repo -> HG identifier @ merged SHA
+Clay repo -> proof_fabric_kernel path or PFK identifier @ merged SHA
 ```
 
 Inventory references flow upstream only as non-load-bearing consumer listings in this document.
