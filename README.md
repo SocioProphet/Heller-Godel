@@ -2,6 +2,8 @@
 
 Research corpus for the Extended Heller-Godel / proof-character program.
 
+This repository is also the canonical framework-core repository for the Heller-Godel / Clay-program estate. The framework-core declaration lives in `docs/framework-core/`; no separate `heller-godel-core` repository is required.
+
 This repository studies analytic invariants of proof-normalization families. The current defensible core is:
 
 ```text
@@ -35,6 +37,30 @@ two level-1 Deligne units
 
 The carry cocycle and Deligne cup-product symbol are intentionally not identified.
 
+## Framework-core role
+
+`SocioProphet/Heller-Godel` is the upstream framework-core repository for the Clay-program portfolio.
+
+It owns:
+
+- framework identifiers and downstream citation grammar;
+- distance classification for framework-foundational, framework-vocabulary, framework-method, and fixture-grade objects;
+- anti-seed doctrine and claim-boundary failure modes;
+- canonical apparatus fixtures such as Catalan / `mu_2`;
+- normalized source imports after review.
+
+It does not own problem-specific Clay proof claims. RH / GRH, Hodge, BSD, P vs NP, Yang-Mills, and Navier-Stokes work remains in the corresponding program repositories.
+
+The framework-core bootstrap documents are:
+
+- `docs/framework-core/README.md`
+- `docs/framework-core/distance-classification.md`
+- `docs/framework-core/claim-grammar.md`
+- `docs/framework-core/anti-seed-framework.md`
+- `docs/framework-core/dependency-graph.md`
+- `docs/doctrine/catalan-mu2-canonical-reference.md`
+- `DEPENDENCIES.md`
+
 ## Current Paper I
 
 The active capture is:
@@ -46,6 +72,8 @@ This document is the working Deligne-cohomological rewrite of the older floor-fu
 ## Claim boundary
 
 This repository does **not** currently prove a nonabelian obstruction theory, a Chern-class lift, a cognitive theory of recognition, progress on the Hodge conjecture, algebraicity of the resulting classes, or algebraic-cycle realization.
+
+The framework-core layer also does **not** claim proof of RH, GRH, BSD, P vs NP, Yang-Mills mass gap, or Navier-Stokes. Universal Bridge material, when imported, is method-grade structural analogy unless separately promoted by proof.
 
 The carry term is now treated as a finite-resolution section defect: it measures the failure of canonical residue representatives modulo `L` to add. The actual finite monodromy character is multiplicative.
 
@@ -87,6 +115,8 @@ Load-bearing source material lives in `sources/primary/` once binary sources are
 
 The initial connector bootstrap records the complete source inventory and hashes in `docs/SOURCE_CLASSIFICATION.md` and `data/manifests/SOURCE_MANIFEST.*`. Binary PDFs and ZIPs are not committed by this connector pass; they are hash-locked for follow-up source import.
 
+After a source is imported, normalized, and merged into this repository, the repo version is canonical for downstream citation. Drive originals remain provenance.
+
 ## Current milestones
 
 - HG-M0: bootstrap repository and source taxonomy.
@@ -96,3 +126,4 @@ The initial connector bootstrap records the complete source inventory and hashes
 - HG-M4: preserve future horizons without promoting them into current theorem claims.
 - HG-M5: develop Paper I Deligne-cohomological rewrite into a submission-ready manuscript.
 - HG-M6: expand executable coverage from finite arithmetic into symbolic proof obligations where feasible.
+- HG-M7: maintain framework-core identity, dependency graph, and downstream citation grammar for the Clay-program estate.
