@@ -1,0 +1,4 @@
+[
+  {"id":"sec-safe-1","kind":"POLICY_CHECK","scope":"SECURITY_EXAMPLE","time":{"clock":"MONO","t":1},"props":{"example":"synthetic","result":"pass"}},
+  {"id":"sec-safe-2","kind":"ARTIFACT_CLOSED","scope":"PFK","time":{"clock":"MONO","t":2},"props":{"claim_class":"operational"}}
+]

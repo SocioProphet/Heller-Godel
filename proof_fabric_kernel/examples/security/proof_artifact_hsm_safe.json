@@ -1,0 +1,8 @@
+{
+  "artifact_id":"PFK-SECURITY-SAFE-001",
+  "artifact_type":"ProofArtifact",
+  "claim_class":"operational",
+  "inputs":[{"path":"examples/security/hsm_safe_trace.json"}],
+  "outputs":[{"result":"accepted"}],
+  "non_claim_boundary":["synthetic example only","not security certification"]
+}

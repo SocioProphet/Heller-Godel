@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://socioprophet.org/pfk/schemas/claim_ledger_row.schema.json",
+  "title": "PFK ClaimLedgerRow",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["claim_id", "claim_class", "statement", "status", "evidence_refs", "non_claim_boundary"],
+  "properties": {
+    "claim_id": {"type": "string"},
+    "claim_class": {"type": "string"},
+    "statement": {"type": "string"},
+    "status": {"type": "string"},
+    "evidence_refs": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "non_claim_boundary": {"type": "array", "items": {"type": "string"}}
+  }
+}
