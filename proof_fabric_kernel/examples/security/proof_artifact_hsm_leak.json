@@ -1,0 +1,8 @@
+{
+  "artifact_id":"PFK-SECURITY-BOUNDARY-001",
+  "artifact_type":"ProofArtifact",
+  "claim_class":"operational",
+  "inputs":[{"path":"examples/security/hsm_leak_trace.json"}],
+  "outputs":[{"result":"fail_closed"}],
+  "non_claim_boundary":["synthetic example only","not exploit guidance","not security certification"]
+}

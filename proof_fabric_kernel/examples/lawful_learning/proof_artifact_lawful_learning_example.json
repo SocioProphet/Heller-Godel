@@ -1,0 +1,8 @@
+{
+  "artifact_id":"PFK-LAWFUL-LEARNING-001",
+  "artifact_type":"ProofArtifact",
+  "claim_class":"operational",
+  "inputs":[{"path":"examples/lawful_learning/lawful_learning_example_trace.json"}],
+  "outputs":[{"result":"replay_surface_valid"}],
+  "non_claim_boundary":["schema validation is not model truth","deterministic replay is not theorem proof"]
+}

@@ -1,0 +1,12 @@
+bundle_id: CB-PRIMES-001
+domain: primes
+controls:
+  - control_id: N1
+    description: null model declared
+  - control_id: S1
+    description: statistic declared
+acceptance:
+  schema_valid: true
+  claim_boundary_present: true
+non_claim_boundary:
+  - calibration is not proof

@@ -1,0 +1,5 @@
+[
+  {"id":"p1","kind":"PHASE_MAP","scope":"PRIMES","time":{"clock":"MONO","t":1},"props":{"operator":"theta_omega","omega":1,"limit":10000}},
+  {"id":"p2","kind":"NULL_MODEL","scope":"PRIMES","time":{"clock":"MONO","t":2},"props":{"model":"cramer_bernoulli","replicates":16}},
+  {"id":"p3","kind":"STATISTIC","scope":"PRIMES","time":{"clock":"MONO","t":3},"props":{"statistic":"kuiper_uniform","claim_class":"empirical"}}
+]

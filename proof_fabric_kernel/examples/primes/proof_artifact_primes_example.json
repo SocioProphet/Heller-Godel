@@ -1,0 +1,8 @@
+{
+  "artifact_id":"PFK-PRIMES-EXAMPLE-001",
+  "artifact_type":"ProofArtifact",
+  "claim_class":"empirical",
+  "inputs":[{"path":"examples/primes/primes_phase_example_trace.json"}],
+  "outputs":[{"path":"examples/primes/calibration_bundle_example.json"}],
+  "non_claim_boundary":["not RH","not GRH","not zero-location","not theorem-grade"]
+}

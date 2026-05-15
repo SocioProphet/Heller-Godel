@@ -1,0 +1,5 @@
+[
+  {"id":"ll1","kind":"CONSTRAINT_DECLARED","scope":"LAWFUL_LEARNING","time":{"clock":"MONO","t":1},"props":{"constraint":"monotonicity","operator":"projection"}},
+  {"id":"ll2","kind":"REPLAY_HASH","scope":"LAWFUL_LEARNING","time":{"clock":"MONO","t":2},"props":{"hash":"sha256:example","deterministic":true}},
+  {"id":"ll3","kind":"ARTIFACT_CLOSED","scope":"PFK","time":{"clock":"MONO","t":3},"props":{"claim_class":"operational"}}
+]

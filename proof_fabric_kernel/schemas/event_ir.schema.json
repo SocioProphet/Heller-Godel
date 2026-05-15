@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://socioprophet.org/pfk/schemas/event_ir.schema.json",
+  "title": "PFK Event-IR Event",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["id", "kind", "scope", "time", "props"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "kind": {"type": "string", "minLength": 1},
+    "scope": {"type": "string", "minLength": 1},
+    "time": {"type": "object", "required": ["clock", "t"], "additionalProperties": true, "properties": {"clock": {"type": "string"}, "t": {"type": ["integer", "number", "string"]}}},
+    "props": {"type": "object", "additionalProperties": true}
+  }
+}

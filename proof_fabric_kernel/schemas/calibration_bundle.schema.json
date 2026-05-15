@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://socioprophet.org/pfk/schemas/calibration_bundle.schema.json",
+  "title": "PFK CalibrationBundle",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["bundle_id", "domain", "controls", "acceptance"],
+  "properties": {
+    "bundle_id": {"type": "string"},
+    "domain": {"type": "string"},
+    "controls": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "acceptance": {"type": "object", "additionalProperties": true}
+  }
+}
