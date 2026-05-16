@@ -97,6 +97,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-006` | Universal Bridge extension to algebraic-geometric / Hodge domain | method-grade only | active |
 | `HG-MTH-007` | Universal Bridge extension to gauge / Yang-Mills domain | method-grade only | active; depends on Heller-Dirac @ `e1d7c863f4e0fc6e5e2ab485370cc75b2dba3993` |
 | `HG-MTH-008` | Universal Bridge extension to complexity / P vs NP domain | method-grade only | active |
+| `HG-MTH-009` | Universal Bridge extension to arithmetic-geometric / BSD domain | method-grade only | active; depends on Heller-Dirac @ `e1d7c863f4e0fc6e5e2ab485370cc75b2dba3993` |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
@@ -106,7 +107,6 @@ The following identifiers are reserved for future source imports and may not be 
 
 | Identifier | Reserved object | Intended grade | Status |
 | --- | --- | --- | --- |
-| `HG-MTH-009` | Universal Bridge extension to arithmetic-geometric / BSD domain | method-grade only | reserved; source import pending |
 | `HG-MTH-010` | Clay coverage / Navier-Stokes decision record | governance / method-grade | reserved; decision pending |
 
 Reservation does not license citation. It prevents identifier collision only.
@@ -118,6 +118,8 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 `HG-MTH-007` additionally cites `A-HG-MTH-006`: component apparatus cited diagnostically is not Clay-grade Yang-Mills resolution.
 
 `HG-MTH-008` additionally cites `A-HG-MTH-005`: triple-barrier diagnosis is not a circumvention recipe.
+
+`HG-MTH-009` additionally cites `A-HG-MTH-007`: BSD-rank and BSD-strong have distinct structural status.
 
 ## PFK namespace separation
 
@@ -154,6 +156,8 @@ Framework citations:
   licensed use: gauge shared-missing-machinery diagnosis only.
 - [HG-MTH-008 @ <sha>] — P vs NP / complexity-domain Universal Bridge extension; citation grade: method-grade;
   licensed use: complexity shared-missing-machinery diagnosis only.
+- [HG-MTH-009 @ <sha>] — BSD arithmetic-geometric-domain Universal Bridge extension; citation grade: method-grade;
+  licensed use: BSD shared-missing-machinery diagnosis only.
 ```
 
 ## Review rule

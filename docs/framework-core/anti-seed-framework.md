@@ -236,6 +236,28 @@ Closure condition:
 A-HG-MTH-006 closes only if the Clay Yang-Mills mass-gap problem is resolved with the required existence and mass-gap conditions in the continuum for non-abelian gauge groups. Until then, it remains active.
 ```
 
+## A-HG-MTH-007 — BSD-rank and BSD-strong have distinct structural status
+
+The `HG-MTH-009` BSD bridge spec distinguishes BSD-rank from BSD-strong. Rank equality and the leading-coefficient formula are related but structurally distinct. Method-grade apparatus for one is not automatically apparatus for the other.
+
+Failure mode:
+
+```text
+A downstream artifact cites HG-MTH-009 as if restricted-rank BSD apparatus or rank-equality evidence also establishes the leading-coefficient formula, Sha finiteness, or Tamagawa-factor identity.
+```
+
+Correct boundary:
+
+```text
+HG-MTH-009 references BSD-rank and BSD-strong separately. A downstream artifact citing HG-MTH-009 must declare which level it addresses. Rank-restricted results, congruent-number fixtures, Selmer computations, p-adic L-function calculations, and endomotive reformulations remain method-grade unless they prove the required BSD component in the stated scope.
+```
+
+Closure condition:
+
+```text
+A-HG-MTH-007 closes only when BSD-rank and BSD-strong are both proven in full generality for elliptic curves over Q. Until then, it remains active.
+```
+
 ## A-HG-DOC-001 — Creating a second framework-core repo without need
 
 The portfolio already has `SocioProphet/Heller-Godel`. Creating a separate `heller-godel-core` repo would split the canonical framework record.
