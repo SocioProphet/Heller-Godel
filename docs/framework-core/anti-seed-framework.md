@@ -132,7 +132,7 @@ Correct boundary:
 The bridge may license shared vocabulary, claim-discipline, and missing-machinery comparisons. It does not license proof transfer or cross-Clay equivalence.
 ```
 
-Status: source import pending.
+Status: active; governs HG-MTH-005 and extensions.
 
 ## A-HG-MTH-002 — Treating Catalan / mu_2 as Clay progress
 
@@ -169,6 +169,28 @@ Every downstream citation must state citation grade: theorem-grade, method-grade
 ```
 
 Status: governed by `docs/framework-core/claim-grammar.md`.
+
+## A-HG-MTH-004 — Standard Conjectures cited diagnostically are not assumed
+
+The `HG-MTH-006` Hodge bridge spec references Grothendieck Standard Conjectures B and D as diagnostic structural apparatus identifying shared missing machinery. The reference is diagnostic, not assumptive.
+
+Failure mode:
+
+```text
+A downstream artifact cites HG-MTH-006 as if it assumed Standard Conjecture B or D for the variety under discussion.
+```
+
+Correct boundary:
+
+```text
+HG-MTH-006 references Standard Conjectures B and D as structural-obstruction diagnostic apparatus. Any artifact that assumes them as premises must declare that assumption explicitly and cannot invoke HG-MTH-006 as license for the assumption.
+```
+
+Closure condition:
+
+```text
+A-HG-MTH-004 closes only if the relevant Standard Conjectures are proven in the required generality. Until then, it remains active.
+```
 
 ## A-HG-DOC-001 — Creating a second framework-core repo without need
 
