@@ -95,6 +95,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-004` | Anti-seed framework register | method-grade | active |
 | `HG-MTH-005` | Universal Bridge formal specification | method-grade only | active |
 | `HG-MTH-006` | Universal Bridge extension to algebraic-geometric / Hodge domain | method-grade only | active |
+| `HG-MTH-008` | Universal Bridge extension to complexity / P vs NP domain | method-grade only | active |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
@@ -105,7 +106,6 @@ The following identifiers are reserved for future source imports and may not be 
 | Identifier | Reserved object | Intended grade | Status |
 | --- | --- | --- | --- |
 | `HG-MTH-007` | Universal Bridge extension to gauge / Yang-Mills domain | method-grade only | reserved; source import pending |
-| `HG-MTH-008` | Universal Bridge extension to complexity / P vs NP domain | method-grade only | reserved; source import pending |
 | `HG-MTH-009` | Universal Bridge extension to arithmetic-geometric / BSD domain | method-grade only | reserved; source import pending |
 | `HG-MTH-010` | Clay coverage / Navier-Stokes decision record | governance / method-grade | reserved; decision pending |
 
@@ -114,6 +114,8 @@ Reservation does not license citation. It prevents identifier collision only.
 The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridge material does not prove cross-Clay equivalence and does not transfer proofs between Clay domains.
 
 `HG-MTH-006` additionally cites `A-HG-MTH-004`: Standard Conjectures cited diagnostically are not assumed.
+
+`HG-MTH-008` additionally cites `A-HG-MTH-005`: triple-barrier diagnosis is not a circumvention recipe.
 
 ## PFK namespace separation
 
@@ -146,6 +148,8 @@ Framework citations:
   licensed use: methodology transfer and shared-missing-machinery diagnosis only.
 - [HG-MTH-006 @ <sha>] — Hodge-domain Universal Bridge extension; citation grade: method-grade;
   licensed use: Hodge shared-missing-machinery diagnosis only.
+- [HG-MTH-008 @ <sha>] — P vs NP / complexity-domain Universal Bridge extension; citation grade: method-grade;
+  licensed use: complexity shared-missing-machinery diagnosis only.
 ```
 
 ## Review rule
