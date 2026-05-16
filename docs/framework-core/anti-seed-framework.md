@@ -214,6 +214,28 @@ Closure condition:
 A-HG-MTH-005 closes only if the three-barrier obstruction is formally resolved by a corresponding separation result or a meta-theorem that subsumes the barriers. Until then, it remains active.
 ```
 
+## A-HG-MTH-006 — Component apparatus cited diagnostically is not Clay-grade YM resolution
+
+The `HG-MTH-007` Yang-Mills bridge spec references three component structural obstructions: constructive QFT existence, continuum limit of lattice gauge theory, and spectral-action realization. Each component has substantial method-level apparatus.
+
+Failure mode:
+
+```text
+A downstream artifact cites HG-MTH-007 as if method-level apparatus in one component constitutes Clay-grade Yang-Mills existence or mass-gap resolution.
+```
+
+Correct boundary:
+
+```text
+HG-MTH-007 references each component diagnostically. A downstream artifact citing HG-MTH-007 inherits the diagnostic reference for its component, not a license to claim Clay resolution. A fixed-lattice or narrow-scope theorem remains method-grade unless it supplies the full continuum constructive QFT and mass-gap result required by the Clay problem.
+```
+
+Closure condition:
+
+```text
+A-HG-MTH-006 closes only if the Clay Yang-Mills mass-gap problem is resolved with the required existence and mass-gap conditions in the continuum for non-abelian gauge groups. Until then, it remains active.
+```
+
 ## A-HG-DOC-001 — Creating a second framework-core repo without need
 
 The portfolio already has `SocioProphet/Heller-Godel`. Creating a separate `heller-godel-core` repo would split the canonical framework record.
