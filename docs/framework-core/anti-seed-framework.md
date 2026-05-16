@@ -192,6 +192,28 @@ Closure condition:
 A-HG-MTH-004 closes only if the relevant Standard Conjectures are proven in the required generality. Until then, it remains active.
 ```
 
+## A-HG-MTH-005 — Triple barrier cited diagnostically is not a circumvention recipe
+
+The `HG-MTH-008` P vs NP bridge spec references the relativization / natural-proofs / algebrization triple as the structural apex obstruction for the complexity domain. The reference is diagnostic: the triple identifies classes of techniques that cannot resolve P vs NP.
+
+Failure mode:
+
+```text
+A downstream artifact cites HG-MTH-008 as if the citation certifies that its technique evades relativization, natural proofs, or algebrization.
+```
+
+Correct boundary:
+
+```text
+HG-MTH-008 references the triple barrier as structural-obstruction diagnostic apparatus. A downstream artifact citing HG-MTH-008 inherits the diagnosis, not a license to claim that any candidate program has escaped all three barriers.
+```
+
+Closure condition:
+
+```text
+A-HG-MTH-005 closes only if the three-barrier obstruction is formally resolved by a corresponding separation result or a meta-theorem that subsumes the barriers. Until then, it remains active.
+```
+
 ## A-HG-DOC-001 — Creating a second framework-core repo without need
 
 The portfolio already has `SocioProphet/Heller-Godel`. Creating a separate `heller-godel-core` repo would split the canonical framework record.
