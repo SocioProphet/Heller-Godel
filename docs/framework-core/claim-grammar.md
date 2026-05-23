@@ -65,7 +65,7 @@ A downstream citation should record:
 | --- | --- | --- |
 | `theorem-grade` | typed proved or canonically cited object | theorem premises within declared scope |
 | `method-grade` | method, governance rule, bridge specification, or classification | procedure, analogy, taxonomy, or review discipline |
-| `fixture-grade` | worked example or apparatus validation fixture | apparatus alignment only |
+| `fixture-grade` | worked example or canonical fixture | apparatus alignment only |
 | `provenance-grade` | source capture, historical note, imported Drive artifact, or unpromoted draft | historical origin only |
 
 ## Forbidden citation patterns
@@ -98,6 +98,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-007` | Universal Bridge extension to gauge / Yang-Mills domain | method-grade only | active; depends on Heller-Dirac @ `e1d7c863f4e0fc6e5e2ab485370cc75b2dba3993` |
 | `HG-MTH-008` | Universal Bridge extension to complexity / P vs NP domain | method-grade only | active |
 | `HG-MTH-009` | Universal Bridge extension to arithmetic-geometric / BSD domain | method-grade only | active; depends on Heller-Dirac @ `e1d7c863f4e0fc6e5e2ab485370cc75b2dba3993` |
+| `HG-MTH-011` | A2 minimality candidate-theorem under path-beta gate-minimality | method-grade as candidate theorem | active after PR #76 if merged |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
@@ -120,6 +121,8 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 `HG-MTH-008` additionally cites `A-HG-MTH-005`: triple-barrier diagnosis is not a circumvention recipe.
 
 `HG-MTH-009` additionally cites `A-HG-MTH-007`: BSD-rank and BSD-strong have distinct structural status.
+
+`HG-MTH-011` additionally inherits the Heller-Godel standing non-claims for gate-minimality: it is not theorem-track promoted, does not establish absolute A2 minimality outside its candidate-list scope, does not claim path-beta uniqueness, does not extend to an `A_n` theorem family, and does not cross into downstream Clay-program proof claims.
 
 ## PFK namespace separation
 
@@ -158,6 +161,8 @@ Framework citations:
   licensed use: complexity shared-missing-machinery diagnosis only.
 - [HG-MTH-009 @ <sha>] — BSD arithmetic-geometric-domain Universal Bridge extension; citation grade: method-grade;
   licensed use: BSD shared-missing-machinery diagnosis only.
+- [HG-MTH-011 @ <sha>] — A2 minimality candidate-theorem under path-beta; citation grade: method-grade as candidate;
+  licensed use: A2 gate-minimality candidate-list reasoning only, not theorem-track downstream input.
 ```
 
 ## Review rule
