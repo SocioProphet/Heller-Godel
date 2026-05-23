@@ -102,6 +102,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-012` | P3 pipeline-integration scope for A2 minimality candidate-theorem | method-grade as scope | active after this PR if merged |
 | `HG-MTH-013` | P3.a restricted proof grammar at p=3 scope | method-grade as scope | active after this PR if merged |
 | `HG-MTH-014` | P3.a restricted proof grammar at p=3 closure | method-grade modulo candidate-HG-FND-001 | active after this PR if merged |
+| `HG-MTH-015` | P3.b canonical statistic and generating-function at p=3 scope | method-grade as scope | active after this PR if merged |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
@@ -132,6 +133,8 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 `HG-MTH-013` additionally inherits the P3.a scope non-claims: it does not close P3.a, does not select a `p=3` grammar, does not specify the `p=3` canonical statistic / generating function / Puiseux singularity / `zeta_3` carry defect, does not promote `HG-FND-001` from candidate to settled Tier-1 status, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
 `HG-MTH-014` additionally inherits the P3.a closure non-claims: it does not promote `HG-FND-001` from candidate to settled Tier-1 status, does not promote `HG-MTH-011`, does not close P3.b / P3.c / P3.d, does not make P3.c-grade Puiseux claims, does not specify `zeta_3` or its `U(2)` correspondence, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
+
+`HG-MTH-015` additionally inherits the P3.b scope non-claims: it does not close P3.b, does not select a P3.b verification strategy, does not specify `rho_3` or `alpha_3` as closure-grade, does not specify `zeta_3` or the `U(2)` correspondence, does not promote `HG-FND-001` or `HG-FND-002`, does not promote `HG-MTH-011`, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
 ## Deferred non-blocking queue
 
@@ -188,6 +191,8 @@ Framework citations:
   licensed use: obligation specification only, not P3.a closure, grammar selection, or theorem-track promotion.
 - [HG-MTH-014 @ <sha>] — P3.a restricted proof grammar at p=3 closure; citation grade: method-grade modulo candidate-HG-FND-001;
   licensed use: P3.a grammar closure only, not P3.b/P3.c/P3.d closure or theorem-track promotion.
+- [HG-MTH-015 @ <sha>] — P3.b canonical statistic and generating-function at p=3 scope; citation grade: method-grade as scope;
+  licensed use: P3.b obligation specification only, not P3.b closure or theorem-track promotion.
 ```
 
 ## Review rule
