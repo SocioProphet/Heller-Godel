@@ -1,7 +1,7 @@
 # HG-FND-001 — Restricted Proof Grammar and Declared Statistics
 
 Identifier: `HG-FND-001`  
-Layer: Framework-foundational / Tier 1.  
+Layer: framework-foundational / Tier 1.  
 Status: normalized restricted proof-grammar foundation.  
 Owner: `SocioProphet/Heller-Godel`.  
 Claim level: framework-foundational definition and discipline; not downstream theorem promotion.
