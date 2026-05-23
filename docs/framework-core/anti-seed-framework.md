@@ -102,6 +102,22 @@ Boundary: `HG-FND-007` owns the integer-valued section-defect carry only. Any co
 
 Status: active; governs `HG-FND-007`.
 
+## A-HG-FND-010 — Treating branch-killing cover as constructed without source datum
+
+Failure mode:
+
+```text
+A downstream artifact cites the branch-killing cover or singular unit upstairs without declaring the Puiseux datum, branch-killing level, and branch convention supplied by `HG-FND-003`.
+```
+
+Correct boundary:
+
+```text
+`HG-FND-004` citation requires the base Puiseux datum, local coordinate, level, branch convention, cover equation, upstairs unit, and normalization convention.
+```
+
+Status: active; governs `HG-FND-004`.
+
 ## A-HG-VOC-001 — Treating Rosetta dictionary rows as proved identifications
 
 Failure mode:
