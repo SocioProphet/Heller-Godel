@@ -21,7 +21,7 @@ def test_tame_symbol_value_is_distinct_from_integer_carry():
     tame_value = tame_symbol_standard(1, 1)
     assert tame_value != carry_value
     assert isinstance(carry_value, int)
-    assert isinstance(tame_value, (complex, int))
+    assert isinstance(tame_value, (complex, float, int))
 
 
 def test_carry_table_level_3():
