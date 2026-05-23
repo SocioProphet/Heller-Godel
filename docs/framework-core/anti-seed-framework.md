@@ -98,6 +98,42 @@ Tree enumerations are admissible only as visualizations or derived enumerators o
 
 Status: active; governs `HG-FND-001`.
 
+## A-HG-FND-006 — Treating unstatted series as proof-family generating functions
+
+Power series, ordinary generating functions, and algebraic series are not proof-family generating functions unless the restricted grammar, witness family, and statistic are declared.
+
+Failure mode:
+
+```text
+A downstream artifact cites a power series as a proof-class generating function without specifying the `HG-FND-001` restricted grammar, witness family `N_phi`, and statistic `sigma` that produce it.
+```
+
+Correct boundary:
+
+```text
+A proof-family generating function must declare its typed witness family and statistic before it can be cited through `HG-FND-002`.
+```
+
+Status: active; governs `HG-FND-002`.
+
+## A-HG-FND-007 — Treating undecorated singularities as Puiseux data
+
+A dominant singularity and rational Puiseux exponent extracted from a generating function are inputs to the puncture-datum surface. They are not themselves decorated Puiseux data.
+
+Failure mode:
+
+```text
+A downstream artifact treats the singularity of a proof-family generating function as proof-grade Puiseux datum without the puncture-decoration step owned by `HG-FND-003`.
+```
+
+Correct boundary:
+
+```text
+`HG-FND-002` may identify `rho` and `alpha`; `HG-FND-003` owns the decorated Puiseux singular datum at a chosen puncture.
+```
+
+Status: active; governs the `HG-FND-002` / `HG-FND-003` boundary.
+
 ## A-HG-VOC-001 — Treating Rosetta dictionary rows as proved identifications
 
 Rosetta-style dictionary rows are target propositions or vocabulary alignments unless separately proved.
