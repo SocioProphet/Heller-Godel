@@ -24,7 +24,7 @@ Normalized Tier 1 surfaces:
 | Identifier | Object | Status |
 | --- | --- | --- |
 | `HG-FND-001` | Restricted proof grammar and declared statistics | normalized Tier 1; governed by `A-HG-FND-005`; source: `docs/framework-foundations/HG-FND-001-restricted-proof-grammar.md` |
-| `HG-FND-002` | Proof-class / proof-family generating-function construction | normalized Tier 1; governed by `A-HG-FND-006` and `A-HG-FND-007`; source: `docs/framework-foundations/HG-FND-002-proof-class-generating-function.md` |
+| `HG-FND-002` | Proof-class / proof-family generating-function construction | normalized Tier 1; governed by generating-function anti-seeds in `docs/framework-core/anti-seed-framework.md`; source: `docs/framework-foundations/HG-FND-002-proof-class-generating-function.md` |
 
 Initial Tier 1 candidates are not automatically promoted by this bootstrap. They must be normalized in later PRs.
 
