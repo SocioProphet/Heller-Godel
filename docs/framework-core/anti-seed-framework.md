@@ -96,6 +96,12 @@ Multiplicativity is a property of the character in the finite root-of-unity grou
 
 Status: active; governs `HG-FND-006` and its boundary with `HG-FND-007`.
 
+## A-HG-FND-009 — Section carry comparison boundary
+
+Boundary: `HG-FND-007` owns the integer-valued section-defect carry only. Any comparison with another mathematical surface requires a separate normalized typed bridge.
+
+Status: active; governs `HG-FND-007`.
+
 ## A-HG-VOC-001 — Treating Rosetta dictionary rows as proved identifications
 
 Failure mode:
