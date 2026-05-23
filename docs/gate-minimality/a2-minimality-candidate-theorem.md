@@ -75,7 +75,7 @@ At A1, the minimal admissible subgroup under the analogous framework is `Spin(3)
 
 (P2) Candidate-list exhaustion. Prove that the closed-connected subgroup candidate list up to conjugacy is exhaustive for the relevant minimality equivalence on `SU(3)`, so that no closed connected subgroup outside the list is admissible and strictly smaller than `U(2)=S(U(2) x U(1))`. This lifts candidate-list minimality to absolute minimality and is independent strengthening.
 
-(P3) Pipeline integration. Attach A2 minimality to Heller-Godel's `chi_p` / proof-character framework at `p=3`, specifically by connecting the `U(2)` result to an object in the `chi_3` phase reduction or `zeta_3` carry defect under composition. This may later be mediated by Heller-Einstein typed-interface ontology work if separately authorized.
+(P3) Pipeline integration. Attach A2 minimality to Heller-Godel's `chi_p` / proof-character framework at `p=3`. Concretely, this requires demonstrating that the `U(2)=S(U(2) x U(1))` minimal admissible subgroup result corresponds to a specific object in the `chi_3` phase reduction or `zeta_3` carry defect under composition. This integration may be mediated by the Heller-Einstein typed-interface ontology and the realization question relocated to Heller-Einstein under the relevant Heller-Einstein authorization path. Until that separate work is authorized, merged, and cited at the correct grade, Heller-Einstein may not cite this A2 candidate as theorem-grade input.
 
 Any one of P1 or P3 suffices to promote A2 minimality from candidate to theorem, subject to a dedicated promotion PR. P2 is independent strengthening.
 
