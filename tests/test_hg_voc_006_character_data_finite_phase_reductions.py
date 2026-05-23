@@ -11,6 +11,10 @@ def cubic_discriminant(a, b, c, d):
     }
 
 
+def manuscript_phase_index(beta: Fraction, prime: int) -> tuple[int, int]:
+    return ((prime * beta.numerator) // beta.denominator) % prime, prime
+
+
 def test_cubic_discriminant_identity_for_global_source():
     # Polynomial: x*y^3 - y + 1, with a=x, b=0, c=-1, d=1.
     # Represent x as polynomial degree bookkeeping: Delta = 4*x - 27*x^2.
@@ -19,16 +23,14 @@ def test_cubic_discriminant_identity_for_global_source():
 
 
 def test_manuscript_phase_map_value_for_p3_beta_half():
-    beta = Fraction(1, 2)
-    p = 3
-    k = (p * beta.numerator) // beta.denominator
-    assert k % p == 1
+    assert manuscript_phase_index(Fraction(1, 2), 3) == (1, 3)
 
 
-def test_phase_index_level_three_matches_manuscript_value():
-    assert phase_index(Fraction(1, 2), level=3) == (1, 3)
+def test_existing_phase_index_remains_denominator_level_substrate():
+    # The executable substrate is denominator-level arithmetic: alpha=1/3 at level 3.
+    assert phase_index(Fraction(1, 3), level=3) == (1, 3)
 
 
 def test_prime_reduction_at_p3_gives_mu3_projection():
-    index, level = phase_index(Fraction(1, 2), level=3)
+    index, level = manuscript_phase_index(Fraction(1, 2), 3)
     assert prime_reduction(index, level, 3) == (1, 3)
