@@ -4,7 +4,7 @@ Status: bootstrap taxonomy.
 Claim level: governance / architecture.  
 Mathematical content added by this document: none.
 
-Framework objects in `SocioProphet/Heller-Godel` are classified by distance from the currently defensible mathematical core. The classification controls what downstream Clay-program repositories may cite and what those citations license.
+Framework objects in `SocioProphet/Heller-Godel` are classified by distance from the currently defensible mathematical core. The classification controls what downstream repositories may cite and what those citations license.
 
 ## Tier 1 — Framework-foundational
 
@@ -27,8 +27,6 @@ Normalized Tier 1 surfaces:
 | `HG-FND-002` | Proof-class / proof-family generating-function construction | normalized Tier 1; governed by generating-function anti-seeds in `docs/framework-core/anti-seed-framework.md`; source: `docs/framework-foundations/HG-FND-002-proof-class-generating-function.md` |
 | `HG-FND-003` | Puiseux singular datum at a chosen puncture | normalized Tier 1; governed by `A-HG-FND-007`; source: `docs/framework-foundations/HG-FND-003-puiseux-singular-datum.md` |
 
-Initial Tier 1 candidates are not automatically promoted by this bootstrap. They must be normalized in later PRs.
-
 Candidate inventory for future review:
 
 | Candidate identifier | Object | Bootstrap status |
@@ -38,8 +36,6 @@ Candidate inventory for future review:
 | `HG-FND-006` | Finite monodromy / deck-character interpretation | candidate; active core exists, registry normalization pending |
 | `HG-FND-007` | Lifted phase index and section-defect carry cocycle | candidate; active core exists, registry normalization pending |
 | `HG-FND-008` | Deligne cup-product / regulator-symbol separation from carry | candidate; active core exists, registry normalization pending |
-
-Historical or broader framework objects such as Trinitarian Unity, Compat = `(nabla, A_C, partial)`, epsilon-time, `S_4`, `Curv_3 in H^3`, and TQFT-functor vocabulary are not promoted by this bootstrap. They require source import, anti-seed registration, typing, and review.
 
 ## Tier 2 — Framework-vocabulary
 
@@ -52,6 +48,12 @@ An object may be Tier 2 only if it has:
 3. an anti-seed entry;
 4. a distance cap preventing theorem-grade citation.
 
+Normalized Tier 2 surfaces:
+
+| Identifier | Object | Status |
+| --- | --- | --- |
+| `HG-VOC-006` | Character data, roots of unity, and finite phase reductions | normalized Tier 2; governed by `A-HG-VOC-006`; source: `docs/framework-vocabulary/HG-VOC-006-character-data-finite-phase-reductions.md` |
+
 Candidate inventory for future review:
 
 | Candidate identifier | Object | Bootstrap status |
@@ -61,18 +63,10 @@ Candidate inventory for future review:
 | `HG-VOC-003` | Hopf testbed vocabulary | source import pending |
 | `HG-VOC-004` | Equilateral triangle billiard A2-rung analogy | source import pending; analogy cap required |
 | `HG-VOC-005` | Proof-class moduli vocabulary | active scaffold exists; nonclaim cap required |
-| `HG-VOC-006` | Character data `chi_p`, roots of unity, and finite phase reductions | active core exists; registry normalization pending |
 
 ## Tier 3 — Framework-method
 
 Tier 3 contains methods, bridge specifications, governance rules, and apparatus-validation fixtures.
-
-An object may be Tier 3 only if it has:
-
-1. a stable `HG-MTH-NNN` or `HG-EX-NNN` identifier;
-2. explicit input/output typing or governance scope;
-3. an anti-seed entry;
-4. a statement of what the method does not license.
 
 Initial bootstrap registrations:
 
@@ -88,32 +82,15 @@ Universal Bridge material will enter Tier 3 by default when imported. It may not
 
 ## Tier 4 — Framework-fallout / downstream consumers
 
-Tier 4 consists of downstream Clay-program repositories that cite Heller-Godel framework objects.
+Tier 4 consists of downstream repositories that cite Heller-Godel framework objects.
 
 Tier 4 content is not stored here except as inventory in `docs/framework-core/dependency-graph.md` and `DEPENDENCIES.md`.
-
-Downstream consumers include:
-
-- `SocioProphet/Heller-Winters-Theorem`
-- `SocioProphet/yang-mills`
-- `SocioProphet/hodge-program-proof`
-- `SocioProphet/np-program`
-- `SocioProphet/bsd-proof-program`
-- `SocioProphet/Heller-Dirac` after purpose declaration
-- `SocioProphet/navier-stokes-program` only if commissioned
 
 ## Promotion rule
 
 New objects enter at Tier 3 by default unless the PR explicitly requests a higher tier.
 
-Promotion toward Tier 1 requires:
-
-1. a PR labeled or titled as a promotion;
-2. an anti-seed entry before positive promotion;
-3. typed statement and dependency declaration;
-4. proof, citation, or evidence class;
-5. claim-boundary review;
-6. registry update in this file.
+Promotion toward Tier 1 requires anti-seed registration, typing, proof or citation, claim-boundary review, and registry update.
 
 Demotion is allowed by the same procedure and must preserve the historical record.
 
@@ -121,6 +98,6 @@ Demotion is allowed by the same procedure and must preserve the historical recor
 
 - Drive source material is provenance until imported and reviewed.
 - Chat transcripts are provenance until converted into repo-grade text.
-- Downstream Clay-program claims do not promote upstream framework objects.
+- Downstream claims do not promote upstream framework objects.
 - Fixture success does not imply theorem progress.
 - Structural analogy does not imply proof transfer.
