@@ -62,7 +62,7 @@ A downstream citation should record:
 ## Citation grades
 
 | Grade | Meaning | May license |
-| --- | --- | --- |
+| --- | --- |
 | `theorem-grade` | typed proved or canonically cited object | theorem premises within declared scope |
 | `method-grade` | method, governance rule, bridge specification, or classification | procedure, analogy, taxonomy, or review discipline |
 | `fixture-grade` | worked example or canonical fixture | apparatus alignment only |
@@ -99,6 +99,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-008` | Universal Bridge extension to complexity / P vs NP domain | method-grade only | active |
 | `HG-MTH-009` | Universal Bridge extension to arithmetic-geometric / BSD domain | method-grade only | active; depends on Heller-Dirac @ `e1d7c863f4e0fc6e5e2ab485370cc75b2dba3993` |
 | `HG-MTH-011` | A2 minimality candidate-theorem under path-beta gate-minimality | method-grade as candidate theorem | active after PR #76 if merged |
+| `HG-MTH-012` | P3 pipeline-integration scope for A2 minimality candidate-theorem | method-grade as scope | active after this PR if merged |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
@@ -123,6 +124,8 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 `HG-MTH-009` additionally cites `A-HG-MTH-007`: BSD-rank and BSD-strong have distinct structural status.
 
 `HG-MTH-011` additionally inherits the Heller-Godel standing non-claims for gate-minimality: it is not theorem-track promoted, does not establish absolute A2 minimality outside its candidate-list scope, does not claim path-beta uniqueness, does not extend to an `A_n` theorem family, and does not cross into downstream Clay-program proof claims.
+
+`HG-MTH-012` additionally inherits the P3 scope non-claims: it does not close P3, does not promote `HG-MTH-011`, does not specify the `chi_3` generating function / Puiseux singularity / `zeta_3` carry defect, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
 ## PFK namespace separation
 
@@ -163,6 +166,8 @@ Framework citations:
   licensed use: BSD shared-missing-machinery diagnosis only.
 - [HG-MTH-011 @ <sha>] — A2 minimality candidate-theorem under path-beta; citation grade: method-grade as candidate;
   licensed use: A2 gate-minimality candidate-list reasoning only, not theorem-track downstream input.
+- [HG-MTH-012 @ <sha>] — P3 pipeline-integration scope for HG-MTH-011; citation grade: method-grade as scope;
+  licensed use: obligation specification only, not P3 closure or theorem-track promotion.
 ```
 
 ## Review rule
