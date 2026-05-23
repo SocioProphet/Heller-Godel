@@ -118,6 +118,28 @@ Correct boundary:
 
 Status: active; governs `HG-FND-004`.
 
+## A-HG-FND-011 — Treating tame-symbol evaluation as carry-cocycle identification
+
+Failure mode:
+
+```text
+A downstream artifact treats a tame-symbol evaluation as proof that the Deligne-unit class equals the carry cocycle without a separate normalized comparison surface.
+```
+
+Second failure mode:
+
+```text
+A downstream artifact treats the Deligne-unit class as proof-grade without declaring the cover, puncture, and normalization condition supplied by `HG-FND-004`.
+```
+
+Correct boundary:
+
+```text
+The tame symbol is the evaluation of a level-1 Deligne-unit datum. The carry cocycle is an integer section defect. They are not identified without `HG-FND-008` or another separately normalized comparison surface.
+```
+
+Status: active; governs `HG-FND-005`.
+
 ## A-HG-VOC-001 — Treating Rosetta dictionary rows as proved identifications
 
 Failure mode:
