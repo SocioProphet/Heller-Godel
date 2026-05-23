@@ -176,6 +176,24 @@ Lattice-tower material enters as vocabulary unless and until promoted by a dedic
 
 Status: source import pending.
 
+## A-HG-VOC-006 — Treating chi_3 as proof-grade without source declaration
+
+A `chi_3` value is not proof-grade character identification unless the global source, generator convention, and manuscript alignment are declared.
+
+Failure mode:
+
+```text
+A downstream artifact treats chi_3 as proof-grade without declaring global Galois source, generator convention, and manuscript alignment.
+```
+
+Correct boundary:
+
+```text
+`HG-VOC-006` citation requires all three: global Galois source, generator convention, and manuscript alignment.
+```
+
+Status: active; governs `HG-VOC-006`.
+
 ## A-HG-MTH-001 — Treating Universal Bridge as proof transfer
 
 Universal Bridge material, when imported, is a structural-analogy and methodology-transfer specification unless separately proved otherwise.
