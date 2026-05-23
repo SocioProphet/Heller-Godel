@@ -107,6 +107,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-017` | P3.c Puiseux singularity and chi_3 at p=3 scope | method-grade as scope | active after this PR if merged |
 | `HG-MTH-018` | P3.c Puiseux singularity and chi_3 at p=3 closure | method-grade modulo candidate-HG-FND-003 and candidate-HG-VOC-006 | active after this PR if merged |
 | `HG-MTH-019` | P3.d zeta_3 carry defect and U(2) correspondence at p=3 scope | method-grade as scope | active after this PR if merged |
+| `HG-MTH-020` | P3.d zeta_3 carry defect and U(2) correspondence at p=3 closure | method-grade modulo candidate-HG-FND-006 and candidate-HG-FND-007 | active after this PR if merged |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
@@ -147,6 +148,8 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 `HG-MTH-018` additionally inherits the P3.c closure non-claims: it does not promote `HG-FND-003` or `HG-VOC-006`, does not close P3.d, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-MTH-011`, does not retroactively promote A1 `chi_2` source identification to theorem-grade, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, does not normalize `HG-FND-*` or `HG-VOC-*` surfaces, does not use `phase_characters.py` as the analytic source of `chi_3`, and does not claim that the orientation convention is independent of the selected cyclic sheet generator.
 
 `HG-MTH-019` additionally inherits the P3.d scope non-claims: it does not close P3.d, does not select among the `zeta_3` candidate structures or `U(2)` correspondence strategies, does not specify the natural character from a selected `zeta_3` host to `mu_3`, does not assemble the full P3 closure document, does not promote `HG-MTH-011`, does not promote or normalize any candidate `HG-FND-*` or `HG-VOC-006` surface, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, and does not retroactively promote A1 `zeta_2` source identification.
+
+`HG-MTH-020` additionally inherits the P3.d closure non-claims: it does not claim `zeta_3` represents a nontrivial cohomology class, does not assemble the full P3 closure document, does not promote `HG-MTH-011`, does not normalize `HG-FND-006` or `HG-FND-007`, does not retroactively promote A1 `zeta_2` source identification, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, does not adopt the raw determinant character as the selected `mu_3` character, does not claim that `HG-FND-006` is normalized, does not claim that `Z_3` is a topological triple-cover lift of `SU(3)`, and does not identify the scalar cocycle `zeta_3(alpha,beta)` with the group element `Z_3`.
 
 ## Deferred non-blocking queue
 
@@ -219,6 +222,8 @@ Framework citations:
   licensed use: P3.c closure only, not P3.d closure, HG-MTH-011 promotion, or Tier-1 normalization.
 - [HG-MTH-019 @ <sha>] — P3.d zeta_3 carry defect and U(2) correspondence at p=3 scope; citation grade: method-grade as scope;
   licensed use: P3.d obligation specification only, not P3.d closure, full P3 closure, HG-MTH-011 promotion, or Tier-1 normalization.
+- [HG-MTH-020 @ <sha>] — P3.d zeta_3 carry defect and U(2) correspondence at p=3 closure; citation grade: method-grade modulo candidate-HG-FND-006 and candidate-HG-FND-007;
+  licensed use: P3.d closure only, not full P3 closure, HG-MTH-011 promotion, or Tier-1 normalization.
 ```
 
 ## Review rule
