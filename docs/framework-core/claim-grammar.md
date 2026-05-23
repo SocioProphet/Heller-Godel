@@ -105,6 +105,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-015` | P3.b canonical statistic and generating-function at p=3 scope | method-grade as scope | active after this PR if merged |
 | `HG-MTH-016` | P3.b canonical statistic and generating-function at p=3 closure | method-grade modulo candidate-HG-FND-002 | active after this PR if merged |
 | `HG-MTH-017` | P3.c Puiseux singularity and chi_3 at p=3 scope | method-grade as scope | active after this PR if merged |
+| `HG-MTH-018` | P3.c Puiseux singularity and chi_3 at p=3 closure | method-grade modulo candidate-HG-FND-003 and candidate-HG-VOC-006 | active after this PR if merged |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
@@ -142,6 +143,8 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 
 `HG-MTH-017` additionally inherits the P3.c scope non-claims: it does not close P3.c, does not select among the P3.c verification strategies or Q4 character-source options, does not specify explicit Puiseux expansion constants, does not specify the precise `mu_3` element of `chi_3`, does not assert that `chi_3` emerges from local square-root monodromy, does not use `phase_characters.py` as the analytic source of `chi_3`, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-FND-003` or `HG-VOC-006`, does not promote `HG-MTH-011`, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
+`HG-MTH-018` additionally inherits the P3.c closure non-claims: it does not promote `HG-FND-003` or `HG-VOC-006`, does not close P3.d, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-MTH-011`, does not retroactively promote A1 `chi_2` source identification to theorem-grade, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, does not normalize `HG-FND-*` or `HG-VOC-*` surfaces, does not use `phase_characters.py` as the analytic source of `chi_3`, and does not claim that the orientation convention is independent of the selected cyclic sheet generator.
+
 ## Deferred non-blocking queue
 
 The following observations are recorded for future authorization only. They are not actions opened by this PR:
@@ -153,6 +156,8 @@ The following observations are recorded for future authorization only. They are 
 5. `HG-FND-001` normalization — future obligation distinct from P3.a; current status remains candidate / registry normalization pending.
 6. Workflow infrastructure hardening — non-blocking; covers docs-only trigger gaps, dense PR payload blocks, and intermittent proof-apparatus controller checkout/auth flakiness.
 7. `HG-FND-002` normalization — future obligation distinct from P3.b; current status remains candidate / registry normalization pending.
+8. `HG-FND-003` normalization — future obligation distinct from P3.c; current status remains candidate / registry normalization pending.
+9. `HG-VOC-006` normalization — future obligation distinct from P3.c; current status remains candidate / registry normalization pending.
 
 ## PFK namespace separation
 
@@ -205,6 +210,8 @@ Framework citations:
   licensed use: P3.b closure only, not P3.c/P3.d closure or theorem-track promotion.
 - [HG-MTH-017 @ <sha>] — P3.c Puiseux singularity and chi_3 at p=3 scope; citation grade: method-grade as scope;
   licensed use: P3.c obligation specification only, not P3.c closure, `chi_3` identification, or theorem-track promotion.
+- [HG-MTH-018 @ <sha>] — P3.c Puiseux singularity and chi_3 at p=3 closure; citation grade: method-grade modulo candidate-HG-FND-003 and candidate-HG-VOC-006;
+  licensed use: P3.c closure only, not P3.d closure, HG-MTH-011 promotion, or Tier-1 normalization.
 ```
 
 ## Review rule
