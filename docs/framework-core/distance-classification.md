@@ -20,14 +20,16 @@ Normalized Tier 1 surfaces:
 | `HG-FND-002` | Proof-class / proof-family generating-function construction | normalized Tier 1; governed by generating-function anti-seeds in `docs/framework-core/anti-seed-framework.md`; source: `docs/framework-foundations/HG-FND-002-proof-class-generating-function.md` |
 | `HG-FND-003` | Puiseux singular datum at a chosen puncture | normalized Tier 1; governed by `A-HG-FND-007`; source: `docs/framework-foundations/HG-FND-003-puiseux-singular-datum.md` |
 | `HG-FND-004` | Branch-killing cyclic cover and singular unit upstairs | normalized Tier 1; governed by `A-HG-FND-010`; source: `docs/framework-foundations/HG-FND-004-branch-killing-cover-singular-unit.md` |
+| `HG-FND-005` | Level-1 Deligne-unit framing | normalized Tier 1; governed by `A-HG-FND-011`; source: `docs/framework-foundations/HG-FND-005-level-1-deligne-unit-framing.md` |
 | `HG-FND-006` | Finite monodromy / deck-character interpretation | normalized Tier 1; governed by `A-HG-FND-008`; source: `docs/framework-foundations/HG-FND-006-finite-monodromy-deck-character.md` |
 | `HG-FND-007` | Lifted phase index and section-defect carry cocycle | normalized Tier 1; governed by `A-HG-FND-009`; source: `docs/framework-foundations/HG-FND-007-lifted-phase-index-carry-cocycle.md` |
+
+The full normalized Tier 1 surface is now: `HG-FND-001`, `HG-FND-002`, `HG-FND-003`, `HG-FND-004`, `HG-FND-005`, `HG-FND-006`, and `HG-FND-007`.
 
 Candidate inventory for future review:
 
 | Candidate identifier | Object | Bootstrap status |
 | --- | --- | --- |
-| `HG-FND-005` | Level-1 Deligne-unit framing | candidate; active core exists, registry normalization pending; requires separate authorization after `HG-FND-004` |
 | `HG-FND-008` | Deligne cup-product / regulator-symbol separation from carry | candidate; active core exists, registry normalization pending; best after `HG-FND-005` |
 
 ## Tier 2 — Framework-vocabulary
