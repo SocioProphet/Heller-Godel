@@ -2,8 +2,8 @@
 
 Identifier: `HG-MTH-011`  
 Distance tier: Framework-method / gate-minimality method result  
-Status: Candidate; P3 lift active after `HG-MTH-021` if merged  
-Grade: method-grade modulo six candidate Tier-1 surfaces after P3 closure; historical grade was method-grade as candidate theorem  
+Status: Candidate; P3 lift active after `HG-MTH-021`; `HG-FND-001` normalized.  
+Grade: method-grade modulo five remaining candidate Tier-1 surfaces after P3 closure and `HG-FND-001` normalization; historical grade was method-grade as candidate theorem.  
 Owner: `SocioProphet/Heller-Godel`  
 Track: A2 gate-minimality, path-beta convention, C-7 / C-8 closure integration
 
@@ -51,14 +51,14 @@ The path-beta framework supplies the adopted A2 convention: central element sour
 | C-7 candidate-list closure | theorem-grade modulo path-beta | PRs #73 and #74 |
 | C-8 Omega-primacy closure | theorem-grade modulo path-beta | PR #75 |
 | A2 minimality candidate-theorem, initial state | method-grade as candidate theorem | `HG-MTH-011` initial declaration |
-| A2 minimality candidate-theorem after P3 closure | **method-grade modulo six candidate Tier-1 surfaces** | `HG-MTH-021` P3 closure assembly |
+| A2 minimality candidate-theorem after P3 closure | method-grade modulo six candidate Tier-1 surfaces | `HG-MTH-021` P3 closure assembly |
+| A2 minimality candidate-theorem after `HG-FND-001` normalization | **method-grade modulo five remaining candidate Tier-1 surfaces** | this PR |
 
-Overall grade after P3 closure: method-grade modulo six candidate Tier-1 surfaces. This is not theorem-track promoted.
+Overall grade after `HG-FND-001` normalization: method-grade modulo five remaining candidate Tier-1 surfaces. This is not theorem-track promoted.
 
-The six candidate surfaces are:
+The remaining candidate surfaces are:
 
 ```text
-HG-FND-001
 HG-FND-002
 HG-FND-003
 HG-VOC-006
@@ -66,17 +66,19 @@ HG-FND-006
 HG-FND-007
 ```
 
+`HG-FND-001` is now normalized as the restricted proof grammar and declared-statistics foundation. This reduces the P3 cumulative modulo chain but does not promote `HG-MTH-011` to theorem-grade.
+
 ## 4. Comparison to A1
 
 At A1, the minimal admissible subgroup under the analogous framework is `Spin(3) ~= SU(2)` with condition (v) = symplectic preservation `omega_A1` on `C^2`. At A2, the minimal admissible subgroup under path-beta is `U(2)=S(U(2) x U(1))` with condition (v) = cubic preservation `Omega` on `C^3`. The structural pattern is that at `A_n`, condition (v) is preservation of `Lambda^(n+1)(C^(n+1))^*`, and the minimal admissible subgroup is observed as the stabilizer of the standard branching. This is only a pattern observation; no theorem about `A_n` minimality is claimed.
 
 ## 5. Non-claims
 
-1. Not promoted to theorem-track. After P3 closure it is method-grade modulo six candidate Tier-1 surfaces.
+1. Not promoted to theorem-track. After `HG-FND-001` normalization it is method-grade modulo five remaining candidate Tier-1 surfaces.
 2. Does not establish A2 minimality absolutely; only relative to the closed-connected candidate list up to conjugacy and path-beta framework.
 3. Does not claim path-beta is the uniquely correct A2 framework. Path-alpha was demoted but not refuted.
 4. Does not extend to `A_n` for `n >= 3`.
-5. Does not normalize the six Tier-1 candidate surfaces required by P3 closure: `HG-FND-001`, `HG-FND-002`, `HG-FND-003`, `HG-VOC-006`, `HG-FND-006`, or `HG-FND-007`.
+5. Does not normalize the five remaining Tier-1 candidate surfaces required by the post-P3 chain: `HG-FND-002`, `HG-FND-003`, `HG-VOC-006`, `HG-FND-006`, or `HG-FND-007`.
 6. Does not close P1 path-beta uniqueness / characterization.
 7. Does not close P2 candidate-list exhaustion.
 8. Does not cross into the separate SU(2) lattice mass-gap program scope.
@@ -91,7 +93,7 @@ At A1, the minimal admissible subgroup under the analogous framework is `Spin(3)
 
 (P3) Pipeline integration. Attach A2 minimality to Heller-Godel's `chi_p` / proof-character framework at `p=3`. P3 is closed by `HG-MTH-021`, which assembles `HG-MTH-014`, `HG-MTH-016`, `HG-MTH-018`, and `HG-MTH-020`.
 
-P3 closure lifts A2 minimality from method-grade as candidate theorem to method-grade modulo six candidate Tier-1 surfaces. It does not promote A2 minimality to theorem-grade. Full theorem-grade promotion requires normalization or discharge of the six candidate Tier-1 surfaces, or a separate authorized promotion route through P1, P2, or another explicitly scoped proof path.
+P3 closure lifted A2 minimality from method-grade as candidate theorem to method-grade modulo six candidate Tier-1 surfaces. `HG-FND-001` normalization reduces that to five remaining candidate Tier-1 surfaces. It does not promote A2 minimality to theorem-grade. Full theorem-grade promotion requires normalization or discharge of the remaining five candidate Tier-1 surfaces, or a separate authorized promotion route through P1, P2, or another explicitly scoped proof path.
 
 ## 7. Source provenance
 
@@ -104,11 +106,12 @@ P3 closure lifts A2 minimality from method-grade as candidate theorem to method-
 | PR #86 | P3.b canonical statistic and generating function closure | `bc54fbeb5d74bdbedcc8c3d7aee85130a2ca63ac` |
 | PR #90 | P3.c Puiseux singularity and `chi_3` closure | `75bc41930a4f9bd6736d4d54b8dcdf2605c520db` |
 | PR #94 | P3.d `zeta_3` carry defect and `U(2)` correspondence closure | `389e473daa29ffb4c730d9c928eee7d533f22939` |
+| PR #96 | P3 closure assembly `HG-MTH-021` | `c331c2bfa562b463a4f920022d2f79c247a7a665` |
 
 Framework context is supplied by Heller-Godel's README, framework-core claim grammar, distance classification, and gate-minimality documents. Standard representation-theoretic facts follow the established source discipline; full bibliographic hardening remains deferred to a separate non-blocking PR.
 
 ## 8. Identifier and registry
 
-This document assigns `HG-MTH-011` to the A2 minimality candidate-theorem and records its post-P3 grade lift.
+This document assigns `HG-MTH-011` to the A2 minimality candidate-theorem and records its post-P3 and post-`HG-FND-001` grade lifts.
 
-`docs/framework-core/claim-grammar.md` is the canonical identifier registry. It defines the `HG-{LAYER}-{NNN}` pattern and requires any PR adding or materially updating an `HG-*` identifier to update the registry or `docs/framework-core/distance-classification.md` in the same PR. `HG-MTH-021` therefore updates `docs/framework-core/claim-grammar.md` to register the P3 closure assembly and the `HG-MTH-011` grade lift.
+`docs/framework-core/claim-grammar.md` is the canonical identifier registry. It defines the `HG-{LAYER}-{NNN}` pattern and requires any PR adding or materially updating an `HG-*` identifier to update the registry or `docs/framework-core/distance-classification.md` in the same PR. This PR therefore updates `docs/framework-core/claim-grammar.md` and `docs/framework-core/distance-classification.md` to register normalized `HG-FND-001` and the reduced five-surface modulo chain.

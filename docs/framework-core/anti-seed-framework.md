@@ -80,6 +80,24 @@ The carry term is a finite-resolution section defect. The Deligne cup-product sy
 
 Status: active boundary already enforced by the existing Paper I claim grammar and CI claim-boundary guard.
 
+## A-HG-FND-005 — Treating untyped tree analogies as typed proof grammars
+
+Catalan, Fuss-Catalan, rooted-tree, and constructor-skeleton enumerations may visualize or derive from typed proof grammars. They are not themselves typed proof grammars unless the target type, context, witness convention, and statistic are explicitly declared.
+
+Failure mode:
+
+```text
+A downstream artifact cites a rooted-tree, Catalan, or Fuss-Catalan enumeration as theorem-bearing proof-family data without specifying the typed fragment, normal-form convention, witness equivalence, and statistic.
+```
+
+Correct boundary:
+
+```text
+Tree enumerations are admissible only as visualizations or derived enumerators of a normalized restricted proof grammar with typed normal-form witnesses and a declared statistic.
+```
+
+Status: active; governs `HG-FND-001`.
+
 ## A-HG-VOC-001 — Treating Rosetta dictionary rows as proved identifications
 
 Rosetta-style dictionary rows are target propositions or vocabulary alignments unless separately proved.
