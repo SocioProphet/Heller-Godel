@@ -128,7 +128,17 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 
 `HG-MTH-012` additionally inherits the P3 scope non-claims: it does not close P3, does not promote `HG-MTH-011`, does not specify the `chi_3` generating function / Puiseux singularity / `zeta_3` carry defect, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
-`HG-MTH-013` additionally inherits the P3.a scope non-claims: it does not close P3.a, does not select a `p=3` grammar, does not specify the `p=3` canonical statistic / generating function / Puiseux singularity / `zeta_3` carry defect, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
+`HG-MTH-013` additionally inherits the P3.a scope non-claims: it does not close P3.a, does not select a `p=3` grammar, does not specify the `p=3` canonical statistic / generating function / Puiseux singularity / `zeta_3` carry defect, does not promote `HG-FND-001` from candidate to settled Tier-1 status, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
+
+## Deferred non-blocking queue
+
+The following observations are recorded for future authorization only. They are not actions opened by this PR:
+
+1. Bibliography reference-hardening PR — non-blocking.
+2. Claim-boundary guard extension — non-blocking CI hardening.
+3. Unicode typography normalization sweep — non-blocking cosmetic.
+4. PR-body verbosity convention — committed file authoritative, PR body intentionally minimal.
+5. `HG-FND-001` normalization — future obligation distinct from P3.a; current status remains candidate / registry normalization pending.
 
 ## PFK namespace separation
 
