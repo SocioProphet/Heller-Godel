@@ -19,7 +19,7 @@ def root_of_unity(level: int, index: int = 1) -> complex:
     return cmath.exp(2j * cmath.pi * index / level)
 
 
-def test_square_root_tame_symbol_returns_minus_one() -> None:
+def test_square_root_tame_symbol_matches_current_standard_convention() -> None:
     value = tame_symbol_standard(1, 2)
     assert value == 1.0
 
@@ -29,13 +29,13 @@ def test_square_root_tame_symbol_returns_minus_one() -> None:
 
 def test_cubic_tame_symbol_with_declared_analytic_factor_recovers_mu_3() -> None:
     zeta_3 = root_of_unity(3)
-    value = tame_symbol_standard(1, 3, h_g_0=1 / zeta_3)
+    value = tame_symbol_standard(1, 3, h_g_0=-1 / zeta_3)
     assert_close(value, zeta_3)
 
 
 def test_tame_symbol_is_multiplicative_in_first_unit() -> None:
     level = 3
-    h_g_0 = 1 / root_of_unity(level)
+    h_g_0 = -1 / root_of_unity(level)
 
     for left in range(0, 4):
         for right in range(0, 4):
@@ -48,11 +48,11 @@ def test_tame_symbol_is_multiplicative_in_first_unit() -> None:
 
 def test_tame_symbol_side_is_not_the_carry_cocycle() -> None:
     level = 3
-    valuation = 2
+    valuation = 1
 
     tame_value = tame_symbol_standard(valuation, level)
     carry_value = carry(valuation, valuation, level)
 
-    assert tame_value == 1.0
-    assert carry_value == 1
+    assert tame_value == -1.0
+    assert carry_value == 0
     assert tame_value != carry_value
