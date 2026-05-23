@@ -22,10 +22,10 @@ class TestHGFND001Normalization(unittest.TestCase):
             "simply typed implicational lambda fragment",
             "eta-long beta-normal",
             "de Bruijn",
-            "restricted production rules",
+            "allowed production rules",
             "sigma_C(s)=#lambda-nodes + #application-nodes + #variable-leaves",
             "kappa_r(s)=#constructor-nodes",
-            "sigma_C(T)=3 + (2r-1)n",
+            "= 3 + (2r-1)n",
             "T_r^sigma_C(y)=y^3 C_r(y^(2r-1))",
             "T_2^sigma_C(y)=y^3 C_2(y^3)",
             "T_3^sigma_C(y)=y^3 C_3(y^5)",
@@ -60,11 +60,11 @@ class TestHGFND001Normalization(unittest.TestCase):
         # A2 and HG-MTH-021. Active registry/grade text must be five-surface.
         self.assertIn("A2 minimality candidate-theorem after P3 closure | method-grade modulo six candidate Tier-1 surfaces", a2)
         self.assertIn("historical P3 grade is retained", p3_assembly)
+        self.assertIn("prior candidate-`HG-FND-001` grade ceiling is discharged", claim)
 
         active_text = "\n".join([claim, p3a])
         self.assertNotIn("method-grade modulo six candidate Tier-1 surfaces", active_text)
         self.assertNotIn("method-grade modulo candidate-`HG-FND-001`", active_text)
-        self.assertNotIn("candidate-`HG-FND-001` grade ceiling", active_text)
 
     def test_remaining_candidate_surfaces_are_explicit(self) -> None:
         for path in [CLAIM_GRAMMAR, P3_ASSEMBLY, A2]:
