@@ -35,7 +35,7 @@ The repository currently exposes this pipeline as follows.
 | Proof-class / proof-family generating function | `docs/manuscripts/calculus_invariant_characters_v2_1_3.md`, Section 2.3; candidate Tier-1 item `HG-FND-002` |
 | Puiseux singularity data | `docs/manuscripts/calculus_invariant_characters_v2_1_3.md`, Section 4; candidate Tier-1 item `HG-FND-003` |
 | Finite phase reductions `chi_p` and `chi_13` | `docs/manuscripts/calculus_invariant_characters_v2_1_3.md`, Section 5; candidate Tier-2 item `HG-VOC-006`; executable arithmetic in `src/heller_godel/phase_characters.py` |
-| Explicit mod-`p` carry defect `zeta_p` | `docs/manuscripts/calculus_invariant_characters_v2_1_3.md`, Section 6; executable carry table and carry cocycle checks in `src/heller_godel/phase_characters.py` |
+| Explicit mod-`p` carry defect `zeta_p` | `docs/manuscripts/calculus_invariant_characters_v2_1_3.md`, Section 6; candidate Tier-1 item `HG-FND-007`; finite monodromy / deck-character context from `HG-FND-006`; executable carry table and carry cocycle checks in `src/heller_godel/phase_characters.py` |
 
 `calculus_invariant_characters_v2_1_3.md` exists in `docs/manuscripts/` and is the current manuscript-level pipeline surface. The finite arithmetic layer exists in `src/heller_godel/phase_characters.py`; it includes rational exponent normalization, phase index, `p`-primary projection, prime reduction, section-defect carry, carry tables, and carry cocycle identity checks.
 
@@ -58,9 +58,20 @@ P3 closure requires producing the analogous `p=3` instance and showing that the 
 
 ## 4. The p=3 attachment question, decomposed
 
-P3 decomposes into four sub-obligations.
+P3 decomposes into four sub-obligations. Each sub-obligation attaches to an existing Heller-Godel framework identifier rather than floating as a free-standing analogy:
+
+| Sub-obligation | Existing HG attachment point |
+| --- | --- |
+| P3.a — restricted proof grammar at `p=3` | `HG-FND-001` |
+| P3.b — canonical statistic and generating function at `p=3` | `HG-FND-002` |
+| P3.c — Puiseux singularity and `chi_3` | `HG-FND-003`, `HG-VOC-006` |
+| P3.d — `zeta_3` carry defect and `U(2)` correspondence | `HG-FND-007`, `HG-FND-006` |
+
+The module `src/heller_godel/phase_characters.py` provides a computational verification route, not a mandatory closure requirement, for future `chi_3` / `zeta_3` objects. A later closure PR may use its phase-index, `p`-primary projection, prime-reduction, section-defect carry, carry-table, and carry-cocycle checks to verify any proposed finite arithmetic attachment. This route is available only after P3.c or P3.d specifies the relevant objects; this scope PR does not specify them.
 
 ### P3.a — Restricted proof grammar at p=3
+
+Attachment point: `HG-FND-001`.
 
 What is the proof grammar whose canonical statistic generates the `p=3` finite phase reduction `chi_3`?
 
@@ -74,6 +85,8 @@ The sub-obligation is to specify this grammar.
 
 ### P3.b — Canonical statistic and generating function at p=3
 
+Attachment point: `HG-FND-002`.
+
 What is the analog of the Catalan generating function at `p=3`?
 
 Candidate structures include ternary-tree generating functions, 3-Catalan-like sequences, and Fuss-Catalan numbers:
@@ -86,6 +99,8 @@ The sub-obligation is to identify the canonical statistic and its generating fun
 
 ### P3.c — Puiseux singularity and chi_3
 
+Attachment points: `HG-FND-003`, `HG-VOC-006`.
+
 What is the Puiseux singularity of the `p=3` generating function, and what is `chi_3` as the finite phase / Stokes multiplier at that singularity?
 
 At `p=2`, the A1 paradigm uses the singularity at `x=1/4` with exponent `1/2`. At `p=3`, the natural candidate is a singularity whose finite phase involves a primitive cube root of unity in `mu_3`.
@@ -93,6 +108,8 @@ At `p=2`, the A1 paradigm uses the singularity at `x=1/4` with exponent `1/2`. A
 The sub-obligation is to identify the singularity location, the Puiseux exponent, and the value of `chi_3`.
 
 ### P3.d — zeta_3 carry defect and U(2) correspondence
+
+Attachment points: `HG-FND-007`, `HG-FND-006`.
 
 What is `zeta_3` as a mod-3 carry defect under composition, and where does the `U(2)=S(U(2) x U(1))` minimal admissible subgroup of `SU(3)` appear in its structure?
 
