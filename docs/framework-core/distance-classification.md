@@ -10,14 +10,7 @@ Framework objects in `SocioProphet/Heller-Godel` are classified by distance from
 
 Tier 1 contains load-bearing definitions, typed statements, proofs, and accepted theorem-level objects that the Heller-Godel framework rests on.
 
-An object may be Tier 1 only if it has:
-
-1. a stable `HG-FND-NNN` identifier;
-2. a typed mathematical statement;
-3. a proof or precise citation to a canonical proof;
-4. an anti-seed entry naming at least one failure mode;
-5. a merged PR declaring Tier 1 status;
-6. no unresolved claim-boundary violation.
+An object may be Tier 1 only if it has a stable identifier, typed statement, proof or citation, anti-seed, merged PR declaration, and no unresolved claim-boundary violation.
 
 Normalized Tier 1 surfaces:
 
@@ -26,14 +19,14 @@ Normalized Tier 1 surfaces:
 | `HG-FND-001` | Restricted proof grammar and declared statistics | normalized Tier 1; governed by `A-HG-FND-005`; source: `docs/framework-foundations/HG-FND-001-restricted-proof-grammar.md` |
 | `HG-FND-002` | Proof-class / proof-family generating-function construction | normalized Tier 1; governed by generating-function anti-seeds in `docs/framework-core/anti-seed-framework.md`; source: `docs/framework-foundations/HG-FND-002-proof-class-generating-function.md` |
 | `HG-FND-003` | Puiseux singular datum at a chosen puncture | normalized Tier 1; governed by `A-HG-FND-007`; source: `docs/framework-foundations/HG-FND-003-puiseux-singular-datum.md` |
+| `HG-FND-006` | Finite monodromy / deck-character interpretation | normalized Tier 1; governed by `A-HG-FND-008`; source: `docs/framework-foundations/HG-FND-006-finite-monodromy-deck-character.md` |
 
 Candidate inventory for future review:
 
 | Candidate identifier | Object | Bootstrap status |
 | --- | --- | --- |
-| `HG-FND-004` | Branch-killing cyclic cover and singular unit upstairs | candidate; active core exists, registry normalization pending |
-| `HG-FND-005` | Level-1 Deligne-unit framing | candidate; active core exists, registry normalization pending |
-| `HG-FND-006` | Finite monodromy / deck-character interpretation | candidate; active core exists, registry normalization pending |
+| `HG-FND-004` | Branch-killing cyclic cover and singular unit upstairs | candidate; active core exists, registry normalization pending; not in issue #97 queue |
+| `HG-FND-005` | Level-1 Deligne-unit framing | candidate; active core exists, registry normalization pending; not in issue #97 queue |
 | `HG-FND-007` | Lifted phase index and section-defect carry cocycle | candidate; active core exists, registry normalization pending |
 | `HG-FND-008` | Deligne cup-product / regulator-symbol separation from carry | candidate; active core exists, registry normalization pending |
 
@@ -41,12 +34,7 @@ Candidate inventory for future review:
 
 Tier 2 contains mathematical vocabulary, worked structures, and framework dictionaries expressed in terms of Tier 1 objects or candidate Tier 1 objects.
 
-An object may be Tier 2 only if it has:
-
-1. a stable `HG-VOC-NNN` identifier;
-2. a construction or dictionary entry with explicit dependency on Tier 1 or candidate Tier 1 objects;
-3. an anti-seed entry;
-4. a distance cap preventing theorem-grade citation.
+An object may be Tier 2 only if it has a stable identifier, construction or dictionary entry, anti-seed, and distance cap preventing theorem-grade citation.
 
 Normalized Tier 2 surfaces:
 
