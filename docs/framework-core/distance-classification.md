@@ -19,13 +19,18 @@ An object may be Tier 1 only if it has:
 5. a merged PR declaring Tier 1 status;
 6. no unresolved claim-boundary violation.
 
+Normalized Tier 1 surfaces:
+
+| Identifier | Object | Status |
+| --- | --- | --- |
+| `HG-FND-001` | Restricted proof grammar and declared statistics | normalized Tier 1; governed by `A-HG-FND-005`; source: `docs/framework-foundations/HG-FND-001-restricted-proof-grammar.md` |
+
 Initial Tier 1 candidates are not automatically promoted by this bootstrap. They must be normalized in later PRs.
 
 Candidate inventory for future review:
 
 | Candidate identifier | Object | Bootstrap status |
 | --- | --- | --- |
-| `HG-FND-001` | Restricted proof grammar and canonical statistic | candidate; active core exists, registry normalization pending |
 | `HG-FND-002` | Proof-class / proof-family generating-function construction | candidate; active core exists, registry normalization pending |
 | `HG-FND-003` | Puiseux singular datum at a chosen puncture | candidate; active core exists, registry normalization pending |
 | `HG-FND-004` | Branch-killing cyclic cover and singular unit upstairs | candidate; active core exists, registry normalization pending |
