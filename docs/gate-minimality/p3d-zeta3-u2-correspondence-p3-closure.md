@@ -96,7 +96,19 @@ q_p(alpha)=floor(p alpha) mod p,
 zeta_p(alpha,beta)=q_p(alpha+beta)-q_p(alpha)-q_p(beta).
 ```
 
-Therefore `zeta_p` is a finite-resolution section defect and a coboundary under ordinary cochain freedom. This closure does not treat `zeta_3` as a nontrivial cohomology class.
+Therefore `zeta_p` is a finite-resolution section defect and a coboundary under ordinary cochain freedom. In cochain notation:
+
+```text
+zeta_p = delta q_p.
+```
+
+The cocycle identity follows automatically from the coboundary relation, because the coboundary of a coboundary is zero:
+
+```text
+delta zeta_p = delta(delta q_p)=0.
+```
+
+This closure does not treat `zeta_3` as a nontrivial cohomology class.
 
 ### 3.2 phase_characters.py carry table at p=3
 
@@ -123,7 +135,14 @@ Equivalently:
 ((0,0,0),(0,0,1),(0,1,1)).
 ```
 
-The nonzero carries occur exactly when representatives in `{0,1,2}` cross the mod-3 section boundary.
+For residues `a,b in {0,1,2}`, this table is exactly the addition-carry cocycle for the canonical section `Z/3 -> {0,1,2}`:
+
+```text
+carry(a,b,3)=1 if a+b >= 3,
+carry(a,b,3)=0 if a+b < 3.
+```
+
+Thus the nonzero carries occur exactly when representatives in `{0,1,2}` cross the mod-3 section boundary. This is the residue-level implementation of the manuscript formula for `zeta_3(alpha,beta)` after applying the finite section map `q_3`.
 
 ### 3.3 HG-FND-006 and HG-FND-007 surfaces
 
@@ -251,13 +270,13 @@ kappa(Z_3)=omega.
 
 This matches the `HG-MTH-018` primitive value `chi_3=omega`.
 
-The raw determinant of the `2 x 2` block is not the selected character:
+The raw determinant of the `2 x 2` block is explicitly rejected as the selected `mu_3` character:
 
 ```text
 det(omega I_2)=omega^2.
 ```
 
-The selected character is the U(1)-complement projection in the `S(U(2) x U(1))` decomposition, not the block determinant.
+It gives the conjugate primitive element, not the manuscript-selected `omega` under the positive-orientation convention. The selected character is the U(1)-complement projection in the `S(U(2) x U(1))` decomposition, not the block determinant.
 
 ## 7. R3 — carry-cocycle compatibility
 
@@ -276,10 +295,31 @@ The code-level carry table at level 3 records the section-defect values:
 ((0,0,0),(0,0,1),(0,1,1)).
 ```
 
+For residues `a,b in {0,1,2}`, these are the explicit composition adjustments:
+
+```text
+zeta_3(a,b)=0 for (a,b)=(0,0),(0,1),(0,2),(1,0),(1,1),(2,0),
+zeta_3(a,b)=1 for (a,b)=(1,2),(2,1),(2,2).
+```
+
+Equivalently:
+
+```text
+zeta_3(a,b)=1 if a+b >= 3,
+zeta_3(a,b)=0 if a+b < 3.
+```
+
 The group-valued lift sends a carry value `c in Z/3` to:
 
 ```text
 c |-> Z_3^c = (omega I_3)^c.
+```
+
+Thus the table realizes the composition adjustments explicitly as:
+
+```text
+0 |-> Z_3^0 = I_3,
+1 |-> Z_3^1 = omega I_3.
 ```
 
 Applying the complement character gives:
@@ -288,7 +328,11 @@ Applying the complement character gives:
 kappa(Z_3^c)=omega^c=exp(2 pi i c/3).
 ```
 
-Therefore the selected lift reproduces exactly the scalar correction factor in the manuscript multiplicativity-defect identity.
+Therefore the selected lift reproduces exactly the scalar correction factor in the manuscript multiplicativity-defect identity:
+
+```text
+exp(2 pi i zeta_3(a,b)/3)=kappa(Z_3^zeta_3(a,b)).
+```
 
 The cocycle identity recorded in the manuscript corresponds to associativity of multiplication of the lift factors:
 
@@ -297,7 +341,7 @@ Z_3^zeta(alpha,beta) Z_3^zeta(alpha+beta,gamma)
 = Z_3^zeta(beta,gamma) Z_3^zeta(alpha,beta+gamma),
 ```
 
-because both sides map under `kappa` to the same `mu_3` correction and the powers of the central element `Z_3` commute.
+because `zeta_p=delta q_p`, so `delta zeta_p=0`, and because powers of the central element `Z_3` commute.
 
 This is not a claim that `zeta_3` is a nontrivial cohomology class. It is a claim that the explicit section-defect cochain is realized by powers of the selected central lift.
 
@@ -310,7 +354,16 @@ The correspondence strategy selected is a hybrid of C1 and C3:
 1. C1, embedding-based: `Z_3=omega I_3` lies in the standard embedded `U(2)=S(U(2) x U(1))`.
 2. C3, deck-character disciplined: the finite correction factor is interpreted through the character `kappa` on the finite complement surface, not as an untyped cohomology class.
 
-The correspondence is:
+Because `HG-FND-006` is only recorded as:
+
+```text
+Finite monodromy / deck-character interpretation
+candidate; active core exists, registry normalization pending
+```
+
+this closure uses `deck-character interpretation` as the name of the intended candidate surface, not as an independently normalized covering-theory construction. The precise deck-character formalization remains deferred to `HG-FND-006` normalization.
+
+The bounded correspondence is:
 
 ```text
 zeta_3(alpha,beta)
@@ -330,11 +383,11 @@ Omega(omega v1, omega v2, omega v3)=omega^3 Omega(v1,v2,v3)=Omega(v1,v2,v3).
 U(2)=S(U(2) x U(1)).
 ```
 
-Since `Z_3` lies in this embedded `U(2)`, and since the complement projection supplies the `mu_3` character matching `chi_3=omega`, the scalar carry defect corresponds to the finite central/complement surface of the minimal admissible subgroup.
+Since `Z_3` lies in this embedded `U(2)`, and since the complement projection supplies the `mu_3` character matching `chi_3=omega`, the scalar carry defect corresponds, at method-grade modulo candidate-`HG-FND-006`, to the finite central/complement surface of the minimal admissible subgroup.
 
 Thus the carry defect under composition is realized as multiplication by powers of `Z_3` in the finite `mu_3` surface contained in the embedded `U(2)`, with the U(1)-complement projection reading out the required `mu_3` phase.
 
-Because `HG-FND-006` remains unnormalized, this correspondence is not promoted beyond method-grade modulo candidate-`HG-FND-006`.
+This closure does not claim that `Z_3` has been constructed as a deck transformation of a specific normalized cover, and it does not claim that `HG-FND-006` is settled. Because `HG-FND-006` remains unnormalized, this correspondence is not promoted beyond method-grade modulo candidate-`HG-FND-006`.
 
 ## 9. R5 — cumulative grade-chain integration
 
@@ -384,6 +437,7 @@ After this PR, full P3 closure assembly is unlocked as a separate PR. `HG-MTH-01
 10. Does not claim that the `HG-FND-006` deck-character surface is normalized.
 11. Does not claim that `Z_3` is a topological triple-cover lift of `SU(3)`.
 12. Does not identify the scalar cocycle `zeta_3(alpha,beta)` with the group element `Z_3`; it only realizes the scalar carry values by powers of `Z_3`.
+13. Does not claim that `Z_3` is a deck transformation of a specific normalized cover; the deck-character language remains bounded by candidate-`HG-FND-006`.
 
 ## 13. Identifier and registry
 
