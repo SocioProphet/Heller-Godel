@@ -1,10 +1,10 @@
 # HG-MTH-014 — P3.a Proof Grammar at p=3 Closure
 
 Identifier: `HG-MTH-014`  
-Status: closure document for P3.a; scoped by `HG-MTH-013`.  
+Status: closure document for P3.a; scoped by `HG-MTH-013`; post-`HG-FND-001` normalization update applied.  
 Owner: `SocioProphet/Heller-Godel`.  
 Track: P3.a under `HG-MTH-012`, A2 gate-minimality, `HG-MTH-011`, proof-character pipeline at `p=3`.  
-Claim level: method-grade modulo candidate-`HG-FND-001`.
+Claim level: method-grade with normalized `HG-FND-001` dependency.
 
 ## 1. Statement of closure
 
@@ -26,27 +26,38 @@ T ::= x | t(T,T,T)
 where x:A and t:A -> A -> A -> A.
 ```
 
-The statistic is the canonical constructor statistic inherited from the manuscript:
+The full node-count statistic inherited from the manuscript is:
 
 ```text
 sigma_C(s)=#lambda-nodes + #application-nodes + #variable-leaves.
 ```
 
-For this closure, `sigma_C` is extended to the ternary-constructor grammar without changing the statistic's definition: eta-long beta-normal de Bruijn representatives are still counted by lambda nodes, application nodes, and variable leaves. The ternary constructor changes the shape of the generated normal forms, not the counting convention.
+`HG-FND-001` now normalizes the relation between this full node-count statistic and the constructor-shape statistic used by the arity-three generating function. For the canonical arity-`r` grammar with `n` constructor nodes:
 
-The associated proof-family generating function is:
+```text
+sigma_C(T)=3+(2r-1)n.
+```
+
+Thus for this arity-three grammar:
+
+```text
+sigma_C(T)=3+5n,
+T_3^sigma_C(y)=y^3 C_3(y^5).
+```
+
+The associated constructor-shape proof-family generating function is:
 
 ```text
 C_3(x)=1+x C_3(x)^3.
 ```
 
-It enumerates alpha-classes of eta-long beta-normal de Bruijn lambda terms of type `C_A^(3)` by `sigma_C`, under the same candidate-grade `HG-FND-001` discipline that supports the A1 grammar. The Fuss-Catalan numbers
+It enumerates the constructor-skeleton quotient derived from alpha-classes of eta-long beta-normal de Bruijn lambda terms of type `C_A^(3)`, under the normalized `HG-FND-001` statistic-declaration discipline. The Fuss-Catalan numbers
 
 ```text
 FC_n^(3)=1/(2n+1) * binom(3n,n)
 ```
 
-emerge as the coefficients of `C_3(x)`.
+emerge as the coefficients of `C_3(x)` in constructor-shape coordinate `x`.
 
 This is the direct type-theoretic continuation of A1's `C_A=(A -> A -> A) -> A -> A` paradigm one arity up.
 
@@ -101,7 +112,7 @@ The arity of the constructor is the proof-grammar arity selected for the path-be
 
 ### R1 — Restricted typing verified
 
-The grammar is restricted in the candidate-`HG-FND-001` sense: only the displayed production rules generate witnesses.
+The grammar is restricted in the normalized `HG-FND-001` sense: only the displayed production rules generate witnesses.
 
 ```text
 T ::= x | t(T,T,T)
@@ -131,35 +142,47 @@ Path-beta compatibility is verified at the grammar-hook level as follows:
 
 The `Omega` assertion here is a structural hook for P3.d, not a closure of P3.d. At this P3.a layer, the verified statement is that the grammar supplies an arity-three typed normal-form space with a canonical cyclic `Z/3` action on constructor inputs.
 
-### R2 — Canonical statistic verified
+### R2 — Declared statistic verified
 
-The statistic is:
+The full node-count statistic is:
 
 ```text
 sigma_C(s)=#lambda-nodes + #application-nodes + #variable-leaves.
 ```
 
-This is the same statistic recorded in the manuscript. It extends to the ternary case because eta-long beta-normal de Bruijn terms still have lambda nodes, application nodes, and variable leaves. The arity of a constructor changes the number and nesting of application nodes in the normal form; it does not require a different statistic.
-
-The grammar therefore defines the proof-family generating function:
+The constructor-shape statistic is:
 
 ```text
-C_3(x)=sum_{s in N_{C_A^(3)}} x^{sigma_C(s)}.
+kappa_3(s)=#t-constructor nodes.
 ```
 
-At the constructor-shape level this is represented by:
+For the canonical arity-three grammar, normalized `HG-FND-001` gives the relationship:
 
 ```text
-C_3(x)=1+x C_3(x)^3.
+sigma_C(s)=3+5 kappa_3(s).
 ```
 
-The coefficient sequence is the arity-three Fuss-Catalan sequence:
+The grammar therefore supports both the full-node generating function:
+
+```text
+T_3^sigma_C(y)=sum_{s in N_{C_A^(3)}} y^{sigma_C(s)}
+              = y^3 C_3(y^5),
+```
+
+and the constructor-shape generating function used by downstream P3.b:
+
+```text
+C_3(x)=sum_{s in N_{C_A^(3)}} x^{kappa_3(s)}
+      = 1+x C_3(x)^3.
+```
+
+The coefficient sequence in constructor-shape coordinate is the arity-three Fuss-Catalan sequence:
 
 ```text
 FC_n^(3)=1/(2n+1) * binom(3n,n).
 ```
 
-This verifies that P3.a supplies a fixed canonical statistic and a generated family for the downstream P3.b obligation. P3.b remains responsible for treating this generating function as a closed `HG-FND-002` object.
+This verifies that P3.a supplies a fixed restricted grammar and declared-statistic interface for the downstream P3.b obligation. P3.b remains responsible for treating this generating function as a closed `HG-FND-002` object.
 
 ### R3 — Pipeline compatibility verified through downstream
 
@@ -167,13 +190,13 @@ The grammar supports the downstream pipeline:
 
 ```text
 restricted type-level grammar
--> canonical statistic
+-> declared statistic
 -> proof-class / proof-family generating function
 -> Puiseux singularity and rational exponent data
 -> finite phase arithmetic in phase_characters.py at p=3
 ```
 
-For traceability, the arity-three Fuss-Catalan equation is:
+For traceability, the arity-three Fuss-Catalan equation in constructor-shape coordinate is:
 
 ```text
 C_3 = 1 + x C_3^3.
@@ -198,7 +221,7 @@ C_3 = 3/2,
 x = (1/2)/(27/8)=4/27.
 ```
 
-Thus the standard arity-three algebraic branch has radius:
+Thus the standard arity-three algebraic branch has constructor-coordinate radius:
 
 ```text
 rho_3 = 4/27.
@@ -208,6 +231,12 @@ The local inverse has square-root critical behavior at the simple critical point
 
 ```text
 alpha_3 = 1/2.
+```
+
+Under the full node-count coordinate, the corresponding radius is transformed by:
+
+```text
+y^5 = 4/27.
 ```
 
 These values are recorded for traceability and downstream compatibility. They are not promoted here as P3.c-grade closure claims. P3.c must independently verify the Puiseux singularity channel and finite phase reduction `chi_3` at its own grade.
@@ -262,44 +291,44 @@ Therefore P3.a closure does not require a p=3 chain witness analog. Any p=3 chai
 
 | Object | Grade | Source |
 | --- | --- | --- |
-| `HG-FND-001` (restricted proof grammar) | candidate; registry normalization pending | `docs/framework-core/distance-classification.md` |
+| `HG-FND-001` (restricted proof grammar and declared statistics) | normalized Tier 1 | `docs/framework-foundations/HG-FND-001-restricted-proof-grammar.md` |
 | `HG-MTH-013` (P3.a scope) | method-grade as scope | PR #81 |
-| `HG-MTH-014` (P3.a closure, this PR) | method-grade modulo candidate-`HG-FND-001` | this PR |
-| `HG-MTH-011` (A2 minimality candidate-theorem) | method-grade as candidate | PR #77 |
+| `HG-MTH-014` (P3.a closure, this document) | method-grade with normalized `HG-FND-001` dependency | this document after `HG-FND-001` normalization |
+| `HG-MTH-011` (A2 minimality candidate-theorem) | method-grade modulo five remaining candidate Tier-1 surfaces after `HG-FND-001` normalization | `HG-MTH-021` plus `HG-FND-001` normalization |
 | `HG-MTH-012` (P3 pipeline integration scope) | method-grade as scope | PR #78 |
 
-This P3.a closure is method-grade modulo the open obligation of `HG-FND-001` normalization, recorded as deferred queue item 5. If `HG-FND-001` normalization closes in a future PR, this closure can be re-graded against the normalized surface without revisiting the constructed grammar.
+This P3.a closure no longer carries candidate-`HG-FND-001` as an unresolved modulo surface. It now depends on normalized `HG-FND-001`. This regrading does not revisit the constructed grammar and does not close P3.b, P3.c, P3.d, or any remaining Tier-1 candidate surface.
 
 ## 6. Heller-Einstein mediation
 
 This closure is pure HG closure.
 
-It does not use the Heller-Einstein `HE-INT-*` typed-morphism route and does not use `HE-PLC-*` placeholder spaces. The type-level Fuss-Catalan candidate is directly specifiable in the existing Heller-Godel proof-family framework at candidate-`HG-FND-001` grade.
+It does not use the Heller-Einstein `HE-INT-*` typed-morphism route and does not use `HE-PLC-*` placeholder spaces. The type-level Fuss-Catalan grammar is directly specifiable in the normalized Heller-Godel proof-family framework at `HG-FND-001` grade.
 
 ## 7. Non-claims
 
-1. Does not promote `HG-FND-001` from candidate to settled Tier-1.
-2. Does not promote `HG-MTH-011` from method-grade-as-candidate. Promotion requires all four P3.a / P3.b / P3.c / P3.d sub-obligations to close, and P1 / P2 remain independent paths.
-3. Does not specify P3.b canonical statistic and generating function as a closed object. P3.b will treat `C_3(x)` formally and characterize its analytic properties. This closure provides the source grammar for `C_3(x)` but does not perform the P3.b analytic closure work.
-4. Does not specify the Puiseux singularity location and exponent as load-bearing P3.c claims. The values `rho_3=4/27` and `alpha_3=1/2` are stated for traceability; P3.c-grade verification is a separate obligation.
-5. Does not specify `zeta_3` or its `U(2)` correspondence. That is P3.d.
+1. Does not promote `HG-MTH-011` to theorem-grade. `HG-MTH-011` remains method-grade modulo five remaining candidate Tier-1 surfaces.
+2. Does not specify P3.b canonical statistic and generating function as a closed object. P3.b treats `C_3(x)` formally and characterizes its analytic properties. This closure provides the source grammar and statistic-declaration interface for `C_3(x)` but does not perform the P3.b analytic closure work.
+3. Does not specify the Puiseux singularity location and exponent as load-bearing P3.c claims. The values `rho_3=4/27` and `alpha_3=1/2` are stated for traceability; P3.c-grade verification is a separate obligation.
+4. Does not specify `zeta_3` or its `U(2)` correspondence. That is P3.d.
+5. Does not normalize `HG-FND-002`, `HG-FND-003`, `HG-VOC-006`, `HG-FND-006`, or `HG-FND-007`.
 6. Does not extend to `A_n` for `n > 2`. The pattern that constructor arity follows the selected proof-grammar arity is a pattern observation, not an extension claim.
 7. Does not authorize Heller-Einstein PRs.
 8. Does not cross into `SocioProphet/yang-mills`.
 
 ## 8. Future sub-obligation pathway
 
-After this closure merges, P3.b is unlocked: canonical statistic and generating-function specification at `p=3`.
-
-P3.b's scope document should treat:
+After this normalization, the remaining P3 modulo surfaces are:
 
 ```text
-C_3(x)=1+x C_3(x)^3
+HG-FND-002
+HG-FND-003
+HG-VOC-006
+HG-FND-006
+HG-FND-007
 ```
 
-formally, characterize its analytic properties, and verify that `sigma_C` extended to ternary applications is a well-defined canonical statistic in the `HG-FND-002` sense.
-
-P3.b is not opened by this closure. It requires separate authorization.
+P3.b remains the next natural normalization target because it owns proof-class / proof-family generating-function construction. That work is not opened by this closure and requires separate authorization.
 
 ## 9. Identifier and registry
 
@@ -311,4 +340,4 @@ HG-MTH-014
 
 to the P3.a restricted proof grammar at `p=3` closure.
 
-`docs/framework-core/claim-grammar.md` is the canonical identifier registry. This PR updates that registry to register `HG-MTH-014` and record its grade ceiling as method-grade modulo candidate-`HG-FND-001`.
+`docs/framework-core/claim-grammar.md` is the canonical identifier registry. This PR updates that registry to record its grade as method-grade with normalized `HG-FND-001` dependency.
