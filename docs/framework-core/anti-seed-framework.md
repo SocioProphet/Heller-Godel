@@ -140,6 +140,28 @@ The tame symbol is the evaluation of a level-1 Deligne-unit datum. The carry coc
 
 Status: active; governs `HG-FND-005`.
 
+## A-HG-FND-012 — Treating the operational separation witness as a complete structural proof
+
+Failure mode:
+
+```text
+A downstream artifact treats numeric disagreement between tame-symbol and carry test outputs as a complete structural proof without declaring the domain, codomain, and algebraic-law distinction.
+```
+
+Second failure mode:
+
+```text
+A downstream artifact treats the operational witness as an identification in a deeper shared object rather than as a typed separation witness.
+```
+
+Correct boundary:
+
+```text
+The operational witness demonstrates non-equality in concrete test cases. The structural separation requires the domain, codomain, and algebraic-law argument normalized by `HG-FND-008`.
+```
+
+Status: active; governs `HG-FND-008`.
+
 ## A-HG-VOC-001 — Treating Rosetta dictionary rows as proved identifications
 
 Failure mode:
