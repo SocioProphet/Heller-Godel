@@ -10,19 +10,25 @@ Claim level: method-grade as scope.
 
 P3.d is the `zeta_3` carry defect and `U(2)` correspondence obligation at `p=3`.
 
-It specifies the construction obligation for the mod-3 carry defect:
+The manuscript types `zeta_p` as a two-variable carry cocycle, not as a Lie-group element. Therefore this scope distinguishes:
 
 ```text
-zeta_3
+zeta_3(alpha,beta) — scalar-valued mod-3 carry cocycle
 ```
 
-under composition in the sense of candidate-`HG-FND-007`:
+from:
+
+```text
+Z_3 — a possible group-valued lift / realization of that cocycle
+```
+
+P3.d specifies the construction obligation for the mod-3 carry defect under composition in the sense of candidate-`HG-FND-007`:
 
 ```text
 Lifted phase index and section-defect carry cocycle
 ```
 
-and the correspondence obligation between `zeta_3` and the minimal admissible subgroup from `HG-MTH-011`:
+and the correspondence obligation between a group-valued lift / realization of `zeta_3` and the minimal admissible subgroup from `HG-MTH-011`:
 
 ```text
 U(2)=S(U(2) x U(1)) subset SU(3).
@@ -70,12 +76,12 @@ Load-bearing distinction:
 
 1. `HG-FND-006` is the deck-character / monodromy interpretation surface.
 2. `HG-FND-007` is the lifted phase-index and carry-cocycle surface.
-3. P3.d.1, the `zeta_3` construction, attaches primarily to `HG-FND-007`.
+3. P3.d.1, the `zeta_3` cocycle construction and lift, attaches primarily to `HG-FND-007`.
 4. P3.d.2, the `U(2)` correspondence, attaches primarily to `HG-FND-006`.
 
 Neither surface is normalized by this scope PR.
 
-## 3. A1 paradigm at p=2
+## 3. A1 paradigm at p=2 and the zeta_p typing correction
 
 The manuscript defines finite phase maps by selecting a rational exponent channel `beta` and setting:
 
@@ -90,34 +96,64 @@ It defines the carry defect by:
 zeta_p(alpha,beta)=floor(p(alpha+beta))-floor(p alpha)-floor(p beta) mod p.
 ```
 
-and records:
+and records the multiplicativity defect identity:
 
 ```text
 chi_p(alpha+beta)=chi_p(alpha)chi_p(beta)exp(2 pi i zeta_p(alpha,beta)/p).
 ```
 
-The manuscript further states that `zeta_p` is a finite-resolution section defect, equivalently a coboundary under ordinary cochain freedom. It is computationally meaningful, but it does not by itself establish a nonabelian extension, a nonsplit central extension, or a nontrivial cohomology class.
+Thus `zeta_3` is a `Z/3`-valued two-variable carry cocycle on the additive structure of selected Puiseux exponent channels. It is not itself an element of `U(2)`, `SU(3)`, `S_3`, or any Lie group. P3.d closure must keep separate:
+
+```text
+zeta_3(alpha,beta) — scalar-valued carry cocycle
+Z_3 — candidate group-valued lift / realization of that cocycle
+```
+
+The manuscript further states that `zeta_p` is a finite-resolution section defect, equivalently a coboundary under ordinary cochain freedom. With:
+
+```text
+q_p(alpha)=floor(p alpha) mod p,
+```
+
+it records:
+
+```text
+zeta_p(alpha,beta)=q_p(alpha+beta)-q_p(alpha)-q_p(beta).
+```
+
+Therefore `zeta_p = delta q_p` as an ordinary cochain coboundary. As a cohomology class, `[zeta_p]=0` under ordinary cochain freedom. As a cochain, `zeta_p` remains the explicit finite carry defect that the pipeline can compute and compare.
 
 At A1, P3.c retroactively sharpened the character side: `chi_2=-1` is compatible with local square-root monodromy, finite phase reduction, and two-sheet global monodromy because all land in `mu_2`.
 
 For P3.d scope, the A1 / A2 distinction is structural:
 
-1. At A1, the `zeta_2` lift is expected to live in the same group as the minimal admissible subgroup, conventionally the spin double-cover setting `Spin(3) ~= SU(2)` for the A1 path.
-2. At A2, `zeta_3` is not automatically a topological triple-cover lift of `SU(3)`. P3.c located the `mu_3` source in the Galois / sheet-rotation structure of the cubic algebraic curve.
-3. Therefore the A2 `zeta_3` home must be constructed. The leading candidates place it in `U(2)`, in the `SU(3)` center, or in the abstract Galois sheet-rotation group before representation into `U(2)`.
-4. At A2, `U(2)` is a proper subgroup of `SU(3)`, so the relation between the carry defect and the minimal admissible subgroup is nontrivial.
+1. At A1, the `zeta_2` cocycle lift is expected to live in the same group structure as the minimal admissible subgroup, conventionally the spin double-cover setting `Spin(3) ~= SU(2)` for the A1 path.
+2. At A2, `zeta_3` is a `Z/3`-valued cocycle whose lift / realization is not automatically a topological triple-cover lift of `SU(3)`. `SU(3)` is simply connected, so there is no analogous nontrivial topological triple cover of `SU(3)` itself.
+3. P3.c located the `mu_3` source in the Galois / sheet-rotation structure of the cubic algebraic curve, not in a topological cover of `SU(3)`.
+4. Therefore the A2 `Z_3` lift / realization must be constructed. The leading candidates place the lift in `U(2)`, in the `SU(3)` center, or in the abstract Galois sheet-rotation group before representation into `U(2)`.
+5. At A2, `U(2)` is a proper subgroup of `SU(3)`, so the relation between the carry cocycle and the minimal admissible subgroup is nontrivial.
 
 P3.d closure must not assume that the A1 lift pattern transfers unchanged to A2.
 
 ## 4. Requirements on zeta_3 and the U(2) correspondence
 
-### R1 — zeta_3 as element of a definite group
+### R1 — zeta_3 as a cocycle plus a definite lift
 
-P3.d closure must specify what kind of object `zeta_3` is.
+P3.d closure must first treat:
 
-At `p=2`, the expected paradigm has `zeta_2` as an element of a definite group, not merely a formal symbol. At `p=3`, `zeta_3` must likewise be placed in an explicitly identified group.
+```text
+zeta_3(alpha,beta)
+```
 
-### R2 — zeta_3 as lift of chi_3
+as the manuscript-defined `Z/3`-valued carry cocycle. It must then specify whether and how that cocycle is lifted or realized by a group-valued object:
+
+```text
+Z_3.
+```
+
+At `p=3`, the group hosting `Z_3` must be explicitly identified.
+
+### R2 — group-valued lift of chi_3
 
 P3.c closure identified:
 
@@ -129,7 +165,7 @@ omega=exp(2 pi i / 3),
 
 under the positive sheet-generator convention.
 
-P3.d closure must specify a natural map from the group hosting `zeta_3` to `mu_3`, and must verify that `zeta_3` maps to `omega` under that map.
+P3.d closure must specify a natural map from the group hosting `Z_3` to `mu_3`, and must verify that the lift / realization maps to `omega` under that map.
 
 ### R3 — Carry-cocycle compatibility
 
@@ -144,11 +180,11 @@ carry_table(level: int) -> tuple[tuple[int, ...], ...]
 carry_cocycle_identity_holds(a: int, b: int, c: int, level: int) -> bool
 ```
 
-P3.d closure must verify that the composition law in the proof-character pipeline lifts consistently to the group hosting `zeta_3`.
+P3.d closure must verify that the composition law in the proof-character pipeline computes `zeta_3(alpha,beta)` and, if a group-valued lift `Z_3` is selected, that the lift composes consistently with the scalar carry cocycle.
 
 ### R4 — U(2) correspondence via HG-FND-006
 
-P3.d closure must demonstrate that `zeta_3` corresponds to:
+P3.d closure must demonstrate that the scalar carry cocycle and its selected group-valued lift / realization correspond to:
 
 ```text
 U(2)=S(U(2) x U(1)) subset SU(3)
@@ -158,8 +194,9 @@ being the minimal admissible subgroup from `HG-MTH-011`, in the sense of candida
 
 The correspondence should relate:
 
-1. the group hosting `zeta_3` and its phase/deck-character action; and
-2. the embedding of `U(2)` into `SU(3)` with the `Z/3`-fixed scalar surface and residual `SU(2)` block action.
+1. `zeta_3(alpha,beta)` as finite carry data;
+2. the group hosting `Z_3` and its phase/deck-character action; and
+3. the embedding of `U(2)` into `SU(3)` with the `Z/3`-fixed scalar surface and residual `SU(2)` block action.
 
 ### R5 — Cumulative grade-chain integration
 
@@ -178,25 +215,33 @@ HG-FND-007
 
 This scope PR does not perform the full P3 assembly.
 
-## 5. Candidate zeta_3 structures
+## 5. Candidate group-valued lifts / realizations of zeta_3
 
-This section records candidates for P3.d.1 closure. It does not select among them.
+This section records candidates for P3.d.1 closure. These are candidate lifts or realizations of the scalar cocycle `zeta_3(alpha,beta)`, not `zeta_3` itself. This scope does not select among them.
 
-### Z1 — zeta_3 = omega * I_2 in U(2)
+### Z1 — Z_3 = omega * I_2 in U(2)
 
-Candidate:
+Candidate lift:
 
 ```text
-zeta_3 = omega I_2 in U(2).
+Z_3 = omega I_2 in U(2).
 ```
 
-This lives in the scalar `U(1)` part of the center of `U(2)`. It makes the `U(2)` correspondence direct because `zeta_3` already lives in `U(2)`.
+This lives in the scalar `U(1)` part of the center of `U(2)`. It makes the `U(2)` correspondence direct because the lift already lives in `U(2)`.
 
-Caution: the determinant of `omega I_2` is `omega^2`, not `omega`. Closure must verify whether the natural character is determinant, an inverse/half-determinant convention, a block-complement character under the embedding into `S(U(2) x U(1))`, or another map.
+Caution: the determinant of `omega I_2` is:
 
-### Z2 — zeta_3 = tau in A_3 subset S_3
+```text
+det(omega I_2)=omega^2,
+```
 
-Candidate:
+not `omega`. Therefore the ordinary determinant character sends this candidate to the conjugate of the manuscript-selected `chi_3=omega`.
+
+Closure must resolve this by verifying whether the natural character is determinant, inverse determinant, a half-determinant / square-root convention, a block-complement character under the embedding into `S(U(2) x U(1))`, a different normalization, or whether the lift should instead use `omega^2 I_2` so that determinant gives `omega`.
+
+### Z2 — Z_3 = tau in A_3 subset S_3
+
+Candidate lift:
 
 ```text
 tau=(123) in A_3 subset S_3.
@@ -206,22 +251,22 @@ This is the Galois sheet-rotation generator from P3.c. It lives in the abstract 
 
 Closure would need to provide a representation or character from the sheet-rotation group into `U(2)` or into a subgroup associated with `U(2)`.
 
-### Z3 — zeta_3 in the center of SU(3)
+### Z3 — Z_3 in the center of SU(3)
 
-Candidate:
+Candidate lift:
 
 ```text
-zeta_3 = omega I_3 in Z(SU(3)) ~= mu_3.
+Z_3 = omega I_3 in Z(SU(3)) ~= mu_3.
 ```
 
-This places `zeta_3` in `SU(3)` directly. The `U(2)` correspondence would then have to be expressed through the embedding of `U(2)=S(U(2) x U(1))` into `SU(3)` and the way the center acts on the active sector.
+This places the lift in `SU(3)` directly. The `U(2)` correspondence would then have to be expressed through the embedding of `U(2)=S(U(2) x U(1))` into `SU(3)` and the way the center acts on the active sector.
 
-### Z4 — zeta_3 in a triple cover
+### Z4 — Z_3 in a triple cover
 
-Candidate:
+Candidate lift:
 
 ```text
-zeta_3 lives in a triple cover of a relevant quotient.
+Z_3 lives in a triple cover of a relevant quotient.
 ```
 
 At A1, the lift paradigm uses the spin double cover. At A2, `SU(3)` is simply connected, so there is no analogous nontrivial topological triple cover of `SU(3)` itself. P3.c located the triple structure in the Galois cover rather than a topological cover of `SU(3)`.
@@ -234,7 +279,7 @@ This section records candidates for P3.d.2 closure. It does not select among the
 
 ### C1 — Embedding-based correspondence
 
-Identify `zeta_3` with an element of `U(2)`, likely through Z1 or an equivalent construction, and use the standard embedding:
+Identify the group-valued lift `Z_3` with an element of `U(2)`, likely through Z1 or an equivalent construction, and use the standard embedding:
 
 ```text
 U(2)=S(U(2) x U(1)) subset SU(3)
@@ -243,18 +288,18 @@ U(2)=S(U(2) x U(1)) subset SU(3)
 as the correspondence.
 
 Strength: direct.  
-Weakness: requires closure to prove the selected `zeta_3` naturally lives in `U(2)` and maps to `omega` under the correct character.
+Weakness: requires closure to prove the selected lift naturally lives in `U(2)` and maps to `omega` under the correct character.
 
 ### C2 — Action-based correspondence
 
-Treat `zeta_3` as acting on a vector space or module and identify `U(2)` as the stabilizer, centralizer, or minimal admissible subgroup compatible with that action.
+Treat the group-valued lift `Z_3` as acting on a vector space or module and identify `U(2)` as the stabilizer, centralizer, or minimal admissible subgroup compatible with that action.
 
 Strength: representation-theoretic.  
 Weakness: requires explicit action construction and verification that `U(2)`, not a larger or smaller subgroup, is the relevant object.
 
 ### C3 — Deck-character correspondence via HG-FND-006
 
-Treat the `zeta_3 -> U(2)` relation as a deck-character map from the finite monodromy structure to the gauge-side active-sector structure.
+Treat the scalar carry cocycle and group-valued lift as related to `U(2)` by a deck-character map from the finite monodromy structure to the gauge-side active-sector structure.
 
 Strength: closest to candidate-`HG-FND-006`.  
 Weakness: `HG-FND-006` remains candidate and is not normalized; closure must be explicit about the grade ceiling.
@@ -267,7 +312,7 @@ Pure Heller-Godel closure remains the default.
 
 If P3.d.2 cannot close the `zeta_3` / `U(2)` correspondence using the current candidate-`HG-FND-006` and candidate-`HG-FND-007` surfaces, the realization question may route through Heller-Einstein typed-interface ontology.
 
-That route could formalize `zeta_3 -> U(2)` as a typed morphism. It would require separate authorization. This scope PR does not authorize Heller-Einstein development.
+That route could formalize the scalar cocycle, group-valued lift, and `U(2)` correspondence as a typed morphism. It would require separate authorization. This scope PR does not authorize Heller-Einstein development.
 
 ## 8. Grade declarations
 
@@ -297,9 +342,9 @@ With P3.d scoped, all six expected Tier-1 candidate dependencies are explicit. P
 ## 9. Non-claims
 
 1. Does not close P3.d. Scope only.
-2. Does not select among `zeta_3` candidates Z1, Z2, Z3, and Z4.
+2. Does not select among group-valued lift candidates Z1, Z2, Z3, and Z4.
 3. Does not select among `U(2)` correspondence strategies C1, C2, and C3.
-4. Does not specify the natural character from the selected `zeta_3` host to `mu_3`; determinant, inverse determinant, block-complement character, or another map remains closure work.
+4. Does not specify the natural character from the selected group-valued lift host to `mu_3`; determinant, inverse determinant, half-determinant, block-complement character, or another map remains closure work.
 5. Does not assemble the full P3 closure document.
 6. Does not promote `HG-MTH-011`.
 7. Does not promote any candidate `HG-FND-*` or `HG-VOC-006` surface from candidate.
@@ -308,10 +353,12 @@ With P3.d scoped, all six expected Tier-1 candidate dependencies are explicit. P
 10. Does not cross into downstream Clay-program proof claims, including `SocioProphet/yang-mills`.
 11. Does not retroactively promote A1 `zeta_2` source identification.
 12. Does not normalize `HG-FND-006` or `HG-FND-007`.
+13. Does not claim `zeta_3` represents a nontrivial cohomology class. Per the manuscript, `zeta_p` is a coboundary of the section map `q_p`; as an ordinary cohomology class, `[zeta_p]=0` under unrestricted cochain freedom.
+14. Does not type `zeta_3` itself as an element of `U(2)`, `SU(3)`, or `S_3`; those are candidate hosts for a group-valued lift / realization, not the scalar carry cocycle.
 
 ## 10. Future closure pathway
 
-After P3.d scope merges, P3.d closure selects a `zeta_3` candidate and a `U(2)` correspondence strategy, verifies R1-R5, and emits the closure document.
+After P3.d scope merges, P3.d closure selects a group-valued lift candidate and a `U(2)` correspondence strategy, verifies R1-R5, and emits the closure document.
 
 P3.d closure unlocks the full P3 closure document, expected to assign `HG-MTH-020`, which assembles all four sub-obligation closures and lifts `HG-MTH-011` by the cumulative-modulo grade chain.
 
