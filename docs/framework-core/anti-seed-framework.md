@@ -123,16 +123,22 @@ A dominant singularity and rational Puiseux exponent extracted from a generating
 Failure mode:
 
 ```text
-A downstream artifact treats the singularity of a proof-family generating function as proof-grade Puiseux datum without the puncture-decoration step owned by `HG-FND-003`.
+A downstream artifact treats the singularity of a proof-family generating function as proof-grade Puiseux datum without choosing the puncture, coordinate, branch convention, and local expansion required by `HG-FND-003`.
+```
+
+Second failure mode:
+
+```text
+A downstream artifact treats local square-root sign-change behavior at a chosen puncture as character-source data owned by `HG-VOC-006`.
 ```
 
 Correct boundary:
 
 ```text
-`HG-FND-002` may identify `rho` and `alpha`; `HG-FND-003` owns the decorated Puiseux singular datum at a chosen puncture.
+`HG-FND-002` may identify `rho` and `alpha`; `HG-FND-003` owns the chosen-puncture Puiseux datum; `HG-VOC-006` owns character data, roots of unity, and finite phase reductions.
 ```
 
-Status: active; governs the `HG-FND-002` / `HG-FND-003` boundary.
+Status: active; governs the `HG-FND-002` / `HG-FND-003` / `HG-VOC-006` boundary.
 
 ## A-HG-VOC-001 — Treating Rosetta dictionary rows as proved identifications
 
