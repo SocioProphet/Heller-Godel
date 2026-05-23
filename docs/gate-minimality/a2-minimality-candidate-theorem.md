@@ -2,8 +2,8 @@
 
 Identifier: `HG-MTH-011`  
 Distance tier: Framework-method / gate-minimality method result  
-Status: Candidate; active after this PR if merged  
-Grade: method-grade as candidate theorem  
+Status: Candidate; P3 lift active after `HG-MTH-021` if merged  
+Grade: method-grade modulo six candidate Tier-1 surfaces after P3 closure; historical grade was method-grade as candidate theorem  
 Owner: `SocioProphet/Heller-Godel`  
 Track: A2 gate-minimality, path-beta convention, C-7 / C-8 closure integration
 
@@ -50,9 +50,21 @@ The path-beta framework supplies the adopted A2 convention: central element sour
 | Path-beta framework adoption | method-grade | HG path-beta adoption material |
 | C-7 candidate-list closure | theorem-grade modulo path-beta | PRs #73 and #74 |
 | C-8 Omega-primacy closure | theorem-grade modulo path-beta | PR #75 |
-| A2 minimality candidate-theorem | **method-grade as candidate** | this PR; `HG-MTH-011` |
+| A2 minimality candidate-theorem, initial state | method-grade as candidate theorem | `HG-MTH-011` initial declaration |
+| A2 minimality candidate-theorem after P3 closure | **method-grade modulo six candidate Tier-1 surfaces** | `HG-MTH-021` P3 closure assembly |
 
-Overall grade: method-grade as candidate theorem. This is not theorem-track promoted.
+Overall grade after P3 closure: method-grade modulo six candidate Tier-1 surfaces. This is not theorem-track promoted.
+
+The six candidate surfaces are:
+
+```text
+HG-FND-001
+HG-FND-002
+HG-FND-003
+HG-VOC-006
+HG-FND-006
+HG-FND-007
+```
 
 ## 4. Comparison to A1
 
@@ -60,14 +72,16 @@ At A1, the minimal admissible subgroup under the analogous framework is `Spin(3)
 
 ## 5. Non-claims
 
-1. Not promoted to theorem-track. Method-grade as candidate theorem.
-2. Does not establish A2 minimality absolutely; only relative to the closed-connected candidate list up to conjugacy.
+1. Not promoted to theorem-track. After P3 closure it is method-grade modulo six candidate Tier-1 surfaces.
+2. Does not establish A2 minimality absolutely; only relative to the closed-connected candidate list up to conjugacy and path-beta framework.
 3. Does not claim path-beta is the uniquely correct A2 framework. Path-alpha was demoted but not refuted.
 4. Does not extend to `A_n` for `n >= 3`.
-5. Does not integrate with the broader proof-character pipeline: `chi_p`, `zeta_p`, Puiseux singularity data, finite phase reductions, or mod-`p` carry defects. Attachment to `chi_3` and `zeta_3` remains future work.
-6. Does not cross into the separate SU(2) lattice mass-gap program scope.
-7. Does not authorize Heller-Einstein realization-question work to cite A2 minimality as theorem-grade input.
-8. Does not prove a Chern-class lift, nonabelian obstruction theory, or cognitive theory of recognition.
+5. Does not normalize the six Tier-1 candidate surfaces required by P3 closure: `HG-FND-001`, `HG-FND-002`, `HG-FND-003`, `HG-VOC-006`, `HG-FND-006`, or `HG-FND-007`.
+6. Does not close P1 path-beta uniqueness / characterization.
+7. Does not close P2 candidate-list exhaustion.
+8. Does not cross into the separate SU(2) lattice mass-gap program scope.
+9. Does not authorize Heller-Einstein realization-question work to cite A2 minimality as theorem-grade input.
+10. Does not prove a Chern-class lift, nonabelian obstruction theory, or cognitive theory of recognition.
 
 ## 6. Future obligations for theorem-track promotion
 
@@ -75,9 +89,9 @@ At A1, the minimal admissible subgroup under the analogous framework is `Spin(3)
 
 (P2) Candidate-list exhaustion. Prove that the closed-connected subgroup candidate list up to conjugacy is exhaustive for the relevant minimality equivalence on `SU(3)`, so that no closed connected subgroup outside the list is admissible and strictly smaller than `U(2)=S(U(2) x U(1))`. This lifts candidate-list minimality to absolute minimality and is independent strengthening.
 
-(P3) Pipeline integration. Attach A2 minimality to Heller-Godel's `chi_p` / proof-character framework at `p=3`. Concretely, this requires demonstrating that the `U(2)=S(U(2) x U(1))` minimal admissible subgroup result corresponds to a specific object in the `chi_3` phase reduction or `zeta_3` carry defect under composition. This integration may be mediated by the Heller-Einstein typed-interface ontology and the realization question relocated to Heller-Einstein under the relevant Heller-Einstein authorization path. Until that separate work is authorized, merged, and cited at the correct grade, Heller-Einstein may not cite this A2 candidate as theorem-grade input.
+(P3) Pipeline integration. Attach A2 minimality to Heller-Godel's `chi_p` / proof-character framework at `p=3`. P3 is closed by `HG-MTH-021`, which assembles `HG-MTH-014`, `HG-MTH-016`, `HG-MTH-018`, and `HG-MTH-020`.
 
-Any one of P1 or P3 suffices to promote A2 minimality from candidate to theorem, subject to a dedicated promotion PR. P2 is independent strengthening.
+P3 closure lifts A2 minimality from method-grade as candidate theorem to method-grade modulo six candidate Tier-1 surfaces. It does not promote A2 minimality to theorem-grade. Full theorem-grade promotion requires normalization or discharge of the six candidate Tier-1 surfaces, or a separate authorized promotion route through P1, P2, or another explicitly scoped proof path.
 
 ## 7. Source provenance
 
@@ -86,11 +100,15 @@ Any one of P1 or P3 suffices to promote A2 minimality from candidate to theorem,
 | PR #73 | C-7 tranche 1 eliminations | `c25dd3b5451fc73e3a3705fe8c272ce185454244` |
 | PR #74 | C-7 tranche 2 `U(2)` / `SU(3)` closure | `98e2ceac5646c02b3efd7a8ed48c0ec43ab7f8f6` |
 | PR #75 | C-8 Omega-primacy closure | `e940da419474e987b87755d386f196fa34ed580f` |
+| PR #82 | P3.a restricted proof grammar closure | `96f2a9015fb6bc3b62744409660e4855ed9c4014` |
+| PR #86 | P3.b canonical statistic and generating function closure | `bc54fbeb5d74bdbedcc8c3d7aee85130a2ca63ac` |
+| PR #90 | P3.c Puiseux singularity and `chi_3` closure | `75bc41930a4f9bd6736d4d54b8dcdf2605c520db` |
+| PR #94 | P3.d `zeta_3` carry defect and `U(2)` correspondence closure | `389e473daa29ffb4c730d9c928eee7d533f22939` |
 
 Framework context is supplied by Heller-Godel's README, framework-core claim grammar, distance classification, and gate-minimality documents. Standard representation-theoretic facts follow the established source discipline; full bibliographic hardening remains deferred to a separate non-blocking PR.
 
 ## 8. Identifier and registry
 
-This document assigns `HG-MTH-011` to the A2 minimality candidate-theorem.
+This document assigns `HG-MTH-011` to the A2 minimality candidate-theorem and records its post-P3 grade lift.
 
-`docs/framework-core/claim-grammar.md` is the canonical identifier registry discovered during pre-PR inspection. It defines the `HG-{LAYER}-{NNN}` pattern and requires any PR adding an `HG-*` identifier to update the registry or `docs/framework-core/distance-classification.md` in the same PR. This PR therefore updates `docs/framework-core/claim-grammar.md` to register `HG-MTH-011`.
+`docs/framework-core/claim-grammar.md` is the canonical identifier registry. It defines the `HG-{LAYER}-{NNN}` pattern and requires any PR adding or materially updating an `HG-*` identifier to update the registry or `docs/framework-core/distance-classification.md` in the same PR. `HG-MTH-021` therefore updates `docs/framework-core/claim-grammar.md` to register the P3 closure assembly and the `HG-MTH-011` grade lift.
