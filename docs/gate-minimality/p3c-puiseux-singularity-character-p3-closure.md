@@ -118,6 +118,14 @@ C_3(rho_3)=3/2.
 
 ## 4. Q2 — Local Puiseux exponent
 
+This closure uses the scaled critical-distance convention:
+
+```text
+t = 1 - x/rho.
+```
+
+Thus `t` is dimensionless and is not the unscaled displacement `rho-x` or `x-rho`.
+
 Set:
 
 ```text
@@ -221,26 +229,56 @@ Use the reciprocal variable:
 z = 1/y.
 ```
 
-Then the cubic becomes:
+The cubic equation becomes:
 
 ```text
 z^3 - z^2 + x = 0.
 ```
 
-It is monic in `z` over `Q[x]`. If reducible over `Q(x)`, Gauss's lemma gives a nontrivial factorization over `Q[x][z]`. Specializing `x=1` gives:
+It suffices to show that:
 
 ```text
-z^3 - z^2 + 1.
+f(z)=z^3-z^2+x
 ```
 
-This cubic has no rational root because the only rational-root candidates are `1` and `-1`, and:
+has no root in `Q(x)`, because a reducible cubic over a field has a linear factor.
+
+Suppose, for contradiction, that `r(x) in Q(x)` is a root:
 
 ```text
-1 - 1 + 1 = 1
--1 - 1 + 1 = -1.
+r^3-r^2+x=0,
+x=r^2(1-r).
 ```
 
-Therefore the specialization is irreducible over `Q`. This supports irreducibility of the generic cubic over `Q(x)` for this closure. Equivalently, the original polynomial `x y^3 - y + 1` is irreducible in `y` over `Q(x)`.
+Write `r=a/b` with coprime `a,b in Q[x]`. Then:
+
+```text
+x b^3 = a^2(b-a).
+```
+
+Since `gcd(a,b)=1`, we also have `gcd(a,b-a)=1`. Therefore `a^2` divides `x` in `Q[x]`. Hence `a` has degree at most `0` with possible linear factor support only at `x`; in either case the degree comparison below rules out a nonconstant rational root. The direct polynomial-root form is cleaner: the divisibility relation forces the denominator to be constant, so any rational-function root would be a polynomial root `r in Q[x]`. Then:
+
+```text
+x = r^2(1-r).
+```
+
+If `r` is constant, the right-hand side is constant, contradicting degree `1` on the left. If `deg r = n > 0`, then `deg(r^2(1-r))=3n`, which cannot equal `1`. This contradiction proves that `f(z)` has no root in `Q(x)`.
+
+Therefore `z^3-z^2+x` is irreducible over `Q(x)`, and equivalently the original polynomial:
+
+```text
+x y^3 - y + 1
+```
+
+is irreducible in `y` over `Q(x)`.
+
+The specialization check at `x=1` gives the same diagnostic evidence:
+
+```text
+z^3-z^2+1
+```
+
+has no rational root, but the closure-grade irreducibility argument is the direct no-root argument over `Q(x)` above.
 
 ### 6.3 Discriminant and group identification
 
@@ -264,7 +302,7 @@ Delta = 18abcd - 4b^3d + b^2c^2 - 4ac^3 - 27a^2d^2
       = x(4 - 27x).
 ```
 
-This is not a square in `Q(x)` because it has odd-order zeros at `x=0` and `x=4/27`.
+This is not a square in `Q(x)`: a square in `Q(x)` has zeros and poles of even order, while `x(4-27x)` has simple zeros at `x=0` and `x=4/27`. These are odd-order zeros.
 
 An irreducible cubic over a characteristic-zero field has Galois group a transitive subgroup of `S_3`. The transitive subgroups of `S_3` are `A_3` and `S_3`; the group lies in `A_3` exactly when the discriminant is a square. Therefore the group is:
 
@@ -303,7 +341,7 @@ chi_3(tau)=omega.
 
 The reverse generator gives the conjugate value `omega^2`. Thus the analytic source of a `mu_3` character is the global `A_3` sheet-rotation subgroup, not the local square-root branch at `rho_3`.
 
-### 6.5 Primitive element convention
+### 6.5 Manuscript phase convention and Galois agreement
 
 The manuscript defines:
 
@@ -315,11 +353,23 @@ chi_p^(rho,beta)(T)=exp(2 pi i k_p(beta)/p).
 For `beta=1/2` and `p=3`:
 
 ```text
-k_3(1/2)=1
-chi_3=omega.
+k_3(1/2)=floor(3/2) mod 3 = 1
+chi_3=exp(2 pi i / 3)=omega.
 ```
 
-The manuscript does not separately define a sheet-orientation convention. This closure therefore declares the positive cyclic sheet generator `tau=(123)` and maps it to `omega`. The source is option (b); the primitive-element selection is convention-dependent up to conjugation.
+The manuscript does not separately define a sheet-orientation convention. The Galois-side analysis supplies the global source: the `A_3` sheet-rotation subgroup. This closure aligns the two by declaring the positive cyclic sheet generator:
+
+```text
+tau=(123)
+```
+
+and identifying its sheet-rotation character with the manuscript-selected finite phase value:
+
+```text
+chi_3(tau)=omega.
+```
+
+Thus the manuscript phase-map convention and the Galois sheet-rotation character visibly agree after the positive-generator convention is fixed. Reversing the sheet generator maps the same analytic source to the conjugate value `omega^2`, so the primitive-element selection is convention-dependent up to conjugation.
 
 ## 7. W4 compatibility check
 
@@ -339,7 +389,9 @@ p_primary_projection(1, 2, 3) -> (0, 1)
 prime_reduction(1, 2, 3) -> (0, 1)
 ```
 
-This is consistent with the closure: the p-primary projection of local denominator-2 monodromy is trivial at prime 3, so local Puiseux monodromy is not the source of `chi_3`. The `mu_3` value comes from the manuscript prime-indexed finite phase map and the global sheet-rotation source.
+The central compatibility insight is that the local denominator-2 monodromy class has trivial 3-primary projection. Therefore local Puiseux monodromy does not feed into `chi_3`. This confirms the anti-circularity constraint from `HG-MTH-017`: the `mu_3` value cannot be sourced from local square-root monodromy or from a denominator-2 p-primary projection.
+
+The `mu_3` value comes from the manuscript prime-indexed finite phase map and the global sheet-rotation source. `phase_characters.py` is compatibility evidence for this separation, not the analytic source of `chi_3`.
 
 ## 8. Heller-Einstein mediation status
 
@@ -365,15 +417,15 @@ HG-FND-006
 HG-FND-007
 ```
 
-P3.c adds `HG-FND-003` and `HG-VOC-006`, two of the six cumulative modulo-candidate dependencies.
+P3.a contributes `HG-FND-001`; P3.b contributes `HG-FND-002`; P3.c contributes `HG-FND-003` and `HG-VOC-006`. Thus, after P3.c, four of the six cumulative Tier-1 modulo-candidate dependencies have entered the HG-MTH-011 promotion path. P3.d is expected to contribute `HG-FND-006` and `HG-FND-007`.
 
 ## 10. Retroactive A1 paradigm sharpening
 
 This P3.c closure sharpens the manuscript's interpretation of the A1 `chi_2` paradigm.
 
-At `p=2`, the local square-root sign change and finite phase-map output coincide in `mu_2`, masking the local-versus-global distinction. At `p=3`, the local square-root exponent still produces `mu_2` local monodromy, while the framework expects `chi_3 in mu_3`. A2 forces the distinction.
+At `p=2`, the local square-root sign change, the finite phase-map output, and the available two-sheet algebraic monodromy all coincide in `mu_2`, masking the local-versus-global distinction. At `p=3`, the local square-root exponent still produces `mu_2` local monodromy, while the framework expects `chi_3 in mu_3`. A2 forces the distinction.
 
-The A1 value `chi_2=-1` does not change. Its source identification sharpens: in A1, local square-root monodromy and finite phase reduction agree; in A2, they diverge and the global cubic sheet-rotation source supplies the `mu_3` character.
+The A1 value `chi_2=-1` does not change. Its source identification sharpens: in A1, local square-root monodromy, finite phase reduction, and two-sheet global monodromy agree; in A2, they diverge and the global cubic sheet-rotation source supplies the `mu_3` character.
 
 This is not theorem-grade promotion of A1. It is a framework-reading clarification for future `HG-FND-003` and `HG-VOC-006` normalization.
 
