@@ -53,10 +53,15 @@ class TestHGFND001Normalization(unittest.TestCase):
         self.assertIn("`HG-FND-001` | Restricted proof grammar and declared statistics | framework-foundational / normalized Tier 1", claim)
         self.assertIn("method-grade modulo five remaining candidate Tier-1 surfaces", claim)
         self.assertIn("method-grade with normalized `HG-FND-001` dependency", p3a)
-        self.assertIn("normalized `HG-FND-001`", p3_assembly)
-        self.assertIn("method-grade modulo five remaining candidate Tier-1 surfaces", a2)
+        self.assertIn("Claim level: method-grade modulo five remaining candidate Tier-1 surfaces", p3_assembly)
+        self.assertIn("Grade: method-grade modulo five remaining candidate Tier-1 surfaces", a2)
 
-        active_text = "\n".join([claim, p3a, p3_assembly, a2])
+        # Historical six-surface wording is intentionally preserved as provenance in
+        # A2 and HG-MTH-021. Active registry/grade text must be five-surface.
+        self.assertIn("A2 minimality candidate-theorem after P3 closure | method-grade modulo six candidate Tier-1 surfaces", a2)
+        self.assertIn("historical P3 grade is retained", p3_assembly)
+
+        active_text = "\n".join([claim, p3a])
         self.assertNotIn("method-grade modulo six candidate Tier-1 surfaces", active_text)
         self.assertNotIn("method-grade modulo candidate-`HG-FND-001`", active_text)
         self.assertNotIn("candidate-`HG-FND-001` grade ceiling", active_text)
