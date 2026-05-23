@@ -4,7 +4,7 @@ Status: relocated scope document; obligation not closed.
 Owner: `SocioProphet/Heller-Godel`.  
 Track: A2 gate-minimality, path beta convention, p=3 proof-character / gate-minimality framework.  
 Claim level: scope/admissibility planning only.  
-Relocation note: relocated from `SocioProphet/Heller-Dirac` after originally landing there during the path-beta adoption sequence (HD PR #6, #9, #10). It properly belongs in Heller-Godel as part of the `chi_p` / `zeta_p` / proof-character framework at `p = 3`.
+Relocation note: relocated from `SocioProphet/Heller-Dirac` after originally landing there during the path-beta adoption sequence (HD PR #6, #9, #10). It properly belongs in Heller-Godel as part of the `chi_p` / `zeta_p` / proof-character framework at `p = 3`. This relocation note is provenance only and is not a theorem claim.
 
 ## Purpose
 
