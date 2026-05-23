@@ -23,14 +23,18 @@ Normalized Tier 1 surfaces:
 | `HG-FND-005` | Level-1 Deligne-unit framing | normalized Tier 1; governed by `A-HG-FND-011`; source: `docs/framework-foundations/HG-FND-005-level-1-deligne-unit-framing.md` |
 | `HG-FND-006` | Finite monodromy / deck-character interpretation | normalized Tier 1; governed by `A-HG-FND-008`; source: `docs/framework-foundations/HG-FND-006-finite-monodromy-deck-character.md` |
 | `HG-FND-007` | Lifted phase index and section-defect carry cocycle | normalized Tier 1; governed by `A-HG-FND-009`; source: `docs/framework-foundations/HG-FND-007-lifted-phase-index-carry-cocycle.md` |
+| `HG-FND-008` | Deligne / carry separation surface | normalized Tier 1; governed by `A-HG-FND-012`; source: `docs/framework-foundations/HG-FND-008-deligne-cup-product-carry-separation.md` |
 
-The full normalized Tier 1 surface is now: `HG-FND-001`, `HG-FND-002`, `HG-FND-003`, `HG-FND-004`, `HG-FND-005`, `HG-FND-006`, and `HG-FND-007`.
+The full normalized Tier 1 framework-foundation surface is now gapless from `HG-FND-001` through `HG-FND-008`: `HG-FND-001`, `HG-FND-002`, `HG-FND-003`, `HG-FND-004`, `HG-FND-005`, `HG-FND-006`, `HG-FND-007`, and `HG-FND-008`.
+
+`HG-FND-004` and `HG-FND-005` were previously skipped in the issue-97 queue; both are now complete. The framework-foundation layer is fully normalized through `HG-FND-008`.
 
 Candidate inventory for future review:
 
 | Candidate identifier | Object | Bootstrap status |
 | --- | --- | --- |
-| `HG-FND-008` | Deligne cup-product / regulator-symbol separation from carry | candidate; active core exists, registry normalization pending; best after `HG-FND-005` |
+
+No framework-foundation candidates remain in the `HG-FND-001` through `HG-FND-008` interval.
 
 ## Tier 2 — Framework-vocabulary
 
