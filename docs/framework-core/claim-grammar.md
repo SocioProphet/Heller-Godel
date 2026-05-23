@@ -62,7 +62,7 @@ A downstream citation should record:
 ## Citation grades
 
 | Grade | Meaning | May license |
-| --- | --- |
+| --- | --- | --- |
 | `theorem-grade` | typed proved or canonically cited object | theorem premises within declared scope |
 | `method-grade` | method, governance rule, bridge specification, or classification | procedure, analogy, taxonomy, or review discipline |
 | `fixture-grade` | worked example or canonical fixture | apparatus alignment only |
