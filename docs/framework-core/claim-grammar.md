@@ -100,6 +100,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-009` | Universal Bridge extension to arithmetic-geometric / BSD domain | method-grade only | active; depends on Heller-Dirac @ `e1d7c863f4e0fc6e5e2ab485370cc75b2dba3993` |
 | `HG-MTH-011` | A2 minimality candidate-theorem under path-beta gate-minimality | method-grade as candidate theorem | active after PR #76 if merged |
 | `HG-MTH-012` | P3 pipeline-integration scope for A2 minimality candidate-theorem | method-grade as scope | active after this PR if merged |
+| `HG-MTH-013` | P3.a restricted proof grammar at p=3 scope | method-grade as scope | active after this PR if merged |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
@@ -126,6 +127,18 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 `HG-MTH-011` additionally inherits the Heller-Godel standing non-claims for gate-minimality: it is not theorem-track promoted, does not establish absolute A2 minimality outside its candidate-list scope, does not claim path-beta uniqueness, does not extend to an `A_n` theorem family, and does not cross into downstream Clay-program proof claims.
 
 `HG-MTH-012` additionally inherits the P3 scope non-claims: it does not close P3, does not promote `HG-MTH-011`, does not specify the `chi_3` generating function / Puiseux singularity / `zeta_3` carry defect, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
+
+`HG-MTH-013` additionally inherits the P3.a scope non-claims: it does not close P3.a, does not select a `p=3` grammar, does not specify the `p=3` canonical statistic / generating function / Puiseux singularity / `zeta_3` carry defect, does not promote `HG-FND-001` from candidate to settled Tier-1 status, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
+
+## Deferred non-blocking queue
+
+The following observations are recorded for future authorization only. They are not actions opened by this PR:
+
+1. Bibliography reference-hardening PR — non-blocking.
+2. Claim-boundary guard extension — non-blocking CI hardening.
+3. Unicode typography normalization sweep — non-blocking cosmetic.
+4. PR-body verbosity convention — committed file authoritative, PR body intentionally minimal.
+5. `HG-FND-001` normalization — future obligation distinct from P3.a; current status remains candidate / registry normalization pending.
 
 ## PFK namespace separation
 
@@ -168,6 +181,8 @@ Framework citations:
   licensed use: A2 gate-minimality candidate-list reasoning only, not theorem-track downstream input.
 - [HG-MTH-012 @ <sha>] — P3 pipeline-integration scope for HG-MTH-011; citation grade: method-grade as scope;
   licensed use: obligation specification only, not P3 closure or theorem-track promotion.
+- [HG-MTH-013 @ <sha>] — P3.a restricted proof grammar at p=3 scope; citation grade: method-grade as scope;
+  licensed use: obligation specification only, not P3.a closure, grammar selection, or theorem-track promotion.
 ```
 
 ## Review rule
