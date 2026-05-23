@@ -103,6 +103,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-013` | P3.a restricted proof grammar at p=3 scope | method-grade as scope | active after this PR if merged |
 | `HG-MTH-014` | P3.a restricted proof grammar at p=3 closure | method-grade modulo candidate-HG-FND-001 | active after this PR if merged |
 | `HG-MTH-015` | P3.b canonical statistic and generating-function at p=3 scope | method-grade as scope | active after this PR if merged |
+| `HG-MTH-016` | P3.b canonical statistic and generating-function at p=3 closure | method-grade modulo candidate-HG-FND-002 | active after this PR if merged |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
@@ -136,6 +137,8 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 
 `HG-MTH-015` additionally inherits the P3.b scope non-claims: it does not close P3.b, does not select a P3.b verification strategy, does not specify `rho_3` or `alpha_3` as closure-grade, does not specify `zeta_3` or the `U(2)` correspondence, does not promote `HG-FND-001` or `HG-FND-002`, does not promote `HG-MTH-011`, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
+`HG-MTH-016` additionally inherits the P3.b closure non-claims: it does not promote `HG-FND-002` or `HG-FND-001` from candidate to settled Tier-1 status, does not close P3.c or P3.d, does not make P3.c-grade radius / Puiseux / `chi_3` claims, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-MTH-011`, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
+
 ## Deferred non-blocking queue
 
 The following observations are recorded for future authorization only. They are not actions opened by this PR:
@@ -145,6 +148,7 @@ The following observations are recorded for future authorization only. They are 
 3. Unicode typography normalization sweep — non-blocking cosmetic.
 4. PR-body verbosity convention — committed file authoritative, PR body intentionally minimal.
 5. `HG-FND-001` normalization — future obligation distinct from P3.a; current status remains candidate / registry normalization pending.
+6. Workflow infrastructure hardening — non-blocking; covers docs-only trigger gaps, dense PR payload blocks, and intermittent proof-apparatus controller checkout/auth flakiness.
 
 ## PFK namespace separation
 
@@ -193,6 +197,8 @@ Framework citations:
   licensed use: P3.a grammar closure only, not P3.b/P3.c/P3.d closure or theorem-track promotion.
 - [HG-MTH-015 @ <sha>] — P3.b canonical statistic and generating-function at p=3 scope; citation grade: method-grade as scope;
   licensed use: P3.b obligation specification only, not P3.b closure or theorem-track promotion.
+- [HG-MTH-016 @ <sha>] — P3.b canonical statistic and generating-function at p=3 closure; citation grade: method-grade modulo candidate-HG-FND-002;
+  licensed use: P3.b closure only, not P3.c/P3.d closure or theorem-track promotion.
 ```
 
 ## Review rule
