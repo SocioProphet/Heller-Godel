@@ -89,7 +89,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 
 | Identifier | Object | Grade | Status |
 | --- | --- | --- | --- |
-| `HG-FND-001` | Restricted proof grammar and declared statistics | framework-foundational / normalized Tier 1 | active after this PR if merged; governed by `A-HG-FND-005` |
+| `HG-FND-001` | Restricted proof grammar and declared statistics | framework-foundational / normalized Tier 1 | active; governed by `A-HG-FND-005` |
 | `HG-MTH-001` | Framework-core distance classification | method-grade | active |
 | `HG-MTH-002` | Claim grammar and citation rule | method-grade | active |
 | `HG-MTH-003` | Dependency graph | method-grade | active |
@@ -99,17 +99,17 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-007` | Universal Bridge extension to gauge / Yang-Mills domain | method-grade only | active; depends on Heller-Dirac @ `e1d7c863f4e0fc6e5e2ab485370cc75b2dba3993` |
 | `HG-MTH-008` | Universal Bridge extension to complexity / P vs NP domain | method-grade only | active |
 | `HG-MTH-009` | Universal Bridge extension to arithmetic-geometric / BSD domain | method-grade only | active; depends on Heller-Dirac @ `e1d7c863f4e0fc6e5e2ab485370cc75b2dba3993` |
-| `HG-MTH-011` | A2 minimality candidate-theorem under path-beta gate-minimality | method-grade modulo five remaining candidate Tier-1 surfaces after P3 closure and `HG-FND-001` normalization; historical grade was method-grade as candidate theorem | active after this PR if merged |
-| `HG-MTH-012` | P3 pipeline-integration scope for A2 minimality candidate-theorem | method-grade as scope | active after this PR if merged |
-| `HG-MTH-013` | P3.a restricted proof grammar at p=3 scope | method-grade as scope | active after this PR if merged |
-| `HG-MTH-014` | P3.a restricted proof grammar at p=3 closure | method-grade with normalized `HG-FND-001` dependency | active after this PR if merged |
-| `HG-MTH-015` | P3.b canonical statistic and generating-function at p=3 scope | method-grade as scope | active after this PR if merged |
-| `HG-MTH-016` | P3.b canonical statistic and generating-function at p=3 closure | method-grade modulo candidate-HG-FND-002 | active after this PR if merged |
-| `HG-MTH-017` | P3.c Puiseux singularity and chi_3 at p=3 scope | method-grade as scope | active after this PR if merged |
-| `HG-MTH-018` | P3.c Puiseux singularity and chi_3 at p=3 closure | method-grade modulo candidate-HG-FND-003 and candidate-HG-VOC-006 | active after this PR if merged |
-| `HG-MTH-019` | P3.d zeta_3 carry defect and U(2) correspondence at p=3 scope | method-grade as scope | active after this PR if merged |
-| `HG-MTH-020` | P3.d zeta_3 carry defect and U(2) correspondence at p=3 closure | method-grade modulo candidate-HG-FND-006 and candidate-HG-FND-007 | active after this PR if merged |
-| `HG-MTH-021` | P3 pipeline-integration closure assembly for A2 minimality candidate-theorem | method-grade modulo five remaining candidate Tier-1 surfaces after `HG-FND-001` normalization | active after this PR if merged |
+| `HG-MTH-011` | A2 minimality candidate-theorem under path-beta gate-minimality | method-grade; candidate-surface ceiling fully discharged (FND-001 through FND-008 normalized Tier 1, VOC-006 normalized Tier 2 at `515236b74ff4d4a6396d204f563c125b9b8e2158`); stays method-grade: general encoding hypothesis open; A1/Catalan fixture theorem-grade via Theorem A.8, general case not yet proved | active |
+| `HG-MTH-012` | P3 pipeline-integration scope for A2 minimality candidate-theorem | method-grade as scope | active |
+| `HG-MTH-013` | P3.a restricted proof grammar at p=3 scope | method-grade as scope | active |
+| `HG-MTH-014` | P3.a restricted proof grammar at p=3 closure | method-grade with normalized `HG-FND-001` dependency | active |
+| `HG-MTH-015` | P3.b canonical statistic and generating-function at p=3 scope | method-grade as scope | active |
+| `HG-MTH-016` | P3.b canonical statistic and generating-function at p=3 closure | method-grade; candidate-HG-FND-002 ceiling discharged at `d4b6db26b071d28d8c5597d1107e1663b0b773cf` | active |
+| `HG-MTH-017` | P3.c Puiseux singularity and chi_3 at p=3 scope | method-grade as scope | active |
+| `HG-MTH-018` | P3.c Puiseux singularity and chi_3 at p=3 closure | method-grade; candidate-HG-FND-003 ceiling discharged at `20499fcaa535e5dd4701aaf42fa582173c3ba746`; candidate-HG-VOC-006 ceiling discharged at `86b4327b831c79b9ea58c2d56291dffeba0db50f` | active |
+| `HG-MTH-019` | P3.d zeta_3 carry defect and U(2) correspondence at p=3 scope | method-grade as scope | active |
+| `HG-MTH-020` | P3.d zeta_3 carry defect and U(2) correspondence at p=3 closure | method-grade; candidate-HG-FND-006 ceiling discharged at `56d059f601f6ec4c30caf1ae888ecf3008b2eeb5`; candidate-HG-FND-007 ceiling discharged at `bc17a0ca776fc023926e6141de88711255ff02e6` | active |
+| `HG-MTH-021` | P3 pipeline-integration closure assembly for A2 minimality candidate-theorem | method-grade; all five original candidate-surface ceilings discharged at `515236b74ff4d4a6396d204f563c125b9b8e2158`; stays method-grade as assembly document (not a standalone mathematical proposition) | active |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
 
@@ -135,7 +135,7 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 
 `HG-MTH-009` additionally cites `A-HG-MTH-007`: BSD-rank and BSD-strong have distinct structural status.
 
-`HG-MTH-011` additionally inherits the Heller-Godel standing non-claims for gate-minimality and the P3 assembly non-claims: it is not theorem-track promoted, does not establish absolute A2 minimality outside its candidate-list and path-beta scope, does not claim path-beta uniqueness, does not close P1 or P2, does not extend to an `A_n` theorem family, does not normalize the five remaining candidate surfaces `HG-FND-002`, `HG-FND-003`, `HG-VOC-006`, `HG-FND-006`, or `HG-FND-007`, and does not cross into downstream Clay-program proof claims.
+`HG-MTH-011` additionally inherits the Heller-Godel standing non-claims for gate-minimality and the P3 assembly non-claims: it is not theorem-track promoted, does not establish absolute A2 minimality outside its candidate-list and path-beta scope, does not claim path-beta uniqueness, does not close P1 or P2, does not extend to an `A_n` theorem family, does not claim credit for normalizing `HG-FND-002`, `HG-FND-003`, `HG-VOC-006`, `HG-FND-006`, or `HG-FND-007`; those surfaces were normalized by separate PRs and are now Tier 1 / Tier 2 as recorded in `distance-classification.md`, and does not cross into downstream Clay-program proof claims.
 
 `HG-MTH-012` additionally inherits the P3 scope non-claims: it does not close P3, does not promote `HG-MTH-011`, does not specify the `chi_3` generating function / Puiseux singularity / `zeta_3` carry defect, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
@@ -145,17 +145,17 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 
 `HG-MTH-015` additionally inherits the P3.b scope non-claims: it does not close P3.b, does not select a P3.b verification strategy, does not specify `rho_3` or `alpha_3` as closure-grade, does not specify `zeta_3` or the `U(2)` correspondence, does not promote `HG-FND-002`, does not promote `HG-MTH-011`, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
-`HG-MTH-016` additionally inherits the P3.b closure non-claims: it does not promote `HG-FND-002` from candidate to settled Tier-1 status, does not close P3.c or P3.d, does not make P3.c-grade radius / Puiseux / `chi_3` claims, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-MTH-011`, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
+`HG-MTH-016` additionally inherits the P3.b closure non-claims: it does not claim credit for normalizing `HG-FND-002`; that surface was normalized by a separate PR and is now Tier 1 as recorded in `distance-classification.md`, does not close P3.c or P3.d, does not make P3.c-grade radius / Puiseux / `chi_3` claims, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-MTH-011`, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
 `HG-MTH-017` additionally inherits the P3.c scope non-claims: it does not close P3.c, does not select among the P3.c verification strategies or Q4 character-source options, does not specify explicit Puiseux expansion constants, does not specify the precise `mu_3` element of `chi_3`, does not assert that `chi_3` emerges from local square-root monodromy, does not use `phase_characters.py` as the analytic source of `chi_3`, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-FND-003` or `HG-VOC-006`, does not promote `HG-MTH-011`, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
-`HG-MTH-018` additionally inherits the P3.c closure non-claims: it does not promote `HG-FND-003` or `HG-VOC-006`, does not close P3.d, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-MTH-011`, does not retroactively promote A1 `chi_2` source identification to theorem-grade, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, does not normalize `HG-FND-*` or `HG-VOC-*` surfaces, does not use `phase_characters.py` as the analytic source of `chi_3`, and does not claim that the orientation convention is independent of the selected cyclic sheet generator.
+`HG-MTH-018` additionally inherits the P3.c closure non-claims: it does not claim credit for normalizing `HG-FND-003` or `HG-VOC-006`; those surfaces were normalized by separate PRs and are now Tier 1 / Tier 2 as recorded in `distance-classification.md`, does not close P3.d, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-MTH-011`, does not retroactively promote A1 `chi_2` source identification to theorem-grade, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, does not use `phase_characters.py` as the analytic source of `chi_3`, and does not claim that the orientation convention is independent of the selected cyclic sheet generator.
 
 `HG-MTH-019` additionally inherits the P3.d scope non-claims: it does not close P3.d, does not select among the `zeta_3` candidate structures or `U(2)` correspondence strategies, does not specify the natural character from a selected `zeta_3` host to `mu_3`, does not assemble the full P3 closure document, does not promote `HG-MTH-011`, does not promote or normalize any candidate `HG-FND-*` or `HG-VOC-006` surface, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, and does not retroactively promote A1 `zeta_2` source identification.
 
-`HG-MTH-020` additionally inherits the P3.d closure non-claims: it does not claim `zeta_3` represents a nontrivial cohomology class, does not assemble the full P3 closure document, does not promote `HG-MTH-011`, does not normalize `HG-FND-006` or `HG-FND-007`, does not retroactively promote A1 `zeta_2` source identification, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, does not adopt the raw determinant character as the selected `mu_3` character, does not claim that `HG-FND-006` is normalized, does not claim that `Z_3` is a topological triple-cover lift of `SU(3)`, and does not identify the scalar cocycle `zeta_3(alpha,beta)` with the group element `Z_3`.
+`HG-MTH-020` additionally inherits the P3.d closure non-claims: it does not claim `zeta_3` represents a nontrivial cohomology class, does not assemble the full P3 closure document, does not promote `HG-MTH-011`, does not claim credit for normalizing `HG-FND-006` or `HG-FND-007`; those surfaces were normalized by separate PRs and are now Tier 1 as recorded in `distance-classification.md`, does not retroactively promote A1 `zeta_2` source identification, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, does not adopt the raw determinant character as the selected `mu_3` character, does not claim that `Z_3` is a topological triple-cover lift of `SU(3)`, and does not identify the scalar cocycle `zeta_3(alpha,beta)` with the group element `Z_3`.
 
-`HG-MTH-021` additionally inherits the P3 closure assembly non-claims: it does not promote `HG-MTH-011` to theorem-grade, does not introduce new mathematics, does not normalize `HG-FND-002`, `HG-FND-003`, `HG-VOC-006`, `HG-FND-006`, or `HG-FND-007`, does not close P1 or P2, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, and does not authorize Lane VIII work. Its prior candidate-`HG-FND-001` dependency is discharged by normalized `HG-FND-001`.
+`HG-MTH-021` additionally inherits the P3 closure assembly non-claims: it does not promote `HG-MTH-011` to theorem-grade, does not introduce new mathematics, does not claim credit for normalizing `HG-FND-002`, `HG-FND-003`, `HG-VOC-006`, `HG-FND-006`, or `HG-FND-007`; those surfaces were normalized by separate PRs and are now Tier 1 / Tier 2 as recorded in `distance-classification.md`, does not close P1 or P2, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, and does not authorize Lane VIII work. Its prior candidate-`HG-FND-001` dependency is discharged by normalized `HG-FND-001`.
 
 ## Deferred non-blocking queue
 
@@ -165,13 +165,13 @@ The following observations are recorded for future authorization only. They are 
 2. Claim-boundary guard extension — non-blocking CI hardening.
 3. Unicode typography normalization sweep — non-blocking cosmetic.
 4. PR-body verbosity convention — committed file authoritative, PR body intentionally minimal.
-5. `HG-FND-001` normalization — closed by this PR if merged; historical queue item retained for traceability.
+5. `HG-FND-001` normalization — CLOSED; historical queue item retained for traceability.
 6. Workflow infrastructure hardening — non-blocking; covers docs-only trigger gaps, dense PR payload blocks, and intermittent proof-apparatus controller checkout/auth flakiness.
-7. `HG-FND-002` normalization — future obligation distinct from P3.b; current status remains candidate / registry normalization pending.
-8. `HG-FND-003` normalization — future obligation distinct from P3.c; current status remains candidate / registry normalization pending.
-9. `HG-VOC-006` normalization — future obligation distinct from P3.c; current status remains candidate / registry normalization pending.
-10. `HG-FND-006` normalization — future obligation distinct from P3.d; current status remains candidate / registry normalization pending.
-11. `HG-FND-007` normalization — future obligation distinct from P3.d; current status remains candidate / registry normalization pending.
+7. `HG-FND-002` normalization — CLOSED; normalized Tier 1 at `d4b6db26b071d28d8c5597d1107e1663b0b773cf`.
+8. `HG-FND-003` normalization — CLOSED; normalized Tier 1 at `20499fcaa535e5dd4701aaf42fa582173c3ba746`.
+9. `HG-VOC-006` normalization — CLOSED; normalized Tier 2 at `86b4327b831c79b9ea58c2d56291dffeba0db50f`.
+10. `HG-FND-006` normalization — CLOSED; normalized Tier 1 at `56d059f601f6ec4c30caf1ae888ecf3008b2eeb5`.
+11. `HG-FND-007` normalization — CLOSED; normalized Tier 1 at `bc17a0ca776fc023926e6141de88711255ff02e6`.
 
 ## PFK namespace separation
 
@@ -212,8 +212,8 @@ Framework citations:
   licensed use: complexity shared-missing-machinery diagnosis only.
 - [HG-MTH-009 @ <sha>] — BSD arithmetic-geometric-domain Universal Bridge extension; citation grade: method-grade;
   licensed use: BSD shared-missing-machinery diagnosis only.
-- [HG-MTH-011 @ <sha>] — A2 minimality candidate-theorem under path-beta; citation grade: method-grade modulo five remaining candidate Tier-1 surfaces after HG-FND-001 normalization;
-  licensed use: A2 gate-minimality candidate-list reasoning and P3-integrated proof-character attachment only, not theorem-track downstream input.
+- [HG-MTH-011 @ <sha>] — A2 minimality candidate-theorem under path-beta; citation grade: method-grade; candidate-surface ceiling fully discharged;
+  licensed use: A2 gate-minimality candidate-list reasoning and P3-integrated proof-character attachment only, not theorem-track downstream input; general encoding hypothesis remains open.
 - [HG-MTH-012 @ <sha>] — P3 pipeline-integration scope for HG-MTH-011; citation grade: method-grade as scope;
   licensed use: obligation specification only, not P3 closure or theorem-track promotion.
 - [HG-MTH-013 @ <sha>] — P3.a restricted proof grammar at p=3 scope; citation grade: method-grade as scope;
@@ -222,18 +222,18 @@ Framework citations:
   licensed use: P3.a grammar closure only, not P3.b/P3.c/P3.d closure or theorem-track promotion.
 - [HG-MTH-015 @ <sha>] — P3.b canonical statistic and generating-function at p=3 scope; citation grade: method-grade as scope;
   licensed use: P3.b obligation specification only, not P3.b closure or theorem-track promotion.
-- [HG-MTH-016 @ <sha>] — P3.b canonical statistic and generating-function at p=3 closure; citation grade: method-grade modulo candidate-HG-FND-002;
+- [HG-MTH-016 @ <sha>] — P3.b canonical statistic and generating-function at p=3 closure; citation grade: method-grade; ceiling discharged;
   licensed use: P3.b closure only, not P3.c/P3.d closure or theorem-track promotion.
 - [HG-MTH-017 @ <sha>] — P3.c Puiseux singularity and chi_3 at p=3 scope; citation grade: method-grade as scope;
   licensed use: P3.c obligation specification only, not P3.c closure, `chi_3` identification, or theorem-track promotion.
-- [HG-MTH-018 @ <sha>] — P3.c Puiseux singularity and chi_3 at p=3 closure; citation grade: method-grade modulo candidate-HG-FND-003 and candidate-HG-VOC-006;
+- [HG-MTH-018 @ <sha>] — P3.c Puiseux singularity and chi_3 at p=3 closure; citation grade: method-grade; ceiling discharged;
   licensed use: P3.c closure only, not P3.d closure, HG-MTH-011 promotion, or Tier-1 normalization.
 - [HG-MTH-019 @ <sha>] — P3.d zeta_3 carry defect and U(2) correspondence at p=3 scope; citation grade: method-grade as scope;
   licensed use: P3.d obligation specification only, not P3.d closure, full P3 closure, HG-MTH-011 promotion, or Tier-1 normalization.
-- [HG-MTH-020 @ <sha>] — P3.d zeta_3 carry defect and U(2) correspondence at p=3 closure; citation grade: method-grade modulo candidate-HG-FND-006 and candidate-HG-FND-007;
+- [HG-MTH-020 @ <sha>] — P3.d zeta_3 carry defect and U(2) correspondence at p=3 closure; citation grade: method-grade; ceiling discharged;
   licensed use: P3.d closure only, not full P3 closure, HG-MTH-011 promotion, or Tier-1 normalization.
-- [HG-MTH-021 @ <sha>] — P3 pipeline-integration closure assembly; citation grade: method-grade modulo five remaining candidate Tier-1 surfaces after HG-FND-001 normalization;
-  licensed use: P3 closure assembly and HG-MTH-011 grade lift only, not theorem-grade promotion or remaining Tier-1 normalization.
+- [HG-MTH-021 @ <sha>] — P3 pipeline-integration closure assembly; citation grade: method-grade; all five original candidate-surface ceilings discharged;
+  licensed use: P3 closure assembly only, not theorem-grade promotion, HG-MTH-011 promotion, or remaining Tier-1/Tier-2 normalization.
 ```
 
 ## Review rule
