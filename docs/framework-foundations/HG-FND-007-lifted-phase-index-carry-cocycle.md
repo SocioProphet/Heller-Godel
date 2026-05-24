@@ -40,6 +40,8 @@ carry(a,b;N) = (s(a)+s(b)-s(a+b))/N.
 
 It records the integer overflow required to reconcile integer addition with finite residue addition.
 
+p-adic interpretation: the carry `carry(a,b;N)` specializes at level `N=p` to the degree-0 Witt vector carry in `W(F_p)=Z_p`. Specifically, `carry(a,b;p)` is the first digit of the p-adic base-`p` expansion of `(a+b)/p` when `a+b >= p`, and equals zero otherwise. The full Witt vector carry tower `(kappa_0, kappa_1, kappa_2, ...)` is the complete p-adic base-`p` expansion of the section defect. `HG-FND-007` normalizes `kappa_0` only. The extension to the full tower is recorded in `HW-OPEN-003` and `HW-PRIME-PADIC-001`.
+
 ## 5. Cocycle identity
 
 The carry satisfies the 2-cocycle identity:
