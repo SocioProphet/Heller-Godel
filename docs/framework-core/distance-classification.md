@@ -25,6 +25,12 @@ Normalized Tier 1 surfaces:
 | `HG-FND-007` | Lifted phase index and section-defect carry cocycle | normalized Tier 1; governed by `A-HG-FND-009`; source: `docs/framework-foundations/HG-FND-007-lifted-phase-index-carry-cocycle.md` |
 | `HG-FND-008` | Deligne / carry separation surface | normalized Tier 1; governed by `A-HG-FND-012`; source: `docs/framework-foundations/HG-FND-008-deligne-cup-product-carry-separation.md` |
 
+## Tier 1 — Theorem-grade MTH objects
+
+| Identifier | Object | Status |
+| --- | --- | --- |
+| `HG-MTH-018` | P3.c Puiseux singularity and chi_3 at p=3 closure | theorem-grade; depends on HG-FND-003 @ `20499fca` and HG-VOC-006 @ `86b4327b`; governed by `A-HG-MTH-004`; source: `docs/gate-minimality/p3c-puiseux-singularity-character-p3-closure.md` |
+
 The full normalized Tier 1 framework-foundation surface is now gapless from `HG-FND-001` through `HG-FND-008`: `HG-FND-001`, `HG-FND-002`, `HG-FND-003`, `HG-FND-004`, `HG-FND-005`, `HG-FND-006`, `HG-FND-007`, and `HG-FND-008`.
 
 `HG-FND-004` and `HG-FND-005` were previously skipped in the issue-97 queue; both are now complete. The framework-foundation layer is fully normalized through `HG-FND-008`.
