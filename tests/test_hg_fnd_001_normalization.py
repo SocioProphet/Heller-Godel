@@ -51,7 +51,8 @@ class TestHGFND001Normalization(unittest.TestCase):
         a2 = A2.read_text(encoding="utf-8")
 
         self.assertIn("`HG-FND-001` | Restricted proof grammar and declared statistics | framework-foundational / normalized Tier 1", claim)
-        self.assertIn("method-grade modulo five remaining candidate Tier-1 surfaces", claim)
+        self.assertIn("candidate-surface ceiling fully discharged", claim)
+        self.assertNotIn("method-grade modulo five remaining candidate Tier-1 surfaces", claim)
         self.assertIn("method-grade with normalized `HG-FND-001` dependency", p3a)
         self.assertIn("Claim level: method-grade modulo five remaining candidate Tier-1 surfaces", p3_assembly)
         self.assertIn("Grade: method-grade modulo five remaining candidate Tier-1 surfaces", a2)
