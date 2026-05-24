@@ -104,7 +104,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-013` | P3.a restricted proof grammar at p=3 scope | method-grade as scope | active |
 | `HG-MTH-014` | P3.a restricted proof grammar at p=3 closure | method-grade with normalized `HG-FND-001` dependency | active |
 | `HG-MTH-015` | P3.b canonical statistic and generating-function at p=3 scope | method-grade as scope | active |
-| `HG-MTH-016` | P3.b canonical statistic and generating-function at p=3 closure | method-grade; candidate-HG-FND-002 ceiling discharged at `d4b6db26b071d28d8c5597d1107e1663b0b773cf` | active |
+| `HG-MTH-016` | P3.b canonical statistic and generating-function at p=3 closure | theorem-grade within declared P3.b constructor-shape generating-function scope; governed by `A-HG-MTH-005` | active |
 | `HG-MTH-017` | P3.c Puiseux singularity and chi_3 at p=3 scope | method-grade as scope | active |
 | `HG-MTH-018` | P3.c Puiseux singularity and chi_3 at p=3 closure | theorem-grade within declared p=3 Puiseux / chi_3 scope; ceilings discharged; governed by `A-HG-MTH-004` | active |
 | `HG-MTH-019` | P3.d zeta_3 carry defect and U(2) correspondence at p=3 scope | method-grade as scope | active |
@@ -127,6 +127,8 @@ The governing anti-seed for `HG-FND-001` is `A-HG-FND-005`: untyped tree analogi
 
 The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridge material does not prove cross-Clay equivalence and does not transfer proofs between Clay domains.
 
+`HG-MTH-016` additionally cites `A-HG-MTH-005`: theorem-grade P3.b generating-function citation requires the declared constructor-shape statistic and selected local branch `C_3(0)=1`; it does not license Puiseux decoration, monodromy, or `chi_3` source identification.
+
 `HG-MTH-018` additionally cites `A-HG-MTH-004`: theorem-grade `chi_3` citation requires the declared positive sheet generator `tau=(123)`; reversing the generator gives `chi_3(tau^{-1})=omega^2`.
 
 `HG-MTH-011` additionally inherits the Heller-Godel standing non-claims for gate-minimality and the P3 assembly non-claims: it is not theorem-track promoted, does not establish absolute A2 minimality outside its candidate-list and path-beta scope, does not claim path-beta uniqueness, does not close P1 or P2, does not extend to an `A_n` theorem family, does not claim credit for normalizing `HG-FND-002`, `HG-FND-003`, `HG-VOC-006`, `HG-FND-006`, or `HG-FND-007`; those surfaces were normalized by separate PRs and are now Tier 1 / Tier 2 as recorded in `distance-classification.md`, and does not cross into downstream Clay-program proof claims.
@@ -139,7 +141,7 @@ The governing anti-seed for `HG-MTH-005..009` is `A-HG-MTH-001`: Universal Bridg
 
 `HG-MTH-015` additionally inherits the P3.b scope non-claims: it does not close P3.b, does not select a P3.b verification strategy, does not specify `rho_3` or `alpha_3` as closure-grade, does not specify `zeta_3` or the `U(2)` correspondence, does not promote `HG-FND-002`, does not promote `HG-MTH-011`, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
-`HG-MTH-016` additionally inherits the P3.b closure non-claims: it does not claim credit for normalizing `HG-FND-002`; that surface was normalized by a separate PR and is now Tier 1 as recorded in `distance-classification.md`, does not close P3.c or P3.d, does not make P3.c-grade radius / Puiseux / `chi_3` claims, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-MTH-011`, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
+`HG-MTH-016` additionally inherits the P3.b closure non-claims: it does not close P3.c or P3.d, does not make P3.c-grade radius / Puiseux / `chi_3` claims, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-MTH-011`, does not promote or restate `HG-MTH-018`, does not promote `HG-MTH-020`, does not promote `HG-MTH-021`, does not extend to `A_n`, does not authorize Heller-Einstein development, does not cross into downstream Clay-program proof claims, does not perform downstream repo work, and does not treat the P3.b generating function as decorated Puiseux datum.
 
 `HG-MTH-017` additionally inherits the P3.c scope non-claims: it does not close P3.c, does not select among the P3.c verification strategies or Q4 character-source options, does not specify explicit Puiseux expansion constants, does not specify the precise `mu_3` element of `chi_3`, does not assert that `chi_3` emerges from local square-root monodromy, does not use `phase_characters.py` as the analytic source of `chi_3`, does not specify `zeta_3` or its `U(2)` correspondence, does not promote `HG-FND-003` or `HG-VOC-006`, does not promote `HG-MTH-011`, does not extend to `A_n`, does not authorize Heller-Einstein development, and does not cross into downstream Clay-program proof claims.
 
@@ -211,13 +213,13 @@ Framework citations:
 - [HG-MTH-012 @ <sha>] — P3 pipeline-integration scope for HG-MTH-011; citation grade: method-grade as scope;
   licensed use: obligation specification only, not P3 closure or theorem-track promotion.
 - [HG-MTH-013 @ <sha>] — P3.a restricted proof grammar at p=3 scope; citation grade: method-grade as scope;
-  licensed use: obligation specification only, not P3.a closure, grammar selection, or theorem-track promotion.
+  licensed use: P3.a obligation specification only, not P3.a closure, grammar selection, or theorem-track promotion.
 - [HG-MTH-014 @ <sha>] — P3.a restricted proof grammar at p=3 closure; citation grade: method-grade with normalized HG-FND-001 dependency;
   licensed use: P3.a grammar closure only, not P3.b/P3.c/P3.d closure or theorem-track promotion.
 - [HG-MTH-015 @ <sha>] — P3.b canonical statistic and generating-function at p=3 scope; citation grade: method-grade as scope;
   licensed use: P3.b obligation specification only, not P3.b closure or theorem-track promotion.
-- [HG-MTH-016 @ <sha>] — P3.b canonical statistic and generating-function at p=3 closure; citation grade: method-grade; ceiling discharged;
-  licensed use: P3.b closure only, not P3.c/P3.d closure or theorem-track promotion.
+- [HG-MTH-016 @ <sha>] — P3.b canonical statistic and generating-function at p=3 closure; citation grade: theorem-grade within declared constructor-shape generating-function scope;
+  licensed use: grammar `T ::= x | t(T,T,T)`, constructor-shape statistic, `C_3(x)=1+xC_3(x)^3`, `C_3(0)=1`, and Fuss-Catalan coefficient extraction only; not P3.c closure, singularity location, Puiseux decoration, monodromy, `chi_3`, P3.d closure, HG-MTH-011 promotion, or A_n extension.
 - [HG-MTH-017 @ <sha>] — P3.c Puiseux singularity and chi_3 at p=3 scope; citation grade: method-grade as scope;
   licensed use: P3.c obligation specification only, not P3.c closure, `chi_3` identification, or theorem-track promotion.
 - [HG-MTH-018 @ <sha>] — P3.c Puiseux singularity and chi_3 at p=3 closure; citation grade: theorem-grade within declared p=3 Puiseux / chi_3 source-identification scope;
