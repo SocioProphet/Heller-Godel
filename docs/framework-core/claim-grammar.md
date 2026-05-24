@@ -112,6 +112,7 @@ The anti-seed entry does not prove the positive object. It records a failure mod
 | `HG-MTH-021` | P3 pipeline-integration closure assembly for A2 minimality candidate-theorem | method-grade; all five original candidate-surface ceilings discharged at `515236b74ff4d4a6396d204f563c125b9b8e2158`; stays method-grade as assembly document (not a standalone mathematical proposition) | active |
 | `HG-EX-001` | Catalan / mu_2 canonical reference fixture | fixture-grade | active doctrine; implementation pending |
 | `HG-DOC-001` | Framework-core declaration for existing Heller-Godel repo | method-grade / governance | active |
+| `HG-DOC-002` | Embedding-stack declaration | method-grade / governance | active |
 
 ## Reserved method identifiers
 
