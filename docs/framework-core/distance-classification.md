@@ -29,6 +29,7 @@ Normalized Tier 1 surfaces:
 
 | Identifier | Object | Status |
 | --- | --- | --- |
+| `HG-MTH-016` | P3.b canonical statistic and generating-function at p=3 closure | theorem-grade; depends on HG-FND-002 @ `d4b6db2`; governed by `A-HG-MTH-005`; source: `docs/gate-minimality/p3b-generating-function-p3-closure.md` |
 | `HG-MTH-018` | P3.c Puiseux singularity and chi_3 at p=3 closure | theorem-grade; depends on HG-FND-003 @ `20499fca` and HG-VOC-006 @ `86b4327b`; governed by `A-HG-MTH-004`; source: `docs/gate-minimality/p3c-puiseux-singularity-character-p3-closure.md` |
 
 The full normalized Tier 1 framework-foundation surface is now gapless from `HG-FND-001` through `HG-FND-008`: `HG-FND-001`, `HG-FND-002`, `HG-FND-003`, `HG-FND-004`, `HG-FND-005`, `HG-FND-006`, `HG-FND-007`, and `HG-FND-008`.

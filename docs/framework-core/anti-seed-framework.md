@@ -274,6 +274,22 @@ HG-MTH-018 theorem-grade citation requires declared positive generator tau=(123)
 
 Status: active; governs `HG-MTH-018`.
 
+## A-HG-MTH-005 — Citing HG-MTH-016 theorem-grade without declared statistic and branch
+
+Failure mode:
+
+```text
+A downstream artifact cites HG-MTH-016 as theorem-grade generating-function data without declaring the constructor-shape statistic and selected local branch C_3(0)=1, or treats the P3.b closure as a decorated Puiseux singular datum.
+```
+
+Correct boundary:
+
+```text
+HG-MTH-016 theorem-grade citation licenses only the constructor-shape P3.b generating-function equation, coefficient extraction, and selected local analytic branch at the origin. Dominant singularity decoration, Puiseux coefficients, monodromy, and chi_3 source identification belong to HG-MTH-018 / HG-FND-003 / HG-VOC-006.
+```
+
+Status: active; governs `HG-MTH-016`.
+
 ## Register maintenance
 
 Anti-seed entries are append-preserving. Entries may be marked closed only when a structural correction makes the failure mode impossible or explicitly superseded.
