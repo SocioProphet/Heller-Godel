@@ -258,6 +258,22 @@ Every downstream citation must state citation grade: theorem-grade, method-grade
 
 Status: governed by `docs/framework-core/claim-grammar.md`.
 
+## A-HG-MTH-004 — Citing HG-MTH-018 theorem-grade without declared orientation convention
+
+Failure mode:
+
+```text
+A downstream artifact cites HG-MTH-018 as theorem-grade chi_3 data without declaring the positive cyclic sheet generator tau=(123), or treats chi_3=omega as orientation-independent.
+```
+
+Correct boundary:
+
+```text
+HG-MTH-018 theorem-grade citation requires declared positive generator tau=(123). Reversing gives chi_3(tau^{-1})=omega^2. The character value is not orientation-independent.
+```
+
+Status: active; governs `HG-MTH-018`.
+
 ## Register maintenance
 
 Anti-seed entries are append-preserving. Entries may be marked closed only when a structural correction makes the failure mode impossible or explicitly superseded.

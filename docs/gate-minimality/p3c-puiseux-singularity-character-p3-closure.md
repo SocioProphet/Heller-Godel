@@ -1,10 +1,10 @@
 # HG-MTH-018 — P3.c Puiseux Singularity and Character at p=3 Closure
 
 Identifier: `HG-MTH-018`  
-Status: closure document for P3.c; scoped by `HG-MTH-017`.  
+Status: theorem-grade closure document for P3.c; scoped by `HG-MTH-017`.  
 Owner: `SocioProphet/Heller-Godel`.  
 Track: P3.c under `HG-MTH-012`, after P3.a closure `HG-MTH-014` and P3.b closure `HG-MTH-016`.  
-Claim level: method-grade modulo candidate-`HG-FND-003` and candidate-`HG-VOC-006`.
+Claim level: theorem-grade within declared `p=3` Puiseux datum and `chi_3` source-identification scope; governed by `A-HG-MTH-004`.
 
 ## 1. Statement of closure
 
@@ -44,6 +44,29 @@ chi_3 = exp(2 pi i / 3) = omega.
 ```
 
 The analytic sheet-rotation source determines a nontrivial `mu_3` character once a cyclic generator is chosen. This closure declares the positive sheet generator `tau=(123)` and sets `chi_3(tau)=omega`. Reversing orientation gives the conjugate `omega^2`.
+
+## 1a. Formal theorem statement (theorem-grade promotion)
+
+`HG-MTH-018` Theorem. The algebraic function `C_3(x)=1+xC_3(x)^3` has dominant singularity `rho_3=4/27` with `C_3(rho_3)=3/2`, Puiseux exponent `alpha_3=1/2`, and principal-branch expansion:
+
+```text
+C_3(x)=3/2 - (sqrt(3)/2)(1 - x/rho_3)^(1/2)
+       + (2/3)(1 - x/rho_3)
+       + O((1 - x/rho_3)^(3/2)).
+```
+
+The monodromy group of `x y^3 - y + 1` over `Q(x)` is `S_3`. The cyclic subgroup `A_3` acts by positive sheet rotation `tau=(123)`. Under the manuscript phase map `k_3(1/2)=1`, the selected character is `chi_3(tau)=omega`.
+
+Proof: four components, each CI-tested:
+
+1. Critical point: `F(rho_3, C_3(rho_3))=0`, `F_y(rho_3, C_3(rho_3))=0` — `HG-FND-003 @ 20499fcaa535e5dd4701aaf42fa582173c3ba746`, `test_p3c_critical_point_data`.
+2. Puiseux coefficients `a^2=3/4`, `b=2/3` via coefficient equations — `HG-FND-003`, `test_p3c_scaled_local_expansion_coefficients`.
+3. `S_3` monodromy: discriminant `Delta=x(4-27x)` of `xy^3-y+1`, not a square in `Q(x)` — `HG-VOC-006 @ 86b4327b831c79b9ea58c2d56291dffeba0db50f`, `test_cubic_discriminant_identity`.
+4. Character identification: `k_3(1/2)=floor(3/2) mod 3=1`, `chi_3=omega` — `HG-VOC-006`, `test_manuscript_phase_map`.
+
+Orientation note: reversing the generator convention gives `chi_3(tau^{-1})=omega^2`. Governed by `A-HG-MTH-004`.
+
+Grade: theorem-grade within declared `p=3` Puiseux datum and `chi_3` source-identification scope.
 
 ## 2. Verification strategy
 
@@ -401,23 +424,12 @@ This is pure Heller-Godel closure. Heller-Einstein may later represent the orien
 
 | Object | Grade | Source |
 | --- | --- | --- |
-| `HG-FND-003` | candidate; registry normalization pending | `docs/framework-core/distance-classification.md` |
-| `HG-VOC-006` | candidate; registry normalization pending | `docs/framework-core/distance-classification.md` |
-| `HG-MTH-017` (P3.c scope) | method-grade as scope | PR #88 |
-| `HG-MTH-018` (P3.c closure, this PR) | method-grade modulo candidate-`HG-FND-003` and candidate-`HG-VOC-006` | this PR |
+| `HG-FND-003` | normalized Tier 1 | `20499fcaa535e5dd4701aaf42fa582173c3ba746` |
+| `HG-VOC-006` | normalized Tier 2 | `86b4327b831c79b9ea58c2d56291dffeba0db50f` |
+| `HG-MTH-017` (P3.c scope) | method-grade as scope | `docs/framework-core/claim-grammar.md` |
+| `HG-MTH-018` (P3.c closure, this PR) | theorem-grade within declared `p=3` Puiseux datum and `chi_3` source-identification scope | this PR |
 
-Full `HG-MTH-011` theorem-grade promotion requires:
-
-```text
-HG-FND-001
-HG-FND-002
-HG-FND-003
-HG-VOC-006
-HG-FND-006
-HG-FND-007
-```
-
-P3.a contributes `HG-FND-001`; P3.b contributes `HG-FND-002`; P3.c contributes `HG-FND-003` and `HG-VOC-006`. Thus, after P3.c, four of the six cumulative Tier-1 modulo-candidate dependencies have entered the HG-MTH-011 promotion path. P3.d is expected to contribute `HG-FND-006` and `HG-FND-007`.
+Full `HG-MTH-011` theorem-grade promotion requires the separate general encoding hypothesis. This promotion does not promote `HG-MTH-011`.
 
 ## 10. Retroactive A1 paradigm sharpening
 
@@ -427,27 +439,28 @@ At `p=2`, the local square-root sign change, the finite phase-map output, and th
 
 The A1 value `chi_2=-1` does not change. Its source identification sharpens: in A1, local square-root monodromy, finite phase reduction, and two-sheet global monodromy agree; in A2, they diverge and the global cubic sheet-rotation source supplies the `mu_3` character.
 
-This is not theorem-grade promotion of A1. It is a framework-reading clarification for future `HG-FND-003` and `HG-VOC-006` normalization.
+This is not theorem-grade promotion of A1. It is a framework-reading clarification only.
 
 ## 11. Non-claims
 
-1. Does not promote `HG-FND-003` from candidate.
-2. Does not promote `HG-VOC-006` from candidate.
-3. Does not close P3.d. The `U(2)` / `zeta_3` correspondence remains downstream.
-4. Does not promote `HG-MTH-011`.
-5. Does not retroactively promote A1 `chi_2` source identification to theorem-grade.
-6. Does not extend to `A_n` for `n >= 3`.
-7. Does not authorize Heller-Einstein PRs.
-8. Does not cross into downstream Clay-program proof claims, including `SocioProphet/yang-mills`.
-9. Does not normalize `HG-FND-*` or `HG-VOC-*` surfaces.
-10. Does not perform numerical verification beyond the symbolic calculations explicitly recorded here.
-11. Does not identify local square-root monodromy at `rho_3` as the source of `chi_3 in mu_3`.
-12. Does not use `phase_characters.py` as the analytic source of `chi_3`.
-13. Does not claim that the orientation convention is independent of the selected cyclic sheet generator.
+1. Does not promote `HG-MTH-011`.
+2. Does not promote `HG-MTH-016`.
+3. Does not promote `HG-MTH-020`.
+4. Does not promote `HG-MTH-021`.
+5. Does not close P3.d. The `U(2)` / `zeta_3` correspondence remains downstream.
+6. Does not retroactively promote A1 `chi_2` source identification to theorem-grade.
+7. Does not extend to `A_n` for `n >= 3`.
+8. Does not authorize Heller-Einstein PRs.
+9. Does not cross into downstream Clay-program proof claims, including `SocioProphet/yang-mills`.
+10. Does not perform downstream repo work.
+11. Does not perform numerical verification beyond the symbolic calculations explicitly recorded here.
+12. Does not identify local square-root monodromy at `rho_3` as the source of `chi_3 in mu_3`.
+13. Does not use `phase_characters.py` as the analytic source of `chi_3`.
+14. Does not claim that the orientation convention is independent of the selected cyclic sheet generator.
 
 ## 12. Future closure pathway
 
-After this P3.c closure merges, P3.d scope is unlocked: `zeta_3` carry defect and `U(2)` correspondence at `p=3`, attaching to candidate-`HG-FND-006` and candidate-`HG-FND-007`.
+After this theorem-grade P3.c closure, P3.d scope remains separately governed: `zeta_3` carry defect and `U(2)` correspondence at `p=3`.
 
 P3.d is not opened by this closure and requires separate authorization.
 
@@ -461,4 +474,4 @@ HG-MTH-018
 
 to the P3.c Puiseux singularity and `chi_3` closure at `p=3`.
 
-`docs/framework-core/claim-grammar.md` is the canonical identifier registry. This PR updates that registry to register `HG-MTH-018` and record its grade ceiling as method-grade modulo candidate-`HG-FND-003` and candidate-`HG-VOC-006`.
+`docs/framework-core/claim-grammar.md` is the canonical identifier registry. This PR updates that registry to record `HG-MTH-018` as theorem-grade within its declared `p=3` Puiseux / `chi_3` scope.
