@@ -13,8 +13,10 @@ from heller_godel.abelian_hsp import (
     hiding_function,
     order_finding_classical,
     period_comb,
+    recover_order_from_frequencies,
     shor_reduction,
     subgroup_character_exponents,
+    verify_period_candidate,
     wheel_p4_context,
     wheel_period_dft_support,
 )
@@ -49,6 +51,8 @@ def test_dft_period_r_not_dividing_Q_leakage():
     result = fourier_sample_period(a=7, n=15, Q=253)
     assert result["period"] == 4
     assert result["recovered_period"] == 4
+    assert result["witness"].verified_identity is True
+    assert pow(7, result["witness"].candidate, 15) == 1
     assert len(result["frequencies"]) > 4  # visible leakage because r does not divide Q
 
 
@@ -65,6 +69,23 @@ def test_annihilator_duality():
 def test_fourier_recovers_order():
     result = fourier_sample_period(a=7, n=15, Q=16)
     assert result["recovered_period"] == order_finding_classical(7, 15) == 4
+    assert result["witness"].minimal_order == 4
+    assert result["witness"].verified_identity is True
+
+
+def test_period_witness_passes_for_known_orders():
+    witness = verify_period_candidate(a=7, n=15, candidate=4, frequency=4)
+    assert witness.verified_identity is True
+    assert witness.candidate == 4
+    assert witness.minimal_order == 4
+    assert pow(7, witness.candidate, 15) == 1
+
+
+def test_period_witness_rejects_denominator_only_match():
+    with pytest.raises(RetryReduction):
+        verify_period_candidate(a=7, n=15, candidate=2, frequency=8)
+    with pytest.raises(RetryReduction):
+        recover_order_from_frequencies(a=7, n=15, Q=10, frequencies=(2,))  # 2/10 -> denominator 5
 
 
 def test_unit_modulus_has_trivial_period():
@@ -72,6 +93,7 @@ def test_unit_modulus_has_trivial_period():
     result = fourier_sample_period(a=1, n=1, Q=8)
     assert f.period == 1
     assert result["period"] == result["recovered_period"] == 1
+    assert result["witness"].verified_identity is True
     assert tuple(result["frequencies"]) == (0,)
 
 
