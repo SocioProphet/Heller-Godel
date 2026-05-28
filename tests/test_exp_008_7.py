@@ -92,7 +92,7 @@ def test_model_A_recovers_linear_omega(tmp_path: Path):
                         "period_time_ms": 0,
                         "period_success": 1,
                         "period_retries": 0,
-                        "arity_log_sum": 0,
+                        "arity_log_sum": (omega * sample) + (0.01 * sample * sample),
                     }
                 )
     result = analyze(csv_path)
