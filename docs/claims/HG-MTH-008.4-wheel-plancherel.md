@@ -111,7 +111,7 @@ Target a new module in Heller-Godel, with a crosslink to the Heller-Winters whee
 - **IMPL-1** `wheel_plancherel.py`: construct `G_n = (Z/nZ)^x` for given n — element list, order phi(n), group operation. Pure, no theorem-grade factoring shortcut.
 - **IMPL-2** character utilities: build `G_n^` for n a cyclic-wheel modulus directly (single generator -> character table as powers of a root of unity in `mu_{phi(n)}`); verify orthogonality and Plancherel (S5).
 - **IMPL-3** `usp(...)`: implement USP(n) as defined — factor n, decompose `G_n` via CRT into cyclic factors with generators, express chi_0 in factor coordinates. Expose a `factoring_oracle` injection point so the equivalence T1 is demonstrated structurally (oracle in => USP fast; USP out => factorization recovered).
-- **IMPL-4** cyclic-wheel predicate: decide the cyclic-wheel predicate; verify against the closed form `{1,2,4,p^k,2p^k}` (S4) by an independent group-exponent criterion for n up to a bound.
+- **IMPL-4** cyclic-wheel predicate: decide the cyclic-wheel predicate; verify against the closed form `{1,2,4,p^k,2p^k}` (S4) by direct finite unit enumeration: count `|G_n|`, compute element orders by repeated multiplication, and check whether an element has full order. This avoids using the prime-power factorization or CRT decomposition in the regression oracle.
 - **IMPL-5** crosslink: import the wheel `G_{P_k}` from the Heller-Winters `prime-window-repunit-diagnostic` and confirm it is the primorial instance `G_{P_k}` of IMPL-1 (P2). Character values land in `mu_{exp(G_{P_k})}` (e.g. `mu_12` at `P_4 = 210`).
 
 ---
