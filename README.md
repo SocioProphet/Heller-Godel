@@ -69,6 +69,10 @@ The active capture is:
 
 This document is the working Deligne-cohomological rewrite of the older floor-function-first manuscript. It records the current claim boundary, proof architecture, finite local-system interpretation on real test manifolds, and open gates.
 
+## HG-MTH-008 factoring corner
+
+HG-MTH-008.4 records the bounded arithmetic kernel `USP ≡ factoring`: structured unit-character substantiation requires the factor/CRT coordinates, while the bare constant trivial character is not a USP solution. HG-MTH-008.5 then places factoring as abelian HSP: factoring reduces to order-finding on the wheel `G_n = (Z/nZ)^x`, and Fourier sampling over the abelian dual exposes the hidden period. This is a wheel/Plancherel placement and a crosslink to the Heller-Winters wheel diagnostic (HW-PRIME-WINDOW-001), not a P vs NP claim. Fourier-on-the-wheel solves the abelian case, which is exactly the easy case; the difficulty of P vs NP lives in the non-abelian world this construction does not enter.
+
 ## Claim boundary
 
 This repository does **not** currently prove a nonabelian obstruction theory, a Chern-class lift, a cognitive theory of recognition, progress on the Hodge conjecture, algebraicity of the resulting classes, or algebraic-cycle realization.
