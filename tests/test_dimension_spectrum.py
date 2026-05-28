@@ -115,6 +115,7 @@ def test_module_docstring_states_boundary_only_not_separation():
 
     doc = inspect.getdoc(dimension_spectrum)
     assert "re-coordinatizes" in doc
+    # Intentional exact phrase guard: future edits must preserve the boundary as a visible sentence.
     assert "does not cross" in doc
     assert "No separation" in doc
     assert "never equal to" in doc
