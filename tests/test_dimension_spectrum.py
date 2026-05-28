@@ -103,11 +103,11 @@ def test_no_dim_equals_delta_assertion():
     import heller_godel.dimension_spectrum as dimension_spectrum
 
     text = inspect.getsource(dimension_spectrum)
+    guard = analogy_not_equality_guard()
     assert "dim rho = delta is forbidden" in text
-    assert "dim rho = delta" in analogy_not_equality_guard()
-    forbidden_assertions = ["assert dim", "== delta", "= delta  # equality"]
-    for phrase in forbidden_assertions:
-        assert phrase not in text
+    assert "dim rho = delta" in guard
+    assert "dim_rho" not in text
+    assert "delta_is_dim" not in text
 
 
 def test_module_docstring_states_boundary_only_not_separation():
