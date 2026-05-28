@@ -47,6 +47,16 @@ class HidingFunction:
         return pow(self.a, x, self.n)
 
 
+@dataclass(frozen=True)
+class PeriodWitness:
+    """A continued-fraction candidate that passed modular identity checks."""
+
+    candidate: int
+    minimal_order: int
+    frequency: int
+    verified_identity: bool
+
+
 def order_finding_classical(a: int, n: int) -> int:
     """Naively compute ord_n(a) by search; this has no polynomial-time claim."""
 
@@ -145,19 +155,44 @@ def continued_fraction_recover(c: int, Q: int, max_denominator: int) -> int:
     return Fraction(c, Q).limit_denominator(max_denominator).denominator
 
 
-def recover_order_from_frequencies(a: int, n: int, Q: int, frequencies: tuple[int, ...]) -> int:
+def verify_period_candidate(a: int, n: int, candidate: int, frequency: int = 0) -> PeriodWitness:
+    """Verify a continued-fraction denominator by modular identity.
+
+    A denominator-size match is not enough. The candidate must satisfy
+    ``pow(a, candidate, n) == 1``; then the minimal order is recomputed by the
+    existing finite search witness.
+    """
+
+    if n == 1:
+        return PeriodWitness(candidate=1, minimal_order=1, frequency=frequency, verified_identity=True)
+    if candidate < 1:
+        raise RetryReduction("continued-fraction candidate is not a positive period")
+    if pow(a % n, candidate, n) != 1:
+        raise RetryReduction("continued-fraction denominator failed modular identity witness")
+    return PeriodWitness(
+        candidate=candidate,
+        minimal_order=order_finding_classical(a % n, n),
+        frequency=frequency,
+        verified_identity=True,
+    )
+
+
+def recover_order_from_frequencies(a: int, n: int, Q: int, frequencies: tuple[int, ...]) -> PeriodWitness:
     """Recover and verify an order from deterministic Fourier peak candidates."""
 
-    candidates: list[int] = []
+    candidates: list[tuple[int, int]] = []
     for c in frequencies:
         if c == 0:
             continue
         denom = continued_fraction_recover(c, Q, max(1, n))
-        if denom not in candidates:
-            candidates.append(denom)
-    for candidate in candidates:
-        if candidate >= 1 and pow(a, candidate, n) == 1:
-            return order_finding_classical(a, n)
+        pair = (denom, c)
+        if pair not in candidates:
+            candidates.append(pair)
+    for candidate, frequency in candidates:
+        try:
+            return verify_period_candidate(a, n, candidate, frequency=frequency)
+        except RetryReduction:
+            continue
     raise RetryReduction("continued fractions did not recover a verified order")
 
 
@@ -175,11 +210,16 @@ def fourier_sample_period(a: int, n: int, Q: int) -> dict[str, object]:
     max_amp = max(abs(v) for v in transformed) if transformed else 0
     threshold = max_amp * 0.50 if Q % r else 1e-9
     frequencies = tuple(k for k, value in enumerate(transformed) if abs(value) >= threshold)
-    recovered = 1 if r == 1 else recover_order_from_frequencies(a % n, n, Q, frequencies)
+    witness = (
+        PeriodWitness(candidate=1, minimal_order=1, frequency=0, verified_identity=True)
+        if r == 1
+        else recover_order_from_frequencies(a % n, n, Q, frequencies)
+    )
     return {
         "period": r,
         "frequencies": frequencies,
-        "recovered_period": recovered,
+        "recovered_period": witness.minimal_order,
+        "witness": witness,
         "amplitudes": transformed,
     }
 
