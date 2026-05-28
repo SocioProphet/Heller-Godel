@@ -1,4 +1,5 @@
 import inspect
+from fractions import Fraction
 
 from heller_godel.dimension_spectrum import (
     STANDARD_SPECTRA,
@@ -70,7 +71,7 @@ def test_plancherel_uniform_iff_abelian():
 def test_abelianization_count_equals_G_mod_commutator():
     for group in known_family():
         assert abelianization_count(group) == group.abelianization_order
-    assert abelian_core_fraction(symmetric_group(3)) == 2 / 6
+    assert abelian_core_fraction(symmetric_group(3)) == Fraction(2, 6)
 
 
 def test_Sn_has_exactly_two_one_dim_irreps():
