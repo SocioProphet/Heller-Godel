@@ -6,10 +6,10 @@ and boundary functionals for small standard symmetry groups. The bridge is that
 locus, while dim > 1 is the non-abelian/off-circle departure.
 
 The dimension spectrum re-coordinatizes the abelian/non-abelian boundary as
-position relative to the unit circle; it diagnoses the boundary, it does not
-cross it, and dim rho is analogous to -- never equal to -- the off-critical-line
-parameter delta. No separation of P from NP, RH/GRH/Artin proof, or GCT
-orbit-closure computation is claimed here.
+position relative to the unit circle. It diagnoses the boundary; it does not cross
+it. Dim rho is analogous to -- never equal to -- the off-critical-line parameter
+delta. No separation of P from NP, RH/GRH/Artin proof, or GCT orbit-closure
+computation is claimed here.
 """
 
 from __future__ import annotations
@@ -48,7 +48,13 @@ STANDARD_SPECTRA: dict[str, GroupSpectrum] = {
 def cyclic_group(n: int) -> GroupSpectrum:
     if n < 1:
         raise ValueError("n must be positive")
-    return GroupSpectrum(name=f"Z/{n}Z", order=n, dimensions=tuple(1 for _ in range(n)), abelianization_order=n, abelian=True)
+    return GroupSpectrum(
+        name=f"Z/{n}Z",
+        order=n,
+        dimensions=tuple(1 for _ in range(n)),
+        abelianization_order=n,
+        abelian=True,
+    )
 
 
 def wheel_group(n: int) -> GroupSpectrum:
