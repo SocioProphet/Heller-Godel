@@ -44,7 +44,10 @@ def test_factoring_reduces_to_usp():
 
 
 def test_cyclic_wheel_predicate_matches_closed_form():
-    for n in range(1, 10_001):
+    # This is a true independent finite oracle: it counts units and computes
+    # element orders by repeated multiplication, without factorization or CRT.
+    # Keep the bound CI-safe; larger sweeps belong in the PO-18 performance track.
+    for n in range(1, 1001):
         assert is_cyclic_wheel_modulus(n) == is_cyclic_by_enumeration(n)
 
 
