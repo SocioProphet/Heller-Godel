@@ -71,7 +71,7 @@ This document is the working Deligne-cohomological rewrite of the older floor-fu
 
 ## HG-MTH-008 factoring corner
 
-HG-MTH-008.4 records the bounded arithmetic kernel `USP ≡ factoring`: structured unit-character substantiation requires the factor/CRT coordinates, while the bare constant trivial character is not a USP solution. HG-MTH-008.5 then places factoring as abelian HSP: factoring reduces to order-finding on the wheel `G_n = (Z/nZ)^x`, and Fourier sampling over the abelian dual exposes the hidden period. This is a wheel/Plancherel placement and a crosslink to the Heller-Winters wheel diagnostic (HW-PRIME-WINDOW-001), not a P vs NP claim. Fourier-on-the-wheel solves the abelian case, which is exactly the easy case; the difficulty of P vs NP lives in the non-abelian world this construction does not enter.
+HG-MTH-008.4 records the bounded arithmetic kernel `USP ≡ factoring`: structured unit-character substantiation requires the factor/CRT coordinates, while the bare constant trivial character is not a USP solution. HG-MTH-008.5 then places factoring as abelian HSP: factoring reduces to order-finding on the wheel `G_n = (Z/nZ)^x`, and Fourier sampling over the abelian dual exposes the hidden period. This is a wheel/Plancherel placement and a crosslink to the Heller-Winters wheel diagnostic (HW-PRIME-WINDOW-001), not a P vs NP claim. HG-MTH-008.6 adds the dimension-spectrum bridge: `dim rho = chi(e)` is the representation coordinate for the same boundary, with the wheel on the `dim=1` unit-circle side and non-abelian symmetry groups off circle. The bridge is diagnostic only; `dim rho` is analogous to, never equal to, the HW-PRIME-WEIL-008 off-critical-line parameter delta.
 
 ## Claim boundary
 
