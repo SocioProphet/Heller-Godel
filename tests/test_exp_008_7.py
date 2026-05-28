@@ -7,10 +7,17 @@ from scripts.exp_008_7_omega_cost import generate_rows, measure_instance, write_
 from scripts.exp_008_7_plot import render
 
 
+def deterministic_row(row):
+    data = row.row().copy()
+    data.pop("usp_time_ms", None)
+    data.pop("period_time_ms", None)
+    return data
+
+
 def test_seed_reproducibility():
     rows_a = generate_rows(seed=101, max_omega=2, sample_size=2, bands=("small", "medium"))
     rows_b = generate_rows(seed=101, max_omega=2, sample_size=2, bands=("small", "medium"))
-    assert [row.row() for row in rows_a] == [row.row() for row in rows_b]
+    assert [deterministic_row(row) for row in rows_a] == [deterministic_row(row) for row in rows_b]
 
 
 def test_omega_sweep_complete():
@@ -119,8 +126,9 @@ def test_plots_render_without_error(tmp_path: Path):
     period_png = tmp_path / "period.png"
     render(loaded, "usp_ops", usp_png)
     render(loaded, "period_ops", period_png)
-    assert usp_png.read_bytes().startswith(b"\x89PNG")
-    assert period_png.read_bytes().startswith(b"\x89PNG")
+    png_magic = bytes([137, 80, 78, 71])
+    assert usp_png.read_bytes().startswith(png_magic)
+    assert period_png.read_bytes().startswith(png_magic)
 
 
 def test_analyzer_json_serializable(tmp_path: Path):
