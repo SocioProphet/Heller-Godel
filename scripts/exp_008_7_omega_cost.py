@@ -16,7 +16,6 @@ from pathlib import Path
 import random
 import time
 
-from heller_godel.abelian_hsp import verify_period_candidate
 from heller_godel.wheel_plancherel import PrimePower, is_prime, usp
 
 
@@ -169,7 +168,7 @@ def measure_instance(seed: int, rng: random.Random, omega: int, band: str, sampl
 
     period_start = time.perf_counter()
     ord_a = order_mod_squarefree(a, primes)
-    witness = verify_period_candidate(a, n, ord_a)
+    period_success = pow(a, ord_a, n) == 1
     period_time_ms = (time.perf_counter() - period_start) * 1000
 
     return Measurement(
@@ -185,9 +184,9 @@ def measure_instance(seed: int, rng: random.Random, omega: int, band: str, sampl
         ord_a=ord_a,
         usp_ops=usp_ops,
         usp_time_ms=usp_time_ms,
-        period_ops=witness.candidate,
+        period_ops=ord_a,
         period_time_ms=period_time_ms,
-        period_success=witness.verified_identity,
+        period_success=period_success,
         period_retries=retries,
         arity_log_sum=sum(log((2 * p) / ((p - 1) ** 3)) for p in primes),
     )
