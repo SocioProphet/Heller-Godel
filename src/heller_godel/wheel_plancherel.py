@@ -99,6 +99,25 @@ def order_mod(a: int, n: int) -> int:
     return order
 
 
+def order_mod_by_multiplication(a: int, n: int) -> int:
+    """Compute the order of a unit by repeated multiplication only.
+
+    This intentionally avoids factoring n or phi(n). It is used only as a
+    finite regression witness for small bounds, not as an efficient primitive.
+    """
+
+    if n == 1:
+        return 1
+    if gcd(a, n) != 1:
+        raise ValueError("a must be a unit modulo n")
+    x = 1
+    for k in range(1, len(units_mod(n)) + 1):
+        x = (x * a) % n
+        if x == 1:
+            return k
+    raise ArithmeticError(f"unit order did not close in G_{n}")
+
+
 def is_prime(n: int) -> bool:
     if n < 2:
         return False
@@ -239,10 +258,18 @@ def is_cyclic_wheel_modulus(n: int) -> bool:
 
 
 def is_cyclic_by_enumeration(n: int) -> bool:
-    """Independent cyclicity check: exponent equals group order."""
+    """Independent finite check: some enumerated unit has order |G_n|.
 
-    factors = factor_int(n)
-    return group_exponent_from_factorization(factors) == euler_phi_from_factorization(factors)
+    The group order is computed by counting units, and element orders are
+    computed by repeated multiplication. This avoids using the prime-power
+    factorization of n or the CRT decomposition being tested.
+    """
+
+    units = units_mod(n)
+    group_order = len(units)
+    if group_order == 1:
+        return True
+    return any(order_mod_by_multiplication(unit, n) == group_order for unit in units)
 
 
 def cyclic_character_table(n: int) -> dict[int, dict[int, complex]]:
