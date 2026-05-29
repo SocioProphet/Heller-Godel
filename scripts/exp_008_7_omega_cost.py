@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import csv
 from dataclasses import dataclass
+from functools import lru_cache
 from math import gcd, lcm, log, log2, prod
 from pathlib import Path
 import random
@@ -84,6 +85,7 @@ class Measurement:
         }
 
 
+@lru_cache(maxsize=None)
 def primes_in_range(low: int, high: int) -> tuple[int, ...]:
     return tuple(n for n in range(low, high + 1) if is_prime(n))
 
