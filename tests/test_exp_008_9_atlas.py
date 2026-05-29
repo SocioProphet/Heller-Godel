@@ -1,7 +1,7 @@
 import csv
 from pathlib import Path
 
-from scripts.exp_008_9_cayley_atlas import atlas_rows, write_csv
+from heller_godel.cayley_atlas import atlas_rows, write_csv
 
 
 def test_atlas_rows_cover_four_s4_generator_sets():
