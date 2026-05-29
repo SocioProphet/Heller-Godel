@@ -59,10 +59,22 @@ def invert(matrix: list[list[float]]) -> list[list[float]]:
     return [row[n:] for row in aug]
 
 
+def ridge(matrix: list[list[float]], amount: float = 1e-8) -> list[list[float]]:
+    adjusted = [row[:] for row in matrix]
+    for i in range(len(adjusted)):
+        adjusted[i][i] += amount
+    return adjusted
+
+
 def ols(y: list[float], x: list[list[float]]) -> dict[str, object]:
     xt = transpose(x)
     xtx = matmul(xt, x)
-    xtx_inv = invert(xtx)
+    ridge_used = False
+    try:
+        xtx_inv = invert(xtx)
+    except ValueError:
+        xtx_inv = invert(ridge(xtx))
+        ridge_used = True
     beta = matvec(xtx_inv, matvec(xt, y))
     fitted = [sum(b * xi for b, xi in zip(beta, row)) for row in x]
     residuals = [yi - fi for yi, fi in zip(y, fitted)]
@@ -82,6 +94,7 @@ def ols(y: list[float], x: list[list[float]]) -> dict[str, object]:
         "aic": aic,
         "n": n,
         "k": k,
+        "ridge_used": ridge_used,
     }
 
 
@@ -90,7 +103,7 @@ def design(rows: list[dict[str, float | str]], include_arity: bool) -> list[list
     for row in rows:
         values = [1.0, float(row["omega"]), float(row["log2_n"])]
         if include_arity:
-            values.append(float(row["arity_log_sum"] ))
+            values.append(float(row["arity_log_sum"]))
         matrix.append(values)
     return matrix
 
