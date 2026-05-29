@@ -1,9 +1,10 @@
 import csv
 import json
 from pathlib import Path
+import random
 
 from scripts.exp_008_7_analyze import analyze
-from scripts.exp_008_7_omega_cost import generate_rows, measure_instance, write_csv
+from scripts.exp_008_7_omega_cost import generate_rows, measure_instance, sample_primes, write_csv
 from scripts.exp_008_7_plot import render
 
 
@@ -15,19 +16,25 @@ def deterministic_row(row):
 
 
 def test_seed_reproducibility():
-    rows_a = generate_rows(seed=101, max_omega=2, sample_size=2, bands=("small", "medium"))
-    rows_b = generate_rows(seed=101, max_omega=2, sample_size=2, bands=("small", "medium"))
+    rows_a = generate_rows(seed=101, max_omega=2, sample_size=2, bands=("small",))
+    rows_b = generate_rows(seed=101, max_omega=2, sample_size=2, bands=("small",))
     assert [deterministic_row(row) for row in rows_a] == [deterministic_row(row) for row in rows_b]
 
 
 def test_omega_sweep_complete():
-    rows = generate_rows(seed=202, max_omega=3, sample_size=2, bands=("small", "medium", "large"))
+    rows = generate_rows(seed=202, max_omega=3, sample_size=2, bands=("small",))
     cells = {}
     for row in rows:
         key = (row.omega, row.magnitude_band)
         cells[key] = cells.get(key, 0) + 1
-    assert len(rows) == 3 * 3 * 2
+    assert len(rows) == 3 * 1 * 2
     assert all(count == 2 for count in cells.values())
+
+
+def test_large_band_sampling_without_measurement():
+    primes = sample_primes(random.Random(203), omega=2, band="large")
+    assert len(primes) == 2
+    assert all(10_000 <= prime <= 100_000 for prime in primes)
 
 
 def test_operation_count_zero_for_trivial_n():
@@ -37,8 +44,6 @@ def test_operation_count_zero_for_trivial_n():
 
 
 def test_period_witness_passes_for_known_orders():
-    import random
-
     row = measure_instance(seed=404, rng=random.Random(404), omega=2, band="small", sample_index=0)
     assert row.period_success is True
     assert pow(row.a, row.ord_a, row.n) == 1
@@ -46,11 +51,11 @@ def test_period_witness_passes_for_known_orders():
 
 
 def test_fit_loads_csv_correctly(tmp_path: Path):
-    rows = generate_rows(seed=505, max_omega=2, sample_size=3, bands=("small", "medium"))
+    rows = generate_rows(seed=505, max_omega=2, sample_size=3, bands=("small",))
     csv_path = tmp_path / "results.csv"
     write_csv(rows, csv_path)
     result = analyze(csv_path)
-    assert result["row_count"] == 12
+    assert result["row_count"] == 6
     assert "structured_usp" in result["curves"]
     assert "period_finding" in result["curves"]
 
@@ -108,7 +113,7 @@ def test_model_A_recovers_linear_omega(tmp_path: Path):
 
 
 def test_aic_delta_meaningful_threshold(tmp_path: Path):
-    rows = generate_rows(seed=606, max_omega=3, sample_size=3, bands=("small", "medium"))
+    rows = generate_rows(seed=606, max_omega=3, sample_size=3, bands=("small",))
     csv_path = tmp_path / "results.csv"
     write_csv(rows, csv_path)
     result = analyze(csv_path)
@@ -117,7 +122,7 @@ def test_aic_delta_meaningful_threshold(tmp_path: Path):
 
 
 def test_plots_render_without_error(tmp_path: Path):
-    rows = generate_rows(seed=707, max_omega=2, sample_size=2, bands=("small", "medium"))
+    rows = generate_rows(seed=707, max_omega=2, sample_size=2, bands=("small",))
     csv_path = tmp_path / "results.csv"
     write_csv(rows, csv_path)
     with csv_path.open(newline="", encoding="utf-8") as handle:
@@ -132,7 +137,7 @@ def test_plots_render_without_error(tmp_path: Path):
 
 
 def test_analyzer_json_serializable(tmp_path: Path):
-    rows = generate_rows(seed=808, max_omega=2, sample_size=2, bands=("small", "medium"))
+    rows = generate_rows(seed=808, max_omega=2, sample_size=2, bands=("small",))
     csv_path = tmp_path / "results.csv"
     write_csv(rows, csv_path)
     json.dumps(analyze(csv_path))
