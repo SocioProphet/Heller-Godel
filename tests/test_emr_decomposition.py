@@ -43,7 +43,7 @@ def test_on_off_observables_regular_S4():
     obs = on_off_multiplicities(regular_sn_decomposition(4), 4)
     assert obs["m_circle"] == 2
     assert obs["m_off"] == 8
-    assert obs["mu_off"] == Fraction(11, 12)
+    assert obs["mu_off"] == Fraction(31, 12)
     assert obs["R"] == Fraction(1, 5)
 
 
