@@ -1,7 +1,6 @@
 """Young-orthogonal matrix fixtures for small symmetric groups.
 
-The convention is fixed once here: standard tableaux form the orthonormal Young
-orthogonal basis. Adjacent transpositions act by the usual seminormal/orthogonal
+The convention is fixed once here: standard tableaux form the orthonormal Young orthogonal basis. Adjacent transpositions act by the usual seminormal/orthogonal
 2x2 rule on tableau pairs. All downstream Cayley-spectrum experiments must use
 this convention rather than mixing Specht-polytabloid or other bases.
 
