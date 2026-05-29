@@ -31,10 +31,10 @@ def test_omega_sweep_complete_small_band():
     assert all(count == 2 for count in cells.values())
 
 
-def test_large_band_sampling_without_measurement():
-    primes = sample_primes(random.Random(203), omega=2, band="large")
+def test_medium_band_sampling_without_measurement():
+    primes = sample_primes(random.Random(203), omega=2, band="medium")
     assert len(primes) == 2
-    assert all(10_000 <= prime <= 100_000 for prime in primes)
+    assert all(1_000 <= prime <= 10_000 for prime in primes)
 
 
 def test_period_witness_passes_for_known_orders():
