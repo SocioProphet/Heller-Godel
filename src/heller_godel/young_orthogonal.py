@@ -11,6 +11,7 @@ the character tables in ``dimension_spectrum.sn_irreps`` for every group element
 
 from __future__ import annotations
 
+from collections import deque
 from functools import lru_cache
 from math import sqrt
 
@@ -137,8 +138,6 @@ def adjacent_transposition_matrix(shape: tuple[int, ...], i: int) -> RealMatrix:
         l = index[swapped]
         if swapped in visited:
             continue
-        # Axial distance/content difference. This sign convention is gated by
-        # trace-vs-character tests for every element in S_n.
         r = (col_j - row_j) - (col_i - row_i)
         a = 1.0 / r
         b = sqrt(max(0.0, 1.0 - a * a))
@@ -158,21 +157,29 @@ def adjacent_generators(n: int) -> tuple[Permutation, ...]:
 
 @lru_cache(maxsize=None)
 def reduced_word(perm: Permutation) -> tuple[int, ...]:
-    """Return indices of adjacent generators whose right product is perm."""
+    """Return adjacent-generator indices whose right product is perm.
+
+    n<=5 in this fixture layer, so a small BFS is simpler and safer than a
+    hand-rolled convention-sensitive bubble-sort word.
+    """
 
     n = len(perm)
-    target = identity(n)
-    word: list[int] = []
-    current = list(perm)
-    # Bubble current back to identity by right-multiplying adjacent swaps, then reverse.
-    for desired in range(n - 1, -1, -1):
-        pos = current.index(desired)
-        while pos < desired:
-            current[pos], current[pos + 1] = current[pos + 1], current[pos]
-            word.append(pos + 1)
-            pos += 1
-    # word sends perm to identity on the right; reverse sends identity to perm.
-    return tuple(reversed(word))
+    start = identity(n)
+    if perm == start:
+        return ()
+    gens = adjacent_generators(n)
+    queue = deque([(start, ())])
+    seen = {start}
+    while queue:
+        current, word = queue.popleft()
+        for index, gen in enumerate(gens, start=1):
+            nxt = compose(current, gen)
+            if nxt == perm:
+                return word + (index,)
+            if nxt not in seen:
+                seen.add(nxt)
+                queue.append((nxt, word + (index,)))
+    raise ValueError("failed to find adjacent-generator word")
 
 
 def young_matrix_by_shape(shape: tuple[int, ...], perm: Permutation) -> RealMatrix:
