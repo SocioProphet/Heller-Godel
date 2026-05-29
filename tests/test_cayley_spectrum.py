@@ -12,13 +12,24 @@ from heller_godel.cayley_spectrum import (
     on_off_summary_symmetric_group,
     permutation_sign,
     row_sums,
+    s4_block_eigenvalues,
+    s4_character_from_matrix,
+    s4_character_table_value,
     s4_emr_generators,
     s4_emr_sanity,
+    s4_irrep_matrix,
     sign_on_circle_value,
     symmetric_group_elements,
     symmetrize_generators,
     trivial_on_circle_value,
+    verify_s4_trace_matches_character,
 )
+
+
+def assert_close_tuple(actual, expected, tolerance=1e-8):
+    assert len(actual) == len(expected)
+    for got, want in zip(actual, expected):
+        assert abs(got - want) <= tolerance
 
 
 def test_permutation_group_helpers():
@@ -80,6 +91,36 @@ def test_on_circle_count_equals_G_ab():
         assert summary.alpha == Fraction(2, len(symmetric_group_elements(n)))
 
 
+def test_s4_trace_matches_character_table_for_every_fixture():
+    assert verify_s4_trace_matches_character()
+    for perm in symmetric_group_elements(4):
+        for label in ("trivial", "sign", "partition_22", "standard", "standard_twist"):
+            assert abs(s4_character_from_matrix(label, perm) - s4_character_table_value(label, perm)) <= 1e-8
+
+
+def test_s4_irrep_matrices_are_orthogonal_fixtures():
+    perm = cycle_perm(4, (1, 4, 3, 2))
+    for label in ("partition_22", "standard", "standard_twist"):
+        matrix = s4_irrep_matrix(label, perm)
+        product = tuple(
+            tuple(sum(matrix[k][i] * matrix[k][j] for k in range(len(matrix))) for j in range(len(matrix)))
+            for i in range(len(matrix))
+        )
+        for i, row in enumerate(product):
+            for j, value in enumerate(row):
+                assert abs(value - (1.0 if i == j else 0.0)) <= 1e-8
+
+
+def test_emr_image_S4_off_circle_fixture_values():
+    generators = symmetrize_generators(s4_emr_generators())
+    assert_close_tuple(s4_block_eigenvalues("partition_22", generators), (-3.0, 1.0))
+    assert_close_tuple(
+        s4_block_eigenvalues("standard", generators),
+        (-2.56155281280883, -1.0, 1.56155281280883),
+    )
+    assert_close_tuple(s4_block_eigenvalues("standard_twist", generators), (-1.0, 0.0, 3.0))
+
+
 def test_s4_emr_sanity_locked_row():
     sanity = s4_emr_sanity()
     assert sanity["vertices"] == 24
@@ -91,13 +132,15 @@ def test_s4_emr_sanity_locked_row():
     assert sanity["off_circle_count"] == 22
     assert sanity["total_count"] == 24
     assert sanity["alpha"] == Fraction(1, 12)
+    assert_close_tuple(sanity["off_circle_blocks"]["partition_22"], (-3.0, 1.0))
 
 
-def test_cayley_spectrum_docstring_boundaries():
+def test_cayley_spectrum_docstring_boundaries_and_basis():
     import inspect
     import heller_godel.cayley_spectrum as cayley_spectrum
 
     doc = inspect.getdoc(cayley_spectrum)
+    assert "Young's orthogonal" in doc
     assert "P vs NP" in doc
     assert "RH/GRH/Artin" in doc
     assert "expander or Ramanujan" in doc
