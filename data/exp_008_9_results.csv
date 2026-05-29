@@ -1,0 +1,5 @@
+group,generator_set,generator_count,vertices,degree,symmetric,trace,on_circle,on_circle_count,off_circle_count,total_count,alpha,partition_22_eigs,standard_eigs,standard_twist_eigs
+S4,emr_1432_132,4,24,4,1,0,4 0,2,22,24,1/12,-3 1,-2.56155281281 -1 1.56155281281,-1 0 3
+S4,transposition_12_cycle_1234,3,24,3,1,0,3 -3,2,22,24,1/12,-1.73205080757 1.73205080757,-2.41421356237 0.414213562373 1,-1 -0.414213562373 2.41421356237
+S4,adjacent_transpositions,3,24,3,1,0,3 -3,2,22,24,1/12,-1.73205080757 1.73205080757,-0.414213562373 1 2.41421356237,-2.41421356237 -1 0.414213562373
+S4,star_transpositions,3,24,3,1,0,3 -3,2,22,24,1/12,0 0,-1 2 2,-2 -2 1
