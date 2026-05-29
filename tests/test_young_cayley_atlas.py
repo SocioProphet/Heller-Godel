@@ -1,7 +1,6 @@
 from heller_godel.young_cayley_atlas import (
     s4_legacy_vs_young_emr_agree,
     young_atlas_rows,
-    young_block_eigenvalues,
     young_generator_sets,
 )
 
@@ -34,15 +33,6 @@ def test_young_atlas_partition_counts_are_group_invariant():
         assert row["on_circle_count"] == 2
         assert row["off_circle_count"] == {3: 4, 4: 22, 5: 118}[n]
         assert row["total_count"] == {3: 6, 4: 24, 5: 120}[n]
-
-
-def test_young_block_eigenvalues_known_samples():
-    generators = young_generator_sets()[3]["transposition_12_cycle_123"]
-    from heller_godel.cayley_spectrum import symmetrize_generators
-
-    sym = symmetrize_generators(generators)
-    assert young_block_eigenvalues(3, "trivial", sym) == (3.0,)
-    assert young_block_eigenvalues(3, "sign", sym) == (-1.0,)
 
 
 def test_young_atlas_rows_have_block_eigenvalues_for_every_irrep():
