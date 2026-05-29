@@ -65,7 +65,7 @@ def test_sign_profile_observables():
     lam = (5, 1, -2, -3)
     assert sign_profile(lam) == (1, 1, -1, -1)
     assert sign_excess(lam) == 0
-    assert partial_sum_positivity_rate(lam) == Fraction(2, 4)
+    assert partial_sum_positivity_rate(lam) == Fraction(4, 4)
 
 
 def test_reduced_euler_matches_betti_for_emr_row():
