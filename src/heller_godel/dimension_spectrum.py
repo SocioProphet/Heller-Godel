@@ -32,16 +32,66 @@ class GroupSpectrum:
     abelian: bool
 
 
+@dataclass(frozen=True)
+class SnIrrep:
+    """Small symmetric-group irrep fixture indexed by partition label."""
+
+    label: str
+    dimension: int
+    character_by_cycle_type: dict[tuple[int, ...], int]
+
+
 STANDARD_SPECTRA: dict[str, GroupSpectrum] = {
     "S2": GroupSpectrum("S2", 2, (1, 1), 2, True),
     "S3": GroupSpectrum("S3", 6, (1, 1, 2), 2, False),
     "S4": GroupSpectrum("S4", 24, (1, 1, 2, 3, 3), 2, False),
     "S5": GroupSpectrum("S5", 120, (1, 1, 4, 4, 5, 5, 6), 2, False),
+    "S6": GroupSpectrum("S6", 720, (1, 1, 5, 5, 5, 5, 9, 9, 10, 10, 16), 2, False),
     "Q8": GroupSpectrum("Q8", 8, (1, 1, 1, 1, 2), 4, False),
     "D4": GroupSpectrum("D4", 8, (1, 1, 1, 1, 2), 4, False),
     "A3": GroupSpectrum("A3", 3, (1, 1, 1), 3, True),
     "A4": GroupSpectrum("A4", 12, (1, 1, 1, 3), 3, False),
     "A5": GroupSpectrum("A5", 60, (1, 3, 3, 4, 5), 1, False),
+}
+
+
+SN_CLASS_SIZES: dict[int, dict[tuple[int, ...], int]] = {
+    3: {(1, 1, 1): 1, (2, 1): 3, (3,): 2},
+    4: {(1, 1, 1, 1): 1, (2, 1, 1): 6, (2, 2): 3, (3, 1): 8, (4,): 6},
+    5: {
+        (1, 1, 1, 1, 1): 1,
+        (2, 1, 1, 1): 10,
+        (2, 2, 1): 15,
+        (3, 1, 1): 20,
+        (3, 2): 20,
+        (4, 1): 30,
+        (5,): 24,
+    },
+}
+
+
+SN_IRREPS: dict[int, tuple[SnIrrep, ...]] = {
+    3: (
+        SnIrrep("trivial", 1, {(1, 1, 1): 1, (2, 1): 1, (3,): 1}),
+        SnIrrep("sign", 1, {(1, 1, 1): 1, (2, 1): -1, (3,): 1}),
+        SnIrrep("standard", 2, {(1, 1, 1): 2, (2, 1): 0, (3,): -1}),
+    ),
+    4: (
+        SnIrrep("trivial", 1, {(1, 1, 1, 1): 1, (2, 1, 1): 1, (2, 2): 1, (3, 1): 1, (4,): 1}),
+        SnIrrep("sign", 1, {(1, 1, 1, 1): 1, (2, 1, 1): -1, (2, 2): 1, (3, 1): 1, (4,): -1}),
+        SnIrrep("partition_22", 2, {(1, 1, 1, 1): 2, (2, 1, 1): 0, (2, 2): 2, (3, 1): -1, (4,): 0}),
+        SnIrrep("standard", 3, {(1, 1, 1, 1): 3, (2, 1, 1): 1, (2, 2): -1, (3, 1): 0, (4,): -1}),
+        SnIrrep("standard_twist", 3, {(1, 1, 1, 1): 3, (2, 1, 1): -1, (2, 2): -1, (3, 1): 0, (4,): 1}),
+    ),
+    5: (
+        SnIrrep("trivial", 1, {(1, 1, 1, 1, 1): 1, (2, 1, 1, 1): 1, (2, 2, 1): 1, (3, 1, 1): 1, (3, 2): 1, (4, 1): 1, (5,): 1}),
+        SnIrrep("sign", 1, {(1, 1, 1, 1, 1): 1, (2, 1, 1, 1): -1, (2, 2, 1): 1, (3, 1, 1): 1, (3, 2): -1, (4, 1): -1, (5,): 1}),
+        SnIrrep("partition_41", 4, {(1, 1, 1, 1, 1): 4, (2, 1, 1, 1): 2, (2, 2, 1): 0, (3, 1, 1): 1, (3, 2): -1, (4, 1): 0, (5,): -1}),
+        SnIrrep("partition_2111", 4, {(1, 1, 1, 1, 1): 4, (2, 1, 1, 1): -2, (2, 2, 1): 0, (3, 1, 1): 1, (3, 2): 1, (4, 1): 0, (5,): -1}),
+        SnIrrep("partition_32", 5, {(1, 1, 1, 1, 1): 5, (2, 1, 1, 1): 1, (2, 2, 1): 1, (3, 1, 1): -1, (3, 2): 1, (4, 1): -1, (5,): 0}),
+        SnIrrep("partition_221", 5, {(1, 1, 1, 1, 1): 5, (2, 1, 1, 1): -1, (2, 2, 1): 1, (3, 1, 1): -1, (3, 2): -1, (4, 1): 1, (5,): 0}),
+        SnIrrep("partition_311", 6, {(1, 1, 1, 1, 1): 6, (2, 1, 1, 1): 0, (2, 2, 1): -2, (3, 1, 1): 0, (3, 2): 0, (4, 1): 0, (5,): 1}),
+    ),
 }
 
 
@@ -75,7 +125,7 @@ def symmetric_group(n: int) -> GroupSpectrum:
         return GroupSpectrum("S1", 1, (1,), 1, True)
     key = f"S{n}"
     if key not in STANDARD_SPECTRA:
-        raise NotImplementedError("standard fixture includes S1 through S5")
+        raise NotImplementedError("standard fixture includes S1 through S6")
     return STANDARD_SPECTRA[key]
 
 
@@ -157,6 +207,7 @@ def known_family() -> tuple[GroupSpectrum, ...]:
         symmetric_group(3),
         symmetric_group(4),
         symmetric_group(5),
+        symmetric_group(6),
         STANDARD_SPECTRA["Q8"],
         STANDARD_SPECTRA["D4"],
         STANDARD_SPECTRA["A3"],
@@ -167,3 +218,79 @@ def known_family() -> tuple[GroupSpectrum, ...]:
 
 def factorial_order_symmetric(n: int) -> int:
     return factorial(n)
+
+
+def cycle_type(perm: tuple[int, ...]) -> tuple[int, ...]:
+    """Return the integer partition cycle type of a zero-based permutation."""
+
+    seen = [False] * len(perm)
+    lengths: list[int] = []
+    for start in range(len(perm)):
+        if seen[start]:
+            continue
+        current = start
+        length = 0
+        while not seen[current]:
+            seen[current] = True
+            length += 1
+            current = perm[current]
+        lengths.append(length)
+    return tuple(sorted(lengths, reverse=True))
+
+
+def sn_irreps(n: int) -> tuple[SnIrrep, ...]:
+    if n not in SN_IRREPS:
+        raise NotImplementedError("small S_n character table fixture is available for n=3,4,5")
+    return SN_IRREPS[n]
+
+
+def sn_class_sizes(n: int) -> dict[tuple[int, ...], int]:
+    if n not in SN_CLASS_SIZES:
+        raise NotImplementedError("small S_n class-size fixture is available for n=3,4,5")
+    return SN_CLASS_SIZES[n]
+
+
+def sn_character_value(irrep: SnIrrep, perm_or_cycle_type: tuple[int, ...]) -> int:
+    ctype = perm_or_cycle_type if sum(perm_or_cycle_type) == len(perm_or_cycle_type) else cycle_type(perm_or_cycle_type)
+    # The branch above cannot distinguish a permutation from a cycle-type with the same sum/length reliably.
+    # Fall back to direct lookup first, then cycle-type lookup.
+    return irrep.character_by_cycle_type.get(perm_or_cycle_type, irrep.character_by_cycle_type[cycle_type(perm_or_cycle_type)])
+
+
+def decompose_sn_character(character_by_cycle_type: dict[tuple[int, ...], int], n: int) -> dict[str, int]:
+    """Decompose a class function on S_n against the small hardcoded character table."""
+
+    order = factorial(n)
+    out: dict[str, int] = {}
+    for irrep in sn_irreps(n):
+        numerator = sum(
+            sn_class_sizes(n)[ctype] * character_by_cycle_type.get(ctype, 0) * irrep.character_by_cycle_type[ctype]
+            for ctype in sn_class_sizes(n)
+        )
+        multiplicity = Fraction(numerator, order)
+        if multiplicity.denominator != 1:
+            raise ValueError(f"non-integral multiplicity for {irrep.label}: {multiplicity}")
+        out[irrep.label] = multiplicity.numerator
+    return out
+
+
+def regular_sn_decomposition(n: int, scalar: int = 1) -> dict[str, int]:
+    """Return decomposition of scalar copies of the regular S_n representation."""
+
+    return {irrep.label: scalar * irrep.dimension for irrep in sn_irreps(n)}
+
+
+def on_off_multiplicities(decomposition: dict[str, int], n: int) -> dict[str, Fraction | int]:
+    """Compute on/off-circle observables for an S_n irrep multiplicity dictionary."""
+
+    irreps = {irrep.label: irrep for irrep in sn_irreps(n)}
+    m_circle = sum(decomposition.get(label, 0) for label in ("trivial", "sign"))
+    m_off = sum(mult for label, mult in decomposition.items() if irreps[label].dimension > 1)
+    mu_off = sum(
+        Fraction(mult * irreps[label].dimension * irreps[label].dimension, factorial(n))
+        for label, mult in decomposition.items()
+        if irreps[label].dimension > 1
+    )
+    denominator = m_circle + m_off
+    ratio = Fraction(m_circle, denominator) if denominator else Fraction(0)
+    return {"m_circle": m_circle, "m_off": m_off, "mu_off": mu_off, "R": ratio}
