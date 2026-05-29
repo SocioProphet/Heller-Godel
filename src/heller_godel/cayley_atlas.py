@@ -51,8 +51,12 @@ def s4_generator_sets():
     }
 
 
+def _normalize_eig(value: float, tolerance: float = 1e-10) -> float:
+    return 0.0 if abs(value) <= tolerance else value
+
+
 def fmt_eigs(values: tuple[float, ...]) -> str:
-    return " ".join(f"{value:.12g}" for value in values)
+    return " ".join(f"{_normalize_eig(value):.12g}" for value in values)
 
 
 def atlas_rows() -> list[dict[str, object]]:
