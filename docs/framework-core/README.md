@@ -49,7 +49,8 @@ This layer is for:
 - downstream citation grammar;
 - dependency graph declarations;
 - canonical fixtures such as Catalan / mu_2;
-- normalized imports of foundational Drive material after review.
+- normalized imports of foundational Drive material after review;
+- claim-bounded framework vocabularies such as boundary/spectral grammar.
 
 ## What does not belong here
 
@@ -57,7 +58,7 @@ This layer is not a Clay-proof venue. It does not claim proof of RH, GRH, Hodge,
 
 This layer is not a proof-transfer theorem between Clay domains. Universal Bridge material, when imported, is methodology and structural analogy unless separately proved otherwise.
 
-This layer is not the shared validator/runtime package. The planned `proof-fabric-kernel` repository should contain schemas, validators, Event IR, receipts, and machine-checking tools. Heller-Godel supplies framework vocabulary and claim-boundary doctrine.
+This layer is not a product-plane standardization venue. Framework vocabularies may inform later systems, but they do not become SocioProphet platform substrate without separate authority, extraction, and claim-boundary review.
 
 ## Bootstrap file set
 
@@ -67,9 +68,12 @@ This declaration is implemented by:
 - `docs/framework-core/claim-grammar.md`
 - `docs/framework-core/anti-seed-framework.md`
 - `docs/framework-core/dependency-graph.md`
+- `docs/framework-core/boundary-spectral-grammar-v0.md`
 - `docs/doctrine/catalan-mu2-canonical-reference.md`
 - `examples/catalan-mu2/README.md`
 - `DEPENDENCIES.md`
+
+Operational substrate note: PFK now lives in-repo under `proof_fabric_kernel/`. See `docs/framework-core/proof-fabric-kernel-extraction-control.md` and `proof_fabric_kernel/docs/ClayProgram_PFK_ConsumerContract_v0.md`.
 
 ## Immediate import sequence
 
@@ -79,7 +83,7 @@ The next content PRs should be ordered as follows:
 2. Import foundational Drive materials as provenance-preserving source captures, then promote only reviewed objects into the active registry.
 3. Import Universal Bridge material as `methodology / structural analogy`, not proof equivalence.
 4. Import lattice tower and Rosetta material as vocabulary, with explicit distance caps.
-5. Extract or create `proof-fabric-kernel` as the operational substrate consumed by downstream programs.
+5. Keep PFK as the Heller-Godel in-repo operational substrate for Clay-program schema, Event-IR, ProofArtifact, receipts, and validator surfaces.
 
 ## Governing rule
 
