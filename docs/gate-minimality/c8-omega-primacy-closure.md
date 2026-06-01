@@ -41,262 +41,124 @@ Let:
 
 ```text
 V = C^3
-```
-
-with the standard defining action of `SU(3)`.
-
-The degree-3 totally alternating tensors on `V` form:
-
-```text
-Lambda^3 V^*.
-```
-
-The invariant-space statement is:
-
-```text
-(Lambda^3 V^*)^(SU(3)) = Lambda^3 V^*.
-```
-
-The reason is that `Lambda^3 V^*` is the dual determinant representation:
-
-```text
-Lambda^3 V^* ~= det(V)^(-1).
-```
-
-For `SU(3)`, the determinant character is trivial:
-
-```text
-det(g) = 1 for every g in SU(3).
-```
-
-Therefore `SU(3)` acts trivially on `Lambda^3 V^*`. Since `dim_C(V)=3`, this exterior power is one-dimensional:
-
-```text
-dim_C Lambda^3 V^* = 1.
-```
-
-Thus the space of degree-3 totally alternating `SU(3)`-invariants is a one-dimensional line. Any nonzero generator is a valid `Omega`, and any two such generators differ by multiplication by a nonzero scalar.
-
-The canonical scale is fixed by the standard ordered basis `e1,e2,e3`:
-
-```text
-Omega(e1, e2, e3) = 1.
-```
-
-With that normalization:
-
-```text
-Omega(v1, v2, v3) = det[v1 v2 v3]
-                         = epsilon_ijk v1^i v2^j v3^k.
+G = SU(3)
+Omega in Lambda^3 V^*
+Omega(v1,v2,v3) = det[v1 v2 v3]
 ```
 
 For `g in SU(3)`:
 
 ```text
-Omega(gv1, gv2, gv3)
-  = det(g) Omega(v1, v2, v3)
-  = Omega(v1, v2, v3).
+Omega(gv1, gv2, gv3) = det(g) Omega(v1,v2,v3) = Omega(v1,v2,v3)
 ```
 
-The load-bearing point is uniqueness, not mere existence:
+because `det(g)=1`.
+
+Since `Lambda^3 V^*` is one-dimensional, any totally alternating trilinear form on `V` is a scalar multiple of `Omega`. Thus `Omega` is unique up to scale among degree-3 totally alternating invariant forms on the defining representation.
+
+This is the exact A2 analogue of the A1 exterior/symplectic volume primitive, but in degree 3 rather than degree 2.
+
+## 2. A1 to A2 continuation
+
+For A1:
 
 ```text
-Omega is unique up to scale as the degree-3 totally alternating SU(3)-invariant on the fundamental representation C^3.
+V_2 = C^2
+Lambda^2 V_2^*
 ```
 
-This is theorem-grade as a standard exterior-power / determinant-representation fact. Its use here remains method-grade because the surrounding A2 path-beta closure is method-grade.
+is one-dimensional, and the canonical alternating degree-2 form gives the symplectic / determinant gate primitive.
 
-## 2. Omega as the A2 continuation of the A1 condition-(v) form
-
-For the `A_n` defining representation, the compact group is:
+For A2:
 
 ```text
-SU(n+1)
+V_3 = C^3
+Lambda^3 V_3^*
 ```
 
-acting on:
+is one-dimensional, and the canonical alternating degree-3 form is `Omega`.
+
+Thus the continuation pattern is:
 
 ```text
-C^(n+1).
+A1: Lambda^2(C^2)^*
+A2: Lambda^3(C^3)^*
+An: Lambda^(n+1)(C^(n+1))^*
 ```
 
-The top exterior power is:
+within the defining representation.
+
+This supports the C-8 choice of `Omega` as primary when the active sector is explicitly the A2 defining representation. It does not assert an unrestricted `A_n` theorem family for the whole Heller-Godel program.
+
+## 3. Adjoint cubic Casimir as derived readout
+
+The adjoint representation of `su(3)` has the symmetric cubic invariant:
 
 ```text
-Lambda^(n+1)(C^(n+1))^* ~= det^(-1) ~= 1
+C3(X) = d_abc x^a x^b x^c
 ```
 
-because the determinant character is trivial on `SU(n+1)`.
+This object is central in SU(3) representation theory and is the familiar cubic Casimir.
 
-Thus the condition-(v) exterior invariant has the uniform form:
+However, under the adopted path-beta convention, the active sector for C-8 is the defining representation `C^3`, not the adjoint representation.
+
+Therefore:
 
 ```text
-Omega^(n)(v1, ..., v_(n+1)) = det[v1 v2 ... v_(n+1)].
+Omega is primary for C-8.
+C3 is a derived consistency/readout invariant for adjoint-coordinate diagnostics.
 ```
 
-Side-by-side:
+The reason is not that `C3` is unimportant. The reason is that the primitive gate datum must live on the active sector fixed by the path-beta convention.
 
-| Case | Group | Fundamental active sector | Top exterior invariant | Degree | Condition-(v) reading |
-|---|---|---|---|---|---|
-| A1 | `SU(2)` | `C^2` | `Lambda^2(C^2)^*` | 2 | symplectic / area form `omega_A1(u,v)=det[u v]` |
-| A2 | `SU(3)` | `C^3` | `Lambda^3(C^3)^*` | 3 | cubic volume form `Omega(v1,v2,v3)=det[v1 v2 v3]` |
-| A_n | `SU(n+1)` | `C^(n+1)` | `Lambda^(n+1)(C^(n+1))^*` | `n+1` | determinant volume form on `n+1` vectors |
+If a later branch changes the active sector to adjoint coordinates, then `C3` may become primary in that branch. That would be a different gate formulation and must be explicitly documented.
 
-At A1, the condition-(v) invariant is the degree-2 alternating volume form:
+## 4. Closure statement
+
+C-8 required a primary A2 cubic invariant condition.
+
+The closure is:
 
 ```text
-omega_A1(u, v) = det[u v].
+C-8 primary gate primitive = Omega in Lambda^3(C^3)^*
 ```
 
-In dimension two, this same alternating volume form is the standard symplectic form preserved by `SL(2,C)` and, after compact real-form restriction, by `SU(2)`.
-
-Thus A1 condition (v) has two equivalent descriptions:
+with adjoint cubic Casimir treated as:
 
 ```text
-preserve the symplectic pairing on C^2;
-preserve the top exterior volume form in Lambda^2(C^2)^*.
+derived readout / consistency invariant
 ```
 
-A2 keeps the top-exterior-power description and advances one rank:
+This closes the C-8 Omega-primacy justification for the A2 path-beta gate-minimality program.
+
+## 5. Nonclaims
+
+This document does not claim:
+
+1. final A2 minimality;
+2. theorem-track promotion of A2 path-beta;
+3. an `A_n` theorem family;
+4. replacement of adjoint invariant theory;
+5. any Yang-Mills consequence;
+6. any physical gauge-theory result.
+
+## 6. Downstream use
+
+Downstream references may cite this document only for:
 
 ```text
-C^2  ->  Lambda^2(C^2)^*  -> degree 2
-C^3  ->  Lambda^3(C^3)^*  -> degree 3.
+C-8 Omega primacy in the defining A2 active sector.
 ```
 
-Therefore path beta at A2 is not introducing an unrelated invariant. It is applying the same condition-(v) construction one rank higher in the A-series defining representation.
-
-Verdict:
+They must not cite it as a proof of:
 
 ```text
-Omega on C^3 is the natural A2 degree-3 continuation of A1's degree-2 symplectic / exterior-volume form on C^2.
+A2 minimality theorem
+A_n generalization
+Yang-Mills gap
+Hodge/HG bridge theorem
 ```
 
-Non-claim:
+## 7. Status
 
-```text
-This establishes the condition-(v) exterior-invariant pattern at A_n. It does not formulate, prove, or close an A_n minimality theorem for n >= 3.
-```
-
-## 3. Relation between Omega and the adjoint cubic Casimir
-
-C-8 distinguishes two cubic objects:
-
-```text
-Omega(v1, v2, v3) = epsilon_ijk v1^i v2^j v3^k
-C3(X) = d_abc x^a x^b x^c,  X = x^a T_a in sl(3,C) or su(3)_C.
-```
-
-They live on different representation spaces:
-
-| Object | Space | Symmetry type | C-8 role |
-|---|---|---|---|
-| `Omega` | fundamental `C^3` | alternating trilinear | primary active-sector gate primitive |
-| `C3` | adjoint coordinates | symmetric cubic | derived readout / consistency invariant |
-
-With Gell-Mann normalization:
-
-```text
-T_a = lambda_a / 2
-Tr(T_a T_b) = (1/2) delta_ab
-{T_a, T_b} = (1/3) delta_ab I_3 + d_abc T_c
-```
-
-one has, up to the declared normalization convention:
-
-```text
-Tr(X^3)  ~  d_abc x^a x^b x^c.
-```
-
-This trace expression is an invariant polynomial on the adjoint representation induced from the defining matrix representation.
-
-The structural relation is Schur-Weyl-type: invariant tensors for the defining representation and its dual control the equivariant contractions from which both the fundamental determinant orientation and the adjoint polynomial readouts are assembled. In the A2 package, `Omega` supplies the fundamental determinant orientation, while the trace algebra of the same fundamental matrix realization supplies the symmetric adjoint cubic.
-
-The primitive-degree signal is the same A-series fact:
-
-```text
-primitive invariant degrees for sl_(n+1): 2, 3, ..., n+1.
-```
-
-For `SU(2)` / A1, only the degree-2 primitive invariant appears, so there is no nonzero adjoint `d_abc` cubic. For `SU(3)` / A2, degree 3 is the first new primitive degree, and the adjoint cubic Casimir appears.
-
-But the C-8 primary condition is still `Omega`, for three reasons:
-
-1. `Omega` lives on the fundamental representation, which is where condition (v) is imposed in the A-series exterior-volume pattern.
-2. `C3` lives on the adjoint, a different vector space obtained from the fundamental matrix realization and its invariant trace contractions.
-3. The fundamental `3` versus antifundamental `3bar` orientation ambiguity is resolved at the `Omega` level by the strict convention in `docs/gate-minimality/c8-cubic-invariant-condition.md`. The adjoint readout inherits that declared orientation package; it does not independently choose it.
-
-In short:
-
-```text
-Omega determines the primary active-sector orientation data. C3 is then constructible as an adjoint consistency/readout invariant from the same representation-theoretic package. Starting from C3 alone would not recover the selected fundamental orientation without additional convention choices.
-```
-
-However, C-8 must not overstate this relation. `Omega` and `C3` are not the same tensor, and `C3` is not imposed as an additional independent primary condition while the active sector remains the defining `C^3`.
-
-Verdict:
-
-```text
-The adjoint cubic Casimir is a derived consistency/readout invariant for the A2 cubic package, not an independent C-8 primary gate primitive under the current fundamental active-sector convention.
-```
-
-## C-8 closure verdict
-
-C-8 is closed at method grade as an Omega-primacy justification.
-
-The closed C-8 rule is:
-
-```text
-For A2 path beta, condition (v) is imposed first on the defining active sector C^3 by requiring preservation of the selected determinant volume form Omega in Lambda^3(C^3)^*. The adjoint cubic Casimir C3 is recorded as a derived consistency/readout invariant unless a later document explicitly changes the active-sector realization to adjoint coordinates.
-```
-
-This closure supports the C-7 tranche-2 result:
-
-```text
-U(2)=S(U(2)xU(1)) and SU(3) both preserve Omega by determinant one.
-```
-
-It also prepares the later A2 minimality candidate statement, which may integrate:
-
-```text
-path-beta convention
-C-7 connected-subgroup closure
-C-8 Omega-primacy closure
-```
-
-into a single method-grade A2 candidate theorem statement.
-
-## What remains after C-8
-
-After this closure, the remaining A2 path-beta work is not to re-open Omega primacy. The next authorized mathematical integration step would be a separate A2 minimality candidate statement combining:
-
-1. the adopted path-beta convention;
-2. the C-7 admissible-candidate closure;
-3. the C-8 Omega-primacy closure;
-4. the claim-grade restrictions of the Heller-Godel proof-character framework.
-
-That later integration is not performed here.
-
-## Non-claims
-
-This document closes C-8 as an Omega-primacy justification, not as final A2 minimality.
-
-This document records theorem-grade representation-theoretic facts only inside the adopted A2 path-beta and fundamental-active-sector convention; the overall closure posture remains method-grade.
-
-This document does not promote A2 to theorem-track. That requires a separate integration PR after C-7 and C-8 are both closed.
-
-This document does not claim that C-8 alone determines the minimal subgroup.
-
-This document does not claim that `Omega` and `C3` are identical tensors.
-
-This document does not claim that the adjoint active-sector realization has been adopted.
-
-This document does not formulate or prove an `A_n` theorem family. It only records the condition-(v) exterior-invariant pattern.
-
-This document does not prove a nonabelian obstruction theory.
-
-This document does not prove a Chern-class lift.
-
-This document does not imply any `SU(3)` lattice gauge theory result.
-
-This document does not cross into `SocioProphet/yang-mills` scope. The SU(3) gate-minimality work here is structurally disjoint from the `SocioProphet/yang-mills` SU(2) fixed-spacing lattice mass-gap proof-seed scope under the cofoundational architecture.
+C-8 Omega-primacy justification is closed for the current method-grade A2 path-beta gate-minimality program.
