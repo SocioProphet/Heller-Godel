@@ -3,6 +3,23 @@
   "repo": "SocioProphet/Heller-Godel",
   "domain": "proof-boundary-incompleteness-formal-governance",
   "controller_protocol": "protocol/proof-apparatus-workspace/v0",
+  "pfk_authority": {
+    "authority_repo": "SocioProphet/Heller-Godel",
+    "authority_path": "proof_fabric_kernel/",
+    "pinned_commit": "4c8560dfc347346f17b1dd045082db55968d0d4f",
+    "consumed_schemas": [
+      "PFK-SCHEMA-001",
+      "PFK-SCHEMA-002",
+      "PFK-SCHEMA-003",
+      "PFK-SCHEMA-004"
+    ],
+    "consumer_maturity": "M1-pinned-schema-dependency",
+    "local_schema_authority": false,
+    "schema_validity_is_content_validity": false,
+    "notes": [
+      "Heller-Godel is the PFK authority. This adapter records the in-repo authority pin and preserves the rule that schema validity is envelope validity, not mathematical truth."
+    ]
+  },
   "claims": [
     {
       "claim_id": "HG-ADJ-001-soule-voisin-atiyah-hirzebruch-torsion",
